@@ -1,0 +1,53 @@
+#!/usr/bin/env zsh
+
+############################# Basic configuration #############################
+# See https://wiki.archlinux.org/title/zsh for details.
+
+# Enable completion.
+autoload -Uz compinit promptinit
+compinit
+promptinit
+
+# Select driven interface.
+zstyle ':completion:*' menu select
+# Autocomplete aliases.
+setopt COMPLETE_ALIASES
+# Complete commands start with sudo.
+zstyle ':completion::complete:*' gain-privileges 1
+# Automatically find executables in $PATH.
+zstyle ':completion:*' rehash true
+
+# Use emacs (default) bindings.
+bindkey -e
+stty -ixon # unbind Ctrl-s
+
+# History.
+# (Source https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/history.zsh)
+## History file configuration.
+[ -z "$HISTFILE" ] && HISTFILE="$HOME/.zsh-history"
+[ "$HISTSIZE" -lt 50000 ] && HISTSIZE=50000
+[ "$SAVEHIST" -lt 30000 ] && SAVEHIST=30000
+
+## History command configuration.
+setopt extended_history       # record timestamp of command in HISTFILE
+setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
+setopt hist_ignore_dups       # ignore duplicated commands history list
+setopt hist_ignore_space      # ignore commands that start with space
+setopt hist_verify            # show command with history expansion to user before running it
+setopt share_history          # share command history data
+setopt interactivecomments    # enable hash comment command
+
+######################### User specific configuration ##########################
+
+[ -f ~/.zsh-theme ] && . ~/.zsh-theme
+[ -f /usr/share/fzf/key-bindings.zsh ] && . /usr/share/fzf/key-bindings.zsh
+[ -f /usr/share/fzf/completion.zsh ] && . /usr/share/fzf/completion.zsh
+[ -f ~/.fzf.zsh ] && . ~/.fzf.zsh
+[ -f ~/.fzm-marks-common.zsh ] && . ~/.fzm-marks-common.zsh
+[ -f ~/.fzf-notes.zsh ] && . ~/.fzf-notes.zsh
+[ -d ~/.shell-aliases ] &&  for f in ~/.shell-aliases/*.sh; do . $f; done
+[ -x "$(command -v kubectl)" ] && . <(kubectl completion zsh)
+[ -f ~/.mutt.env ] && . ~/.mutt.env
+
+# ------------------------------------------------------------------------------
+[ -f "$HOME/.config-common.sh" ] && . "$HOME/.config-common.sh"

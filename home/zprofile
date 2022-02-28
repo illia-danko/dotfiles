@@ -1,0 +1,10 @@
+# -----------------------------------------------------------------------------
+# User configuration
+[ -f "$HOME/.config-work.sh" ] && . "$HOME/.config-work.sh"
+[ -f "$HOME/.config-common.sh" ] && . "$HOME/.config-common.sh"
+
+# Better look and feel.
+export QT_QPA_PLATFORMTHEME='gtk2'
+
+# Start sway.
+[ "$(tty)" = "/dev/tty1" ] && [ -x "$(command -v sway)" ] && exec sway

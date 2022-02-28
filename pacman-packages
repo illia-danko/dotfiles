@@ -1,0 +1,49 @@
+python
+python-pip
+go
+the_silver_searcher
+ripgrep
+fzf
+zip
+unzip
+noto-fonts
+ttf-dejavu
+ttf-liberation
+ttf-iosevka-nerd # terminal font
+neofetch
+jq
+yamllint
+shellcheck
+nodejs-lts-gallium # nodejs 16 lts
+npm
+yarn
+wl-clipboard # wayland/sway specific
+pandoc
+virt-manager  # required by libvirt
+qemu # required by libvrit
+dnsmasq # required by libvrit
+dmidecode # required by libvrit
+bc
+wofi
+xdg-utils # xdg-open
+xdg-desktop-portal-wlr
+xdg-desktop-portal
+pipewire-pulse
+pulsemixer # sound cli interface
+yt-dlp  # youtube-dl fork
+mpv  # video player
+slurp  # select regeion on Wayland
+wf-recorder  # audio and screen recording for Wayland
+xfce4-settings  # gtk settings frontend
+thunar  # gui file manager
+kubectl
+minio-client
+libpcap
+mosquitto
+openresolv
+wireguard-tools
+cmake
+brightnessctl
+mako  # notification service
+pigz  # required by docker
+docker

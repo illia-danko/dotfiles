@@ -1,0 +1,35 @@
+gridsite-clients # urlencode
+jq
+yamllint
+shellcheck
+rlwrap
+sbcl
+net-tools
+fd-find # fd
+silversearcher-ag
+xclip
+ripgrep
+libvterm-dev
+docker-ce  # from docker repo
+docker-ce-cli  # from docker repo
+containerd.io  # from docker repo
+virt-manager
+alacritty  # from alacritty repo
+subversion
+nodejs  # from custom repo
+yarn  # from custom repo
+wireguard-tools
+copyq
+copyq-doc
+dconf-editor
+wireshark-doc
+wireshark-qt
+zsh
+zsh-doc
+postgresql-client
+nmap
+htop
+mosquitto-clients
+libpcap-dev
+pandoc
+cmake

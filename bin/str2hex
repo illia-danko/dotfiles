@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Convert the first string argument to hex representation and print the result.
+echo -n "$1" | od -A n -t x1
