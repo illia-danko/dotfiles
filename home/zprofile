@@ -4,7 +4,9 @@
 [ -f "$HOME/.config-common.sh" ] && . "$HOME/.config-common.sh"
 
 # Better look and feel.
-export QT_QPA_PLATFORMTHEME='gtk2'
+export QT_QPA_PLATFORMTHEME="qt5ct"
 
-# Start sway.
-[ "$(tty)" = "/dev/tty1" ] && [ -x "$(command -v sway)" ] && exec sway
+if [ "$(tty)" = "/dev/tty1" ]; then
+   pkill emacs | true; nohup emacs --daemon &> /dev/null &
+   [ -x "$(command -v sway)" ] && exec sway
+fi

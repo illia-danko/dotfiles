@@ -34,7 +34,7 @@ yt-dlp  # youtube-dl fork
 mpv  # video player
 slurp  # select regeion on Wayland
 wf-recorder  # audio and screen recording for Wayland
-xfce4-settings  # gtk settings frontend
+xfce4-settings  # for xfce4-appearance-settings
 thunar  # gui file manager
 kubectl
 minio-client

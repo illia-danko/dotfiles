@@ -22,6 +22,7 @@ fi
 [ -x "$(command -v dmesg)" ] && alias dmesg='dmesg --color=always | less'
 [ -x "$(command -v clj)" ] && alias clj-repl="clj -M:cider/nrepl"
 [ -x "$(command -v fdfind)" ] && alias fd="fdfind"
+[ -x "$(command -v emacs)" ] && alias es="pkill emacs | true; emacs --daemon"
 
 # Personal.
 [ -x "$(command -vp ssh)" ] && alias sshme="ssh root@67.207.82.1"

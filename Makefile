@@ -6,14 +6,9 @@ all: install
 packages:
 	@bash ${THIS_MAKEFILE_DIR}/install.sh $@
 
-config-home:
+config:
 	@bash ${THIS_MAKEFILE_DIR}/install.sh $@
-
-config-common:
-	@bash ${THIS_MAKEFILE_DIR}/install.sh $@
-
-config: config-common config-home
 
 install: packages config
 
-.PHONY: packages config-home config-common config
+.PHONY: packages config

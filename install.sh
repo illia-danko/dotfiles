@@ -91,8 +91,10 @@ aur_packages() {
 
 editor() {
     echo "Configuring editor..."
-    rm -rf "$config_home/nvim"
-    git clone "git@github.com:elijahdanko/dot-nvim.git" "$config_home/nvim"
+    path="$HOME/.emacs.d/"
+    [ -d "$path" ] && return
+    rm -rf "$path"
+    git clone "git@github.com:elijahdanko/dot-emacs.git" "$path"
 }
 
 github_packages() {
@@ -103,14 +105,10 @@ github_packages() {
 }
 
 sub_packages() {
-    # live-server required by the neovim plugin
-    sudo npm install -g typescript typescript-language-server eslint prettier neovim \
-        live-server
-    sudo -H python3 -m pip install --upgrade pip pynvim pyright virtualenv yapf flake8
+    sudo npm install -g typescript typescript-language-server eslint prettier
+    sudo -H python3 -m pip install --upgrade pip pyright virtualenv yapf flake8
     go install golang.org/x/tools/gopls@latest
     go install golang.org/x/tools/cmd/goimports@latest
-    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
-    env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest
 }
 
 packages() {
@@ -199,6 +197,7 @@ config_common() {
 }
 
 config_ssh() {
+    echo "Configuring ssh..."
     mkdir -p "$HOME/.ssh"
     cp "$script_dir/ssh/config" "$HOME/.ssh/config"
     echo "Done"
@@ -212,15 +211,17 @@ config() {
     os
 
     if [ -n "$is_archlinux" ]; then
+        echo "Configure archlinux settings..."
         sudo usermod -a -G libvirt "$USER"
         sudo systemctl enable libvirtd.service
         sudo virsh net-autostart default  # libvirt connection
         sudo systemctl enable docker.service
         systemctl enable ssh-agent.service --user
+        echo "Done"
     fi
 
-    chsh -s "$(which zsh)"
-    sudo chsh -s "$(which zsh)"
+    # chsh -s "$(which zsh)"
+    # sudo chsh -s "$(which zsh)"
     sudo usermod -a -G docker "$USER"
     sudo usermod -a -G wireshark "$USER"
 
