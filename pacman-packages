@@ -47,3 +47,5 @@ brightnessctl
 mako  # notification service
 pigz  # required by docker
 docker
+wireshark-qt
+qt5-wayland
