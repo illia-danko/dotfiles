@@ -127,7 +127,7 @@ bar {
 }
 
 # Start applications.
-exec "pkill emacs | true; nohup emacs --daemon"
+exec "pkill emacs | true; nohup emacs --daemon 2>/dev/null"
 
 exec swayidle -w \
 	timeout 300 'swaylock'
