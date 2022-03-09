@@ -102,9 +102,10 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 # Gaps.
-gaps inner 3
-gaps outer 3
-smart_gaps on
+gaps {
+    inner 2
+    outer 2
+}
 
 # Window rules.
 for_window [title="Firefox — Sharing Indicator"] floating enable
