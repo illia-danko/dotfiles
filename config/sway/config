@@ -101,6 +101,11 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+# Gaps.
+gaps inner 3
+gaps outer 3
+smart_gaps on
+
 # Window rules.
 for_window [title="Firefox — Sharing Indicator"] floating enable
 
@@ -119,5 +124,8 @@ bar {
         inactive_workspace #32323200 #32323200 #5c5c5c
     }
 }
+
+# Start applications.
+exec "pkill emacs | true; nohup emacs --daemon"
 
 include /etc/sway/config.d/*
