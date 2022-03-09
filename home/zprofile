@@ -6,6 +6,6 @@
 # Better look and feel.
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
-if [ "$(tty)" = "/dev/tty1" ]; then
-   [ -x "$(command -v sway)" ] && exec sway
+if [ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ]; then
+    [ -x "$(command -v sway)" ] && exec sway
 fi
