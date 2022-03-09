@@ -49,3 +49,5 @@ pigz  # required by docker
 docker
 wireshark-qt
 qt5-wayland
+swaylock  # see sway/config
+swayidle  # see sway/config
