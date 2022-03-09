@@ -14,7 +14,7 @@ set $menu wofi --show run
 
 # Output.
 exec "$HOME/.config/sway/adjust-screen.sh" "1"
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+output * bg "$HOME/github.com/elijahdanko/wallpapers/0080.jpg" fill
 
 # Keyboard.
 bindsym $mod+Return exec $term

@@ -51,3 +51,4 @@ wireshark-qt
 qt5-wayland
 swaylock  # see sway/config
 swayidle  # see sway/config
+imv  # image viewer
