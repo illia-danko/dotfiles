@@ -1,7 +1,8 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-    font-size: 13px;
+    font-family: "Iosevka Term", FontAwesome, Roboto, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 15px;
 }
 
 window#waybar {
@@ -71,17 +72,14 @@ window#waybar.chromium {
 #memory,
 #disk,
 #temperature,
-#backlight,
 #network,
-#pulseaudio,
-#custom-media,
 #tray,
 #mode,
-#idle_inhibitor,
-#mpd {
+#language {
     padding: 0 10px;
     color: #ffffff;
 }
+
 
 #window,
 #workspaces {
@@ -146,40 +144,12 @@ label:focus {
     background-color: #964B00;
 }
 
-#backlight {
-    background-color: #90b1b1;
-}
-
 #network {
     background-color: #2980b9;
 }
 
 #network.disconnected {
     background-color: #f53c3c;
-}
-
-#pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
-}
-
-#pulseaudio.muted {
-    background-color: #90b1b1;
-    color: #2a5c45;
-}
-
-#custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
-    min-width: 100px;
-}
-
-#custom-media.custom-spotify {
-    background-color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-    background-color: #ffa000;
 }
 
 #temperature {
@@ -203,38 +173,9 @@ label:focus {
     background-color: #eb4d4b;
 }
 
-#idle_inhibitor {
-    background-color: #2d3436;
-}
-
-#idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
-}
-
-#mpd {
-    background-color: #66cc99;
-    color: #2a5c45;
-}
-
-#mpd.disconnected {
-    background-color: #f53c3c;
-}
-
-#mpd.stopped {
-    background-color: #90b1b1;
-}
-
-#mpd.paused {
-    background-color: #51a37a;
-}
-
 #language {
     background: #00b093;
     color: #740864;
-    padding: 0 5px;
-    margin: 0 5px;
-    min-width: 16px;
 }
 
 #keyboard-state {
