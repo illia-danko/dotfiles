@@ -52,3 +52,7 @@ qt5-wayland
 swaylock  # see sway/config
 swayidle  # see sway/config
 imv  # image viewer
+waybar
+otf-font-awesome  # required by waybar
+ttf-roboto  # required by waybar
+ttf-roboto-mono  # required by waybar
