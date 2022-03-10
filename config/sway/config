@@ -128,7 +128,7 @@ bar {
 set $gnome-schema org.gnome.desktop.interface
 
 exec {
-    "pkill emacs | true; nohup emacs --daemon 2>/dev/null"
+    "pkill emacs | true; emacs --daemon"
     swayidle -w timeout 300 'swaylock'
     swayidle -w timeout 600 'swaymsg "output * dpms off"' \
 	         resume 'swaymsg "output * dpms on"'
