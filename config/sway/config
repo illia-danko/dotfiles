@@ -109,6 +109,14 @@ gaps {
 
 # Window rules.
 for_window [title="Firefox — Sharing Indicator"] floating enable
+for_window [tiling] border pixel 2 # disable title bar
+assign [app_id="Alacritty"] workspace 1
+assign [app_id="firefox"] workspace 2
+
+# Appearance.
+client.focused #0184bc #0184bc #fafafa #0184bc
+client.unfocused #fafafa #fafafa #383a42 #fafafa
+client.focused_inactive #fafafa #fafafa #383a42 #fafafa
 
 # Status Bar.
 # Read `man 5 sway-bar` for more information about this section.
