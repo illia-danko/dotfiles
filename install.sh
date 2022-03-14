@@ -167,10 +167,10 @@ copy_root_files() {
 }
 
 os() {
-    copy_root_files "$script_dir/root"
     eval "$script_dir/bin/mod-switch win-alt"  # swap RAlt with RWin
 
     if [ -n "$is_archlinux" ]; then
+        copy_root_files "$script_dir/root"
         os_fix_laptop_lid_suspend
         # fix fonts
         eval "sudo ln -sf /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d"
