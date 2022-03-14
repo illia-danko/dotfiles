@@ -19,8 +19,7 @@ subversion
 nodejs  # from custom repo
 yarn  # from custom repo
 wireguard-tools
-copyq
-copyq-doc
+parcellite
 dconf-editor
 wireshark-doc
 wireshark-qt
@@ -33,3 +32,4 @@ mosquitto-clients
 libpcap-dev
 pandoc
 cmake
+python3-pip
