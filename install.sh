@@ -90,12 +90,11 @@ aur_packages() {
 }
 
 editor() {
-    path="$config_home/nvim"
-    [ -d "$path" ] && return
     echo "Configuring editor..."
+    path="$HOME/.emacs.d/"
+    [ -d "$path" ] && return
     rm -rf "$path"
-    git clone "git@github.com:elijahdanko/dot-nvim.git" "$config_home/nvim"
-    echo "Done"
+    git clone "git@github.com:elijahdanko/dot-emacs.git" "$path"
 }
 
 github_packages() {
@@ -106,14 +105,11 @@ github_packages() {
 }
 
 sub_packages() {
-    sudo npm install -g typescript typescript-language-server eslint prettier \
-        neovim live-server
-    sudo -H python3 -m pip install --upgrade pip pyright virtualenv yapf flake8 pynvim
+    sudo npm install -g typescript typescript-language-server eslint prettier
+    sudo -H python3 -m pip install --upgrade pip pyright virtualenv yapf flake8
     go install golang.org/x/tools/gopls@latest
     go install golang.org/x/tools/cmd/goimports@latest
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
-    sudo curl https://dl.min.io/client/mc/release/linux-amd64/mc --output /usr/local/bin/mcli && sudo chmod +x /usr/local/bin/mcli
-    env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest
 }
 
 packages() {
@@ -174,7 +170,6 @@ copy_root_files() {
 os() {
     eval "$script_dir/bin/mod-switch win-alt"  # swap RAlt with RWin
     copy_root_files "$script_dir/root"
-
     if [ -n "$is_archlinux" ]; then
         os_fix_laptop_lid_suspend
         # fix fonts
