@@ -15,17 +15,26 @@ emacs-runner() {
 }
 export VISUAL=emacs-runner
 export EDITOR="$VISUAL"
+
+# Use Emacs as a Man page viewer. Custom package modes are:
+# - olivetty-mode is used for centring buffer conent;
+# - hide-mode-line-mode is used to hide modeline.
+man() {
+	emacs-runner -e "(progn
+                      (man \"$1\")
+                      (delete-window)
+                      (olivetti-mode 1)
+                      (hide-mode-line-mode 1)
+                      (local-set-key
+                        \"q\"
+                        (lambda ()
+                          (interactive)
+                          (kill-this-buffer)
+                          (delete-frame))))"
+}
+
 export CLIPBOARD_COPY_COMMAND="wl-copy"
 [ "$XDG_SESSION_TYPE" = "x11" ] && export CLIPBOARD_COPY_COMMAND="xclip -selection c"
-export LESS_TERMCAP_mb=$'\e[1;32m'
-export LESS_TERMCAP_md=$'\e[1;32m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[01;33m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[1;4;31m'
-export LESS="-R"
-export MANPAGER="less -R"
 export OPENER=run-mailcap # open/preview with mailcap (using by lf)
 [ -f "/etc/arch-release" ] && export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
