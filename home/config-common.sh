@@ -10,7 +10,10 @@
 [ -z "${XDG_DATA_HOME}" ] && export XDG_DATA_HOME="$HOME/.local/share"
 [ -z "${XDG_STATE_HOME}" ] && export XDG_STATE_HOME="$HOME/.local/state"
 
-export VISUAL="emacsclient -nw"
+emacs-runner() {
+    [ -n "$(ls -A /run/user/1000/emacs/)" ] || emacs --daemon; emacsclient -nw "$@"
+}
+export VISUAL=emacs-runner
 export EDITOR="$VISUAL"
 export CLIPBOARD_COPY_COMMAND="wl-copy"
 [ "$XDG_SESSION_TYPE" = "x11" ] && export CLIPBOARD_COPY_COMMAND="xclip -selection c"
