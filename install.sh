@@ -84,20 +84,23 @@ walk_packages() {
 aur_packages() {
     [ -z "$is_archlinux" ] && return
 
+    echo "Aur packages..."
     read -ra pkgs <<< "$(cat "$script_dir/aur-packages" | tr '\n' ' ')"
     walk_packages "makepkg -si" "${pkgs[@]}"
     echo "Done"
 }
 
 editor() {
-    echo "Configuring editor..."
     path="$HOME/.emacs.d/"
     [ -d "$path" ] && return
+    echo "Configuring editor..."
     rm -rf "$path"
     git clone "git@github.com:elijahdanko/dot-emacs.git" "$path"
+    echo "Done"
 }
 
 github_packages() {
+    echo "Github packages..."
     install_cmd="make install || true"
     read -ra pkgs <<< "$(cat "$script_dir/github-packages" | tr '\n' ' ')"
     walk_packages "make install || true" "${pkgs[@]}"
@@ -105,11 +108,13 @@ github_packages() {
 }
 
 sub_packages() {
+    echo "Sub packages..."
     sudo npm install -g typescript typescript-language-server eslint prettier
     sudo -H python3 -m pip install --upgrade pip pyright virtualenv yapf flake8
     go install golang.org/x/tools/gopls@latest
     go install golang.org/x/tools/cmd/goimports@latest
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
+    echo "Done"
 }
 
 packages() {
