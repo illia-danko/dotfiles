@@ -1,0 +1,3 @@
+#!/bin/sh
+
+[ -n "$(ls -A /run/user/1000/emacs/)" ] || emacs --daemon; emacsclient -nw "$@"
