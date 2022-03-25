@@ -4,7 +4,7 @@
 [init]
     defaultBranch = master
 [core]
-    editor = $EDITOR
+    editor = emacsclient -nw
 [diff]
     tool = ediff
 [difftool "ediff"]
