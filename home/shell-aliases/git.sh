@@ -8,13 +8,6 @@ alias gg="git pull"
 alias gp="git push"
 alias gs="git status"
 
-gconfig() {
-    set -x
-    git config user.name "Elijah Danko"
-    git config user.email "me@eli.net"
-    set +x
-}
-
 gd() {
     ( test "$#" -eq 0 && git diff ) || git diff "$*"
 }
