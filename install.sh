@@ -91,11 +91,11 @@ aur_packages() {
 }
 
 editor() {
-    path="$config_home/nvim"
+    path="$HOME/.emacs.d/"
     [ -d "$path" ] && return
     echo "Configuring editor..."
     rm -rf "$path"
-    git clone "git@github.com:elijahdanko/dot-nvim.git" "$config_home/nvim"
+    git clone "git@github.com:elijahdanko/dot-emacs.git" "$path"
     echo "Done"
 }
 
@@ -109,13 +109,11 @@ github_packages() {
 
 sub_packages() {
     echo "Sub packages..."
-    sudo npm install -g typescript typescript-language-server eslint prettier neovim
-    sudo -H python3 -m pip install --upgrade pip pyright virtualenv yapf flake8 pynvim
+    sudo npm install -g typescript typescript-language-server eslint prettier
+    sudo -H python3 -m pip install --upgrade pip pyright virtualenv yapf flake8
     go install golang.org/x/tools/gopls@latest
     go install golang.org/x/tools/cmd/goimports@latest
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
-    sudo curl https://dl.min.io/client/mc/release/linux-amd64/mc --output /usr/local/bin/mcli && sudo chmod +x /usr/local/bin/mcli
-    env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest
     echo "Done"
 }
 
