@@ -3,4 +3,6 @@ My Downloads : ~/Downloads
 My docs : ~/github.com/elijahdanko/docs
 My dotfiles : ~/github.com/elijahdanko/dotfiles
 My github : ~/github.com/elijahdanko
+My nvim config : ~/.config/nvim
+My nvim packages : ~/.local/share/nvim/site/pack/packer/start
 My wallpapers : /home/eli/github.com/elijahdanko/wallpapers
