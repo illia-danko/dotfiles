@@ -88,4 +88,4 @@ if [ -x "$(command -v fzf)" ]; then
     export FZF_DEFAULT_COMMAND='ag --ignore-dir venv --ignore-dir elm-stuff -g ""'
 fi
 
-export FZF_NOTES_DIR="$my_github/docs"
+export FZF_NOTES_DIR="$my_github/org"
