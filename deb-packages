@@ -32,4 +32,5 @@ mosquitto-clients
 libpcap-dev
 pandoc
 cmake
+clangd
 python3-pip
