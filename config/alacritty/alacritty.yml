@@ -54,56 +54,71 @@ font:
     y: 0
 
 # Colors.
+# Palette is taken from https://github.com/projekt0n/github-nvim-theme.
 schemes:
-  one_dark: &dark
+  github_dark: &dark
+    # Default colors
     primary:
-      background: '#282c34'
-      foreground: '#dcdfe4'
+      background: '#24292e'
+      foreground: '#d1d5da'
 
+    # Normal colors
     normal:
-      black: '#dcdfe4'
-      red: '#e06c75'
-      green: '#98c379'
-      yellow: '#e5c07b'
-      blue: '#61afef'
-      magenta: '#c678dd'
-      cyan: '#56b6c2'
-      white: '#282c34'
+      black:   '#586069'
+      red:     '#ea4a5a'
+      green:   '#34d058'
+      yellow:  '#ffea7f'
+      blue:    '#2188ff'
+      magenta: '#b392f0'
+      cyan:    '#39c5cf'
+      white:   '#d1d5da'
 
+    # Bright colors
     bright:
-      black: '#777778'
-      red: '#e06c75'
-      green: '#98c379'
-      yellow: '#e5c07b'
-      blue: '#61afef'
-      magenta: '#c678dd'
-      cyan: '#56b6c2'
-      white: '#282c34'
+      black:   '#959da5'
+      red:     '#f97583'
+      green:   '#85e89d'
+      yellow:  '#ffea7f'
+      blue:    '#79b8ff'
+      magenta: '#b392f0'
+      cyan:    '#56d4dd'
+      white:   '#fafbfc'
 
-  one_light: &light
+    indexed_colors:
+      - { index: 16, color: '#d18616' }
+      - { index: 17, color: '#f97583' }
+
+  github_light: &light
+    # Default colors
     primary:
-      background: '#fafafa'
-      foreground: '#383a42'
+      background: '#ffffff'
+      foreground: '#24292f'
 
+    # Normal colors
     normal:
-      black: '#383a42'
-      red: '#e45649'
-      green: '#50a14f'
-      yellow: '#c18401'
-      blue: '#0184bc'
-      magenta: '#a626a4'
-      cyan: '#0997b3'
-      white: '#fafafa'
+      black:   '#24292e'
+      red:     '#d73a49'
+      green:   '#28a745'
+      yellow:  '#dbab09'
+      blue:    '#0366d6'
+      magenta: '#5a32a3'
+      cyan:    '#0598bc'
+      white:   '#6a737d'
 
+    # Bright colors
     bright:
-      black: '#4f525e'
-      red: '#e06c75'
-      green: '#98c379'
-      yellow: '#e5c07b'
-      blue: '#61afef'
-      magenta: '#c678dd'
-      cyan: '#56b6c2'
-      white: '#ffffff'
+      black:   '#959da5'
+      red:     '#cb2431'
+      green:   '#22863a'
+      yellow:  '#b08800'
+      blue:    '#005cc5'
+      magenta: '#5a32a3'
+      cyan:    '#3192aa'
+      white:   '#d1d5da'
+
+    indexed_colors:
+      - { index: 16, color: '#d18616' }
+      - { index: 17, color: '#cb2431' }
 
 # Colors
 colors: *light
