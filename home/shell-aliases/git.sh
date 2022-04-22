@@ -17,15 +17,9 @@ _g_inside_work_tree_p() {
 }
 
 gl() {
-    _g_inside_work_tree_p || { >&2 echo "Not in git repo."; return 1 }
-    cmd="(progn
-           (magit-log-all)
-           (delete-other-windows))"
-    [ "$#" -eq 1 ] && cmd="(progn
-                             (find-file \"$1\")
-                             (magit-log-buffer-file)
-                             (delete-other-windows))"
-    emacs-runner -e "$cmd"
+    file=""
+    [ "$#" -eq 1 ] && file="$1"
+    _g_inside_work_tree_p && nvim -c "Gina log $file"
 }
 
 gclean() {

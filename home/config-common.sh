@@ -10,28 +10,14 @@
 [ -z "${XDG_DATA_HOME}" ] && export XDG_DATA_HOME="$HOME/.local/share"
 [ -z "${XDG_STATE_HOME}" ] && export XDG_STATE_HOME="$HOME/.local/state"
 
-emacs-runner() {
-    [ -n "$(ls -A /run/user/1000/emacs/)" ] || emacs --daemon; emacsclient -nw "$@"
-}
-
-export VISUAL=emacs-runner
+export VISUAL="nvim"
 export EDITOR="$VISUAL"
 
 # Use Emacs as a Man page viewer. Custom package modes are:
 # - olivetty-mode is used for centring buffer conent;
 # - hide-mode-line-mode is used to hide modeline.
 man() {
-	emacs-runner -e "(progn
-                      (man \"$1\")
-                      (delete-window)
-                      (olivetti-mode 1)
-                      (hide-mode-line-mode 1)
-                      (local-set-key
-                        \"q\"
-                        (lambda ()
-                          (interactive)
-                          (kill-this-buffer)
-                          (delete-frame))))"
+    nvim -c "Man $1" -c "only"
 }
 
 export CLIPBOARD_COPY_COMMAND="wl-copy"
@@ -81,7 +67,7 @@ if [ -x "$(command -v fzf)" ]; then
     --bind='ctrl-d:half-page-down'
     --bind='alt-p:toggle-preview'
     --bind='ctrl-a:toggle-all'
-    --color=gutter:-1,hl:2,hl+:2
+    --color=gutter:-1,hl:2,hl+:2,bg+:8
 "
 
     export FZF_PREVIEW_COMMAND="cat {}"
