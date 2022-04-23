@@ -24,4 +24,3 @@ fi
 [ -x "$(command -v fdfind)" ] && alias fd="fdfind"
 [ -x "$(command -v emacs)" ] && alias es="pkill emacs | true; emacs --daemon"
 [ -x "$(command -v emacs)" ] && alias ein="emacs -nw -q --insert"
-[ -x "$(command -v newsboat)" ] && alias nb="newsboat"
