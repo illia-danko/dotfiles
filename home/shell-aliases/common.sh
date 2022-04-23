@@ -25,6 +25,3 @@ fi
 [ -x "$(command -v emacs)" ] && alias es="pkill emacs | true; emacs --daemon"
 [ -x "$(command -v emacs)" ] && alias ein="emacs -nw -q --insert"
 [ -x "$(command -v newsboat)" ] && alias nb="newsboat"
-
-# Personal.
-[ -x "$(command -vp ssh)" ] && alias sshme="ssh root@67.207.82.1"
