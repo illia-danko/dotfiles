@@ -34,3 +34,4 @@ pandoc
 cmake
 clangd
 python3-pip
+newsboat
