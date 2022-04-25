@@ -67,7 +67,7 @@ if [ -x "$(command -v fzf)" ]; then
     --bind='ctrl-d:half-page-down'
     --bind='alt-p:toggle-preview'
     --bind='ctrl-a:toggle-all'
-    --color=gutter:-1,hl:4,hl+:4,bg+:8
+    --color=gutter:-1,hl:2,hl+:2,bg+:8
 "
 
     export FZF_PREVIEW_COMMAND="cat {}"
