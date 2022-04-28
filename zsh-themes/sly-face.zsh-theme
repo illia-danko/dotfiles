@@ -36,7 +36,12 @@ refresh_prompt() {
         fi
     fi
 
-PROMPT="╭─(${sly_face})-(${user_host})-(${current_dir})${maybe_vc_info}
+    local maybe_py_venv=""
+    [ ! -z $VIRTUAL_ENV ] && local maybe_py_venv="$(basename $VIRTUAL_ENV)"
+    [ ! -z $maybe_py_venv ] && \
+        local maybe_py_venv="-(%B%F{magenta}py:${maybe_py_venv}${reset_color})"
+
+PROMPT="╭─(${sly_face})-(${user_host})-(${current_dir})${maybe_vc_info}${maybe_py_venv}
 ╰─%B${user_symbol}%b "
 }
 
