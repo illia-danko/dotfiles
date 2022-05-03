@@ -62,22 +62,27 @@ distro_packages() {
     eval "$(printf "%s %s" "$install_cmd" "${pkgs[*]}")"
 }
 
+install_pkg() {
+     pkg_path="$(url2dir "$1")"
+     pkg_name="$(basename "$pkg_path")"
+     root_dir="$HOME/$(dirname "$pkg_path")"
+     mkdir -p "$root_dir"
+     pushd "$root_dir"
+     rm -rf "$pkg_name"
+     git clone "$1" "$pkg_name"
+     pushd "$pkg_name"
+     shift
+     eval "$*"
+     popd
+     popd
+}
+
 # walk_packages clones and installs packages.
 walk_packages() {
     install_cmd="$1"
     shift
     for pkg in "$@"; do
-        pkg_path="$(url2dir "$pkg")"
-        pkg_name="$(basename "$pkg_path")"
-        root_dir="$HOME/$(dirname "$pkg_path")"
-        mkdir -p "$root_dir"
-        pushd "$root_dir"
-        rm -rf "$pkg_name"
-        git clone "$pkg" "$pkg_name"
-        pushd "$pkg_name"
-        eval "$install_cmd"
-        popd
-        popd
+        install_pkg "$pkg" "$install_cmd"
     done
 }
 
@@ -101,9 +106,13 @@ editor() {
 
 github_packages() {
     echo "Github packages..."
-    install_cmd="make install || true"
-    read -ra pkgs <<< "$(cat "$script_dir/github-packages" | tr '\n' ' ')"
-    walk_packages "make install || true" "${pkgs[@]}"
+
+    while IFS= read -r line; do
+        install_cmd="$(awk '{$1=""; print}' <<< "$line")"
+        [ -z "$install_cmd" ] && install_cmd="make install || true"
+        install_pkg "$(awk '{print $1}' <<< "$line")" "$install_cmd"
+    done < "$script_dir/github-packages"
+
     echo "Done"
 }
 

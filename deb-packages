@@ -35,3 +35,9 @@ cmake
 clangd
 python3-pip
 newsboat
+urlview # used by neomutt
+pass  # used by neomutt
+isync  #used by neomutt
+msmtp  # used by neomutt
+lynx  # used by neomutt
+neomutt
