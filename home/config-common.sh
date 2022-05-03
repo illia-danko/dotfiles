@@ -11,8 +11,16 @@
 [ -z "${XDG_STATE_HOME}" ] && export XDG_STATE_HOME="$HOME/.local/state"
 
 emacs-runner() {
+    # Start server if not already running.
     [ -n "$(ls -A /run/user/1000/emacs/)" ] || emacs --daemon
-    emacsclient -nw "$@"
+    # Read arguments if interactive, otherwise read from stdin to tempfile and
+    # open it. Useful when read from pipe in shell.
+    [ -t 0 ] && (emacsclient -nw "$@"; return $?)
+    tmpfile=$(mktemp /tmp/emacs-pipe.XXXXXX)
+    while read -r line ; do
+        printf "%s\n" "$line" >> "$tmpfile"
+    done
+    emacsclient -nw "$@" "$tmpfile"
 }
 
 export VISUAL=emacs-runner
