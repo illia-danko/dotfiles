@@ -15,12 +15,15 @@ emacs-runner() {
     [ -n "$(ls -A /run/user/1000/emacs/)" ] || emacs --daemon
     # Read arguments if interactive, otherwise read from stdin to tempfile and
     # open it. Useful when read from pipe in shell.
-    [ -t 0 ] && (emacsclient -nw "$@"; return $?)
-    tmpfile=$(mktemp /tmp/emacs-pipe.XXXXXX)
-    while read -r line ; do
-        printf "%s\n" "$line" >> "$tmpfile"
-    done
-    emacsclient -nw "$@" "$tmpfile"
+    if [ -t 0 ]; then
+        emacsclient -nw "$@"
+    else
+        tmpfile=$(mktemp /tmp/emacs-pipe.XXXXXX)
+        while read -r line ; do
+            printf "%s\n" "$line" >> "$tmpfile"
+        done
+        emacsclient -nw "$@" "$tmpfile"
+    fi
 }
 
 export VISUAL=emacs-runner
