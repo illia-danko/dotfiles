@@ -121,6 +121,7 @@ sub_packages() {
     sudo -H python3 -m pip install --upgrade pip pyright virtualenv yapf flake8 pynvim
     go install golang.org/x/tools/gopls@latest
     go install golang.org/x/tools/cmd/goimports@latest
+    go install github.com/jesseduffield/lazygit@latest
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
     sudo curl https://dl.min.io/client/mc/release/linux-amd64/mc --output /usr/local/bin/mcli && sudo chmod +x /usr/local/bin/mcli
     env CGO_ENABLED=0 go install -ldflags="-s -w" github.com/gokcehan/lf@latest
