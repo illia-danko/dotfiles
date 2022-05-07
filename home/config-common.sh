@@ -10,40 +10,14 @@
 [ -z "${XDG_DATA_HOME}" ] && export XDG_DATA_HOME="$HOME/.local/share"
 [ -z "${XDG_STATE_HOME}" ] && export XDG_STATE_HOME="$HOME/.local/state"
 
-emacs-runner() {
-    # Start server if not already running.
-    [ -n "$(ls -A /run/user/1000/emacs/)" ] || emacs --daemon
-    # Read arguments if interactive, otherwise read from stdin to tempfile and
-    # open it. Useful when read from pipe in shell.
-    if [ -t 0 ]; then
-        emacsclient -nw "$@"
-    else
-        tmpfile=$(mktemp /tmp/emacs-pipe.XXXXXX)
-        while read -r line ; do
-            printf "%s\n" "$line" >> "$tmpfile"
-        done
-        emacsclient -nw "$@" "$tmpfile"
-    fi
-}
-
-export VISUAL=emacs-runner
+export VISUAL="nvim"
 export EDITOR="$VISUAL"
 
 # Use Emacs as a Man page viewer. Custom package modes are:
 # - olivetty-mode is used for centring buffer conent;
 # - hide-mode-line-mode is used to hide modeline.
 man() {
-    emacs-runner -e "(progn
-                      (man \"$1\")
-                      (delete-window)
-                      (olivetti-mode 1)
-                      (hide-mode-line-mode 1)
-                      (local-set-key
-                        \"q\"
-                        (lambda ()
-                          (interactive)
-                          (kill-this-buffer)
-                          (delete-frame))))"
+    nvim -c "Man $1" -c "only"
 }
 
 export CLIPBOARD_COPY_COMMAND="wl-copy"
