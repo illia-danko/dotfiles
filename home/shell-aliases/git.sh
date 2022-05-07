@@ -16,12 +16,6 @@ _g_inside_work_tree_p() {
     git rev-parse --is-inside-work-tree > /dev/null 2>&1
 }
 
-gl() {
-    file=""
-    [ "$#" -eq 1 ] && file="$1"
-    _g_inside_work_tree_p && nvim -c "Gina log $file"
-}
-
 gclean() {
     # https://stackoverflow.com/questions/1146973/how-do-i-revert-all-local-changes-in-git-managed-project-to-previous-state#answer-42903805
     #
