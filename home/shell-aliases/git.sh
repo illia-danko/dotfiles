@@ -12,8 +12,17 @@ gd() {
     ( test "$#" -eq 0 && git diff ) || git diff "$*"
 }
 
-_g_inside_work_tree_p() {
-    git rev-parse --is-inside-work-tree > /dev/null 2>&1
+# https://github.com/jesseduffield/lazygit
+# Automatically change path on project switching.
+lg() {
+    export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
+
+    lazygit "$@"
+
+    if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
+        cd "$(cat $LAZYGIT_NEW_DIR_FILE)" || true
+        rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
+    fi
 }
 
 gclean() {
