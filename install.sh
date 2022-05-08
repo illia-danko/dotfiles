@@ -147,9 +147,13 @@ copy_content() {
         entity_name=$(basename "$entity")
         echo "Configuring $entity_name..."
         copy_to="$dest/$prefix$entity_name"
-        # Remove first, to avoid copy dir content instead of dir itself.
-        rm -rf "$copy_to"
-        cp -R "$entity" "$copy_to"
+        # Copy only content if it's a dir.
+        if [ -d "$entity" ]; then
+            mkdir -p "$copy_to"
+            cp -R "$entity"/* "$copy_to"
+        else
+            cp -R "$entity" "$copy_to"
+        fi
     done
 
     popd 1>/dev/null
