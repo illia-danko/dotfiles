@@ -14,9 +14,6 @@ export VISUAL="nvim"
 export EDITOR="$VISUAL"
 export BROWSER="firefox"
 
-# Use Emacs as a Man page viewer. Custom package modes are:
-# - olivetty-mode is used for centring buffer conent;
-# - hide-mode-line-mode is used to hide modeline.
 man() {
     nvim -c "Man $1" -c "only"
 }
