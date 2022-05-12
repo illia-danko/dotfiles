@@ -12,6 +12,7 @@
 
 export VISUAL="nvim"
 export EDITOR="$VISUAL"
+export BROWSER="firefox"
 
 # Use Emacs as a Man page viewer. Custom package modes are:
 # - olivetty-mode is used for centring buffer conent;
