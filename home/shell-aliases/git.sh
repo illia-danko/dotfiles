@@ -12,17 +12,20 @@ gd() {
     ( test "$#" -eq 0 && git diff ) || git diff "$*"
 }
 
-# https://github.com/jesseduffield/lazygit
-# Automatically change path on project switching.
-lg() {
-    export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
+_g_inside_work_tree_p() {
+    git rev-parse --is-inside-work-tree > /dev/null 2>&1
+}
 
-    lazygit "$@"
-
-    if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
-        cd "$(cat $LAZYGIT_NEW_DIR_FILE)" || true
-        rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
-    fi
+gl() {
+    _g_inside_work_tree_p || (>&2 echo "Not in git repo."; return 1)
+    cmd="(progn
+           (magit-log-all)
+           (delete-other-windows))"
+    [ "$#" -eq 1 ] && cmd="(progn
+                             (find-file \"$1\")
+                             (magit-log-buffer-file)
+                             (delete-other-windows))"
+    emacs-runner -e "$cmd"
 }
 
 gclean() {
