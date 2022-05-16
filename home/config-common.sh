@@ -26,25 +26,13 @@ emacs-runner() {
     fi
 }
 
-export VISUAL=emacs-runner
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 export BROWSER="firefox"
 
-# Use Emacs as a Man page viewer. Custom package modes are:
-# - olivetty-mode is used for centring buffer conent;
-# - hide-mode-line-mode is used to hide modeline.
+# Override man command.
 man() {
-    emacs-runner -e "(progn
-                      (man \"$1\")
-                      (delete-window)
-                      (olivetti-mode 1)
-                      (hide-mode-line-mode 1)
-                      (local-set-key
-                        \"q\"
-                        (lambda ()
-                          (interactive)
-                          (kill-this-buffer)
-                          (delete-frame))))"
+    nvim -c "Man $1" -c "only"
 }
 
 export CLIPBOARD_COPY_COMMAND="wl-copy"
