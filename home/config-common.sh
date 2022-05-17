@@ -16,7 +16,9 @@ export BROWSER="xdg-open"
 
 # Override man command.
 man() {
-    nvim -c "Man $1" -c "only"
+    # Show an error if not a manual found.
+    /usr/bin/man -k "^$1\$" > /dev/null 2>&1 || /usr/bin/man "$1" || return
+    nvim -c "Man $*" -c "only"
 }
 
 export CLIPBOARD_COPY_COMMAND="wl-copy"
