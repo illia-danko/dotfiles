@@ -12,7 +12,7 @@
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
-export BROWSER="xdg-open"
+export BROWSER="firefox"
 
 # Override man command.
 man() {
