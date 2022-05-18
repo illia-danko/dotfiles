@@ -40,12 +40,9 @@ my_github="$HOME/github.com/elijahdanko"
 [ -x "$(command -v bat)" ] && export BAT_STYLE="plain"  # Using by Bat previewer.
 [ -x "$(command -v gpg)" ] && export GPG_TTY="$(tty)"  # Using by vim-gnupg
 [ -x "$(command -v shellcheck)" ] && export SHELLCHECK_OPTS='--shell=sh --exclude=SC1090,SC2139,SC2155'
-[ -x "$(command -v tmux)" ] && alias tmuxs="tmux new -s TMUX"
-[ -x "$(command -v tmux)" ] && alias tx="tmux list-sessions && tmux attach -t TMUX || tmux new -s TMUX"
-[ -x "$(command -v tmux)" ] && alias tmuxw="tmux attach -t TMUX"
-[ -x "$(command -v tmux)" ] && alias tmuxa="tmux attach -t "
-[ -x "$(command -v tmux)" ] && alias tmuxls="tmux ls"
-
+[ -x "$(command -v tmux)" ] && alias tt="[ -z $TMUX ] && tmux new -A -s HACK || tmux detach -E 'tmux new -A -s HACK'"
+[ -x "$(command -v tmux)" ] && alias tw="[ -z $TMUX ] && tmux new -A -s WORK || tmux detach -E 'tmux new -A -s WORK'"
+[ -x "$(command -v tmux)" ] && alias tm="[ -z $TMUX ] && tmux new -A -s MEDIA || tmux detach -E 'tmux new -A -s MEDIA'"
 
 # SSL termination firefox.
 # Terminate TLS (Firefox/Chrome).
