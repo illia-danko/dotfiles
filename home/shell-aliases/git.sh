@@ -2,12 +2,6 @@
 
 # Git command line goodies.
 
-alias ga="git add"
-alias gc="git commit"
-alias gg="git pull"
-alias gp="git push"
-alias gs="git status"
-
 gd() {
     ( test "$#" -eq 0 && git diff ) || git diff "$*"
 }
@@ -26,7 +20,7 @@ lg() {
 }
 
 
-gclean() {
+gc() {
     # https://stackoverflow.com/questions/1146973/how-do-i-revert-all-local-changes-in-git-managed-project-to-previous-state#answer-42903805
     #
     # - Deletes local, non-pushed commits
@@ -40,14 +34,9 @@ gclean() {
 }
 
 # Case sensitive search.
-alias gs-changes="git log -p --all -S"
 _gmessage_search () {
     git log --all --grep="$*"
 }
-alias gs-message="_gmessage_search"
-
-# Show changes of a commit (last commit if hash is not supply).
-alias gshow="git show --color --pretty=format:%b"  # use -R to show in reverse order
 
 # Reset to revision.
 # In a normal way, it's need to:
@@ -65,5 +54,12 @@ _grevert() {
     bash -c "git apply <(git $method $hash -R $files)"
 }
 
-alias grevert-commit="_grevert show"
-alias grevert="_grevert diff"
+alias ga="git add"
+alias gc="git commit"
+alias gg="git pull"
+alias gp="git push"
+alias gs="git status"
+alias gf="git log -p --all -S"
+alias gd="_grevert show"
+alias gr="_grevert diff"
+alias gm="_gmessage_search"
