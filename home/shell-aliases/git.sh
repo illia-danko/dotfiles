@@ -20,7 +20,7 @@ lg() {
 }
 
 
-gc() {
+gclean() {
     # https://stackoverflow.com/questions/1146973/how-do-i-revert-all-local-changes-in-git-managed-project-to-previous-state#answer-42903805
     #
     # - Deletes local, non-pushed commits
@@ -60,6 +60,6 @@ alias gg="git pull"
 alias gp="git push"
 alias gs="git status"
 alias gf="git log -p --all -S"
-alias gd="_grevert show"
-alias gr="_grevert diff"
+alias gd="_grevert show"  # revert only the given hash commit
+alias gr="_grevert diff"  # revert all commits up to the given hash
 alias gm="_gmessage_search"
