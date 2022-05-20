@@ -43,6 +43,8 @@ _gmessage_search () {
 # Usage: grevert 741083d
 # Usage: grevert 741083d file1 file2
 _grevert() {
+    [ $# -lt 2 ] && >&2 echo "Commit hash should should be specified" && return 1
+
     method="$1"
     hash="$2"
     shift
@@ -60,6 +62,6 @@ alias gg="git pull"
 alias gp="git push"
 alias gs="git status"
 alias gf="git log -p --all -S"
-alias gd="_grevert show"  # revert only the given hash commit
-alias gr="_grevert diff"  # revert all commits up to the given hash
+alias gd="_grevert show"
+alias gr="_grevert diff"
 alias gm="_gmessage_search"
