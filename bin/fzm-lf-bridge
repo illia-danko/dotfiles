@@ -1,7 +1,0 @@
-#!/usr/bin/env zsh
-
-# fzm interface to 'lf'
-# Used by lf (see lfrc).
-
-source "$HOME/.fzm-marks-common.zsh"
-fzm "$*"

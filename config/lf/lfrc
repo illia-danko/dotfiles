@@ -165,7 +165,8 @@ map <c-t> fzf-jump
 
 cmd fzm ${{
     set -f
-    res="$(FZF_MARKS_COMMAND='fzf --height 100% --reverse' fzm-lf-bridge || printf '')"
-    [ -n $res ] && lf -remote "send $id select \"$res\""
+    export FZM_FZF_COMMAND='fzf --height 100% --reverse'
+    res="$(zsh -c 'source $HOME/.fzm-marks.zsh && fzm --print || echo -n')"
+    [ -n $res ] && lf -remote "send $id cd \"$res\""
 }}
 map <c-g> fzm
