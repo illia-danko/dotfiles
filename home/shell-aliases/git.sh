@@ -2,13 +2,13 @@
 
 # Git command line goodies.
 
-gd() {
+_gd() {
     ( test "$#" -eq 0 && git diff ) || git diff "$*"
 }
 
 # https://github.com/jesseduffield/lazygit
 # Automatically change path on project switching.
-lg() {
+_lg() {
     export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
 
     lazygit "$@"
@@ -20,7 +20,7 @@ lg() {
 }
 
 
-gclean() {
+_gclean() {
     # https://stackoverflow.com/questions/1146973/how-do-i-revert-all-local-changes-in-git-managed-project-to-previous-state#answer-42903805
     #
     # - Deletes local, non-pushed commits
@@ -56,12 +56,15 @@ _grevert() {
     bash -c "git apply <(git $method $hash -R $files)"
 }
 
+alias gd="_gd"
+alias lg="_lg"
+alias gclean="_gclean"
 alias ga="git add"
 alias gc="git commit"
 alias gg="git pull"
 alias gp="git push"
 alias gs="git status"
 alias gf="git log -p --all -S"
-alias gd="_grevert show"
-alias gr="_grevert diff"
+alias gu="_grevert show"  # undo a commit
+alias gr="_grevert diff"  # remove up to a hash
 alias gm="_gmessage_search"
