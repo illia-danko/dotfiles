@@ -68,3 +68,4 @@ alias gf="git log -p --all -S"
 alias gu="_grevert show"  # undo a commit
 alias gr="_grevert diff"  # remove up to a hash
 alias gm="_gmessage_search"
+alias gl="git log --pretty=format:'%h%x09%an%x09%ad%x09%s'"
