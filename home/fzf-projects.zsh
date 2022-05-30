@@ -21,33 +21,33 @@
 
 # Search for local git projects using fdfind and fzf commands.
 
-[ -z "${FZM_ROOT_DIR-}" ] && FZM_ROOT_DIR="$HOME"
-[ -z "${FZM_FD_COMMAND-}" ] && FZM_FD_COMMAND="fdfind --hidden --case-sensitive --absolute-path --exec echo '{//}' ';' '^\.git$' ${FZM_ROOT_DIR}"
-[ -z "${FZM_FZF_COMMAND-}" ] && FZM_FZF_COMMAND="fzf"
-[ -z "${FZM_NO_COLORS-}" ] && FZM_NO_COLORS="0"
-[ -z "${FZM_MATCH_COLOR-}" ] && FZM_MATCH_COLOR="33"  # yellow
+[ -z "${FZF_PROJECTS_ROOT_DIR-}" ] && FZF_PROJECTS_ROOT_DIR="$HOME"
+[ -z "${FZF_PROJECTS_FD_COMMAND-}" ] && FZF_PROJECTS_FD_COMMAND="fdfind --hidden --case-sensitive --absolute-path --exec echo '{//}' ';' '^\.git$' ${FZF_PROJECTS_ROOT_DIR}"
+[ -z "${FZF_PROJECTS_FZF_COMMAND-}" ] && FZF_PROJECTS_FZF_COMMAND="fzf"
+[ -z "${FZF_PROJECTS_NO_COLORS-}" ] && FZF_PROJECTS_NO_COLORS="0"
+[ -z "${FZF_PROJECTS_MATCH_COLOR-}" ] && FZF_PROJECTS_MATCH_COLOR="33"  # yellow
 
 # Ensure precmds are run after cd.
-function fzm_redraw_prompt {
+function fzf_projects_redraw_prompt {
     local precmd
     for precmd in $precmd_functions; do
         $precmd
     done
     zle reset-prompt
 }
-zle -N fzm_redraw_prompt
+zle -N fzf_projects_redraw_prompt
 
-function _fzm_color {
-    [ "${FZM_NO_COLORS-}" -eq "1" ] && cat && return
+function _fzf_projects_color {
+    [ "${FZF_PROJECTS_NO_COLORS-}" -eq "1" ] && cat && return
     local esc="$(printf '\033')"
-    sed "s/\(.*\)/${esc}[${FZM_MATCH_COLOR}m\1${esc}[0;0m/"
+    sed "s/\(.*\)/${esc}[${FZF_PROJECTS_MATCH_COLOR}m\1${esc}[0;0m/"
 }
 
-function fzm {
-    local line=$(eval ${FZM_FD_COMMAND} | _fzm_color | eval ${FZM_FZF_COMMAND} \
+function fzf_projects {
+    local line=$(eval ${FZF_PROJECTS_FD_COMMAND} | _fzf_projects_color | eval ${FZF_PROJECTS_FZF_COMMAND} \
         --ansi)
     if [[ -z "$line" ]]; then
-        zle && zle fzm_redraw_prompt
+        zle && zle fzf_projects_redraw_prompt
         return 1
     fi
 
@@ -58,9 +58,9 @@ function fzm {
     else
         cd "$line"
     fi
-    zle && zle fzm_redraw_prompt || true
+    zle && zle fzf_projects_redraw_prompt || true
 }
 
-zle -N fzm
+zle -N fzf_projects
 
-bindkey ${FZM_TRIGGER_KEYMAP:-'^g'} fzm
+bindkey ${FZF_PROJECTS_TRIGGER_KEYMAP:-'^g'} fzf_projects
