@@ -22,3 +22,4 @@ fi
 [ -x "$(command -v dmesg)" ] && alias dmesg='dmesg --color=always | less'
 [ -x "$(command -v clj)" ] && alias clj-repl="clj -M:cider/nrepl"
 [ -x "$(command -v fdfind)" ] && alias fd="fdfind"
+[ -x "$(command -v neomutt)" ] && alias mutt="neomutt"
