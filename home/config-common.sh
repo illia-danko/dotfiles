@@ -17,7 +17,7 @@ export BROWSER="xdg-open-silently"
 # Override man command.
 man() {
     # Show an error if not a manual found.
-    /usr/bin/man -k "^$1\$" > /dev/null 2>&1 || /usr/bin/man "$1" || return
+    /usr/bin/man "$*" > /dev/null 2>&1 || /usr/bin/man "$*" || return
     nvim -c "Man $*" -c "only"
 }
 
