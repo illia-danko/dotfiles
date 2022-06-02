@@ -49,7 +49,7 @@ function fzf-projects {
     eval ${FZF_PROJECTS_FD_COMMAND} | _fzf_projects_color | fzf \
         --ansi \
         --prompt "${FZF_PROJECTS_PROMPT}" \
-        --bind "enter:execute(echo {} >> $tmp_fd)+cancel"
+        --bind "enter:execute(echo {} >> $tmp_fd)+abort"
 
     local mb_dir="$(cat $tmp_fd)"
     rm -rf "$tmp_fd"
