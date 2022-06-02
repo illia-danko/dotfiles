@@ -166,7 +166,7 @@ map <c-t> fzf-jump
 cmd fzf-projects ${{
     set -f
     export FZF_PROJECTS_FZF_COMMAND='fzf --height 100% --reverse'
-    res="$(zsh -c 'source $HOME/.fzf-projects.zsh && fzf_projects --print || echo -n')"
+    res="$(zsh -c 'source $HOME/.fzf-projects.zsh && fzf-projects --print || echo -n')"
     [ -n $res ] && lf -remote "send $id cd \"$res\""
 }}
 map <c-g> fzf-projects

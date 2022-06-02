@@ -53,7 +53,15 @@ function fzf-projects {
 
     local mb_dir="$(cat $tmp_fd)"
     rm -rf "$tmp_fd"
-    [ -d "$mb_dir" ] && cd "$mb_dir"
+    if [ -d "$mb_dir" ]; then
+        if [ "$#" -gt 0 ]; then
+            case $1 in
+                '--print') printf "%s\n" "$mb_dir";;
+            esac
+        else
+            cd "$mb_dir"
+        fi
+    fi
 
     zle && zle fzf_projects_redraw_prompt || true
 }
