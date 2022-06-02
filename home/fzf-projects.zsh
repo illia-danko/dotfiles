@@ -23,9 +23,9 @@
 
 [ -z "${FZF_PROJECTS_ROOT_DIR-}" ] && FZF_PROJECTS_ROOT_DIR="$HOME"
 [ -z "${FZF_PROJECTS_FD_COMMAND-}" ] && FZF_PROJECTS_FD_COMMAND="fdfind --hidden --case-sensitive --absolute-path --exec echo '{//}' ';' '^\.git$' ${FZF_PROJECTS_ROOT_DIR}"
-[ -z "${FZF_PROJECTS_FZF_COMMAND-}" ] && FZF_PROJECTS_FZF_COMMAND="fzf"
 [ -z "${FZF_PROJECTS_NO_COLORS-}" ] && FZF_PROJECTS_NO_COLORS="0"
 [ -z "${FZF_PROJECTS_MATCH_COLOR-}" ] && FZF_PROJECTS_MATCH_COLOR="33"  # yellow
+[ -z "${FZF_PROJECTS_PROMPT-}" ] && FZF_PROJECTS_PROMPT='Projects> '
 
 # Ensure precmds are run after cd.
 function fzf_projects_redraw_prompt {
@@ -43,24 +43,21 @@ function _fzf_projects_color {
     sed "s/\(.*\)/${esc}[${FZF_PROJECTS_MATCH_COLOR}m\1${esc}[0;0m/"
 }
 
-function fzf_projects {
-    local line=$(eval ${FZF_PROJECTS_FD_COMMAND} | _fzf_projects_color | eval ${FZF_PROJECTS_FZF_COMMAND} \
-        --ansi)
-    if [[ -z "$line" ]]; then
-        zle && zle fzf_projects_redraw_prompt
-        return 1
-    fi
+function fzf-projects {
+    local tmp_fd=$(mktemp --suffix .fzf-project)
 
-    if [ "$#" -gt 0 ]; then
-        case $1 in
-            '--print') printf "%s\n" "$line";;
-        esac
-    else
-        cd "$line"
-    fi
+    eval ${FZF_PROJECTS_FD_COMMAND} | _fzf_projects_color | fzf \
+        --ansi \
+        --prompt "${FZF_PROJECTS_PROMPT}" \
+        --bind "enter:execute(echo {} >> $tmp_fd)+cancel"
+
+    local mb_dir="$(cat $tmp_fd)"
+    rm -rf "$tmp_fd"
+    [ -d "$mb_dir" ] && cd "$mb_dir"
+
     zle && zle fzf_projects_redraw_prompt || true
 }
 
-zle -N fzf_projects
+zle -N fzf-projects
 
-bindkey ${FZF_PROJECTS_TRIGGER_KEYMAP:-'^g'} fzf_projects
+bindkey ${FZF_PROJECTS_TRIGGER_KEYMAP:-'^g'} fzf-projects
