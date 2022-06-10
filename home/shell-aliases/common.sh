@@ -23,3 +23,4 @@ fi
 [ -x "$(command -v clj)" ] && alias clj-repl="clj -M:cider/nrepl"
 [ -x "$(command -v fdfind)" ] && alias fd="fdfind"
 [ -x "$(command -v neomutt)" ] && alias mutt="neomutt"
+[ -x "$(command -v emacs)" ] && alias es="pkill emacs | true; emacs --daemon"
