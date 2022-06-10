@@ -4,15 +4,15 @@
 [init]
     defaultBranch = master
 [core]
-    editor = emacsclient -nw
+    editor = emacs-runner
 [diff]
     tool = ediff
 [difftool "ediff"]
-    cmd = emacsclient -nw --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$REMOTE\\\")\"
+    cmd = emacs-runner -nw --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$REMOTE\\\")\"
 [merge]
     tool = ediff
 [mergetool "ediff"]
-    cmd = emacsclient -nw --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$BASE\\\" \\\"$REMOTE\\\" \\\"$MERGED\\\")\"
+    cmd = emacs-runner -nw --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$BASE\\\" \\\"$REMOTE\\\" \\\"$MERGED\\\")\"
 
 [includeIf "gitdir:~/gitlab.com/"]
     path = ~/.gitconfig-gitlab
