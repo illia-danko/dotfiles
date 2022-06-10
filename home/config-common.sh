@@ -19,6 +19,9 @@ export BROWSER="xdg-open-silently"
 # - hide-mode-line-mode is used to hide modeline.
 # Override man command.
 man() {
+    # Print message if no manual found.
+    /usr/bin/man "$*" > /dev/null 2>&1 || /usr/bin/man "$*" || return
+
     emacs-runner -e "(progn
                       (man \"$1\")
                       (delete-window)
