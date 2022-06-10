@@ -8,11 +8,11 @@
 [diff]
     tool = ediff
 [difftool "ediff"]
-    cmd = emacs-runner -nw --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$REMOTE\\\")\"
+    cmd = emacs-runner --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$REMOTE\\\")\"
 [merge]
     tool = ediff
 [mergetool "ediff"]
-    cmd = emacs-runner -nw --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$BASE\\\" \\\"$REMOTE\\\" \\\"$MERGED\\\")\"
+    cmd = emacs-runner --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$BASE\\\" \\\"$REMOTE\\\" \\\"$MERGED\\\")\"
 
 [includeIf "gitdir:~/gitlab.com/"]
     path = ~/.gitconfig-gitlab
