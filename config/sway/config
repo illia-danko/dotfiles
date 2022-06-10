@@ -7,10 +7,10 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term alacritty -e sh -c "tmux list-sessions && tmux attach -t TMUX || tmux new -s TMUX"
-set $term2 alacritty
+set $term tilix --maximize -e sh -c "tmux new -d -s HACK; tmux new -d -s WORK; tmux new -d -s MEDIA; tmux attach -t HACK"
+set $term2 tilix
 set $browser firefox
-set $menu wofi --show run 
+set $menu wofi --show run
 
 # Output.
 exec "$HOME/.config/sway/adjust-screen.sh" "1"
@@ -110,7 +110,7 @@ gaps {
 # Window rules.
 for_window [title="Firefox — Sharing Indicator"] floating enable
 for_window [tiling] border pixel 2 # disable title bar
-assign [app_id="Alacritty"] workspace 1
+assign [app_id="Tilix"] workspace 1
 assign [app_id="firefox"] workspace 2
 
 # Appearance.

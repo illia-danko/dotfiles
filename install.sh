@@ -37,10 +37,8 @@ deb_repository_init() {
     curl -fsSL https://deb.nodesource.com/setup_16.x | sudo bash -
     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
     echo \
-  "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-  focal stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    sudo add-apt-repository ppa:mmstick76/alacritty
-
+        "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
+        focal stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
     sudo apt update
 }
 
@@ -100,6 +98,12 @@ editor() {
     echo "Configuring editor..."
     rm -rf "$path"
     git clone "git@github.com:elijahdanko/dot-emacs.git" "$path"
+    echo "Done"
+}
+
+terminal() {
+    echo "Configuring terminal..."
+    dconf load /com/gexperts/Tilix/ < "$script_dir"/misc/tilix/tilix.dconf
     echo "Done"
 }
 
@@ -244,6 +248,7 @@ config() {
     sudo usermod -a -G wireshark "$USER"
 
     editor
+    terminal
 }
 
 
