@@ -59,7 +59,7 @@ function fzf-projects {
     eval ${FZF_PROJECTS_FD_COMMAND} | _fzf_projects_color | fzf \
         --ansi \
         --prompt "${FZF_PROJECTS_PROMPT}" \
-        --preview="tree -L 1 {}" \
+        --preview="tree -C -L 1 {}" \
         --preview-window=$(_fzf_projects_preview_window) \
         --bind "enter:execute(echo {} >> $tmp_fd)+abort"
 
