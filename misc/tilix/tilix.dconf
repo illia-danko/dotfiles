@@ -79,9 +79,9 @@ default='0e12e39d-7a37-4f94-bb5d-f53eb60a9a04'
 list=['2b7c4080-0ddd-46c5-8f23-563fd3ba789d', '0e12e39d-7a37-4f94-bb5d-f53eb60a9a04']
 
 [profiles/0e12e39d-7a37-4f94-bb5d-f53eb60a9a04]
-background-color='#272822'
+background-color='#000000'
 background-transparency-percent=0
-badge-color='#AC7EA8'
+badge-color='#ffffff'
 badge-color-set=false
 bold-color-set=false
 bold-is-bright=false
@@ -91,10 +91,10 @@ custom-hyperlinks=@as []
 default-size-columns=511
 default-size-rows=511
 font='Iosevka Medium 11'
-foreground-color='#F8F8F2'
+foreground-color='#ffffff'
 highlight-colors-set=false
 login-shell=true
-palette=['#272822', '#F92672', '#A6E22E', '#F4BF75', '#66D9EF', '#AE81FF', '#A1EFE4', '#F8F8F2', '#75715E', '#F92672', '#A6E22E', '#F4BF75', '#66D9EF', '#AE81FF', '#A1EFE4', '#F9F8F5']
+palette=['#ffffff', '#ff8059', '#44bc44', '#d0bc00', '#2fafff', '#feacd0', '#00d3d0', '#a6a6a6', '#595959', '#ef8b50', '#00c06f', '#c0c530', '#79a8ff', '#b6a0ff', '#6ae4b9', '#000000']
 scrollback-unlimited=false
 terminal-bell='none'
 terminal-title='${process}'
