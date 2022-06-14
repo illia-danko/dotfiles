@@ -16,3 +16,5 @@ bind-key l open
 bind-key c toggle-show-read-feeds
 
 browser "xdg-open-silently"
+
+include /usr/share/doc/newsboat/contrib/colorschemes/plain
