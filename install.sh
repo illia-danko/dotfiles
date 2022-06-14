@@ -39,6 +39,8 @@ deb_repository_init() {
     echo \
         "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
         focal stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+    sudo add-apt-repository ppa:mmstick76/alacritty
+
     sudo apt update
 }
 
@@ -93,17 +95,11 @@ aur_packages() {
 }
 
 editor() {
-    path="$HOME/.emacs.d/"
+    path="${XDG_CONFIG_HOME}/nvim"
     [ -d "$path" ] && return
     echo "Configuring editor..."
     rm -rf "$path"
-    git clone "git@github.com:elijahdanko/dot-emacs.git" "$path"
-    echo "Done"
-}
-
-terminal() {
-    echo "Configuring terminal..."
-    dconf load /com/gexperts/Tilix/ < "$script_dir"/misc/tilix/tilix.dconf
+    git clone "git@github.com:elijahdanko/dot-nvim.git" "${XDG_CONFIG_HOME}/nvim"
     echo "Done"
 }
 
@@ -121,10 +117,11 @@ github_packages() {
 
 sub_packages() {
     echo "Sub packages..."
-    sudo npm install -g typescript typescript-language-server eslint prettier
-    sudo -H python3 -m pip install --upgrade pip pyright virtualenv yapf flake8
+    sudo npm install -g typescript typescript-language-server eslint prettier neovim
+    sudo -H python3 -m pip install --upgrade pip pyright virtualenv yapf flake8 pynvim
     go install golang.org/x/tools/gopls@latest
     go install golang.org/x/tools/cmd/goimports@latest
+    go install github.com/gokcehan/lf@latest
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
     sudo curl https://dl.min.io/client/mc/release/linux-amd64/mc --output /usr/local/bin/mcli && sudo chmod +x /usr/local/bin/mcli
     echo "Done"
@@ -248,7 +245,6 @@ config() {
     sudo usermod -a -G wireshark "$USER"
 
     editor
-    terminal
 }
 
 

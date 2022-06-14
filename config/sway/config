@@ -7,7 +7,7 @@ set $left h
 set $down j
 set $up k
 set $right l
-set $term tilix --maximize -e sh -c "tmux new -d -s HACK; tmux new -d -s WORK; tmux new -d -s MEDIA; tmux attach -t HACK"
+set $term alacritty -e sh -c "tmux new -d -s HACK; tmux new -d -s WORK; tmux new -d -s MEDIA; tmux attach -t HACK"
 set $term2 tilix
 set $browser firefox
 set $menu wofi --show run
@@ -110,7 +110,7 @@ gaps {
 # Window rules.
 for_window [title="Firefox — Sharing Indicator"] floating enable
 for_window [tiling] border pixel 2 # disable title bar
-assign [app_id="Tilix"] workspace 1
+assign [app_id="Alacritty"] workspace 1
 assign [app_id="firefox"] workspace 2
 
 # Appearance.
@@ -128,7 +128,6 @@ bar {
 set $gnome-schema org.gnome.desktop.interface
 
 exec {
-    "pkill emacs | true; emacs --daemon"
     swayidle -w timeout 300 'swaylock'
     swayidle -w timeout 600 'swaymsg "output * dpms off"' \
 	         resume 'swaymsg "output * dpms on"'
@@ -139,3 +138,4 @@ exec {
 }
 
 include /etc/sway/config.d/*
+

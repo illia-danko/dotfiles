@@ -14,6 +14,7 @@ docker-ce  # from docker repo
 docker-ce-cli  # from docker repo
 containerd.io  # from docker repo
 virt-manager
+alacritty  # from alacritty repo
 subversion
 nodejs  # from custom repo
 yarn  # from custom repo

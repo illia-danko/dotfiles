@@ -46,18 +46,6 @@ _grevert() {
     bash -c "git apply <(git $method $hash -R $files)"
 }
 
-_gl() {
-    _g_inside_work_tree_p || (>&2 echo "Not in git repo."; return 1)
-    cmd="(progn
-           (magit-log-all)
-           (delete-other-windows))"
-    [ "$#" -eq 1 ] && cmd="(progn
-                             (find-file \"$1\")
-                             (magit-log-buffer-file)
-                             (delete-other-windows))"
-    emacs-runner -e "$cmd"
-}
-
 alias gd="_gd"
 alias gclean="_gclean"
 alias ga="git add"
@@ -69,4 +57,4 @@ alias gf="git log -p --all -S"
 alias gu="_grevert show"  # undo a commit
 alias gr="_grevert diff"  # remove up to a hash
 alias gm="_gmessage_search"
-alias gl="_gl"
+alias gl="git log --pretty=format:'%h%x09%an%x09%ad%x09%s'"
