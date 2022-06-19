@@ -19,10 +19,11 @@
 # SOFTWARE.
 #
 
-# Search for local git projects using fdfind and fzf commands.
+# Search for local git projects using fd(find) and fzf commands.
 
+[ -x "$(command -v fd)" ] && cmd="fd" || cmd="fdfind"
 [ -z "${FZF_PROJECTS_ROOT_DIR-}" ] && FZF_PROJECTS_ROOT_DIR="$HOME"
-[ -z "${FZF_PROJECTS_FD_COMMAND-}" ] && FZF_PROJECTS_FD_COMMAND="fdfind --hidden --case-sensitive --absolute-path --exec echo '{//}' ';' '^\.git$' ${FZF_PROJECTS_ROOT_DIR}"
+[ -z "${FZF_PROJECTS_FD_COMMAND-}" ] && FZF_PROJECTS_FD_COMMAND="$cmd --hidden --case-sensitive --absolute-path --exec echo '{//}' ';' '^\.git$' ${FZF_PROJECTS_ROOT_DIR}"
 [ -z "${FZF_PROJECTS_NO_COLORS-}" ] && FZF_PROJECTS_NO_COLORS="0"
 [ -z "${FZF_PROJECTS_MATCH_COLOR-}" ] && FZF_PROJECTS_MATCH_COLOR="34"
 [ -z "${FZF_PROJECTS_PREVIEW_CONFIG-}" ] && FZF_PROJECTS_PREVIEW_CONFIG="nohidden|hidden,down"
