@@ -8,7 +8,7 @@ set $down j
 set $up k
 set $right l
 set $term alacritty -e sh -c "tmux new -d -s HACK; tmux new -d -s WORK; tmux new -d -s MEDIA; tmux attach -t HACK"
-set $term2 tilix
+set $term2 alacritty
 set $browser firefox
 set $menu wofi --show run
 
