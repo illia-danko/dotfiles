@@ -24,7 +24,7 @@ qemu # required by libvrit
 dnsmasq # required by libvrit
 dmidecode # required by libvrit
 bc
-wofi
+bemenu
 xdg-utils # xdg-open
 xdg-desktop-portal-wlr
 xdg-desktop-portal
@@ -58,3 +58,6 @@ ttf-roboto  # required by waybar
 ttf-roboto-mono  # required by waybar
 tree  # required by fzf-projects
 fd  # required by fzf-projects
+usbutils  # lsusb
+mtpfs  # android mtp
+gvfs-mtp  # android mtp

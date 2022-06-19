@@ -10,7 +10,7 @@ window#waybar {
     border: 2px solid #0184bc;
     color: #383a42;
     transition-property: background-color;
-    transition-duration: .5s;
+    transition-duration: 0.5s;
     border-radius: 14;
 }
 
@@ -77,7 +77,6 @@ window#waybar.chromium {
 #mode {
     background-color: #a626a4;
 }
-
 
 #window,
 #workspaces {
