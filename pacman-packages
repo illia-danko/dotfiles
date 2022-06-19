@@ -56,3 +56,4 @@ waybar
 otf-font-awesome  # required by waybar
 ttf-roboto  # required by waybar
 ttf-roboto-mono  # required by waybar
+tree  # required by fzf-projects
