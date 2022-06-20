@@ -24,7 +24,6 @@ man() {
 export CLIPBOARD_COPY_COMMAND="wl-copy"
 [ "$XDG_SESSION_TYPE" = "x11" ] && export CLIPBOARD_COPY_COMMAND="xclip -selection c"
 export OPENER=run-mailcap # open/preview with mailcap (using by lf)
-[ -f "/etc/arch-release" ] && export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
 my_github="$HOME/github.com/elijahdanko"
 

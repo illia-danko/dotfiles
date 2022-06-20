@@ -17,25 +17,14 @@ shellcheck
 nodejs-lts-gallium # nodejs 16 lts
 npm
 yarn
-wl-clipboard # wayland/sway specific
 pandoc
 virt-manager  # required by libvirt
 qemu # required by libvrit
 dnsmasq # required by libvrit
 dmidecode # required by libvrit
 bc
-bemenu
-xdg-utils # xdg-open
-xdg-desktop-portal-wlr
-xdg-desktop-portal
-pipewire-pulse
-pulsemixer # sound cli interface
 yt-dlp  # youtube-dl fork
 mpv  # video player
-slurp  # select regeion on Wayland
-wf-recorder  # audio and screen recording for Wayland
-xfce4-settings  # for xfce4-appearance-settings
-thunar  # gui file manager
 kubectl
 minio-client
 libpcap
@@ -43,21 +32,10 @@ mosquitto
 openresolv
 wireguard-tools
 cmake
-brightnessctl
-mako  # notification service
 pigz  # required by docker
 docker
 wireshark-qt
-qt5-wayland
-swaylock  # see sway/config
-swayidle  # see sway/config
-imv  # image viewer
-waybar
-otf-font-awesome  # required by waybar
-ttf-roboto  # required by waybar
-ttf-roboto-mono  # required by waybar
 tree  # required by fzf-projects
 fd  # required by fzf-projects
 usbutils  # lsusb
-mtpfs  # android mtp
-gvfs-mtp  # android mtp
+xclip

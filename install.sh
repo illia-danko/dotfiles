@@ -90,16 +90,16 @@ aur_packages() {
 
     echo "Aur packages..."
     read -ra pkgs <<< "$(cat "$script_dir/aur-packages" | tr '\n' ' ')"
-    walk_packages "makepkg -si" "${pkgs[@]}"
+    walk_packages "makepkg -si --noconfirm" "${pkgs[@]}"
     echo "Done"
 }
 
 editor() {
-    path="${XDG_CONFIG_HOME}/nvim"
+    path="$HOME/.config/nvim"
     [ -d "$path" ] && return
     echo "Configuring editor..."
     rm -rf "$path"
-    git clone "git@github.com:elijahdanko/dot-nvim.git" "${XDG_CONFIG_HOME}/nvim"
+    git clone "git@github.com:elijahdanko/dot-nvim.git" "$HOME/.config/nvim"
     echo "Done"
 }
 
@@ -191,18 +191,11 @@ os() {
     copy_root_files "$script_dir/root"
     if [ -n "$is_archlinux" ]; then
         os_fix_laptop_lid_suspend
-        # fix fonts
-        eval "sudo ln -sf /etc/fonts/conf.avail/70-no-bitmaps.conf /etc/fonts/conf.d"
-        eval "sudo ln -sf /etc/fonts/conf.avail/10-sub-pixel-rgb.conf /etc/fonts/conf.d"
-        eval "sudo ln -sf /etc/fonts/conf.avail/11-lcdfilter-default.conf /etc/fonts/conf.d"
-        # Uncomment 'export FREETYPE_PROPERTIES'...
-        sudo perl -pi -e 's/#\s?(export FREETYPE_PROPERTIES)=(.+)/\1=\2/;' /etc/profile.d/freetype2.sh
-
-        # Fix `libvirt` DNS (used by dnsmasq).
-        nameservers=("nameserver 1.1.1.1" "nameserver 8.8.8.8" "nameserver 8.8.4.4")
-        for ns in "${nameservers[@]}"; do
-            append_to /etc/resolv.conf "$ns"
-        done
+        # # Fix `libvirt` DNS (used by dnsmasq).
+        # nameservers=("nameserver 1.1.1.1" "nameserver 8.8.8.8" "nameserver 8.8.4.4")
+        # for ns in "${nameservers[@]}"; do
+        #     append_to /etc/resolv.conf "$ns"
+        # done
     fi
 }
 
@@ -233,9 +226,7 @@ config() {
         echo "Configure archlinux settings..."
         sudo usermod -a -G libvirt "$USER"
         sudo systemctl enable libvirtd.service
-        sudo virsh net-autostart default  # libvirt connection
         sudo systemctl enable docker.service
-        systemctl enable ssh-agent.service --user
         echo "Done"
     fi
 
@@ -245,6 +236,11 @@ config() {
     sudo usermod -a -G wireshark "$USER"
 
     editor
+}
+
+# Steps are required after reboot.
+post_config() {
+    sudo virsh net-autostart default  # libvirt connection
 }
 
 
@@ -263,5 +259,6 @@ case "$1" in
     config-common) config_common;;
     config-ssh) config_ssh;;
     config) config;;
+    post-config) post_config;;
     *) >&2 echo "'$1' entry is not defined." && exit 1;;
 esac
