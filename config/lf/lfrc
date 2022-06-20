@@ -130,7 +130,7 @@ cmd copy-clipboard ${{
 }}
 
 # Create a directory.
-map + push %mkdir<space>
+map + push %mkdir<space>-p<space>
 
 # Delete m mapping.
 map m
