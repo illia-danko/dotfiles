@@ -10,14 +10,8 @@ silversearcher-ag
 xclip
 ripgrep
 libvterm-dev
-docker-ce  # from docker repo
-docker-ce-cli  # from docker repo
-containerd.io  # from docker repo
 virt-manager
-alacritty  # from alacritty repo
 subversion
-nodejs  # from custom repo
-yarn  # from custom repo
 wireguard-tools
 parcellite
 dconf-editor
@@ -33,14 +27,8 @@ libpcap-dev
 pandoc
 cmake
 clangd
-python3-pip
 newsboat
-urlview # used by neomutt
-pass  # used by neomutt
-isync  #used by neomutt
-msmtp  # used by neomutt
-lynx  # used by neomutt
-neomutt
+python3-pip
 anki
 mplayer  # used by anki
 ffmpeg

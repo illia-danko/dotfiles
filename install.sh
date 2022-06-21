@@ -34,14 +34,9 @@ url2dir() {
 }
 
 deb_repository_init() {
-    curl -fsSL https://deb.nodesource.com/setup_16.x | sudo bash -
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
-    echo \
-        "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu \
-        focal stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
-    sudo add-apt-repository ppa:mmstick76/alacritty
-
-    sudo apt update
+    for receipt in "$script_dir/debian/"*PKGCONFIG; do
+        bash "$receipt"
+    done
 }
 
 distro_packages() {
@@ -231,8 +226,8 @@ config() {
         echo "Done"
     fi
 
-    # chsh -s "$(which zsh)"
-    # sudo chsh -s "$(which zsh)"
+    chsh -s "$(which zsh)"
+    sudo chsh -s "$(which zsh)"
     sudo usermod -a -G docker "$USER"
     sudo usermod -a -G wireshark "$USER"
 
