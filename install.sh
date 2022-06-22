@@ -215,12 +215,13 @@ config() {
     config_home
     config_common
     config_ssh
-    os
     editor
 }
 
 # Steps are required after reboot.
 post_config() {
+    os
+
     if [ -n "$is_archlinux" ]; then
         echo "Configure archlinux settings..."
         sudo usermod -a -G libvirt "$USER"
