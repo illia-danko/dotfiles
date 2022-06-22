@@ -5,9 +5,10 @@ shellcheck
 rlwrap
 sbcl
 net-tools
-fd-find # fd
+fd-find  # fd
 silversearcher-ag
 xclip
+wl-clipboard  # reqired by xclip
 ripgrep
 libvterm-dev
 virt-manager
