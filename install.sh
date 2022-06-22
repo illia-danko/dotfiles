@@ -33,7 +33,7 @@ url2dir() {
     echo "$1" | perl -pe 's/\.git$//;' -pe 's/^(https?:\/\/|git@)//;' -pe 's/:/\//g;'
 }
 
-deb_repository_init() {
+deb_packages() {
     for receipt in "$script_dir/debian/"*PKGCONFIG; do
         bash "$receipt"
     done
@@ -48,7 +48,7 @@ distro_packages() {
         packages_file="$script_dir/pacman-packages"
         install_cmd="sudo pacman -S --noconfirm"
     else
-        deb_repository_init
+        deb_packages
     fi
 
     read -ra pkgs <<< "$(awk '{print $1}' "$packages_file" | \
