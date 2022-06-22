@@ -90,9 +90,11 @@ aur_packages() {
 }
 
 editor() {
-    path="$HOME/.config/nvim"
-    [ -d "$path" ] && return
     echo "Configuring editor..."
+    dconf load "/org/gnome/terminal/" < "$script_dir/assets/gnome-terminal.conf"
+
+    path="$HOME/.config/nvim"
+    [ -d "$path" ] && echo "Done"; return
     rm -rf "$path"
     git clone "git@github.com:elijahdanko/dot-nvim.git" "$HOME/.config/nvim"
     echo "Done"
