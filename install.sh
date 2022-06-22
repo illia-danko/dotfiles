@@ -184,7 +184,6 @@ copy_root_files() {
 
 os() {
     eval "$script_dir/bin/mod-switch win-alt"  # swap RAlt with RWin
-    copy_root_files "$script_dir/root"
     if [ -n "$is_archlinux" ]; then
         os_fix_laptop_lid_suspend
         # # Fix `libvirt` DNS (used by dnsmasq).
@@ -217,7 +216,11 @@ config() {
     config_common
     config_ssh
     os
+    editor
+}
 
+# Steps are required after reboot.
+post_config() {
     if [ -n "$is_archlinux" ]; then
         echo "Configure archlinux settings..."
         sudo usermod -a -G libvirt "$USER"
@@ -230,12 +233,6 @@ config() {
     sudo chsh -s "$(which zsh)"
     sudo usermod -a -G docker "$USER"
     sudo usermod -a -G wireshark "$USER"
-
-    editor
-}
-
-# Steps are required after reboot.
-post_config() {
     sudo virsh net-autostart default  # libvirt connection
 }
 
