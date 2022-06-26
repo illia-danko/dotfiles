@@ -33,3 +33,4 @@ python3-pip
 anki
 mplayer  # used by anki
 ffmpeg
+p7zip-rar
