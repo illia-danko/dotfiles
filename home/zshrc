@@ -47,7 +47,6 @@ setopt interactivecomments    # enable hash comment command
 [ -f ~/.fzf-notes.zsh ] && . ~/.fzf-notes.zsh
 [ -d ~/.shell-aliases ] &&  for f in ~/.shell-aliases/*.sh; do . $f; done
 [ -x "$(command -v kubectl)" ] && . <(kubectl completion zsh)
-[ -f ~/.mutt.env ] && . ~/.mutt.env
 
 # ------------------------------------------------------------------------------
 [ -f "$HOME/.config-common.sh" ] && . "$HOME/.config-common.sh"
