@@ -46,6 +46,19 @@ _grevert() {
     bash -c "git apply <(git $method $hash -R $files)"
 }
 
+# https://github.com/jesseduffield/lazygit
+# Automatically change path on project switching.
+_lg() {
+    export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
+
+    lazygit "$@"
+
+    if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
+        cd "$(cat $LAZYGIT_NEW_DIR_FILE)" || true
+        rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
+    fi
+}
+
 alias gd="_gd"
 alias gclean="_gclean"
 alias ga="git add"
@@ -58,3 +71,4 @@ alias gu="_grevert show"  # undo a commit
 alias gr="_grevert diff"  # remove up to a hash
 alias gm="_gmessage_search"
 alias gl="git log --pretty=format:'%h%x09%an%x09%ad%x09%s'"
+alias lg="_lg"
