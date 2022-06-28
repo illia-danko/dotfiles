@@ -1,5 +1,0 @@
-http://rss.cnn.com/rss/cnn_topstories.rss news "~CNN Top Stories"
-https://norvig.com/rss-feed.xml blog "~Peter Norvig"
-http://nullprogram.com/feed/ blog "~Chris Wellons"
-https://blog.golang.org/feed.atom blog "~Goland Official Blog"
-https://github.com/gokcehan/lf/commits/master.atom github "~gokcehan/lf (Github)"
