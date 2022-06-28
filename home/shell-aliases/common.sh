@@ -15,7 +15,7 @@ fi
 [ -x "$(command -v bc)" ] && alias bc="bc -l"
 [ -x "$(command -v rlwrap)" ] && [ -x "$(command -v sbcl)" ] && alias sbcl="rlwrap sbcl"
 [ -x "$(command -v rlwrap)" ] && [ -x "$(command -v bb)" ] && alias bb-repl="rlwrap bb --nrepl-server"
-[ -x "$(command -v clj)" ] && alias repl="clj -M:cider/nrepl"
+[ -x "$(command -v clj)" ] && alias clj-repl="clj -M:cider/nrepl"
 [ -x "$(command -v rlwrap)" ] && [ -x "$(command -v bb)" ] && alias bb="rlwrap bb"
 [ -x "$(command -v newsboat)" ] && alias nb="newsboat"
 [ -x "$(command -v todo.sh)" ] && alias t="todo.sh"
