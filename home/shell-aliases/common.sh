@@ -11,7 +11,6 @@ if [ -x "$(command -v ls)" ]; then
     [ "$(uname)" = "Linux" ] && alias ls='ls --color=auto'
     [ "$(uname)" = "Darwin" ] && alias ls='ls -G'
 fi
-[ -x "$(command -v nvim)" ] && alias vim="nvim"
 [ -x "$(command -v bc)" ] && alias bc="bc -l"
 [ -x "$(command -v rlwrap)" ] && [ -x "$(command -v sbcl)" ] && alias sbcl="rlwrap sbcl"
 [ -x "$(command -v rlwrap)" ] && [ -x "$(command -v bb)" ] && alias bb-repl="rlwrap bb --nrepl-server"
@@ -22,4 +21,3 @@ fi
 [ -x "$(command -v dmesg)" ] && alias dmesg='dmesg --color=always | less'
 [ -x "$(command -v clj)" ] && alias clj-repl="clj -M:cider/nrepl"
 [ -x "$(command -v fdfind)" ] && alias fd="fdfind"
-[ -x "$(command -v neomutt)" ] && alias mutt="neomutt"

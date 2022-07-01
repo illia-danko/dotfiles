@@ -51,7 +51,6 @@ my_github="$HOME/github.com/elijahdanko"
 [ -d "$HOME/.cargo/bin" ] && export PATH="$HOME/.cargo/bin:$PATH"
 [ -x "$(command -v minikube)" ] && eval '$(minikube docker-env)'
 [ -x "$(command -v bat)" ] && export BAT_STYLE="plain"  # Using by Bat previewer.
-[ -x "$(command -v gpg)" ] && export GPG_TTY="$(tty)"  # Using by vim-gnupg
 [ -x "$(command -v shellcheck)" ] && export SHELLCHECK_OPTS='--shell=sh --exclude=SC1090,SC2139,SC2155'
 [ -x "$(command -v tmux)" ] && alias tt="[ -z $TMUX ] && tmux new -A -s HACK || tmux detach -E 'tmux new -A -s HACK'"
 [ -x "$(command -v tmux)" ] && alias tw="[ -z $TMUX ] && tmux new -A -s WORK || tmux detach -E 'tmux new -A -s WORK'"
@@ -85,5 +84,3 @@ if [ -x "$(command -v fzf)" ]; then
     export FZF_PREVIEW_COMMAND="cat {}"
     export FZF_DEFAULT_COMMAND='ag --ignore-dir venv --ignore-dir elm-stuff -g ""'
 fi
-
-export FZF_NOTES_DIR="$my_github/org"

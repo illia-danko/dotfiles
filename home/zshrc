@@ -42,10 +42,7 @@ setopt interactivecomments    # enable hash comment command
 [ -f ~/.zsh-theme ] && . ~/.zsh-theme
 [ -f /usr/share/fzf/key-bindings.zsh ] && . /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/fzf/completion.zsh ] && . /usr/share/fzf/completion.zsh
-[ -f ~/.cache/nvim/bookmarks ] && export FZF_BOOKMARKS_FILE=~/.cache/nvim/bookmarks
 [ -f ~/.fzf.zsh ] && . ~/.fzf.zsh
-[ -f ~/.fzf-projects.zsh ] && . ~/.fzf-projects.zsh
-[ -f ~/.fzf-notes.zsh ] && . ~/.fzf-notes.zsh
 [ -d ~/.shell-aliases ] &&  for f in ~/.shell-aliases/*.sh; do . $f; done
 [ -x "$(command -v kubectl)" ] && . <(kubectl completion zsh)
 
