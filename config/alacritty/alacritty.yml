@@ -57,53 +57,53 @@ font:
 schemes:
   one_dark: &dark
     primary:
-      background: '#282c34'
-      foreground: '#dcdfe4'
+      background: '#000000'
+      foreground: '#FFFFFF'
 
     normal:
-      black: '#dcdfe4'
-      red: '#e06c75'
-      green: '#98c379'
-      yellow: '#e5c07b'
-      blue: '#61afef'
-      magenta: '#c678dd'
-      cyan: '#56b6c2'
-      white: '#282c34'
+      black: '#000000'
+      red: '#FF8059'
+      green: '#44BC44'
+      yellow: '#D0BC00'
+      blue: '#2FAFFF'
+      magenta: '#FEACD0'
+      cyan: '#00D3D0'
+      white: '#FFFFFF'
 
     bright:
-      black: '#777778'
-      red: '#e06c75'
-      green: '#98c379'
-      yellow: '#e5c07b'
-      blue: '#61afef'
-      magenta: '#c678dd'
-      cyan: '#56b6c2'
-      white: '#282c34'
+      black: '#A8A8A8'
+      red: '#FFA7BA'
+      green: '#70D73F'
+      yellow: '#DBBE5F'
+      blue: '#34CFFF'
+      magenta: '#D5B1FF'
+      cyan: '#00D8B4'
+      white: '#F4F4F4'
 
   one_light: &light
     primary:
-      background: '#fafafa'
-      foreground: '#383a42'
+      background: '#FFFFFF'
+      foreground: '#000000'
 
     normal:
-      black: '#383a42'
-      red: '#e45649'
-      green: '#50a14f'
-      yellow: '#c18401'
-      blue: '#0184bc'
-      magenta: '#a626a4'
-      cyan: '#0997b3'
-      white: '#fafafa'
+      black: '#FFFFFF'
+      red: '#A60000'
+      green: '#005E00'
+      yellow: '#813E00'
+      blue: '#0031A9'
+      magenta: '#721045'
+      cyan: '#00538B'
+      white: '#000000'
 
     bright:
-      black: '#4f525e'
-      red: '#e06c75'
-      green: '#98c379'
-      yellow: '#e5c07b'
-      blue: '#61afef'
-      magenta: '#c678dd'
-      cyan: '#56b6c2'
-      white: '#ffffff'
+      black: '#505050'
+      red: '#8A0000'
+      green: '#004C2E'
+      yellow: '#702F00'
+      blue: '#0030B4'
+      magenta: '#5C2092'
+      cyan: '#003F8A'
+      white: '#0A0A0A'
 
 # Colors
 colors: *dark
