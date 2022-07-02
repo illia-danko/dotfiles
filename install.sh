@@ -91,7 +91,6 @@ aur_packages() {
 
 editor() {
     echo "Configuring editor..."
-    load
 
     path="$HOME/.emacs.d/"
     [ -d "$path" ] && echo "Done"; return
@@ -187,6 +186,7 @@ copy_root_files() {
 }
 
 os() {
+    copy_root_files "$script_dir/root"
     eval "$script_dir/bin/mod-switch win-alt"  # swap RAlt with RWin
     if [ -n "$is_archlinux" ]; then
         os_fix_laptop_lid_suspend
@@ -241,18 +241,6 @@ post_config() {
     sudo virsh net-autostart default  # libvirt connection
 }
 
-dump() {
-    echo "Saving desktop environment settings..."
-    dconf dump "/org/gnome/terminal/" > "$script_dir/assets/gnome-terminal.conf"
-    echo "Done"
-}
-
-load() {
-    echo "Loading desktop environment settings..."
-    dconf load "/org/gnome/terminal/" < "$script_dir/assets/gnome-terminal.conf"
-    echo "Done"
-}
-
 [ $# -lt 1 ] && >&2 echo "entry should be specified." && exit 1
 
 case "$1" in
@@ -269,7 +257,5 @@ case "$1" in
     config-ssh) config_ssh;;
     config) config;;
     post-config) post_config;;
-    dump) dump;;
-    load) load;;
     *) >&2 echo "'$1' entry is not defined." && exit 1;;
 esac
