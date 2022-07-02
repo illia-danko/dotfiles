@@ -32,3 +32,4 @@ sudo tic -xe alacritty,alacritty-direct extra/alacritty.info
 sudo mkdir -p /usr/local/share/man/man1
 gzip -c extra/alacritty.man | sudo tee /usr/local/share/man/man1/alacritty.1.gz > /dev/null
 gzip -c extra/alacritty-msg.man | sudo tee /usr/local/share/man/man1/alacritty-msg.1.gz > /dev/null
+[ -x "$(command -v gsettings)" ] &&  gsettings set org.gnome.desktop.default-applications.terminal exec /usr/local/bin/alacritty
