@@ -1,0 +1,58 @@
+#!/usr/bin/env bb
+
+;; Switch light / dark theme globally.
+;; Content:
+;; - Alacritty terminal.
+;; - Emacs server.
+;;
+;; NOTE. To persist Emacs theme, Emacs has its own custom functionality to keep
+;; last set theme after restart.
+
+(require '[clojure.java.shell :refer [sh]]
+         '[clojure.java.io :as io]
+         '[clojure.string :as str])
+
+(def alacritty-config-path (str (System/getenv "HOME")
+                                "/.config/alacritty/alacritty.yml"))
+
+(when-not (.exists (io/file alacritty-config-path))
+  (System/exit 1))
+
+(def toggle {:dark {:emacs-theme "modus-operandi" :alacritty-theme "light"}
+             :light {:emacs-theme "modus-vivendi" :alacritty-theme "dark"}})
+
+(def alacritty-config
+  (->> alacritty-config-path
+       slurp
+       str/split-lines))
+
+(defn alacritty-color? [s] (str/starts-with? s "colors: "))
+
+(def color (->> alacritty-config
+                (filter alacritty-color?)
+                first))
+
+(def variant (last (str/split color #"\s+\*")))
+(def new-toggle (-> (keyword variant) toggle))
+
+;; Check if emacs is running.
+(when (.exists (io/file "/run/user/1000/emacs"))
+  (let [emacs-theme (-> new-toggle :emacs-theme)]
+    (sh "emacsclient" "--eval" (str "(load-theme '" emacs-theme " t)"))))
+
+(defn strings->join
+  [s]
+  (->> s
+       (interpose \newline)
+       (apply str)))
+
+(defn alacritty-replace-color
+  [color, coll]
+  (map (fn [s]
+         (if (alacritty-color? s)
+           (str/replace s #"\w+$" color)
+           s)) coll))
+
+(def alacritty-theme (-> new-toggle :alacritty-theme))
+(def new-alacritty-config (strings->join (alacritty-replace-color alacritty-theme alacritty-config)))
+(spit alacritty-config-path new-alacritty-config)
