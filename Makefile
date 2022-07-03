@@ -9,12 +9,6 @@ packages:
 config:
 	@bash ${THIS_MAKEFILE_DIR}/install.sh $@
 
-dump:
-	@bash ${THIS_MAKEFILE_DIR}/install.sh $@
-
-load:
-	@bash ${THIS_MAKEFILE_DIR}/install.sh $@
-
 install: packages config
 
 .PHONY: packages config dump
