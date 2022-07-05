@@ -35,7 +35,7 @@ cmake
 pigz  # required by docker
 docker
 wireshark-qt
-tree  # required by fzf-projects
-fd  # required by fzf-projects
+tree
+fd
 usbutils  # lsusb
 xclip
