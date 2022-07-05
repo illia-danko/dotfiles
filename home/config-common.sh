@@ -84,3 +84,5 @@ if [ -x "$(command -v fzf)" ]; then
     export FZF_PREVIEW_COMMAND="cat {}"
     export FZF_DEFAULT_COMMAND='ag --ignore-dir venv --ignore-dir elm-stuff -g ""'
 fi
+
+export FZF_PROJECTS_NO_COLORS=1
