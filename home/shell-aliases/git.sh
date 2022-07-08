@@ -6,10 +6,6 @@ _gd() {
     ( test "$#" -eq 0 && git diff ) || git diff "$*"
 }
 
-_g_inside_work_tree_p() {
-    git rev-parse --is-inside-work-tree > /dev/null 2>&1
-}
-
 _gclean() {
     # https://stackoverflow.com/questions/1146973/how-do-i-revert-all-local-changes-in-git-managed-project-to-previous-state#answer-42903805
     #
@@ -46,16 +42,21 @@ _grevert() {
     bash -c "git apply <(git $method $hash -R $files)"
 }
 
+# https://github.com/jesseduffield/lazygit
+# Automatically change path on project switching.
+_lg() {
+    export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
+
+    lazygit "$@"
+
+    if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
+        cd "$(cat $LAZYGIT_NEW_DIR_FILE)" || true
+        rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
+    fi
+}
+
 _gl() {
-    _g_inside_work_tree_p || (>&2 echo "Not in git repo."; return 1)
-    cmd="(progn
-           (magit-log-all)
-           (delete-other-windows))"
-    [ "$#" -eq 1 ] && cmd="(progn
-                             (find-file \"$1\")
-                             (magit-log-buffer-file)
-                             (delete-other-windows))"
-    emacs-runner -e "$cmd"
+    git log --pretty=format:'%h%x09%an%x09%ad%x09%s'
 }
 
 alias gd="_gd"
@@ -69,4 +70,5 @@ alias gf="git log -p --all -S"
 alias gu="_grevert show"  # undo a commit
 alias gr="_grevert diff"  # remove up to a hash
 alias gm="_gmessage_search"
+alias lg="_lg"
 alias gl="_gl"

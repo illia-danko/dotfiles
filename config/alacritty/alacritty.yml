@@ -53,57 +53,71 @@ font:
     x: 0
     y: 0
 
-# Colors.
+# Github light&dark colors.
+# See https://github.com/projekt0n/github-nvim-theme.
 schemes:
   one_dark: &dark
     primary:
-      background: '#000000'
-      foreground: '#FFFFFF'
+      background: '#24292e'
+      foreground: '#d1d5da'
 
+    # Normal colors
     normal:
-      black: '#000000'
-      red: '#FF8059'
-      green: '#44BC44'
-      yellow: '#D0BC00'
-      blue: '#2FAFFF'
-      magenta: '#FEACD0'
-      cyan: '#00D3D0'
-      white: '#FFFFFF'
+      black:   '#586069'
+      red:     '#ea4a5a'
+      green:   '#34d058'
+      yellow:  '#ffea7f'
+      blue:    '#2188ff'
+      magenta: '#b392f0'
+      cyan:    '#39c5cf'
+      white:   '#d1d5da'
 
+    # Bright colors
     bright:
-      black: '#A8A8A8'
-      red: '#FFA7BA'
-      green: '#70D73F'
-      yellow: '#DBBE5F'
-      blue: '#34CFFF'
-      magenta: '#D5B1FF'
-      cyan: '#00D8B4'
-      white: '#F4F4F4'
+      black:   '#959da5'
+      red:     '#f97583'
+      green:   '#85e89d'
+      yellow:  '#ffea7f'
+      blue:    '#79b8ff'
+      magenta: '#b392f0'
+      cyan:    '#56d4dd'
+      white:   '#fafbfc'
+
+    indexed_colors:
+      - {index: 16, color: '#d18616'}
+      - {index: 17, color: '#f97583'}
 
   one_light: &light
+    # Default colors
     primary:
-      background: '#FFFFFF'
-      foreground: '#000000'
+      background: '#ffffff'
+      foreground: '#24292f'
 
+    # Normal colors
     normal:
-      black: '#FFFFFF'
-      red: '#A60000'
-      green: '#005E00'
-      yellow: '#813E00'
-      blue: '#0031A9'
-      magenta: '#721045'
-      cyan: '#00538B'
-      white: '#000000'
+      black:   '#24292e'
+      red:     '#d73a49'
+      green:   '#28a745'
+      yellow:  '#dbab09'
+      blue:    '#0366d6'
+      magenta: '#5a32a3'
+      cyan:    '#0598bc'
+      white:   '#6a737d'
 
+    # Bright colors
     bright:
-      black: '#505050'
-      red: '#8A0000'
-      green: '#006800'
-      yellow: '#702F00'
-      blue: '#0030B4'
-      magenta: '#5C2092'
-      cyan: '#003F8A'
-      white: '#0A0A0A'
+      black:   '#959da5'
+      red:     '#cb2431'
+      green:   '#22863a'
+      yellow:  '#b08800'
+      blue:    '#005cc5'
+      magenta: '#5a32a3'
+      cyan:    '#3192aa'
+      white:   '#d1d5da'
+
+    indexed_colors:
+      - {index: 16, color: '#d18616'}
+      - {index: 17, color: '#cb2431'}
 
 # Colors
 colors: *dark
