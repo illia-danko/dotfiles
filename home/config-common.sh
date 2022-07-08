@@ -86,3 +86,4 @@ if [ -x "$(command -v fzf)" ]; then
 fi
 
 export FZF_PROJECTS_NO_COLORS=1
+export FZF_NOTES_DIR="$my_github/org"
