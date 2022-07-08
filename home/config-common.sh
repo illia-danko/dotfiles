@@ -70,5 +70,4 @@ if [ -x "$(command -v fzf)" ]; then
     export FZF_DEFAULT_COMMAND='ag --ignore-dir venv --ignore-dir elm-stuff -g ""'
 fi
 
-export FZF_PROJECTS_NO_COLORS=1
 export FZF_NOTES_DIR="$my_github/org"

@@ -24,8 +24,8 @@
 [ -x "$(command -v fd)" ] && cmd="fd" || cmd="fdfind"
 [ -z "${FZF_PROJECTS_ROOT_DIR-}" ] && FZF_PROJECTS_ROOT_DIR="$HOME"
 [ -z "${FZF_PROJECTS_FD_COMMAND-}" ] && FZF_PROJECTS_FD_COMMAND="$cmd --hidden --case-sensitive --absolute-path --exec echo '{//}' ';' '^\.git$' ${FZF_PROJECTS_ROOT_DIR}"
-[ -z "${FZF_PROJECTS_NO_COLORS-}" ] && FZF_PROJECTS_NO_COLORS="0"
-[ -z "${FZF_PROJECTS_MATCH_COLOR-}" ] && FZF_PROJECTS_MATCH_COLOR="34"
+[ -z "${FZF_PROJECTS_COLORS-}" ] && FZF_PROJECTS_COLORS="0"
+[ -z "${FZF_PROJECTS_MATCH_COLOR_FG-}" ] && FZF_PROJECTS_MATCH_COLOR_FG="34"
 [ -z "${FZF_PROJECTS_PREVIEW_CONFIG-}" ] && FZF_PROJECTS_PREVIEW_CONFIG="nohidden|hidden,down"
 [ -z "${FZF_PROJECTS_PREVIEW_THRESHOLD-}" ] && FZF_PROJECTS_PREVIEW_THRESHOLD="160"
 [ -z "${FZF_PROJECTS_PROMPT-}" ] && FZF_PROJECTS_PROMPT='Projects> '
@@ -41,9 +41,9 @@ function fzf_projects_redraw_prompt {
 zle -N fzf_projects_redraw_prompt
 
 function _fzf_projects_color {
-    [ "${FZF_PROJECTS_NO_COLORS-}" -eq "1" ] && cat && return
+    [ "${FZF_PROJECTS_COLORS-}" -eq "0" ] && cat && return
     local esc="$(printf '\033')"
-    sed "s/\(.*\)/${esc}[${FZF_PROJECTS_MATCH_COLOR}m\1${esc}[0;0m/"
+    sed "s/\(.*\)/${esc}[${FZF_PROJECTS_MATCH_COLOR_FG}m\1${esc}[0;0m/"
 }
 
 function _fzf_projects_preview_window {
