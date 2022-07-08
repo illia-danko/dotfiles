@@ -43,6 +43,7 @@ setopt interactivecomments    # enable hash comment command
 [ -f /usr/share/fzf/key-bindings.zsh ] && . /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/fzf/completion.zsh ] && . /usr/share/fzf/completion.zsh
 [ -f ~/.fzf.zsh ] && . ~/.fzf.zsh
+[ -f ~/.fzf-projects.zsh ] && . ~/.fzf-projects.zsh
 [ -d ~/.shell-aliases ] &&  for f in ~/.shell-aliases/*.sh; do . $f; done
 [ -x "$(command -v kubectl)" ] && . <(kubectl completion zsh)
 
