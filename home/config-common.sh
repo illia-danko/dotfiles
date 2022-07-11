@@ -71,3 +71,4 @@ if [ -x "$(command -v fzf)" ]; then
 fi
 
 export FZF_NOTES_DIR="$my_github/org"
+export FZF_BOOKMARKS_FILE=~/.cache/nvim/bookmarks
