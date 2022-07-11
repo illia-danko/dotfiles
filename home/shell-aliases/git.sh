@@ -42,17 +42,8 @@ _grevert() {
     bash -c "git apply <(git $method $hash -R $files)"
 }
 
-# https://github.com/jesseduffield/lazygit
-# Automatically change path on project switching.
 _lg() {
-    export LAZYGIT_NEW_DIR_FILE=~/.lazygit/newdir
-
     lazygit "$@"
-
-    if [ -f $LAZYGIT_NEW_DIR_FILE ]; then
-        cd "$(cat $LAZYGIT_NEW_DIR_FILE)" || true
-        rm -f $LAZYGIT_NEW_DIR_FILE > /dev/null
-    fi
 }
 
 _gl() {
