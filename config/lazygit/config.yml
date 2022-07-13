@@ -1,4 +1,11 @@
 ---
+gui:
+  theme:
+    lightTheme: false
+    selectedLineBgColor:
+      - default
+    selectedRangeBgColor:
+      - default
 quitOnTopLevelReturn: false
 keybinding:
   universal:
