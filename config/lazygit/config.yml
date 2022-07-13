@@ -6,11 +6,11 @@ gui:
       - default
     selectedRangeBgColor:
       - default
-quitOnTopLevelReturn: false
+quitOnTopLevelReturn: true
 keybinding:
   universal:
-    quit: 'q'
-    quit-alt1: 'q'  # alternative/alias of quit
+    quit: '<esc>'
+    quit-alt1: '<esc>'  # alternative/alias of quit
     # return to previous menu, will quit if there's nowhere to return
     return: '<c-c>'
     quitWithoutChangingDirectory: 'Q'
