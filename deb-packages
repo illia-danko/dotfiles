@@ -6,7 +6,6 @@ rlwrap
 sbcl
 net-tools
 fd-find  # fd
-silversearcher-ag
 xclip
 wl-clipboard  # reqired by xclip
 ripgrep
