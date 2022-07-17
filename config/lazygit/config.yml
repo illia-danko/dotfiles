@@ -5,7 +5,7 @@ gui:
     selectedLineBgColor:
       - default
     selectedRangeBgColor:
-      - default
+      - reverse
 quitOnTopLevelReturn: true
 keybinding:
   universal:
