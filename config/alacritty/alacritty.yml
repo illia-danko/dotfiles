@@ -54,70 +54,62 @@ font:
     y: 0
 
 # Github light&dark colors.
-# See https://github.com/projekt0n/github-nvim-theme.
+# See https://github.com/ellisonleao/gruvbox.nvim/blob/main/lua/gruvbox/palette.lua
 schemes:
   one_dark: &dark
     primary:
-      background: '#24292e'
-      foreground: '#d1d5da'
+      background: '#282828'
+      foreground: '#fbf1c7'
 
     # Normal colors
     normal:
-      black:   '#586069'
-      red:     '#ea4a5a'
-      green:   '#34d058'
-      yellow:  '#ffea7f'
-      blue:    '#2188ff'
-      magenta: '#b392f0'
-      cyan:    '#39c5cf'
-      white:   '#d1d5da'
+      black:   '#282828'
+      red:     '#cc241d'
+      green:   '#98971a'
+      yellow:  '#d79921'
+      blue:    '#458588'
+      magenta: '#b16286'
+      cyan:    '#689d6a'
+      white:   '#a89984'
 
     # Bright colors
     bright:
-      black:   '#959da5'
-      red:     '#f97583'
-      green:   '#85e89d'
-      yellow:  '#ffea7f'
-      blue:    '#79b8ff'
-      magenta: '#b392f0'
-      cyan:    '#56d4dd'
-      white:   '#fafbfc'
-
-    indexed_colors:
-      - {index: 16, color: '#d18616'}
-      - {index: 17, color: '#f97583'}
+      black:   '#928374'
+      red:     '#fb4934'
+      green:   '#b8bb26'
+      yellow:  '#fabd2f'
+      blue:    '#83a598'
+      magenta: '#d3869b'
+      cyan:    '#8ec07c'
+      white:   '#ebdbb2'
 
   one_light: &light
     # Default colors
     primary:
-      background: '#ffffff'
-      foreground: '#24292f'
+      background: '#fbf1c7'
+      foreground: '#282828'
 
     # Normal colors
     normal:
-      black:   '#24292e'
-      red:     '#d73a49'
-      green:   '#28a745'
-      yellow:  '#dbab09'
-      blue:    '#0366d6'
-      magenta: '#5a32a3'
-      cyan:    '#0598bc'
-      white:   '#6a737d'
+      black:   '#fbf1c7'
+      red:     '#cc241d'
+      green:   '#98971a'
+      yellow:  '#d79921'
+      blue:    '#458588'
+      magenta: '#b16286'
+      cyan:    '#689d6a'
+      white:   '#7c6f64'
 
     # Bright colors
     bright:
-      black:   '#959da5'
-      red:     '#cb2431'
-      green:   '#22863a'
-      yellow:  '#b08800'
-      blue:    '#005cc5'
-      magenta: '#5a32a3'
-      cyan:    '#3192aa'
-      white:   '#d1d5da'
-
-    indexed_colors:
-      - {index: 16, color: '#d18616'}
-      - {index: 17, color: '#cb2431'}
+      black:   '#928374'
+      red:     '#9d0006'
+      green:   '#79740e'
+      yellow:  '#b57614'
+      blue:    '#076678'
+      magenta: '#8f3f71'
+      cyan:    '#427b58'
+      white:   '#3c3836'
 
 # Colors
-colors: *dark
+colors: *light
