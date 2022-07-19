@@ -116,7 +116,8 @@ sub_packages() {
     sudo npm install -g typescript typescript-language-server eslint prettier neovim
     sudo -H python3 -m pip install --upgrade pip pyright virtualenv yapf flake8 pynvim
     go install golang.org/x/tools/gopls@latest
-    go install golang.org/x/tools/cmd/goimports@latest
+    go install mvdan.cc/gofumpt@latest  # used by x-ray/go.nvim
+    go install github.com/segmentio/golines@latest  # used by x-ray/go.nvim
     go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
     go install github.com/gokcehan/lf@latest
     go install github.com/jesseduffield/lazygit@latest
