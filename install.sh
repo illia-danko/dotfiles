@@ -118,6 +118,8 @@ sub_packages() {
     go install golang.org/x/tools/gopls@latest
     go install mvdan.cc/gofumpt@latest  # used by x-ray/go.nvim
     go install github.com/segmentio/golines@latest  # used by x-ray/go.nvim
+    go install github.com/koron/iferr@latest  # used by x-ray/go.nvim
+    go install github.com/davidrjenni/reftools/cmd/fillstruct@latest # used by x-ray/go.nvim
     go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
     go install github.com/gokcehan/lf@latest
     go install github.com/jesseduffield/lazygit@latest
