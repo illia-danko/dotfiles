@@ -2,6 +2,8 @@
 
 set -eou pipefail
 
+[[ ! "$(lsb_release -i)" =~ Ubuntu ]] && return
+
 sudo apt remove firefox -yy || true
 sudo snap remove firefox
 sudo add-apt-repository ppa:mozillateam/ppa

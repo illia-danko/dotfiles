@@ -92,10 +92,13 @@ aur_packages() {
 editor() {
     echo "Configuring editor..."
 
-    path="$HOME/.config/nvim"
+    path="$HOME/.emacs.d/"
     [ -d "$path" ] && echo "Done"; return
     rm -rf "$path"
-    git clone "git@github.com:elijahdanko/dot-nvim.git" "$HOME/.config/nvim"
+    git clone "git@github.com:elijahdanko/dot-emacs.git" "$HOME/.emacs.d"
+
+    # Fix 24bit term color issue.
+    tic -x -o ~/.terminfo "$script_dir/assets/terminfo-custom.src"
     echo "Done"
 }
 
@@ -113,16 +116,14 @@ github_packages() {
 
 sub_packages() {
     echo "Sub packages..."
-    sudo npm install -g typescript typescript-language-server eslint prettier neovim
-    sudo -H python3 -m pip install --upgrade pip pyright virtualenv yapf flake8 pynvim
+    sudo npm install -g typescript typescript-language-server eslint prettier
+    sudo -H python3 -m pip install --upgrade pip pyright virtualenv yapf flake8
     go install golang.org/x/tools/gopls@latest
-    go install mvdan.cc/gofumpt@latest  # used by x-ray/go.nvim
-    go install github.com/segmentio/golines@latest  # used by x-ray/go.nvim
-    go install github.com/koron/iferr@latest  # used by x-ray/go.nvim
-    go install github.com/davidrjenni/reftools/cmd/fillstruct@latest # used by x-ray/go.nvim
+    go install mvdan.cc/gofumpt@latest
+    go install github.com/segmentio/golines@latest
+    go install github.com/koron/iferr@latest
+    go install github.com/davidrjenni/reftools/cmd/fillstruct@latest
     go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
-    go install github.com/gokcehan/lf@latest
-    go install github.com/jesseduffield/lazygit@latest
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
     sudo curl https://dl.min.io/client/mc/release/linux-amd64/mc --output /usr/local/bin/mcli && sudo chmod +x /usr/local/bin/mcli
     echo "Done"

@@ -2,4 +2,4 @@
 
 set -eou pipefail
 
-sudo snap install color-picker
+[ -x "$(command -v snap)" ] && sudo snap install color-picker
