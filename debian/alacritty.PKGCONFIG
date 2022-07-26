@@ -19,7 +19,7 @@ rm -rf "$pkg_name"
 git clone --depth=1 --branch="$git_branch" "$pkg_uri" "$pkg_name"
 pushd "$pkg_name"
 
-sudo apt install cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 -yy
+sudo apt install cmake cargo pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3 -yy
 
 cargo build --release
 sudo cp target/release/alacritty /usr/local/bin # or anywhere else in $PATH

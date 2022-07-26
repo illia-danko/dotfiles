@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-set -eou pipefail
-
-[ -x "$(command -v snap)" ] && sudo snap install color-picker

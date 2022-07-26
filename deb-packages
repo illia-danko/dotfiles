@@ -33,3 +33,7 @@ anki
 mplayer  # used by anki
 ffmpeg
 p7zip-rar
+mpv
+yt-dlp
+tree
+gpick
