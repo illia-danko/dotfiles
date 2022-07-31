@@ -10,29 +10,15 @@
 [ -z "${XDG_DATA_HOME}" ] && export XDG_DATA_HOME="$HOME/.local/share"
 [ -z "${XDG_STATE_HOME}" ] && export XDG_STATE_HOME="$HOME/.local/state"
 
-export VISUAL=emacs-runner
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 export BROWSER="xdg-open-silently"
 
 # Override man command.
-# Use Emacs as a Man page viewer. Custom package modes are:
-# - olivetty-mode is used for centering buffer content;
-# - hide-mode-line-mode is used to hide modeline.
 man() {
     # Show appropriate an error on no manual.
     /usr/bin/man "$*" > /dev/null 2>&1 || /usr/bin/man "$*" || return
-
-    emacs-runner -e "(progn
-                      (man \"$1\")
-                      (delete-window)
-                      (olivetti-mode 1)
-                      (hide-mode-line-mode 1)
-                      (local-set-key
-                        \"q\"
-                        (lambda ()
-                          (interactive)
-                          (kill-this-buffer)
-                          (delete-frame))))"
+    $EDITOR -c "Man $*" -c "only"
 }
 
 export CLIPBOARD_COPY_COMMAND="wl-copy"
@@ -56,7 +42,6 @@ my_github="$HOME/github.com/elijahdanko"
 [ -x "$(command -v tmux)" ] && alias tt="[ -z $TMUX ] && tmux new -A -s HACK || tmux detach -E 'tmux new -A -s HACK'"
 [ -x "$(command -v tmux)" ] && alias tw="[ -z $TMUX ] && tmux new -A -s WORK || tmux detach -E 'tmux new -A -s WORK'"
 [ -x "$(command -v tmux)" ] && alias tm="[ -z $TMUX ] && tmux new -A -s MEDIA || tmux detach -E 'tmux new -A -s MEDIA'"
-[ -x "$(command -v emacs)" ] && alias es="pkill emacs || true; emacs --daemon"
 
 # SSL termination firefox.
 # Terminate TLS (Firefox/Chrome).
@@ -79,11 +64,12 @@ if [ -x "$(command -v fzf)" ]; then
     --bind='ctrl-d:half-page-down'
     --bind='alt-p:toggle-preview'
     --bind='ctrl-a:toggle-all'
-    --color=gutter:-1,fg:-1,fg+:-1,pointer:1,hl:2,hl+:2,bg+:#212026
+    --color=gutter:-1,fg:-1,fg+:-1,pointer:1,hl:2,hl+:2,bg+:#ebdbb2
 "
 
     export FZF_PREVIEW_COMMAND="cat {}"
     export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!{.git,.svn,.hg,CVS,.bzr,vendor,node_modules,dist,venv,elm-stuff}'"
 fi
 
-export FZF_NOTES_DIR="$my_github/org"
+export FZF_NOTES_DIR="$my_github/docs"
+export FZF_BOOKMARKS_FILE=~/.cache/nvim/bookmarks
