@@ -53,38 +53,45 @@ font:
     x: 0
     y: 0
 
-# Github light&dark colors.
-# See https://github.com/ellisonleao/gruvbox.nvim/blob/main/lua/gruvbox/palette.lua
 schemes:
   one_dark: &dark
-    primary:
-      background: '#282828'
-      foreground: '#fbf1c7'
+    # Kanagawa Alacritty Colors
+    colors:
+      primary:
+        background: '0x1f1f28'
+        foreground: '0xdcd7ba'
 
-    # Normal colors
-    normal:
-      black:   '#282828'
-      red:     '#cc241d'
-      green:   '#98971a'
-      yellow:  '#d79921'
-      blue:    '#458588'
-      magenta: '#b16286'
-      cyan:    '#689d6a'
-      white:   '#a89984'
+      normal:
+        black:   '0x090618'
+        red:     '0xc34043'
+        green:   '0x76946a'
+        yellow:  '0xc0a36e'
+        blue:    '0x7e9cd8'
+        magenta: '0x957fb8'
+        cyan:    '0x6a9589'
+        white:   '0xc8c093'
 
-    # Bright colors
-    bright:
-      black:   '#928374'
-      red:     '#fb4934'
-      green:   '#b8bb26'
-      yellow:  '#fabd2f'
-      blue:    '#83a598'
-      magenta: '#d3869b'
-      cyan:    '#8ec07c'
-      white:   '#ebdbb2'
+      bright:
+        black:   '0x727169'
+        red:     '0xe82424'
+        green:   '0x98bb6c'
+        yellow:  '0xe6c384'
+        blue:    '0x7fb4ca'
+        magenta: '0x938aa9'
+        cyan:    '0x7aa89f'
+        white:   '0xdcd7ba'
+
+      selection:
+        background: '0x2d4f67'
+        foreground: '0xc8c093'
+
+      indexed_colors:
+        - { index: 16, color: '0xffa066' }
+        - { index: 17, color: '0xff5d62' }
 
   one_light: &light
-    # Default colors
+    # Github Light Colors.
+    # See https://github.com/ellisonleao/gruvbox.nvim/blob/main/lua/gruvbox/palette.lua
     primary:
       background: '#fbf1c7'
       foreground: '#282828'
