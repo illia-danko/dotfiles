@@ -53,60 +53,60 @@ font:
     x: 0
     y: 0
 
-# Modus themes.
+# Spacemacs themes.
 # Colors.
 schemes:
   dark: &dark
     primary:
-      background: '#000000'
-      foreground: '#FFFFFF'
+      background: '#292b2e'
+      foreground: '#b2b2b2'
 
     normal:
-      black: '#000000'
-      red: '#FF8059'
-      green: '#44BC44'
-      yellow: '#D0BC00'
-      blue: '#2FAFFF'
-      magenta: '#FEACD0'
-      cyan: '#00D3D0'
-      white: '#FFFFFF'
+      black: '#d2ceda'
+      red: '#f2241f'
+      green: '#67b11d'
+      yellow: '#b1951d'
+      blue: '#3a81c3'
+      magenta: '#a31db1'
+      cyan: '#21b8c7'
+      white: '#655370'
 
     bright:
-      black: '#A8A8A8'
-      red: '#FFA7BA'
-      green: '#70D73F'
-      yellow: '#DBBE5F'
-      blue: '#34CFFF'
-      magenta: '#D5B1FF'
-      cyan: '#00D8B4'
-      white: '#F4F4F4'
+      black: '#d2ceda'
+      red: '#f2241f'
+      green: '#67b11d'
+      yellow: '#b1951d'
+      blue: '#3a81c3'
+      magenta: '#a31db1'
+      cyan: '#21b8c7'
+      white: '#655370'
 
   light: &light
     primary:
-      background: '#FFFFFF'
-      foreground: '#000000'
+      background: '#fbf8ef'
+      foreground: '#655370'
 
     # Normal colors
     normal:
-      black: '#FFFFFF'
-      red: '#A60000'
-      green: '#005E00'
-      yellow: '#813E00'
-      blue: '#0031A9'
-      magenta: '#721045'
-      cyan: '#00538B'
-      white: '#000000'
+      black: '#0a0814'
+      red: '#f2241f'
+      green: '#67b11d'
+      yellow: '#b1951d'
+      blue: '#4f97d7'
+      magenta: '#a31db1'
+      cyan: '#28def0'
+      white: '#b2b2b2'
 
     # Bright colors
     bright:
-      black: '#505050'
-      red: '#8A0000'
-      green: '#006800'
-      yellow: '#702F00'
-      blue: '#0030B4'
-      magenta: '#5C2092'
-      cyan: '#003F8A'
-      white: '#0A0A0A'
+      black: '#0a0814'
+      red: '#f2241f'
+      green: '#67b11d'
+      yellow: '#b1951d'
+      blue: '#4f97d7'
+      magenta: '#a31db1'
+      cyan: '#28def0'
+      white: '#b2b2b2'
 
 # Colors
-colors: *dark
+colors: *light
