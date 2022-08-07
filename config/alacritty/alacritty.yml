@@ -53,70 +53,60 @@ font:
     x: 0
     y: 0
 
+# Modus themes.
+# Colors.
 schemes:
-  # Kanagawa Alacritty Colors
-  kanagawa_dark: &dark
-
+  dark: &dark
     primary:
-      background: '0x1f1f28'
-      foreground: '0xdcd7ba'
+      background: '#000000'
+      foreground: '#FFFFFF'
 
     normal:
-      black:   '0x090618'
-      red:     '0xc34043'
-      green:   '0x76946a'
-      yellow:  '0xc0a36e'
-      blue:    '0x7e9cd8'
-      magenta: '0x957fb8'
-      cyan:    '0x6a9589'
-      white:   '0xc8c093'
+      black: '#000000'
+      red: '#FF8059'
+      green: '#44BC44'
+      yellow: '#D0BC00'
+      blue: '#2FAFFF'
+      magenta: '#FEACD0'
+      cyan: '#00D3D0'
+      white: '#FFFFFF'
 
     bright:
-      black:   '0x727169'
-      red:     '0xe82424'
-      green:   '0x98bb6c'
-      yellow:  '0xe6c384'
-      blue:    '0x7fb4ca'
-      magenta: '0x938aa9'
-      cyan:    '0x7aa89f'
-      white:   '0xdcd7ba'
+      black: '#A8A8A8'
+      red: '#FFA7BA'
+      green: '#70D73F'
+      yellow: '#DBBE5F'
+      blue: '#34CFFF'
+      magenta: '#D5B1FF'
+      cyan: '#00D8B4'
+      white: '#F4F4F4'
 
-    selection:
-      background: '0x2d4f67'
-      foreground: '0xc8c093'
-
-    indexed_colors:
-      - { index: 16, color: '0xffa066' }
-      - { index: 17, color: '0xff5d62' }
-
-  one_light: &light
-    # Github Light Colors.
-    # See https://github.com/ellisonleao/gruvbox.nvim/blob/main/lua/gruvbox/palette.lua
+  light: &light
     primary:
-      background: '#fbf1c7'
-      foreground: '#282828'
+      background: '#FFFFFF'
+      foreground: '#000000'
 
     # Normal colors
     normal:
-      black:   '#fbf1c7'
-      red:     '#cc241d'
-      green:   '#98971a'
-      yellow:  '#d79921'
-      blue:    '#458588'
-      magenta: '#b16286'
-      cyan:    '#689d6a'
-      white:   '#7c6f64'
+      black: '#FFFFFF'
+      red: '#A60000'
+      green: '#005E00'
+      yellow: '#813E00'
+      blue: '#0031A9'
+      magenta: '#721045'
+      cyan: '#00538B'
+      white: '#000000'
 
     # Bright colors
     bright:
-      black:   '#928374'
-      red:     '#9d0006'
-      green:   '#79740e'
-      yellow:  '#b57614'
-      blue:    '#076678'
-      magenta: '#8f3f71'
-      cyan:    '#427b58'
-      white:   '#3c3836'
+      black: '#505050'
+      red: '#8A0000'
+      green: '#006800'
+      yellow: '#702F00'
+      blue: '#0030B4'
+      magenta: '#5C2092'
+      cyan: '#003F8A'
+      white: '#0A0A0A'
 
 # Colors
 colors: *dark
