@@ -1,18 +1,16 @@
 ---
 # Configuration for Alacritty, the GPU enhanced terminal emulator
-
-
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty it self.
 env:
-  # TERM env customization. Default is xterm-256color
-  # Note: the default TERM value `xterm-256color` does not
-  # specify all features alacritty supports. This does pose
-  # a few issues with programs relying on terminfo and the
-  # `tput` command.
-  TERM: xterm-256color
-  COLORTERM: truecolor
+    # TERM env customization. Default is xterm-256color
+    # Note: the default TERM value `xterm-256color` does not
+    # specify all features alacritty supports. This does pose
+    # a few issues with programs relying on terminfo and the
+    # `tput` command.
+    TERM: xterm-256color
+    COLORTERM: truecolor
 
 # Shell
 #
@@ -20,93 +18,91 @@ env:
 # Entries in shell.args are passed unmodified as arguments to the shell.
 #
 shell:
-  program: /bin/zsh
-  args:
-    - --login
+    program: /bin/zsh
+    args:
+        - --login
 
 window:
-  startup_mode: Maximized
+    startup_mode: Maximized
 
 # When true, bold text is drawn using the bright variant of colors.
 draw_bold_text_with_bright_colors: true
 
 # Font configuration (changes require restart).
 font:
-  # The normal (roman) font face to use.
-  normal:
-    family: Iosevka Term
-    style: Medium
+    # The normal (roman) font face to use.
+    normal:
+        family: Iosevka Term
+        style: Medium
 
-  bold:
-    family: Iosevka Term
-    style: Bold
+    bold:
+        family: Iosevka Term
+        style: Bold
 
-  italic:
-    family: Iosevka Term
-    style: Italic
+    italic:
+        family: Iosevka Term
+        style: Italic
 
-  # Point size of the font.
-  size: 11
-  # Offset is the extra space around each character. offset.y can be thought of
-  # as modifying the linespacing, and offset.x as modifying the letter spacing.
-  offset:
-    x: 0
-    y: 0
+    # Point size of the font.
+    size: 11
+    # Offset is the extra space around each character. offset.y can be thought
+    # of as modifying the linespacing, and offset.x as modifying the letter
+    # spacing.
+    offset:
+        x: 0
+        y: 0
 
-# Spacemacs themes.
 # Colors.
 schemes:
-  dark: &dark
-    primary:
-      background: '#292b2e'
-      foreground: '#b2b2b2'
+    one_dark: &dark
+        primary:
+            background: "#282c34"
+            foreground: "#dcdfe4"
 
-    normal:
-      black: '#d2ceda'
-      red: '#f2241f'
-      green: '#67b11d'
-      yellow: '#b1951d'
-      blue: '#3a81c3'
-      magenta: '#a31db1'
-      cyan: '#21b8c7'
-      white: '#655370'
+        normal:
+            black: "#dcdfe4"
+            red: "#e06c75"
+            green: "#98c379"
+            yellow: "#e5c07b"
+            blue: "#61afef"
+            magenta: "#c678dd"
+            cyan: "#56b6c2"
+            white: "#282c34"
 
-    bright:
-      black: '#d2ceda'
-      red: '#f2241f'
-      green: '#67b11d'
-      yellow: '#b1951d'
-      blue: '#3a81c3'
-      magenta: '#a31db1'
-      cyan: '#21b8c7'
-      white: '#655370'
+        bright:
+            black: "#777778"
+            red: "#e06c75"
+            green: "#98c379"
+            yellow: "#e5c07b"
+            blue: "#61afef"
+            magenta: "#c678dd"
+            cyan: "#56b6c2"
+            white: "#282c34"
 
-  light: &light
-    primary:
-      background: '#fbf8ef'
-      foreground: '#655370'
+    one_light: &light
+        primary:
+            background: "#fafafa"
+            foreground: "#383a42"
 
-    # Normal colors
-    normal:
-      black: '#0a0814'
-      red: '#f2241f'
-      green: '#67b11d'
-      yellow: '#b1951d'
-      blue: '#4f97d7'
-      magenta: '#a31db1'
-      cyan: '#28def0'
-      white: '#b2b2b2'
+        normal:
+            black: "#383a42"
+            red: "#e45649"
+            green: "#50a14f"
+            yellow: "#c18401"
+            blue: "#0184bc"
+            magenta: "#a626a4"
+            cyan: "#0997b3"
+            white: "#fafafa"
 
-    # Bright colors
-    bright:
-      black: '#0a0814'
-      red: '#f2241f'
-      green: '#67b11d'
-      yellow: '#b1951d'
-      blue: '#4f97d7'
-      magenta: '#a31db1'
-      cyan: '#28def0'
-      white: '#b2b2b2'
+        bright:
+            black: "#4f525e"
+            red: "#e06c75"
+            green: "#98c379"
+            yellow: "#e5c07b"
+            blue: "#61afef"
+            magenta: "#c678dd"
+            cyan: "#56b6c2"
+            white: "#ffffff"
 
 # Colors
 colors: *light
