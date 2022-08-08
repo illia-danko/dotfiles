@@ -52,57 +52,63 @@ font:
         x: 0
         y: 0
 
-# Colors.
+# Github light&dark colors.
+# See https://github.com/ellisonleao/gruvbox.nvim/blob/main/lua/gruvbox/palette.lua
 schemes:
-    one_dark: &dark
-        primary:
-            background: "#282c34"
-            foreground: "#dcdfe4"
+  dark: &dark
+    primary:
+      background: '#282828'
+      foreground: '#fbf1c7'
 
-        normal:
-            black: "#dcdfe4"
-            red: "#e06c75"
-            green: "#98c379"
-            yellow: "#e5c07b"
-            blue: "#61afef"
-            magenta: "#c678dd"
-            cyan: "#56b6c2"
-            white: "#282c34"
+    # Normal colors
+    normal:
+      black:   '#282828'
+      red:     '#cc241d'
+      green:   '#98971a'
+      yellow:  '#d79921'
+      blue:    '#458588'
+      magenta: '#b16286'
+      cyan:    '#689d6a'
+      white:   '#a89984'
 
-        bright:
-            black: "#777778"
-            red: "#e06c75"
-            green: "#98c379"
-            yellow: "#e5c07b"
-            blue: "#61afef"
-            magenta: "#c678dd"
-            cyan: "#56b6c2"
-            white: "#282c34"
+    # Bright colors
+    bright:
+      black:   '#928374'
+      red:     '#fb4934'
+      green:   '#b8bb26'
+      yellow:  '#fabd2f'
+      blue:    '#83a598'
+      magenta: '#d3869b'
+      cyan:    '#8ec07c'
+      white:   '#ebdbb2'
 
-    one_light: &light
-        primary:
-            background: "#fafafa"
-            foreground: "#383a42"
+  light: &light
+    # Default colors
+    primary:
+      background: '#fbf1c7'
+      foreground: '#282828'
 
-        normal:
-            black: "#383a42"
-            red: "#e45649"
-            green: "#50a14f"
-            yellow: "#c18401"
-            blue: "#0184bc"
-            magenta: "#a626a4"
-            cyan: "#0997b3"
-            white: "#fafafa"
+    # Normal colors
+    normal:
+      black:   '#fbf1c7'
+      red:     '#cc241d'
+      green:   '#98971a'
+      yellow:  '#d79921'
+      blue:    '#458588'
+      magenta: '#b16286'
+      cyan:    '#689d6a'
+      white:   '#7c6f64'
 
-        bright:
-            black: "#4f525e"
-            red: "#e06c75"
-            green: "#98c379"
-            yellow: "#e5c07b"
-            blue: "#61afef"
-            magenta: "#c678dd"
-            cyan: "#56b6c2"
-            white: "#ffffff"
+    # Bright colors
+    bright:
+      black:   '#928374'
+      red:     '#9d0006'
+      green:   '#79740e'
+      yellow:  '#b57614'
+      blue:    '#076678'
+      magenta: '#8f3f71'
+      cyan:    '#427b58'
+      white:   '#3c3836'
 
 # Colors
 colors: *dark

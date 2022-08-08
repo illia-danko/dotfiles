@@ -2,8 +2,8 @@
 
 set -eou pipefail
 
-pkg_uri="https://github.com/emacs-mirror/emacs.git"
-git_branch="emacs-28.1.91"
+pkg_uri="https://github.com/neovim/neovim"
+git_branch="stable"
 
 url2dir() {
     echo "$1" | perl -pe 's/\.git$//;' -pe 's/^(https?:\/\/|git@)//;' -pe 's/:/\//g;'
@@ -19,7 +19,9 @@ rm -rf "$pkg_name"
 git clone --depth=1 --branch="$git_branch" "$pkg_uri" "$pkg_name"
 pushd "$pkg_name"
 
-sudo apt build-dep emacs
+sudo apt install luajit libluajit-5.1-dev lua-mpack lua-lpeg libunibilium-dev libmsgpack-dev \
+    libtermkey-dev ninja-build gettext libtool libtool-bin autoconf automake \
+    cmake g++ pkg-config unzip curl doxygen -yy
 
-sh autogen.sh
-./configure && make -j$(nproc)
+make CMAKE_BUILD_TYPE=Release -j"$(nproc)"
+sudo make install
