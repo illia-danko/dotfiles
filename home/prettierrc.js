@@ -13,4 +13,12 @@ module.exports = {
     insertPragma: false,
     proseWrap: "preserve",
     endOfLine: "lf",
+    overrides: [
+        {
+            files: ["*.yaml"],
+            options: {
+                tabWidth: 2,
+            },
+        },
+    ],
 };
