@@ -111,4 +111,4 @@ schemes:
       white:   '#3c3836'
 
 # Colors
-colors: *dark
+colors: *light
