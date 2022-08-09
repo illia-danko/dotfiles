@@ -58,10 +58,10 @@ if [ -x "$(command -v fzf)" ]; then
     --exact
     --preview-window=hidden
     --bind='alt-w:execute-silent(echo -n {} | $CLIPBOARD_COPY_COMMAND)'
-    --bind='ctrl-b:preview-half-page-up'
-    --bind='ctrl-f:preview-half-page-down'
-    --bind='ctrl-u:half-page-up'
-    --bind='ctrl-d:half-page-down'
+    --bind='ctrl-b:half-page-up'
+    --bind='ctrl-f:half-page-down'
+    --bind='ctrl-u:preview-half-page-up'
+    --bind='ctrl-d:preview-half-page-down'
     --bind='alt-p:toggle-preview'
     --bind='ctrl-a:toggle-all'
     --color=gutter:-1,fg:-1,fg+:-1,pointer:1,hl:2,hl+:2,bg+:#3c3836
