@@ -123,6 +123,7 @@ sub_packages() {
     go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
     go install github.com/gokcehan/lf@latest
     go install github.com/jesseduffield/lazygit@latest
+    go install github.com/go-delve/delve/cmd/dlv@latest
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
     sudo curl https://dl.min.io/client/mc/release/linux-amd64/mc --output /usr/local/bin/mcli && sudo chmod +x /usr/local/bin/mcli
     echo "Done"
