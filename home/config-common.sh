@@ -48,7 +48,7 @@ my_github="$HOME/github.com/elijahdanko"
 # Terminate TLS (Firefox/Chrome).
 export SSLKEYLOGFILE="$HOME/.sslkeylog"
 export NSS_ALLOW_SSLKEYLOGFILE=1
-export FZF_NOTES_PREVIEW_COLOR="ebdbb2"
+export FZF_NOTES_PREVIEW_COLOR="ebdbb2"  # gruvbox-light
 
 if [ -x "$(command -v fzf)" ]; then
     export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS"
