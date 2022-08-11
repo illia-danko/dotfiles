@@ -48,6 +48,7 @@ my_github="$HOME/github.com/elijahdanko"
 # Terminate TLS (Firefox/Chrome).
 export SSLKEYLOGFILE="$HOME/.sslkeylog"
 export NSS_ALLOW_SSLKEYLOGFILE=1
+export FZF_NOTES_PREVIEW_COLOR="ebdbb2"
 
 if [ -x "$(command -v fzf)" ]; then
     export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS"
@@ -65,7 +66,7 @@ if [ -x "$(command -v fzf)" ]; then
     --bind='ctrl-d:preview-half-page-down'
     --bind='alt-p:toggle-preview'
     --bind='ctrl-a:toggle-all'
-    --color=gutter:-1,fg:-1,fg+:-1,pointer:1,hl:2,hl+:2,bg+:#ebdbb2
+    --color=gutter:-1,fg:-1,fg+:-1,pointer:1,hl:2,hl+:2,bg+:#${FZF_NOTES_PREVIEW_COLOR}
 "
 
     export FZF_PREVIEW_COMMAND="cat {}"
