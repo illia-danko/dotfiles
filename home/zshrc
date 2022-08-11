@@ -49,4 +49,5 @@ setopt interactivecomments    # enable hash comment command
 [ -x "$(command -v kubectl)" ] && . <(kubectl completion zsh)
 
 # ------------------------------------------------------------------------------
+export SYSTEM_COLOR_THEME="ebdbb2"
 [ -f "$HOME/.config-common.sh" ] && . "$HOME/.config-common.sh"

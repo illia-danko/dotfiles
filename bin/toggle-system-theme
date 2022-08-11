@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+
+# Toggle light and dark theme variants system widely.
+# Gruvbox colors.
+
+set -eou pipefail
+
+changes=("*dark" "3c3836" "Gruvbox Dark")
+terminal_conf="$HOME/.config/alacritty/alacritty.yml"
+
+case $(grep -E "^colors:" "$terminal_conf" | awk '{print $2}') in
+    *dark) changes=("*light" "ebdbb2" "Gruvbox Light");;
+esac
+
+perl -pi -e "s/(^colors:).*/\1 ${changes[0]}/;" "$terminal_conf"
+perl -pi -e "s/(^export SYSTEM_COLOR_THEME=).*/\1\"${changes[1]}\"/;" "$HOME/.zshrc"
+
+[ -n "${1-}" ] && notify-send "${changes[2]}"
