@@ -75,7 +75,7 @@ function fzf_todos {
     if [[ "$key" == "$new_entry_key" ]]; then
         fzf_todos_new_entry "$(head -n1 <<< "${lines}")"
     else
-        fzf_todos_jump "$(tail -n1 <<< "${lines}")"
+        fzf_todos_jump "$(tail -n1 <<< "${lines}" | awk '{print $1}')"
     fi
     zle && zle fzf_todos_redraw_prompt || true
 }
@@ -86,10 +86,7 @@ function fzf_todos_new_entry {
 }
 
 function fzf_todos_jump {
-    file=$(cut -d':' -f1 <<< "$1")
-    column=$(cut -d':' -f2 <<< "$1")
-    # vim compatible editor.
-    $EDITOR +$column ${FZF_TODOS_FILE}/$file
+    $EDITOR +$1 ${FZF_TODOS_FILE}
 }
 
 zle -N fzf_todos
