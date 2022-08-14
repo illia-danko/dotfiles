@@ -81,8 +81,8 @@ function fzf_todos {
 }
 
 function fzf_todos_new_entry {
-    mkdir -p $(dirname ${FZF_TODOS_FILE}/$1)
-    $EDITOR ${FZF_TODOS_FILE}/$1
+    local line="# TODO: $1"
+    echo "\n$line" >> "$FZF_TODOS_FILE"
 }
 
 function fzf_todos_jump {
