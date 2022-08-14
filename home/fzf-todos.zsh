@@ -61,7 +61,7 @@ function fzf_todos {
         --ansi \
         --multi \
         --query="$*" \
-        --expect="$new_entry_key" \
+        --expect="$new_entry_key,$toggle_entry_key" \
         --header="${new_entry_key}:new, ${toggle_entry_key}:toggle, ${delete_entry_key}:delete" \
         --preview="${FZF_PREVIEW_BIN} -np ${fzf_todos_file_dir} ${fzf_todos_file_base} {1} ${FZF_PREVIEW_LINES}" \
         --preview-window=$(fzf_todos_preview) \
@@ -72,17 +72,26 @@ function fzf_todos {
     fi
 
     local key="$(head -n2 <<< "$lines" | tail -n1)"
-    if [[ "$key" == "$new_entry_key" ]]; then
-        fzf_todos_new_entry "$(head -n1 <<< "${lines}")"
-    else
-        fzf_todos_jump "$(tail -n1 <<< "${lines}" | awk '{print $1}')"
-    fi
+    case "$key" in
+        "$new_entry_key") fzf_todos_new_entry "$(head -n1 <<< "${lines}")";;
+        "$toggle_entry_key") fzf_todos_toggle_entry "$(tail -n1 <<< "${lines}" | awk '{print $1}')";;
+        *) fzf_todos_jump "$(tail -n1 <<< "${lines}" | awk '{print $1}')";;
+    esac
+
     zle && zle fzf_todos_redraw_prompt || true
 }
 
 function fzf_todos_new_entry {
     local line="# TODO: $1"
     echo "\n$line" >> "$FZF_TODOS_FILE"
+}
+
+function fzf_todos_toggle_entry {
+    local values=("TODO" "DONE")
+    case $(sed -n "${1}"p ${FZF_TODOS_FILE} | awk '{print substr($2, 1, length($2)-1)}') in
+        DONE) values=("DONE" "TODO");;
+    esac
+    sed -E -i "${1}s/^# ${values[1]}/# ${values[2]}/" "${FZF_TODOS_FILE}"
 }
 
 function fzf_todos_jump {
