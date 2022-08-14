@@ -79,3 +79,4 @@ if [ -x "$(command -v fzf)" ]; then
 fi
 
 export FZF_NOTES_DIR="$my_github/docs"
+export FZF_TODOS_FILE="$FZF_NOTES_DIR/todo.md"

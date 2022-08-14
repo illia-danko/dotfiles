@@ -20,85 +20,78 @@
 #
 
 command -v fzf >/dev/null 2>&1 || return
-[ -z "${FZF_NOTES_DIR-}" ] && >&2 echo "FZF_NOTES_DIR env is required." && return
+[ -z "${FZF_TODOS_FILE-}" ] && >&2 echo "FZF_TODOS_FILE env is required." && return
 [ -z "${FZF_PREVIEW_LINES-}" ] && FZF_PREVIEW_LINES="14"
 [ -z "${FZF_PREVIEW_BIN-}" ] && FZF_PREVIEW_BIN="fzf-preview-bin"
-[ -z "${FZF_NOTES_PREVIEW_WINDOW-}" ] && FZF_NOTES_PREVIEW_WINDOW="nohidden|hidden,down"
-[ -z "${FZF_NOTES_PREVIEW_THRESHOLD-}" ] && FZF_NOTES_PREVIEW_THRESHOLD="160"
-[ -z "${FZF_NOTES_COPY_COMMAND-}" ] && FZF_NOTES_COPY_COMMAND="wl-copy"
-[ "$XDG_SESSION_TYPE" = "x11" ] && FZF_NOTES_COPY_COMMAND="xclip -selection c"
-[ -z "${FZF_NOTES_PROMPT-}" ] && FZF_NOTES_PROMPT='Notes> '
-[ "$(uname)" = "Darwin" ] && FZF_NOTES_COPY_COMMAND="pbcopy"
-[ -z "${FZF_NOTES_RG_COMMAND-}" ] && FZF_NOTES_RG_COMMAND="rg \
-    --no-column \
-    --line-number \
-    --no-heading \
-    --color=always \
-    --colors='match:none' \
-    --smart-case \
-    -- '\S'"
+[ -z "${FZF_TODOS_PREVIEW_WINDOW-}" ] && FZF_TODOS_PREVIEW_WINDOW="nohidden|hidden,down"
+[ -z "${FZF_TODOS_PREVIEW_THRESHOLD-}" ] && FZF_TODOS_PREVIEW_THRESHOLD="160"
+[ -z "${FZF_TODOS_COPY_COMMAND-}" ] && FZF_TODOS_COPY_COMMAND="wl-copy"
+[ "$XDG_SESSION_TYPE" = "x11" ] && FZF_TODOS_COPY_COMMAND="xclip -selection c"
+[ -z "${FZF_TODOS_PROMPT-}" ] && FZF_TODOS_PROMPT='Agenda> '
+[ "$(uname)" = "Darwin" ] && FZF_TODOS_COPY_COMMAND="pbcopy"
 
 # Ensure precmds are run after cd.
-function fzf_notes_redraw_prompt {
+function fzf_todos_redraw_prompt {
     local precmd
     for precmd in $precmd_functions; do
         $precmd
     done
     zle reset-prompt
 }
-zle -N fzf_notes_redraw_prompt
+zle -N fzf_todos_redraw_prompt
 
-function fzf_notes_preview {
-    states=("${(s[|])FZF_NOTES_PREVIEW_WINDOW}")
-    [ "${#states[@]}" -eq 1 ] && echo "${FZF_NOTES_PREVIEW_WINDOW}" && return
-    [ "${#states[@]}" -gt 2 ] && echo "${FZF_NOTES_PREVIEW_WINDOW}" && return
-    [ $(tput cols) -lt "${FZF_NOTES_PREVIEW_THRESHOLD}" ] && echo "${states[2]}" && return
+function fzf_todos_preview {
+    states=("${(s[|])FZF_TODOS_PREVIEW_WINDOW}")
+    [ "${#states[@]}" -eq 1 ] && echo "${FZF_TODOS_PREVIEW_WINDOW}" && return
+    [ "${#states[@]}" -gt 2 ] && echo "${FZF_TODOS_PREVIEW_WINDOW}" && return
+    [ $(tput cols) -lt "${FZF_TODOS_PREVIEW_THRESHOLD}" ] && echo "${states[2]}" && return
     echo "${states[1]}"
 }
 
-function fzf_notes {
-    local copy_key=${FZF_NOTES_COPY_KEY:-alt-w}
-    local new_note_key=${FZF_NOTES_NEW_NOTE_KEY:-ctrl-o}
-    local lines=$(eval ${FZF_NOTES_RG_COMMAND} ${FZF_NOTES_DIR} | \
-        ${FZF_PREVIEW_BIN} -ns ${FZF_NOTES_DIR} | fzf \
-        --prompt "${FZF_NOTES_PROMPT}" \
+function fzf_todos {
+    local copy_key=${FZF_TODOS_COPY_KEY:-alt-w}
+    local new_entry_key=${FZF_TODOS_NEW_NOTE_KEY:-ctrl-o}
+    local toggle_entry_key=${FZF_TODOS_TOGGLE_ENTRY_KEY:-ctrl-u}
+    local delete_entry_key=${FZF_TODOS_DELETE_ENTRY_KEY:-ctrl-d}
+    local fzf_todos_file_dir=$(dirname ${FZF_TODOS_FILE})
+    local fzf_todos_file_base=$(basename ${FZF_TODOS_FILE})
+    local lines=$(eval cat -n ${FZF_TODOS_FILE} | fzf \
+        --prompt "${FZF_TODOS_PROMPT}" \
         --print-query \
         --ansi \
-        --delimiter=":" \
         --multi \
         --query="$*" \
-        --expect="$new_note_key" \
-        --bind "${copy_key}:execute-silent(echo -n {3..} | ${FZF_NOTES_COPY_COMMAND})" \
-        --header="${copy_key}:copy, ${new_note_key}:new" \
-        --preview="${FZF_PREVIEW_BIN} -np ${FZF_NOTES_DIR} {1} {2} ${FZF_PREVIEW_LINES}" \
-        --preview-window=$(fzf_notes_preview) \
+        --expect="$new_entry_key" \
+        --header="${new_entry_key}:new, ${toggle_entry_key}:toggle, ${delete_entry_key}:delete" \
+        --preview="${FZF_PREVIEW_BIN} -np ${fzf_todos_file_dir} ${fzf_todos_file_base} {1} ${FZF_PREVIEW_LINES}" \
+        --preview-window=$(fzf_todos_preview) \
     )
     if [[ -z "$lines" ]]; then
-        zle && zle fzf_notes_redraw_prompt
+        zle && zle fzf_todos_redraw_prompt
         return 1
     fi
 
     local key="$(head -n2 <<< "$lines" | tail -n1)"
-    if [[ "$key" == "$new_note_key" ]]; then
-        fzf_notes_new_entry "$(head -n1 <<< "${lines}")"
+    if [[ "$key" == "$new_entry_key" ]]; then
+        fzf_todos_new_entry "$(head -n1 <<< "${lines}")"
     else
-        fzf_notes_jump "$(tail -n1 <<< "${lines}")"
+        fzf_todos_jump "$(tail -n1 <<< "${lines}")"
     fi
-    zle && zle fzf_notes_redraw_prompt || true
+    zle && zle fzf_todos_redraw_prompt || true
 }
 
-function fzf_notes_new_entry {
-    mkdir -p $(dirname ${FZF_NOTES_DIR}/$1)
-    $EDITOR ${FZF_NOTES_DIR}/$1
+function fzf_todos_new_entry {
+    mkdir -p $(dirname ${FZF_TODOS_FILE}/$1)
+    $EDITOR ${FZF_TODOS_FILE}/$1
 }
 
-function fzf_notes_jump {
+function fzf_todos_jump {
     file=$(cut -d':' -f1 <<< "$1")
     column=$(cut -d':' -f2 <<< "$1")
     # vim compatible editor.
-    $EDITOR +$column ${FZF_NOTES_DIR}/$file
+    $EDITOR +$column ${FZF_TODOS_FILE}/$file
 }
 
-zle -N fzf_notes
+zle -N fzf_todos
 
-bindkey ${FZF_NOTES_TRIGGER_KEYMAP:-'^v'} fzf_notes
+bindkey ${FZF_TODOS_TRIGGER_KEYMAP:-'^v'} fzf_todos
