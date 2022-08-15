@@ -1,0 +1,2 @@
+[ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
+[ -x "$(command -v awesome)" ] && exec awesome
