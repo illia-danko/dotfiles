@@ -85,8 +85,7 @@ aur_packages() {
     [ -z "$is_archlinux" ] && return
 
     echo "Aur packages..."
-    read -ra pkgs <<< "$(cat "$script_dir/aur-packages" | tr '\n' ' ')"
-    walk_packages "makepkg -si --noconfirm" "${pkgs[@]}"
+    sh "$script_dir/aur-packages.sh"
     echo "Done"
 }
 
@@ -194,6 +193,7 @@ os() {
     eval "$script_dir/bin/mod-switch win-alt"  # swap RAlt with RWin
     if [ -n "$is_archlinux" ]; then
         os_fix_laptop_lid_suspend
+        # TODO(idanko): required only for sway running under iwctl service.
         # # Fix `libvirt` DNS (used by dnsmasq).
         # nameservers=("nameserver 1.1.1.1" "nameserver 8.8.8.8" "nameserver 8.8.4.4")
         # for ns in "${nameservers[@]}"; do
