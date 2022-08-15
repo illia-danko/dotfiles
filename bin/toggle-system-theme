@@ -13,6 +13,6 @@ case $(grep -E "^colors:" "$terminal_conf" | awk '{print $2}') in
 esac
 
 perl -pi -e "s/(^colors:).*/\1 ${changes[0]}/;" "$terminal_conf"
-perl -pi -e "s/(^export SYSTEM_COLOR_THEME=).*/\1\"${changes[1]}\"/;" "$HOME/.zshrc"
+perl -pi -e "s/(^export SYSTEM_COLOR_THEME=).*/\1\"${changes[1]}\"/;" "$HOME/.config-common.sh"
 
 [ -n "${1-}" ] && notify-send "${changes[2]}"

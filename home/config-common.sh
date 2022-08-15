@@ -48,6 +48,7 @@ my_github="$HOME/github.com/elijahdanko"
 # Terminate TLS (Firefox/Chrome).
 export SSLKEYLOGFILE="$HOME/.sslkeylog"
 export NSS_ALLOW_SSLKEYLOGFILE=1
+export SYSTEM_COLOR_THEME="ebdbb2"
 
 if [ -x "$(command -v fzf)" ]; then
     export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS"
