@@ -44,16 +44,17 @@ distro_packages() {
     packages_file="$script_dir/deb-packages"
     install_cmd="sudo apt install -yy"
 
-    read -ra pkgs <<< "$(awk '{print $1}' "$packages_file" | \
-        tr '\n' ' ')"
-    eval "$(printf "%s %s" "$install_cmd" "${pkgs[*]}")"
-
     if [ -n "$is_archlinux" ]; then
         packages_file="$script_dir/pacman-packages"
         install_cmd="sudo pacman -S --noconfirm"
     else
         deb_packages
     fi
+
+
+    read -ra pkgs <<< "$(awk '{print $1}' "$packages_file" | \
+        tr '\n' ' ')"
+    eval "$(printf "%s %s" "$install_cmd" "${pkgs[*]}")"
 }
 
 install_pkg() {
