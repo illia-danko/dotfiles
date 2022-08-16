@@ -202,6 +202,12 @@ os() {
     fi
 }
 
+systemd() {
+    for service in "$HOME"/.config/systemd/user/*.service; do
+        systemctl --user enable $(basename "$service") --now
+    done
+}
+
 config_home() {
     copy_content "$script_dir"/home "$HOME" "."
     zsh_theme
@@ -229,6 +235,7 @@ config() {
 # Steps are required after reboot.
 post_config() {
     os
+    systemd
 
     if [ -n "$is_archlinux" ]; then
         echo "Configure archlinux settings..."
@@ -261,5 +268,6 @@ case "$1" in
     config-ssh) config_ssh;;
     config) config;;
     post-config) post_config;;
+    systemd) systemd;;
     *) >&2 echo "'$1' entry is not defined." && exit 1;;
 esac
