@@ -46,3 +46,4 @@ volumeicon # qtile
 network-manager-applet # qtile
 blueman-applet # qtile
 nitrogen  # qtile
+lxappearance  # qtile
