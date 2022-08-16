@@ -40,3 +40,9 @@ usbutils  # lsusb
 xclip
 inetutils  # hostname
 ttf-ubuntu-font-family
+picom  # qtile
+dunst  # qtile
+volumeicon # qtile
+network-manager-applet # qtile
+blueman-applet # qtile
+nitrogen  # qtile
