@@ -38,3 +38,4 @@ tree  # required by fzf-projects
 fd  # required by fzf-projects
 usbutils  # lsusb
 xclip
+inetutils  # hostname
