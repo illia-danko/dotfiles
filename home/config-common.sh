@@ -22,8 +22,7 @@ man() {
     $EDITOR -c "Man $*" -c "only"
 }
 
-export CLIPBOARD_COPY_COMMAND="wl-copy"
-[ "$XDG_SESSION_TYPE" = "x11" ] && export CLIPBOARD_COPY_COMMAND="xclip -selection c"
+export CLIPBOARD_COPY_COMMAND="xclip -selection c"
 export OPENER=run-mailcap # open/preview with mailcap (using by lf)
 
 my_github="$HOME/github.com/elijahdanko"
