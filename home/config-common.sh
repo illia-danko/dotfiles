@@ -37,7 +37,6 @@ my_github="$HOME/github.com/elijahdanko"
 [ -d "$HOME/.bin" ] && export PATH="$HOME/.bin:$PATH"
 [ -d "$HOME/.cargo/bin" ] && export PATH="$HOME/.cargo/bin:$PATH"
 [ -x "$(command -v minikube)" ] && eval '$(minikube docker-env)'
-[ -x "$(command -v gpg)" ] && export GPG_TTY="$(tty)"  # used by vim-gnupg
 [ -x "$(command -v bat)" ] && export BAT_STYLE="plain"  # used by Bat previewer
 [ -x "$(command -v shellcheck)" ] && export SHELLCHECK_OPTS='--shell=sh --exclude=SC1090,SC2139,SC2155'
 [ -f "/etc/arch-release" ] && export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
