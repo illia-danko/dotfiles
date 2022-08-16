@@ -33,7 +33,7 @@ my_github="$HOME/github.com/elijahdanko"
 [ -d "$HOME/go/bin" ] && export PATH="$HOME/go/bin:$PATH"
 [ -d "/usr/local/opt/openjdk" ] && export PATH="/usr/local/opt/openjdk/bin:$PATH"
 [ -d "/usr/local/opt/llvm/bin" ] && export PATH="/usr/local/opt/llvm/bin:$PATH"
-[ -d "$my_github/dotfiles/bin" ] && export PATH="$my_github/dotfiles/bin:$PATH"
+[ -d "$HOME/.bin" ] && export PATH="$HOME/.bin:$PATH"
 [ -d "$HOME/.cargo/bin" ] && export PATH="$HOME/.cargo/bin:$PATH"
 [ -x "$(command -v minikube)" ] && eval '$(minikube docker-env)'
 [ -x "$(command -v gpg)" ] && export GPG_TTY="$(tty)"  # used by vim-gnupg
