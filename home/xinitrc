@@ -1,2 +1,4 @@
 [ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
-[ -x "$(command -v awesome)" ] && exec awesome
+while true; do
+    exec qtile start
+done
