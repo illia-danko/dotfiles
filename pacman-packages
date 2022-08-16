@@ -39,3 +39,4 @@ fd  # required by fzf-projects
 usbutils  # lsusb
 xclip
 inetutils  # hostname
+ttf-ubuntu-font-family
