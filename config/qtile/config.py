@@ -88,15 +88,19 @@ keys = [
     ),
     Key([mod],
         "Return",
-        lazy.spawn(
-            'alacritty -e sh -c "tmux new -d -s HACK; tmux new -d -s WORK; tmux new -d -s MEDIA; tmux attach -t HACK"'
-        ),
+        lazy.spawn('alacritty -e sh -c "' + 'tmux new -d -s HACK; ' +
+                   'tmux new -d -s WORK; ' + 'tmux new -d -s MEDIA; ' +
+                   'tmux attach -t HACK"'),
         desc="Launch tmux & terminal"),
+    Key([mod, "shift"],
+        "Return",
+        lazy.spawn("alacritty"),
+        desc="Launch terminal"),
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
-    Key([mod], "w", lazy.window.kill(), desc="Kill focused window"),
-    Key([mod, "control"], "r", lazy.reload_config(), desc="Reload the config"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
+    Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
+    Key([mod, "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod],
         "r",
         lazy.spawncmd(),
