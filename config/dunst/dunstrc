@@ -59,8 +59,6 @@
 [experimental]
     per_monitor_dpi = false
 
-[shortcuts]
-
 [urgency_low]
     background = "#1f1f1f"
     foreground = "#8f8f8f"
