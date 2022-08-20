@@ -11,4 +11,4 @@ config:
 
 install: packages config
 
-.PHONY: packages config dump
+.PHONY: packages config
