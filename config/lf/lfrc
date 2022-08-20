@@ -20,7 +20,7 @@ set ifs "\n"
 set scrolloff 10
 
 # Show icons if possible.
-# set icons
+set icons
 # Show box margin.
 set drawbox
 # No preview.
