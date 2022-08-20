@@ -55,24 +55,19 @@ function _fzf_projects_preview_window {
 }
 
 function fzf-projects {
-    local tmp_fd=$(mktemp --suffix .fzf-project)
-
-    eval ${FZF_PROJECTS_FD_COMMAND} | _fzf_projects_color | fzf \
+    local line=$(eval ${FZF_PROJECTS_FD_COMMAND} | _fzf_projects_color | fzf \
         --ansi \
         --prompt "${FZF_PROJECTS_PROMPT}" \
         --preview="tree -C -L 1 {}" \
-        --preview-window=$(_fzf_projects_preview_window) \
-        --bind "enter:execute(echo {} >> $tmp_fd)+abort"
+        --preview-window=$(_fzf_projects_preview_window))
 
-    local mb_dir="$(cat $tmp_fd)"
-    rm -rf "$tmp_fd"
-    if [ -d "$mb_dir" ]; then
+    if [ -d "$line" ]; then
         if [ "$#" -gt 0 ]; then
             case $1 in
-                '--print') printf "%s\n" "$mb_dir";;
+                '--print') printf "%s\n" "$line";;
             esac
         else
-            cd "$mb_dir"
+            cd "$line"
         fi
     fi
 

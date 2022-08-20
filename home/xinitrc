@@ -1,4 +1,0 @@
-[ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
-while true; do
-    exec qtile start
-done

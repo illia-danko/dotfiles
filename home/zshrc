@@ -42,7 +42,9 @@ setopt interactivecomments    # enable hash comment command
 [ -f ~/.zsh-theme ] && . ~/.zsh-theme
 [ -f /usr/share/fzf/key-bindings.zsh ] && . /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/fzf/completion.zsh ] && . /usr/share/fzf/completion.zsh
-[ -f ~/.fzf.zsh ] && . ~/.fzf.zsh
+[ -f /usr/share/fzf/key-bindings.zsh ] && . /usr/share/fzf/key-bindings.zsh
+[ -f /opt/homebrew/opt/fzf/shell/completion.zsh ] && . /opt/homebrew/opt/fzf/shell/completion.zsh
+[ -f /opt/homebrew/opt/fzf/shell/key-bindings.zsh ] && . /opt/homebrew/opt/fzf/shell/key-bindings.zsh
 [ -f ~/.fzf-projects.zsh ] && . ~/.fzf-projects.zsh
 [ -f ~/.fzf-notes.zsh ] && . ~/.fzf-notes.zsh
 [ -d ~/.shell-aliases ] &&  for f in ~/.shell-aliases/*.sh; do . $f; done
@@ -50,3 +52,9 @@ setopt interactivecomments    # enable hash comment command
 
 # ------------------------------------------------------------------------------
 [ -f "$HOME/.config-common.sh" ] && . "$HOME/.config-common.sh"
+
+if [ -x "$(command -v tmux)" ]; then
+    if [ -z "$TMUX" ]; then
+        tmux new -s HACK || tmux attach -t HACK
+    fi
+fi

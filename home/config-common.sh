@@ -23,10 +23,14 @@ man() {
 }
 
 export CLIPBOARD_COPY_COMMAND="xclip -selection c"
+[ "$(uname)" = "Darwin" ] && CLIPBOARD_COPY_COMMAND="pbcopy"
 export OPENER=run-mailcap # open/preview with mailcap (using by lf)
 
 my_github="$HOME/github.com/elijahdanko"
 
+[ -d "$HOME/Library/Python/3.8/bin" ] && export PATH="$HOME/Library/Python/3.8/bin:$PATH"
+[ -d "/opt/homebrew/opt/node@16/bin" ] && export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
+[ -d "/opt/homebrew/bin" ] && export PATH="$PATH:/opt/homebrew/bin"
 [ -d "/usr/local/sbin" ] && export PATH="$PATH:/usr/local/sbin"
 [ -d "/usr/local/mysql/bin" ] && export PATH="$PATH:/usr/local/mysql/bin"
 [ -d "/usr/local/go/bin" ] && export PATH="/usr/local/go/bin:$PATH"
