@@ -23,7 +23,7 @@ shell:
         - --login
 
 window:
-    startup_mode: Maximized
+    startup_mode: SimpleFullscreen
     decorations: buttonless
 
 # When true, bold text is drawn using the bright variant of colors.
@@ -37,11 +37,11 @@ font:
     # The normal (roman) font face to use.
     normal:
         family: Iosevka Nerd Font Mono
-        style: Regular
+        style: Medium
 
     bold:
         family: Iosevka Nerd Font Mono
-        style: Medium
+        style: Bold
 
     italic:
         family: Iosevka Nerd Font Mono
