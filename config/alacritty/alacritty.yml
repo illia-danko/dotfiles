@@ -4,13 +4,13 @@
 # environment variables. Some entries may override variables
 # set by alacritty it self.
 env:
-    # TERM env customization. Default is xterm-256color
-    # Note: the default TERM value `xterm-256color` does not
-    # specify all features alacritty supports. This does pose
-    # a few issues with programs relying on terminfo and the
-    # `tput` command.
-    TERM: xterm-256color
-    COLORTERM: truecolor
+  # TERM env customization. Default is xterm-256color
+  # Note: the default TERM value `xterm-256color` does not
+  # specify all features alacritty supports. This does pose
+  # a few issues with programs relying on terminfo and the
+  # `tput` command.
+  TERM: xterm-256color
+  COLORTERM: truecolor
 
 # Shell
 #
@@ -18,13 +18,13 @@ env:
 # Entries in shell.args are passed unmodified as arguments to the shell.
 #
 shell:
-    program: /bin/zsh
-    args:
-        - --login
+  program: /bin/zsh
+  args:
+    - --login
 
 window:
-    startup_mode: SimpleFullscreen
-    decorations: buttonless
+  startup_mode: SimpleFullscreen
+  decorations: buttonless
 
 # When true, bold text is drawn using the bright variant of colors.
 draw_bold_text_with_bright_colors: true
@@ -34,114 +34,113 @@ mouse:
 
 # Font configuration (changes require restart).
 font:
-    # The normal (roman) font face to use.
-    normal:
-        family: Iosevka Nerd Font Mono
-        style: Medium
+  # The normal (roman) font face to use.
+  normal:
+    family: Iosevka Nerd Font Mono
+    style: Medium
 
-    bold:
-        family: Iosevka Nerd Font Mono
-        style: Bold
+  bold:
+    family: Iosevka Nerd Font Mono
+    style: Bold
 
-    italic:
-        family: Iosevka Nerd Font Mono
-        style: Italic
+  italic:
+    family: Iosevka Nerd Font Mono
+    style: Italic
 
-    # Point size of the font.
-    size: 16
-    # Offset is the extra space around each character. offset.y can be thought
-    # of as modifying the linespacing, and offset.x as modifying the letter
-    # spacing.
-    offset:
-        x: 0
-        y: 0
+  # Point size of the font.
+  size: 16
+  # Offset is the extra space around each character. offset.y can be thought
+  # of as modifying the linespacing, and offset.x as modifying the letter
+  # spacing.
+  offset:
+    x: 0
+    y: 0
 
 key_bindings:
-- { key: Q, mods: Control, chars: "\x11" }
-- { key: A, mods: Alt, chars: "\x1ba" }
-- { key: B, mods: Alt, chars: "\x1bb" }
-- { key: C, mods: Alt, chars: "\x1bc" }
-- { key: D, mods: Alt, chars: "\x1bd" }
-- { key: E, mods: Alt, chars: "\x1be" }
-- { key: F, mods: Alt, chars: "\x1bf" }
-- { key: J, mods: Alt, chars: "\x1bj" }
-- { key: H, mods: Alt, chars: "\x1bh" }
-- { key: I, mods: Alt, chars: "\x1bi" }
-- { key: J, mods: Alt, chars: "\x1bj" }
-- { key: K, mods: Alt, chars: "\x1bk" }
-- { key: L, mods: Alt, chars: "\x1bl" }
-- { key: M, mods: Alt, chars: "\x1bm" }
-- { key: N, mods: Alt, chars: "\x1bn" }
-- { key: O, mods: Alt, chars: "\x1bo" }
-- { key: P, mods: Alt, chars: "\x1bp" }
-- { key: Q, mods: Alt, chars: "\x1bq" }
-- { key: R, mods: Alt, chars: "\x1br" }
-- { key: S, mods: Alt, chars: "\x1bs" }
-- { key: T, mods: Alt, chars: "\x1bt" }
-- { key: U, mods: Alt, chars: "\x1bu" }
-- { key: V, mods: Alt, chars: "\x1bv" }
-- { key: W, mods: Alt, chars: "\x1bw" }
-- { key: X, mods: Alt, chars: "\x1bx" }
-- { key: Y, mods: Alt, chars: "\x1by" }
-- { key: Z, mods: Alt, chars: "\x1bz" }
+  - { key: Q, mods: Control, chars: "\x11" }
+  - { key: A, mods: Alt, chars: "\x1ba" }
+  - { key: B, mods: Alt, chars: "\x1bb" }
+  - { key: C, mods: Alt, chars: "\x1bc" }
+  - { key: D, mods: Alt, chars: "\x1bd" }
+  - { key: E, mods: Alt, chars: "\x1be" }
+  - { key: F, mods: Alt, chars: "\x1bf" }
+  - { key: J, mods: Alt, chars: "\x1bj" }
+  - { key: H, mods: Alt, chars: "\x1bh" }
+  - { key: I, mods: Alt, chars: "\x1bi" }
+  - { key: J, mods: Alt, chars: "\x1bj" }
+  - { key: K, mods: Alt, chars: "\x1bk" }
+  - { key: L, mods: Alt, chars: "\x1bl" }
+  - { key: M, mods: Alt, chars: "\x1bm" }
+  - { key: N, mods: Alt, chars: "\x1bn" }
+  - { key: O, mods: Alt, chars: "\x1bo" }
+  - { key: P, mods: Alt, chars: "\x1bp" }
+  - { key: Q, mods: Alt, chars: "\x1bq" }
+  - { key: R, mods: Alt, chars: "\x1br" }
+  - { key: S, mods: Alt, chars: "\x1bs" }
+  - { key: T, mods: Alt, chars: "\x1bt" }
+  - { key: U, mods: Alt, chars: "\x1bu" }
+  - { key: V, mods: Alt, chars: "\x1bv" }
+  - { key: W, mods: Alt, chars: "\x1bw" }
+  - { key: X, mods: Alt, chars: "\x1bx" }
+  - { key: Y, mods: Alt, chars: "\x1by" }
+  - { key: Z, mods: Alt, chars: "\x1bz" }
 
 # Github light&dark colors.
 # See https://github.com/ellisonleao/gruvbox.nvim/blob/main/lua/gruvbox/palette.lua
 schemes:
   dark: &dark
     primary:
-      background: '#282828'
-      foreground: '#fbf1c7'
+      background: "#282828"
+      foreground: "#fbf1c7"
 
     # Normal colors
     normal:
-      black:   '#282828'
-      red:     '#cc241d'
-      green:   '#98971a'
-      yellow:  '#d79921'
-      blue:    '#458588'
-      magenta: '#b16286'
-      cyan:    '#689d6a'
-      white:   '#a89984'
+      black: "#282828"
+      red: "#cc241d"
+      green: "#98971a"
+      yellow: "#d79921"
+      blue: "#458588"
+      magenta: "#b16286"
+      cyan: "#689d6a"
+      white: "#a89984"
 
     # Bright colors
     bright:
-      black:   '#928374'
-      red:     '#fb4934'
-      green:   '#b8bb26'
-      yellow:  '#fabd2f'
-      blue:    '#83a598'
-      magenta: '#d3869b'
-      cyan:    '#8ec07c'
-      white:   '#ebdbb2'
+      black: "#928374"
+      red: "#fb4934"
+      green: "#b8bb26"
+      yellow: "#fabd2f"
+      blue: "#83a598"
+      magenta: "#d3869b"
+      cyan: "#8ec07c"
+      white: "#ebdbb2"
 
-  light: &light
-    # Default colors
+  light: &light # Default colors
     primary:
-      background: '#fbf1c7'
-      foreground: '#282828'
+      background: "#fbf1c7"
+      foreground: "#282828"
 
     # Normal colors
     normal:
-      black:   '#fbf1c7'
-      red:     '#cc241d'
-      green:   '#98971a'
-      yellow:  '#d79921'
-      blue:    '#458588'
-      magenta: '#b16286'
-      cyan:    '#689d6a'
-      white:   '#7c6f64'
+      black: "#fbf1c7"
+      red: "#cc241d"
+      green: "#98971a"
+      yellow: "#d79921"
+      blue: "#458588"
+      magenta: "#b16286"
+      cyan: "#689d6a"
+      white: "#7c6f64"
 
     # Bright colors
     bright:
-      black:   '#928374'
-      red:     '#9d0006'
-      green:   '#79740e'
-      yellow:  '#b57614'
-      blue:    '#076678'
-      magenta: '#8f3f71'
-      cyan:    '#427b58'
-      white:   '#3c3836'
+      black: "#928374"
+      red: "#9d0006"
+      green: "#79740e"
+      yellow: "#b57614"
+      blue: "#076678"
+      magenta: "#8f3f71"
+      cyan: "#427b58"
+      white: "#3c3836"
 
 # Colors
 colors: *light
