@@ -4,6 +4,7 @@ pkgs=(
     neovim
     alacritty
     kubectl
+    pinentry-mac
     minio-mc
     node@16
     lf
