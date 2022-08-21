@@ -29,16 +29,16 @@ command -v fzf >/dev/null 2>&1 || return
 [ -z "${FZF_TODOS_COPY_COMMAND-}" ] && FZF_TODOS_COPY_COMMAND="pbcopy"
 
 # Ensure precmds are run after cd.
-function fzf_todos_redraw_prompt {
+function _fzf_todos_redraw_prompt {
     local precmd
     for precmd in $precmd_functions; do
         $precmd
     done
     zle reset-prompt
 }
-zle -N fzf_todos_redraw_prompt
+zle -N _fzf_todos_redraw_prompt
 
-function fzf_todos_preview {
+function _fzf_todos_preview {
     states=("${(s[|])FZF_TODOS_PREVIEW_WINDOW}")
     [ "${#states[@]}" -eq 1 ] && echo "${FZF_TODOS_PREVIEW_WINDOW}" && return
     [ "${#states[@]}" -gt 2 ] && echo "${FZF_TODOS_PREVIEW_WINDOW}" && return
@@ -47,12 +47,9 @@ function fzf_todos_preview {
 }
 
 function fzf_todos {
-    local copy_key=${FZF_TODOS_COPY_KEY:-alt-w}
     local new_entry_key=${FZF_TODOS_NEW_NOTE_KEY:-ctrl-o}
     local toggle_entry_key=${FZF_TODOS_TOGGLE_ENTRY_KEY:-ctrl-u}
     local delete_entry_key=${FZF_TODOS_DELETE_ENTRY_KEY:-ctrl-d}
-    local fzf_todos_file_dir=$(dirname ${FZF_TODOS_FILE})
-    local fzf_todos_file_base=$(basename ${FZF_TODOS_FILE})
     local lines=$(eval "$FZF_PREVIEW_BIN" --todo-tags ${FZF_TODOS_FILE} | fzf \
         --prompt "${FZF_TODOS_PROMPT}" \
         --print-query \
@@ -62,42 +59,47 @@ function fzf_todos {
         --ansi \
         --multi \
         --query="$*" \
-        --expect="$new_entry_key,$toggle_entry_key" \
+        --expect="$new_entry_key,$toggle_entry_key,$delete_entry_key" \
         --header="${new_entry_key}:new, ${toggle_entry_key}:toggle, ${delete_entry_key}:delete" \
         --preview="echo {3..}" \
-        --preview-window=$(fzf_todos_preview) \
+        --preview-window=$(_fzf_todos_preview) \
     )
     if [[ -z "$lines" ]]; then
-        zle && zle fzf_todos_redraw_prompt
+        zle && zle _fzf_todos_redraw_prompt
         return 1
     fi
 
     local key="$(head -n2 <<< "$lines" | tail -n1)"
     local line_number=${"$(tail -n1 <<< "${lines}" | awk '{print $1}')"%?}
     case "$key" in
-        "$new_entry_key") fzf_todos_new_entry "$(head -n1 <<< "${lines}")";;
-        "$toggle_entry_key") fzf_todos_toggle_entry "$line_number";;
-        *) fzf_todos_jump "$(tail -n1 <<< "${lines}" | awk '{print $1}')";;
+        "$new_entry_key") _fzf_todos_new_entry "$(head -n1 <<< "${lines}")";;
+        "$toggle_entry_key") _fzf_todos_toggle_entry "$line_number";;
+        "$delete_entry_key") _fzf_todos_delete_entry "$line_number";;
+        *) _fzf_todos_jump "$line_number";;
     esac
 
-    zle && zle fzf_todos_redraw_prompt || true
+    zle && zle _fzf_todos_redraw_prompt || true
 }
 
-function fzf_todos_new_entry {
-    local line="# TODO: $1"
-    echo "\n$line" >> "$FZF_TODOS_FILE"
+function _fzf_todos_new_entry {
+    echo "# TODO: $1" >> "$FZF_TODOS_FILE"
 }
 
-function fzf_todos_toggle_entry {
+function _fzf_todos_toggle_entry {
     local values=("TODO" "DONE")
     local line="$(head -n$1 "${FZF_TODOS_FILE}" | tail -n1)"
     case "$(awk '{print substr($2, 1, length($2)-1)}' <<< "$line")" in
         DONE) values=("DONE" "TODO");;
     esac
-    sed -i'' -E "${1}s/^# ${values[1]}/# ${values[2]}/" "${FZF_TODOS_FILE}"
+    sed -i '' -E "${1}s/^# ${values[1]}/# ${values[2]}/" "${FZF_TODOS_FILE}"
 }
 
-function fzf_todos_jump {
+function _fzf_todos_delete_entry {
+    sed -i '' "${1}d" "${FZF_TODOS_FILE}"
+}
+
+function _fzf_todos_jump {
+    echo "'$1'" > ~/DEBUG.txt
     $EDITOR +$1 ${FZF_TODOS_FILE}
 }
 
