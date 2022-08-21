@@ -1,9 +1,0 @@
-AddKeysToAgent yes
-HashKnownHosts yes
-
-Host gitlab.com
-    Hostname gitlab.com
-    IdentityFile ~/.ssh/id_rsa_secondary
-
-Host *
-    IdentityFile ~/.ssh/id_rsa

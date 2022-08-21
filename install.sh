@@ -123,18 +123,10 @@ config_common() {
     copy_content "$script_dir"/config "$HOME/.config"
 }
 
-config_ssh() {
-    echo "Configuring ssh..."
-    mkdir -p "$HOME/.ssh"
-    cp "$script_dir/ssh/config" "$HOME/.ssh/config"
-    echo "Done"
-}
-
 config() {
     # Make sure it's executed after packages().
     config_home
     config_common
-    config_ssh
     editor
 }
 
@@ -148,7 +140,6 @@ case "$1" in
     editor) editor;;
     config-home) config_home;;
     config-common) config_common;;
-    config-ssh) config_ssh;;
     config) config;;
     *) >&2 echo "'$1' entry is not defined." && exit 1;;
 esac
