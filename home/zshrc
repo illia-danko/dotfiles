@@ -56,6 +56,6 @@ setopt interactivecomments    # enable hash comment command
 
 if [ -x "$(command -v tmux)" ]; then
     if [ -z "$TMUX" ]; then
-        tmux new -s HACK || tmux attach -t HACK
+        tmux new -s HACK || tmux attach -t HACK || true
     fi
 fi
