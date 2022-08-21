@@ -40,7 +40,7 @@ refresh_prompt() {
     [ ! -z $maybe_py_venv ] && \
         local maybe_py_venv="-(%B%F{magenta}${maybe_py_venv}${reset_color})"
 
-PROMPT="╭─(${sly_face})-(${user_host})-(${current_dir})${maybe_vc_info}${maybe_py_venv}
+PROMPT="╭─${sly_face}-(${user_host})-(${current_dir})${maybe_vc_info}${maybe_py_venv}
 ╰─%B${user_symbol}%b "
 }
 
