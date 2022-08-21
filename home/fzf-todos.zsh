@@ -25,10 +25,8 @@ command -v fzf >/dev/null 2>&1 || return
 [ -z "${FZF_PREVIEW_BIN-}" ] && FZF_PREVIEW_BIN="fzf-preview-bin"
 [ -z "${FZF_TODOS_PREVIEW_WINDOW-}" ] && FZF_TODOS_PREVIEW_WINDOW="nohidden|hidden,down"
 [ -z "${FZF_TODOS_PREVIEW_THRESHOLD-}" ] && FZF_TODOS_PREVIEW_THRESHOLD="160"
-[ -z "${FZF_TODOS_COPY_COMMAND-}" ] && FZF_TODOS_COPY_COMMAND="wl-copy"
-[ "$XDG_SESSION_TYPE" = "x11" ] && FZF_TODOS_COPY_COMMAND="xclip -selection c"
 [ -z "${FZF_TODOS_PROMPT-}" ] && FZF_TODOS_PROMPT='Agenda> '
-[ "$(uname)" = "Darwin" ] && FZF_TODOS_COPY_COMMAND="pbcopy"
+[ -z "${FZF_TODOS_COPY_COMMAND-}" ] && FZF_TODOS_COPY_COMMAND="pbcopy"
 
 # Ensure precmds are run after cd.
 function fzf_todos_redraw_prompt {
@@ -100,4 +98,4 @@ function fzf_todos_jump {
 
 zle -N fzf_todos
 
-bindkey ${FZF_TODOS_TRIGGER_KEYMAP:-'^v'} fzf_todos
+bindkey ${FZF_TODOS_TRIGGER_KEYMAP:-'^q'} fzf_todos
