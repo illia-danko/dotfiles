@@ -53,15 +53,18 @@ function fzf_todos {
     local delete_entry_key=${FZF_TODOS_DELETE_ENTRY_KEY:-ctrl-d}
     local fzf_todos_file_dir=$(dirname ${FZF_TODOS_FILE})
     local fzf_todos_file_base=$(basename ${FZF_TODOS_FILE})
-    local lines=$(eval cat -n ${FZF_TODOS_FILE} | fzf \
+    local lines=$(eval "$FZF_PREVIEW_BIN" --todo-tags ${FZF_TODOS_FILE} | fzf \
         --prompt "${FZF_TODOS_PROMPT}" \
         --print-query \
+        --tac \
+        --delimiter=": " \
+        --with-nth='3..' \
         --ansi \
         --multi \
         --query="$*" \
         --expect="$new_entry_key,$toggle_entry_key" \
         --header="${new_entry_key}:new, ${toggle_entry_key}:toggle, ${delete_entry_key}:delete" \
-        --preview="${FZF_PREVIEW_BIN} -np ${fzf_todos_file_dir} ${fzf_todos_file_base} {1} ${FZF_PREVIEW_LINES}" \
+        --preview="echo {3..}" \
         --preview-window=$(fzf_todos_preview) \
     )
     if [[ -z "$lines" ]]; then
@@ -70,9 +73,10 @@ function fzf_todos {
     fi
 
     local key="$(head -n2 <<< "$lines" | tail -n1)"
+    local line_number=${"$(tail -n1 <<< "${lines}" | awk '{print $1}')"%?}
     case "$key" in
         "$new_entry_key") fzf_todos_new_entry "$(head -n1 <<< "${lines}")";;
-        "$toggle_entry_key") fzf_todos_toggle_entry "$(tail -n1 <<< "${lines}" | awk '{print $1}')";;
+        "$toggle_entry_key") fzf_todos_toggle_entry "$line_number";;
         *) fzf_todos_jump "$(tail -n1 <<< "${lines}" | awk '{print $1}')";;
     esac
 
@@ -86,10 +90,11 @@ function fzf_todos_new_entry {
 
 function fzf_todos_toggle_entry {
     local values=("TODO" "DONE")
-    case $(sed -n "${1}"p ${FZF_TODOS_FILE} | awk '{print substr($2, 1, length($2)-1)}') in
+    local line="$(head -n$1 "${FZF_TODOS_FILE}" | tail -n1)"
+    case "$(awk '{print substr($2, 1, length($2)-1)}' <<< "$line")" in
         DONE) values=("DONE" "TODO");;
     esac
-    sed -E -i "${1}s/^# ${values[1]}/# ${values[2]}/" "${FZF_TODOS_FILE}"
+    sed -i'' -E "${1}s/^# ${values[1]}/# ${values[2]}/" "${FZF_TODOS_FILE}"
 }
 
 function fzf_todos_jump {
