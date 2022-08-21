@@ -124,9 +124,7 @@ cmd copy-clipboard ${{
     if [ "$#" -eq 1 ]; then
         target="${fx}"
     fi
-    cpy_cmd="wl-copy"
-    [ "$XDG_SESSION_TYPE" = "x11" ] && cpy_cmd="xclip -selection c"
-    printf '%s' "${target}" | eval "${cpy_cmd}"
+    printf '%s' "${target}" | pbcopy
 }}
 
 # Create a directory.
