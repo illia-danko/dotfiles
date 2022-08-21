@@ -25,7 +25,7 @@ command -v fzf >/dev/null 2>&1 || return
 [ -z "${FZF_PREVIEW_BIN-}" ] && FZF_PREVIEW_BIN="fzf-preview-bin"
 [ -z "${FZF_TODOS_PREVIEW_WINDOW-}" ] && FZF_TODOS_PREVIEW_WINDOW="nohidden|hidden,down"
 [ -z "${FZF_TODOS_PREVIEW_THRESHOLD-}" ] && FZF_TODOS_PREVIEW_THRESHOLD="160"
-[ -z "${FZF_TODOS_PROMPT-}" ] && FZF_TODOS_PROMPT='Agenda> '
+[ -z "${FZF_TODOS_PROMPT-}" ] && FZF_TODOS_PROMPT='Todos> '
 [ -z "${FZF_TODOS_COPY_COMMAND-}" ] && FZF_TODOS_COPY_COMMAND="pbcopy"
 
 # Ensure precmds are run after cd.
