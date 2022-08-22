@@ -99,7 +99,6 @@ function _fzf_todos_delete_entry {
 }
 
 function _fzf_todos_jump {
-    echo "'$1'" > ~/DEBUG.txt
     $EDITOR +$1 ${FZF_TODOS_FILE}
 }
 
