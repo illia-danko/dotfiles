@@ -70,16 +70,10 @@ github_repos() {
     echo "Done"
 }
 
-sub_packages() {
-    echo "Sub packages..."
-    echo "Done"
-}
-
 packages() {
     sh -c "$script_dir"/brew-packages.sh
     sh -c "$script_dir"/sub-packages.sh
     github_repos
-    sub_packages
 }
 
 copy_content() {

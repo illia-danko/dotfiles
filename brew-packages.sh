@@ -33,6 +33,9 @@ pkgs=(
     audacity
     graphviz
     anki
+    hugo  # homepage
+    biber  # homepage
+    texlive  # homepage
 )
 
 brew install "${pkgs[@]}"
