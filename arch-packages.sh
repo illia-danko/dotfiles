@@ -64,6 +64,7 @@ pkgs=(
     yamllint
     yarn
     yt-dlp
+    stylua  # lua formatter
 )
 
 yay -S "${pkgs[@]}" --noconfirm
