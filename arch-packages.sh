@@ -3,6 +3,9 @@
 pkgs=(
     air
     alacritty
+    alsa-plugins
+    alsa-utils
+    amazon-workspaces-bin
     audacity
     bc
     biber  # homepage
@@ -11,8 +14,13 @@ pkgs=(
     fd
     ffmpeg
     fzf
+    gnome-extra
+    gnome-icon-theme-extras
+    gnome-shell-extension-dash-to-dock
+    gnome-shell-extension-unite
     gnome-themes-extra
     gnupg
+    gpick
     graphviz
     gtk-engines
     htop
@@ -35,6 +43,8 @@ pkgs=(
     pandoc
     pigz
     postgresql
+    pulseaudio-alsa
+    pulseaudio-bluetooth
     qemu
     ripgrep
     shellcheck
@@ -43,6 +53,8 @@ pkgs=(
     texlive-latexextra
     tmux
     tree
+    ttf-iosevka-nerd
+    ttf-ms-fonts
     ttf-ubuntu-font-family
     usbutils  # lsusb
     virt-manager
@@ -52,14 +64,6 @@ pkgs=(
     yamllint
     yarn
     yt-dlp
-    ttf-iosevka-nerd
-    ttf-ms-fonts
-    gpick
-    amazon-workspaces-bin
-    gnome-shell-extension-unite
-    gnome-shell-extension-dash-to-dock
-    gnome-extra
-    gnome-icon-theme-extras
 )
 
 yay -S "${pkgs[@]}" --noconfirm
