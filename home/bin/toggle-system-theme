@@ -5,7 +5,7 @@
 
 set -eou pipefail
 
-changes=("*dark" "161b22" "Github Dark")
+changes=("*dark" "2c313a" "Github Dark")
 terminal_conf="$HOME/.config/alacritty/alacritty.yml"
 
 case $(grep -E "^colors:" "$terminal_conf" | awk '{print $2}') in
