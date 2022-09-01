@@ -26,7 +26,7 @@ command -v fzf >/dev/null 2>&1 || return
 [ -z "${FZF_TODOS_PREVIEW_WINDOW-}" ] && FZF_TODOS_PREVIEW_WINDOW="nohidden|hidden,down"
 [ -z "${FZF_TODOS_PREVIEW_THRESHOLD-}" ] && FZF_TODOS_PREVIEW_THRESHOLD="160"
 [ -z "${FZF_TODOS_PROMPT-}" ] && FZF_TODOS_PROMPT='Todos> '
-[ -z "${FZF_TODOS_COPY_COMMAND-}" ] && FZF_TODOS_COPY_COMMAND="pbcopy"
+[ -z "${FZF_TODOS_COPY_COMMAND-}" ] && FZF_TODOS_COPY_COMMAND="$CLIPBOARD_COPY_COMMAND"
 
 # Ensure precmds are run after cd.
 function _fzf_todos_redraw_prompt {

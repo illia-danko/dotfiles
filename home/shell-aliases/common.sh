@@ -7,10 +7,7 @@
 [ -x "$(command -v diff)" ] && alias diff='diff --color=auto'
 [ -x "$(command -v grep)" ] && alias grep='grep --color=auto'
 [ -x "$(command -v ip)" ] && alias ip='ip -color=auto'
-if [ -x "$(command -v ls)" ]; then
-    [ "$(uname)" = "Linux" ] && alias ls='ls --color=auto'
-    [ "$(uname)" = "Darwin" ] && alias ls='ls -G'
-fi
+[ -x "$(command -v ls)" ] && alias ls='ls --color=auto'
 [ -x "$(command -v bc)" ] && alias bc="bc -l"
 [ -x "$(command -v rlwrap)" ] && [ -x "$(command -v sbcl)" ] && alias sbcl="rlwrap sbcl"
 [ -x "$(command -v rlwrap)" ] && [ -x "$(command -v bb)" ] && alias bb-repl="rlwrap bb --nrepl-server"

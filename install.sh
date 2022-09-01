@@ -24,8 +24,6 @@
 
 set -euo pipefail
 
-[[ "$(uname)" != "Darwin" ]] && >&2 echo "not support os." && exit 1
-
 script_name="$(readlink -f "${BASH_SOURCE[0]}")"
 script_dir="$(dirname "$script_name")"
 
@@ -71,8 +69,7 @@ github_repos() {
 }
 
 packages() {
-    sh -c "$script_dir"/brew-packages.sh
-    sh -c "$script_dir"/sub-packages.sh
+    sh -c "$script_dir"/arch-packages.sh
     github_repos
 }
 
@@ -117,11 +114,20 @@ config_common() {
     copy_content "$script_dir"/config "$HOME/.config"
 }
 
+copy_root_files() {
+    files="$(cd "$1" && find . -type f | perl -pe 's/^\.//;')"
+    for file in "${files[@]}"; do
+        echo "Coping $file..."
+        sudo cp -R "$1/$file" "$file"
+    done
+}
+
 config() {
     # Make sure it's executed after packages().
     config_home
     config_common
     editor
+    copy_root_files "$script_dir/root"
 }
 
 [ $# -lt 1 ] && >&2 echo "entry should be specified." && exit 1

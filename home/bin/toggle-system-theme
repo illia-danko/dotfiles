@@ -5,11 +5,11 @@
 
 set -eou pipefail
 
-changes=("*dark" "3c3836" "Gruvbox Dark")
+changes=("*dark" "161b22" "Github Dark")
 terminal_conf="$HOME/.config/alacritty/alacritty.yml"
 
 case $(grep -E "^colors:" "$terminal_conf" | awk '{print $2}') in
-    *dark) changes=("*light" "ebdbb2" "Gruvbox Light");;
+    *dark) changes=("*light" "d5e5f6" "Github Light");;
 esac
 
 perl -pi -e "s/(^colors:).*/\1 ${changes[0]}/;" "$terminal_conf"

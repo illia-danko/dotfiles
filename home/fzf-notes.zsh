@@ -26,7 +26,7 @@ command -v fzf >/dev/null 2>&1 || return
 [ -z "${FZF_NOTES_PREVIEW_WINDOW-}" ] && FZF_NOTES_PREVIEW_WINDOW="nohidden|hidden,down"
 [ -z "${FZF_NOTES_PREVIEW_THRESHOLD-}" ] && FZF_NOTES_PREVIEW_THRESHOLD="160"
 [ -z "${FZF_NOTES_PROMPT-}" ] && FZF_NOTES_PROMPT='Notes> '
-[ -z "${FZF_NOTES_COPY_COMMAND-}" ] && FZF_NOTES_COPY_COMMAND="pbcopy"
+[ -z "${FZF_NOTES_COPY_COMMAND-}" ] && FZF_NOTES_COPY_COMMAND="$CLIPBOARD_COPY_COMMAND"
 [ -z "${FZF_NOTES_RG_COMMAND-}" ] && FZF_NOTES_RG_COMMAND="rg \
     --no-column \
     --line-number \

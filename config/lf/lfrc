@@ -124,7 +124,7 @@ cmd copy-clipboard ${{
     if [ "$#" -eq 1 ]; then
         target="${fx}"
     fi
-    printf '%s' "${target}" | pbcopy
+    printf '%s' "${target}" | eval "$CLIPBOARD_COPY_COMMAND"
 }}
 
 # Create a directory.
@@ -156,7 +156,7 @@ map ,
 cmd fzf-jump ${{
     set -f
     res="$(fzf --height 100% || printf '')"
-    test -z $res && return
+    test -z $res && exit 0
     lf -remote "send $id select \"$res\""
 }}
 map <c-t> fzf-jump

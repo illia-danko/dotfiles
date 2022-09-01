@@ -22,15 +22,13 @@ man() {
     $EDITOR -c "Man $*" -c "only"
 }
 
+export LS_COLORS='di=1;35:ex=01;33'
+export SYSTEM_COLOR_THEME="d5e5f6"
 export CLIPBOARD_COPY_COMMAND="xclip -selection c"
-[ "$(uname)" = "Darwin" ] && CLIPBOARD_COPY_COMMAND="pbcopy"
 export OPENER=run-mailcap # open/preview with mailcap (using by lf)
 
 my_github="$HOME/github.com/elijahdanko"
 
-[ -d "$HOME/Library/Python/3.8/bin" ] && export PATH="$HOME/Library/Python/3.8/bin:$PATH"
-[ -d "/opt/homebrew/opt/node@16/bin" ] && export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
-[ -d "/opt/homebrew/bin" ] && export PATH="$PATH:/opt/homebrew/bin"
 [ -d "/usr/local/sbin" ] && export PATH="$PATH:/usr/local/sbin"
 [ -d "/usr/local/mysql/bin" ] && export PATH="$PATH:/usr/local/mysql/bin"
 [ -d "/usr/local/go/bin" ] && export PATH="/usr/local/go/bin:$PATH"
@@ -48,7 +46,6 @@ my_github="$HOME/github.com/elijahdanko"
 # Terminate TLS (Firefox/Chrome).
 export SSLKEYLOGFILE="$HOME/.sslkeylog"
 export NSS_ALLOW_SSLKEYLOGFILE=1
-export SYSTEM_COLOR_THEME="ebdbb2"
 
 if [ -x "$(command -v fzf)" ]; then
     export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS"
