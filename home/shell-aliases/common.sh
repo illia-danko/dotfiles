@@ -18,3 +18,4 @@
 [ -x "$(command -v dmesg)" ] && alias dmesg='dmesg --color=always | less'
 [ -x "$(command -v clj)" ] && alias clj-repl="clj -M:cider/nrepl"
 [ -x "$(command -v fdfind)" ] && alias fd="fdfind"
+[ -x "$(command -v mpv)" ] && alias mpv="gnome-session-inhibit --inhibit idle mpv"  # https://github.com/mpv-player/mpv/issues/8097

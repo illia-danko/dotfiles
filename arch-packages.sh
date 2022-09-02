@@ -20,7 +20,6 @@ pkgs=(
     gnome-shell-extension-unite
     gnome-themes-extra
     gnupg
-    gpick
     graphviz
     gtk-engines
     htop
