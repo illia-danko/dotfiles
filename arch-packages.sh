@@ -71,7 +71,8 @@ yay -S "${pkgs[@]}" --noconfirm
 
 # Ubuntu fonts.
 yay -Rnsdd bubblewrap --noconfirm || true
-yay -S fontconfig-ubuntu  --noconfirm
+yay -S fontconfig-ubuntu --noconfirm
+yay -S bubblewrap --noconfirm
 
 sudo -H python3 -m pip install pyright virtualenv yapf flake8
 sudo -H npm install -g typescript typescript-language-server eslint prettier
