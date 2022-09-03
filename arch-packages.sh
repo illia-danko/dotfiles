@@ -40,6 +40,7 @@ pkgs=(
     npm
     p7zip
     pandoc
+    parcellite
     pigz
     postgresql
     pulseaudio-alsa
@@ -47,6 +48,7 @@ pkgs=(
     qemu
     ripgrep
     shellcheck
+    stylua  # lua formatter
     texlive-bibtexextra
     texlive-fontsextra
     texlive-latexextra
@@ -63,7 +65,6 @@ pkgs=(
     yamllint
     yarn
     yt-dlp
-    stylua  # lua formatter
 )
 
 yay -S "${pkgs[@]}" --noconfirm
