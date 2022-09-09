@@ -53,9 +53,3 @@ setopt interactivecomments    # enable hash comment command
 
 # ------------------------------------------------------------------------------
 [ -f "$HOME/.config-common.sh" ] && . "$HOME/.config-common.sh"
-
-if [ -x "$(command -v tmux)" ]; then
-    if [ -z "$TMUX" ]; then
-        tmux new -s HACK || tmux attach -t HACK || true
-    fi
-fi
