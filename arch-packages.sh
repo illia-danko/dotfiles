@@ -65,6 +65,10 @@ pkgs=(
     yamllint
     yarn
     yt-dlp
+    papirus-icon-theme
+    libreoffice-fresh
+    libreoffice-fresh-en-gb
+    libreoffice-fresh-uk
 )
 
 yay -S "${pkgs[@]}" --noconfirm
