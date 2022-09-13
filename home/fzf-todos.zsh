@@ -104,4 +104,4 @@ function _fzf_todos_jump {
 
 zle -N fzf_todos
 
-bindkey ${FZF_TODOS_TRIGGER_KEYMAP:-'^x'} fzf_todos
+bindkey ${FZF_TODOS_TRIGGER_KEYMAP:-'^q'} fzf_todos
