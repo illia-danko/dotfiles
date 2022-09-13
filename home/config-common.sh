@@ -19,7 +19,7 @@ export BROWSER="xdg-open-silently"
 man() {
     # Show appropriate an error on no manual.
     /usr/bin/man "$*" > /dev/null 2>&1 || /usr/bin/man "$*" || return
-    $EDITOR -c "Man $*" -c "only"
+    $EDITOR -c "Man $*" -c "only" -c "set laststatus=0" -c "nmap <buffer> q ZQ"
 }
 
 export LS_COLORS='di=1;35:ex=01;33'
