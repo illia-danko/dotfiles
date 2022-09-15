@@ -22,6 +22,21 @@ man() {
     $EDITOR -c "Man $*" -c "only" -c "set laststatus=0" -c "nmap <buffer> q ZQ"
 }
 
+# Override lf command.
+lf(){
+    tmp="$(mktemp)"
+    /usr/bin/lf -last-dir-path="$tmp" "$@"
+    if [ -f "$tmp" ]; then
+        dir="$(cat "$tmp")"
+        rm -f "$tmp"
+        if [ -d "$dir" ]; then
+            if [ "$dir" != "$(pwd)" ]; then
+                cd "$dir" || return
+            fi
+        fi
+    fi
+}
+
 export LS_COLORS='di=1;35:ex=01;33'
 export SYSTEM_COLOR_THEME="d5e5f6"
 export CLIPBOARD_COPY_COMMAND="xclip -selection c"
