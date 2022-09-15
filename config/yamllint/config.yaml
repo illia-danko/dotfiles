@@ -1,9 +1,8 @@
 ---
-
 yaml-files:
-  - '*.yaml'
-  - '*.yml'
-  - '.yamllint'
+  - "*.yaml"
+  - "*.yml"
+  - ".yamllint"
 
 rules:
   braces: enable
@@ -12,6 +11,7 @@ rules:
   commas: enable
   comments:
     level: warning
+    min-spaces-from-content: 1
   comments-indentation:
     level: warning
   document-end: disable
@@ -23,7 +23,6 @@ rules:
   indentation: enable
   key-duplicates: enable
   key-ordering: disable
-  line-length: enable
   new-line-at-end-of-file: enable
   new-lines: enable
   octal-values: disable
@@ -31,3 +30,5 @@ rules:
   trailing-spaces: enable
   truthy:
     level: warning
+  line-length:
+    max: 120
