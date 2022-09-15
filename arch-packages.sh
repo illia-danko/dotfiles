@@ -69,6 +69,7 @@ pkgs=(
     libreoffice-fresh
     libreoffice-fresh-en-gb
     libreoffice-fresh-uk
+    tmux-plugin-manager-git
 )
 
 yay -S "${pkgs[@]}" --noconfirm
