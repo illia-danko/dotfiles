@@ -39,7 +39,7 @@ my_github="$HOME/github.com/elijahdanko"
 [ -d "$HOME/.cargo/bin" ] && export PATH="$HOME/.cargo/bin:$PATH"
 [ -x "$(command -v minikube)" ] && eval '$(minikube docker-env)'
 [ -x "$(command -v bat)" ] && export BAT_STYLE="plain"  # used by Bat previewer
-[ -x "$(command -v shellcheck)" ] && export SHELLCHECK_OPTS='--shell=sh --exclude=SC1090,SC2139,SC2155'
+[ -x "$(command -v shellcheck)" ] && export SHELLCHECK_OPTS='--shell=bash --exclude=SC1090,SC2139,SC2155'
 [ -x "$(command -v gpg)" ] && alias ref="gpg -d $my_github/restricted/ref.gpg"
 
 # SSL termination firefox.
