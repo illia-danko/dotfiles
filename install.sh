@@ -24,6 +24,8 @@
 
 set -euo pipefail
 
+[ $# -lt 1 ] && >&2 echo "Target should be specified." && exit 1
+
 script_name="$(readlink -f "${BASH_SOURCE[0]}")"
 script_dir="$(dirname "$script_name")"
 
@@ -123,14 +125,12 @@ copy_root_files() {
 }
 
 config() {
-    # Make sure it's executed after packages().
     config_home
     config_common
     editor
     copy_root_files "$script_dir/root"
 }
 
-[ $# -lt 1 ] && >&2 echo "entry should be specified." && exit 1
 
 case "$1" in
     github-repos) github_repos;;
@@ -141,5 +141,5 @@ case "$1" in
     config-home) config_home;;
     config-common) config_common;;
     config) config;;
-    *) >&2 echo "'$1' entry is not defined." && exit 1;;
+    *) >&2 echo "'$1' target is not defined." && exit 1;;
 esac
