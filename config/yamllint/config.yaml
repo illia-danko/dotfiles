@@ -5,7 +5,8 @@ yaml-files:
   - ".yamllint"
 
 rules:
-  braces: enable
+  braces:
+    max-spaces-inside: 1
   brackets: enable
   colons: enable
   commas: enable
