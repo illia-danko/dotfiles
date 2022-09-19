@@ -59,7 +59,7 @@ font:
 # Colors.
 # Palette is taken from https://github.com/projekt0n/github-nvim-theme.
 schemes:
-  github_dark: &dark  # Default colors
+  github_dark: &dark # Default colors
     primary:
       background: "#24292e"
       foreground: "#d1d5da"
@@ -87,10 +87,10 @@ schemes:
       white: "#fafbfc"
 
     indexed_colors:
-      - {index: 16, color: "#d18616"}
-      - {index: 17, color: "#f97583"}
+      - { index: 16, color: "#d18616" }
+      - { index: 17, color: "#f97583" }
 
-  github_light: &light  # Default colors
+  github_light: &light # Default colors
     primary:
       background: "#ffffff"
       foreground: "#24292f"
@@ -118,8 +118,8 @@ schemes:
       white: "#4c535a"
 
     indexed_colors:
-      - {index: 16, color: "#d18616"}
-      - {index: 17, color: "#cb2431"}
+      - { index: 16, color: "#d18616" }
+      - { index: 17, color: "#cb2431" }
 
 # Colors
 colors: *light
