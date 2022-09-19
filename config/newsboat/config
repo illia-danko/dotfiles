@@ -23,12 +23,13 @@ bind-key D pb-download
 bind-key U show-urls
 bind-key x pb-delete
 
-color listnormal cyan default
-color listfocus black yellow standout bold
-color listnormal_unread blue default
-color listfocus_unread yellow default bold
-color info red black bold
-color article white default bold
+color listnormal        default default
+color listnormal_unread magenta default
+color listfocus         white default bold
+color listfocus_unread  red default bold
+color info              yellow black bold
+color background        default default
+color article           default default
 
 browser xdg-open-silently
 macro , open-in-browser
