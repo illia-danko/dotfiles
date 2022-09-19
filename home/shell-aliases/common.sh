@@ -19,3 +19,6 @@
 [ -x "$(command -v clj)" ] && alias clj-repl="clj -M:cider/nrepl"
 [ -x "$(command -v fdfind)" ] && alias fd="fdfind"
 [ -x "$(command -v mpv)" ] && alias mpv="gnome-session-inhibit --inhibit idle mpv"  # https://github.com/mpv-player/mpv/issues/8097
+# See https://github.com/elijahdanko/dot-nvim.
+[ -x "$(command -v newsboat)" ] && [ -x "$(command -v nvim)" ] && \
+    alias nb="nvim -c 'ZenMode' -c 'term newsboat' -c 'startinsert'"
