@@ -71,6 +71,7 @@ pkgs=(
     libreoffice-fresh-uk
     tmux-plugin-manager-git
     urlview
+    telegram-desktop
 )
 
 yay -S "${pkgs[@]}" --noconfirm
