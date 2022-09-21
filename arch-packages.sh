@@ -72,6 +72,7 @@ pkgs=(
     tmux-plugin-manager-git
     urlview
     telegram-desktop
+    cronie  # crontab
 )
 
 yay -S "${pkgs[@]}" --noconfirm
@@ -90,4 +91,5 @@ sudo usermod -a -G libvirt "$USER"
 sudo usermod -a -G wireshark "$USER"
 sudo systemctl enable libvirtd.service --now
 sudo systemctl enable docker.service --now
+sudo systemctl enable cronie.service --now
 sudo virsh net-autostart default  # libvirt connection
