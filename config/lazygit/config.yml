@@ -1,11 +1,13 @@
 ---
 gui:
   theme:
-    lightTheme: false
+    lightTheme: true
     selectedLineBgColor:
       - default
     selectedRangeBgColor:
       - reverse
+    inactiveBorderColor:
+      - black
   showIcons: true
   skipUnstageLineWarning: true
 quitOnTopLevelReturn: true

@@ -66,14 +66,14 @@ schemes:
 
     # Normal colors
     normal:
-      black: "#586069"
+      black: "#a8b7c8"
       red: "#ea4a5a"
       green: "#34d058"
       yellow: "#ffea7f"
       blue: "#2188ff"
       magenta: "#b392f0"
       cyan: "#39c5cf"
-      white: "#d1d5da"
+      white: "#2c313a"
 
     # Bright colors
     bright:
@@ -84,7 +84,7 @@ schemes:
       blue: "#79b8ff"
       magenta: "#b392f0"
       cyan: "#56d4dd"
-      white: "#fafbfc"
+      white: "#000000"
 
     indexed_colors:
       - { index: 16, color: "#d18616" }
@@ -97,14 +97,14 @@ schemes:
 
     # Normal colors
     normal:
-      black: "#24292e"
+      black: "#677684"
       red: "#d73a49"
       green: "#28a745"
       yellow: "#dbab09"
       blue: "#0366d6"
       magenta: "#5a32a3"
       cyan: "#0598bc"
-      white: "#6a737d"
+      white: "#d5e5f6"
 
     # Bright colors
     bright:

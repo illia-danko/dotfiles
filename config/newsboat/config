@@ -25,9 +25,9 @@ bind-key x pb-delete
 
 color listnormal        default default
 color listnormal_unread magenta default
-color listfocus         white default bold
-color listfocus_unread  red default bold
-color info              yellow black bold
+color listfocus         white white bold
+color listfocus_unread  red white bold
+color info              yellow white bold
 color background        default default
 color article           default default
 
