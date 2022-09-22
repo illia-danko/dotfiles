@@ -13,12 +13,16 @@
 [ -x "$(command -v rlwrap)" ] && [ -x "$(command -v bb)" ] && alias bb-repl="rlwrap bb --nrepl-server"
 [ -x "$(command -v clj)" ] && alias clj-repl="clj -M:cider/nrepl"
 [ -x "$(command -v rlwrap)" ] && [ -x "$(command -v bb)" ] && alias bb="rlwrap bb"
-[ -x "$(command -v newsboat)" ] && alias nb="newsboat"
 [ -x "$(command -v todo.sh)" ] && alias t="todo.sh"
 [ -x "$(command -v dmesg)" ] && alias dmesg='dmesg --color=always | less'
 [ -x "$(command -v clj)" ] && alias clj-repl="clj -M:cider/nrepl"
 [ -x "$(command -v fdfind)" ] && alias fd="fdfind"
-[ -x "$(command -v mpv)" ] && alias mpv="gnome-session-inhibit --inhibit idle mpv"  # https://github.com/mpv-player/mpv/issues/8097
-# See https://github.com/elijahdanko/dot-nvim.
-[ -x "$(command -v newsboat)" ] && [ -x "$(command -v nvim)" ] && \
-    alias nb="nvim -c 'ZenMode' -c 'term newsboat' -c 'startinsert'"
+[ -x "$(command -v newsboat)" ] && alias nb="newsboat"
+[ -x "$(command -v neomutt)" ] && alias mutt="neomutt"
+
+# Override man command.
+man() {
+    # Show appropriate an error on no manual.
+    /usr/bin/man "$*" > /dev/null 2>&1 || /usr/bin/man "$*" || return
+    $EDITOR -c "Man $*" -c "only" -c "set laststatus=0" -c "nmap <buffer> q ZQ"
+}

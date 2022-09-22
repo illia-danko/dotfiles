@@ -15,28 +15,6 @@ export VISUAL=nvim
 export EDITOR="$VISUAL"
 export BROWSER="xdg-open-silently"
 
-# Override man command.
-man() {
-    # Show appropriate an error on no manual.
-    /usr/bin/man "$*" > /dev/null 2>&1 || /usr/bin/man "$*" || return
-    $EDITOR -c "Man $*" -c "only" -c "set laststatus=0" -c "nmap <buffer> q ZQ"
-}
-
-# Override lf command.
-lf(){
-    tmp="$(mktemp)"
-    /usr/bin/lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp"
-        if [ -d "$dir" ]; then
-            if [ "$dir" != "$(pwd)" ]; then
-                cd "$dir" || return
-            fi
-        fi
-    fi
-}
-
 export LS_COLORS='di=1;35:ex=01;33'
 export SYSTEM_COLOR_THEME="d5e5f6"
 export CLIPBOARD_COPY_COMMAND="xclip -selection c"
@@ -55,7 +33,6 @@ my_github="$HOME/github.com/elijahdanko"
 [ -x "$(command -v minikube)" ] && eval '$(minikube docker-env)'
 [ -x "$(command -v bat)" ] && export BAT_STYLE="plain"  # used by Bat previewer
 [ -x "$(command -v shellcheck)" ] && export SHELLCHECK_OPTS='--shell=bash --exclude=SC1090,SC2139,SC2155'
-[ -x "$(command -v gpg)" ] && alias ref="gpg -d $my_github/restricted/ref.gpg"
 
 # SSL termination firefox.
 # Terminate TLS (Firefox/Chrome).
