@@ -2,19 +2,9 @@
 
 from sys import argv, stdin, stdout
 from os.path import join
-from os import getenv
 
 
-def rgb2int(rgb, sep):
-    v = int(rgb, 16)
-    return sep.join(map(str, [v >> 16, (v & 0xFF00) >> 8, v & 0xFF]))
-
-
-notes_preview_color = getenv("FZF_NOTES_PREVIEW_COLOR")
-if not notes_preview_color:
-    notes_preview_color = "ebdbb2"  # gruvbox-light
-
-NOTES_PREVIEW_COLOR = "\033[48;2;{}m".format(rgb2int(notes_preview_color, ";"))
+DARK_GRAY_BG = "\033[100m"
 PURPLE = "\033[35m"
 RED = "\033[31m"
 BOLD = "\033[;1m"
@@ -37,7 +27,7 @@ def notes_preview(filename, line, height):
             if line - linenum > (height / 2 - 1):
                 continue
             if linenum == line:
-                line_content = BOLD + NOTES_PREVIEW_COLOR + line_content + RESET
+                line_content = BOLD + DARK_GRAY_BG + line_content + RESET
             stdout.write(line_content)
 
 

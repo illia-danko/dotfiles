@@ -16,9 +16,9 @@ export EDITOR="$VISUAL"
 export BROWSER="xdg-open-silently"
 
 export LS_COLORS='di=1;35:ex=01;33'
-export SYSTEM_COLOR_THEME="d5e5f6"
+export SYSTEM_COLOR_THEME="light"
 export CLIPBOARD_COPY_COMMAND="xclip -selection c"
-export OPENER=run-mailcap # open/preview with mailcap (using by lf)
+export OPENER=run-mailcap # open/preview with mailcap (used by lf)
 
 my_github="$HOME/github.com/elijahdanko"
 
@@ -55,10 +55,9 @@ if [ -x "$(command -v fzf)" ]; then
     --bind='ctrl-d:preview-half-page-down'
     --bind='alt-p:toggle-preview'
     --bind='ctrl-a:toggle-all'
-    --color=gutter:-1,fg:-1,fg+:-1,pointer:1,hl:2,hl+:2,bg+:#${SYSTEM_COLOR_THEME}
+    --color=gutter:-1,fg:-1,fg+:-1,pointer:1,hl:2,hl+:2,bg+:8
 "
 
-    export FZF_NOTES_PREVIEW_COLOR="$SYSTEM_COLOR_THEME"
     export FZF_PREVIEW_COMMAND="cat {}"
     export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!{.git,.svn,.hg,CVS,.bzr,vendor,node_modules,dist,venv,elm-stuff}'"
 fi
