@@ -76,4 +76,4 @@ function fzf-projects {
 
 zle -N fzf-projects
 
-bindkey ${FZF_PROJECTS_TRIGGER_KEYMAP:-'^g'} fzf-projects
+bindkey ${FZF_PROJECTS_TRIGGER_KEYMAP:-'\ev'} fzf-projects
