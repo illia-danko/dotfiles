@@ -6,7 +6,6 @@ from os.path import join
 
 DARK_GRAY_BG = "\033[100m"
 PURPLE = "\033[35m"
-RED = "\033[31m"
 BOLD = "\033[;1m"
 RESET = "\033[0;0m"
 
@@ -35,7 +34,7 @@ def todo_tags(filename):
     with open(filename) as fd:
         for linenum, line_content in enumerate(fd, start=1):
             if line_content.startswith("# TODO:"):
-                stdout.write("{0}{1}: {2}".format(RED, linenum, line_content))
+                stdout.write("{0}{1}: {2}".format(PURPLE, linenum, line_content))
 
 
 if __name__ == "__main__":
