@@ -20,6 +20,7 @@ zstyle ':completion:*' rehash true
 # Use tcsh style (default) bindings.
 bindkey -e
 stty -ixon # unbind Ctrl-s
+KEYTIMEOUT=1 # Do not let zsh waiting to detect multi-key
 
 # History.
 # (Source https://github.com/ohmyzsh/ohmyzsh/blob/master/lib/history.zsh)
