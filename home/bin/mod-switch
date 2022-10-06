@@ -18,7 +18,7 @@ xkb_config="/usr/share/X11/xkb/symbols/pc"
     >&2 echo "Position must be specified: win-alt|alt-win" && exit 1
 
 modify() {
-    sudo perl -pi -e "s/(key <"${1}">.*)"${2}"/\1"${3}"/;" "${xkb_config}"
+    sudo perl -pi -e "s/(key <${1}>.*)${2}/\1${3}/;" "${xkb_config}"
 }
 
 case "$1" in
@@ -28,7 +28,7 @@ case "$1" in
     "alt-win")
         modify RCTL Super_R Control_R
         modify RWIN Control_R Super_R;;
-    *) >&2 echo "Unknown "${1}" switch" && exit 1;
+    *) >&2 echo "Unknown $1 switch" && exit 1;
 esac
 
 echo "Done"
