@@ -3,8 +3,10 @@ BasedOnStyle: LLVM
 IndentWidth: 4
 ---
 Language: Cpp
-# Force pointers to the type for C++.
 DerivePointerAlignment: false
 PointerAlignment: Left
 ColumnLimit: 100
+IndentAccessModifiers: false
+AccessModifierOffset: -4
+NamespaceIndentation: Inner
 ---
