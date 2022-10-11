@@ -73,6 +73,8 @@ pkgs=(
     urlview
     telegram-desktop
     cronie  # crontab
+    networkmanager-openvpn
+    easy-rsa  # required by networkmanager-openvpn
 )
 
 yay -S "${pkgs[@]}" --noconfirm
