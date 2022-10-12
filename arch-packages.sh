@@ -75,6 +75,7 @@ pkgs=(
     cronie  # crontab
     networkmanager-openvpn
     easy-rsa  # required by networkmanager-openvpn
+    ccls  # C/C++ Language Server Protocol.
 )
 
 yay -S "${pkgs[@]}" --noconfirm
