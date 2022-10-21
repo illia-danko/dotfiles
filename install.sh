@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Copyright 2021 Elijah Danko
+# Copyright 2021 Illia Danko
 
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -54,7 +54,7 @@ editor() {
     path="$HOME/.config/nvim"
     [ -d "$path" ] && return
     rm -rf "$path"
-    git clone "git@github.com:elijahdanko/dot-nvim.git" "$HOME/.config/nvim"
+    git clone "git@github.com:illia-danko/dot-nvim.git" "$HOME/.config/nvim"
     echo "Done"
 }
 
