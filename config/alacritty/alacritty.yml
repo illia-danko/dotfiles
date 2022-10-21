@@ -36,16 +36,16 @@ mouse:
 font:
   # The normal (roman) font face to use.
   normal:
-    family: Iosevka Nerd Font Mono
+    family: Iosevka Nerd Font
     style: Medium
 
   bold:
-    family: Iosevka Nerd Font Mono
+    family: Iosevka Nerd Font
     style: Bold
 
   italic:
-    family: Iosevka Nerd Font Mono
-    style: Medium
+    family: Iosevka Nerd Font
+    style: Medium Italic
 
   # Point size of the font.
   size: 11
