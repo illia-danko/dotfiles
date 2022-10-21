@@ -65,7 +65,7 @@ pkgs=(
     yamllint
     yarn
     yt-dlp
-    papirus-icon-theme
+    obsidian-icon-theme
     libreoffice-fresh
     libreoffice-fresh-en-gb
     libreoffice-fresh-uk
