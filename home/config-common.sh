@@ -20,7 +20,7 @@ export SYSTEM_COLOR_THEME="light"
 export CLIPBOARD_COPY_COMMAND="xclip -selection c"
 export OPENER=run-mailcap # open/preview with mailcap (used by lf)
 
-my_github="$HOME/github.com/elijahdanko"
+my_github="$HOME/github.com/illia-danko"
 
 [ -d "/usr/local/sbin" ] && export PATH="$PATH:/usr/local/sbin"
 [ -d "/usr/local/mysql/bin" ] && export PATH="$PATH:/usr/local/mysql/bin"
