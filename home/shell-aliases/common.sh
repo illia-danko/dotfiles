@@ -19,6 +19,7 @@
 [ -x "$(command -v fdfind)" ] && alias fd="fdfind"
 [ -x "$(command -v newsboat)" ] && alias nb="newsboat"
 [ -x "$(command -v neomutt)" ] && alias mutt="neomutt"
+[ -x "$(command -v mpv)" ] && alias mpv="gnome-session-inhibit --inhibit idle mpv"  # https://github.com/mpv-player/mpv/issues/8097
 
 # Override man command.
 man() {
