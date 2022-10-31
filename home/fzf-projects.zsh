@@ -43,7 +43,7 @@ zle -N fzf_projects_redraw_prompt
 function _fzf_projects_color {
     [ "${FZF_PROJECTS_COLORS-}" -eq "0" ] && cat && return
     local esc="$(printf '\033')"
-    sed "s/\(.*\)/${esc}[${FZF_PROJECTS_MATCH_COLOR_FG}m\1${esc}[0;0m/"
+    perl -p -e "s/(.*)/${esc}[${FZF_PROJECTS_MATCH_COLOR_FG}m\1${esc}[0;0m/;"
 }
 
 function _fzf_projects_preview_window {

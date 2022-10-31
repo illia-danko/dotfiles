@@ -30,7 +30,7 @@ script_name="$(readlink -f "${BASH_SOURCE[0]}")"
 script_dir="$(dirname "$script_name")"
 
 url2dir() {
-    echo "$1" | perl -pe 's/\.git$//;' -pe 's/^(https?:\/\/|git@)//;' -pe 's/:/\//g;'
+    echo "$1" | perl -p -e 's/\.git$//;' -p -e 's/^(https?:\/\/|git@)//;' -p -e 's/:/\//g;'
 }
 
 install_pkg() {

@@ -91,11 +91,11 @@ function _fzf_todos_toggle_entry {
     case "$(awk '{print substr($2, 1, length($2)-1)}' <<< "$line")" in
         DONE) values=("DONE" "TODO");;
     esac
-    sed -i -E "${1}s/^# ${values[1]}/# ${values[2]}/" "${FZF_TODOS_FILE}"
+    perl -i -p -e "s/^# ${values[1]}/# ${values[2]}/ if ${1} .. ${1}" "${FZF_TODOS_FILE}"
 }
 
 function _fzf_todos_delete_entry {
-    sed -i  "${1}d" "${FZF_TODOS_FILE}"
+    perl -i -p -e "s/.*\R// if ${1} .. ${1}" "${FZF_TODOS_FILE}"
 }
 
 function _fzf_todos_jump {
