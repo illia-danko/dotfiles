@@ -58,6 +58,8 @@ pkgs=(
     ttf-ms-fonts
     ttf-ubuntu-font-family
     usbutils  # lsusb
+    dmidecode  # virt-manager
+    dnsmasq  # virt-manager
     virt-manager
     wireguard-tools
     wireshark-qt
