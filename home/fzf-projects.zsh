@@ -24,7 +24,7 @@
 [ -x "$(command -v fd)" ] && cmd="fd" || cmd="fdfind"
 [ -z "${FZF_PROJECTS_ROOT_DIR-}" ] && FZF_PROJECTS_ROOT_DIR="$HOME"
 [ -z "${FZF_PROJECTS_FD_PATTERN-}" ] && FZF_PROJECTS_FD_PATTERN="'^\.git$|^\.hg$|^\.bzr$|^\.svn$|^_darcs$|^Makefile$|^go.mod$|^package.json$'"
-[ -z "${FZF_PROJECTS_FD_CMD-}" ] && FZF_PROJECTS_FD_CMD="$cmd --hidden --case-sensitive --absolute-path --exec echo '{//}' ';' ${FZF_PROJECTS_FD_PATTERN} ${FZF_PROJECTS_ROOT_DIR}"
+[ -z "${FZF_PROJECTS_FD_CMD-}" ] && FZF_PROJECTS_FD_CMD="$cmd --hidden --case-sensitive --base-directory ${FZF_PROJECTS_ROOT_DIR} --relative-path --exec echo '{//}' ';' ${FZF_PROJECTS_FD_PATTERN}"
 [ -z "${FZF_PROJECTS_UNIQUE_CMD-}" ] && FZF_PROJECTS_UNIQUE_CMD="awk '!x[$0]++'"
 [ -z "${FZF_PROJECTS_COLORS-}" ] && FZF_PROJECTS_COLORS="0"
 [ -z "${FZF_PROJECTS_MATCH_COLOR_FG-}" ] && FZF_PROJECTS_MATCH_COLOR_FG="34"
@@ -58,13 +58,14 @@ function _fzf_projects_preview_window {
 
 function fzf-projects {
     local line=$(eval ${FZF_PROJECTS_FD_CMD} | \
+        cut -c 3- | \
         # Unique stream.
         awk '!x[$0]++' | \
         _fzf_projects_color | \
         fzf \
         --ansi \
         --prompt "${FZF_PROJECTS_PROMPT}" \
-        --preview="tree -C -L 1 {}" \
+        --preview="tree -C -L 1 $FZF_PROJECTS_ROOT_DIR/{}" \
         --preview-window=$(_fzf_projects_preview_window))
 
     if [ -d "$line" ]; then
