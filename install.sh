@@ -71,7 +71,12 @@ github_repos() {
 }
 
 packages() {
-    sh -c "$script_dir"/arch-packages.sh
+    local packages_script="$script_dir"/arch-packages.sh
+    if [ "$(uname)" = "Darwin" ]; then
+        packages_script="$script_dir"/macos-packages.sh
+    fi
+    sh -c "$packages_script"
+
     github_repos
 }
 
