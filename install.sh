@@ -133,7 +133,7 @@ config() {
     config_home
     config_common
     editor
-    copy_root_files "$script_dir/root"
+    [ "$(uname)" = "Darwin" ] || copy_root_files "$script_dir/root"
 }
 
 

@@ -9,7 +9,6 @@
 [ -z "${XDG_CACHE_HOME}" ] && export XDG_CACHE_HOME="$HOME/.cache"
 [ -z "${XDG_DATA_HOME}" ] && export XDG_DATA_HOME="$HOME/.local/share"
 [ -z "${XDG_STATE_HOME}" ] && export XDG_STATE_HOME="$HOME/.local/state"
-[ -z "${XDG_RUNTIME_DIR}" ] && export XDG_RUNTIME_DIR="/run/user/$UID"
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
@@ -29,6 +28,7 @@ my_github="$HOME/github.com/illia-danko"
 [ -d "$HOME/go/bin" ] && export PATH="$HOME/go/bin:$PATH"
 [ -d "/usr/local/opt/openjdk" ] && export PATH="/usr/local/opt/openjdk/bin:$PATH"
 [ -d "/usr/local/opt/llvm/bin" ] && export PATH="/usr/local/opt/llvm/bin:$PATH"
+[ -d "/opt/homebrew/bin" ] && export PATH="/opt/homebrew/bin:$PATH"
 [ -d "$HOME/.bin" ] && export PATH="$HOME/.bin:$PATH"
 [ -d "$HOME/.cargo/bin" ] && export PATH="$HOME/.cargo/bin:$PATH"
 [ -x "$(command -v minikube)" ] && eval '$(minikube docker-env)'

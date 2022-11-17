@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+
+# Install homebrew.
+[ ! -d "/opt/homebrew/bin" ] && /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+PATH="/opt/homebrew/bin:$PATH"
+
 pkgs=(
     alacritty
     cmake
@@ -12,7 +17,6 @@ pkgs=(
     lazygit
     lf
     mpv
-    neovim
     nmap
     npm
     p7zip

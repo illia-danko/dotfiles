@@ -19,7 +19,7 @@
 [ -x "$(command -v fdfind)" ] && alias fd="fdfind"
 [ -x "$(command -v newsboat)" ] && alias nb="newsboat"
 [ -x "$(command -v neomutt)" ] && alias mutt="neomutt"
-[ -x "$(command -v mpv)" ] && alias mpv="gnome-session-inhibit --inhibit idle mpv"  # https://github.com/mpv-player/mpv/issues/8097
+[ -x "$(command -v tmux)" ] && alias t="tmux new -d -s HACK; tmux new -d -s WORK; tmux new -d -s MEDIA; tmux attach -t HACK"
 
 # Override man command.
 man() {
