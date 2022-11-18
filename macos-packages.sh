@@ -27,6 +27,7 @@ pkgs=(
     yamllint
     yarn
     yt-dlp
+    clang-format
 )
 
 brew install "${pkgs[@]}"
