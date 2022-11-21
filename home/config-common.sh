@@ -12,7 +12,7 @@
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
-export BROWSER="xdg-open-silently"
+export BROWSER="open-silently"
 
 export LS_COLORS='di=1;35:ex=01;33'
 export SYSTEM_COLOR_THEME="light"

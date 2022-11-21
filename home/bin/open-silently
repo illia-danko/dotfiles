@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+
+[ "$(uname)" = "Darwin" ] && open "$@" > /dev/null 2>&1
+[ "$(uname)" = "Linux" ] && xdg-open "$@" > /dev/null 2>&1

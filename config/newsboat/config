@@ -31,7 +31,7 @@ color info              yellow color8 bold
 color background        default default
 color article           default default
 
-browser xdg-open-silently
+browser open-silently
 macro , open-in-browser
 
 highlight all "---.*---" yellow

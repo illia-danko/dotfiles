@@ -41,7 +41,7 @@ map X !$f
 set ratios 1
 
 # Dedicated keys for file opener actions.
-map o &xdg-open $f
+map o &open-silently $f
 map O $mimeopen --ask $f
 
 # Define a custom 'open' command.
