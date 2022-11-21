@@ -28,6 +28,7 @@ pkgs=(
     yarn
     yt-dlp
     clang-format
+    newsboat
 )
 
 brew install "${pkgs[@]}"
