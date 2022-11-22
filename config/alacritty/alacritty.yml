@@ -23,9 +23,9 @@ shell:
     - --login
 
 window:
-  startup_mode: SimpleFullscreen
+  startup_mode: $ALACRITTY_WINDOW_STARTUP_MODE
   dynamic_title: false
-  decorations: buttonless
+  decorations: $ALACRITTY_WINDOW_DECORATIONS
 
 # When true, bold text is drawn using the bright variant of colors.
 draw_bold_text_with_bright_colors: true
