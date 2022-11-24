@@ -32,3 +32,8 @@ pkgs=(
 )
 
 brew install "${pkgs[@]}"
+
+go install golang.org/x/tools/gopls@latest
+go install github.com/segmentio/golines@latest
+go install mvdan.cc/gofumpt@latest
+curl -L https://git.io/vp6lP | sh  # gometalinter
