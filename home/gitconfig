@@ -1,6 +1,6 @@
 [user]
+    name = illiadanko
     email = illia.a.danko@gmail.com
-    name = Illia Danko
 [init]
     defaultBranch = master
 [core]
@@ -15,4 +15,7 @@
     cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
 [includeIf "gitdir:~/github.com/dbmedialab/"]
+    path = ~/.gitconfig-github
+
+[includeIf "gitdir:~/github.com/soldotno/"]
     path = ~/.gitconfig-github
