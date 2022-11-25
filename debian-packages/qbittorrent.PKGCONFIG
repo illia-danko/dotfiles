@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -eou pipefail
+
+sudo apt install qbittorrent -yy
+sudo apt purge transmission-gtk -yy
+sudo apt autoremove -yy
