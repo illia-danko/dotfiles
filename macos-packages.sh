@@ -15,6 +15,8 @@ pkgs=(
     stylua  # lua formatter
     shellcheck
     yamllint
+    gnupg
+    pinentry-mac
     cmake
     fd
     ffmpeg
