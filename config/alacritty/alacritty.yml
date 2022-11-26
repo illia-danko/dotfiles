@@ -23,9 +23,9 @@ shell:
     - --login
 
 window:
-  startup_mode: $ALACRITTY_WINDOW_STARTUP_MODE
+  startup_mode: Maximized
   dynamic_title: false
-  decorations: $ALACRITTY_WINDOW_DECORATIONS
+  decorations: None
 
 # When true, bold text is drawn using the bright variant of colors.
 draw_bold_text_with_bright_colors: true
@@ -41,7 +41,7 @@ font:
     style: Medium
 
   # Point size of the font.
-  size: $ALACRITTY_FONT_SIZE
+  size: 11.5
   # Offset is the extra space around each character. offset.y can be thought
   # of as modifying the linespacing, and offset.x as modifying the letter
   # spacing.

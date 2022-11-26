@@ -15,7 +15,7 @@ export EDITOR="$VISUAL"
 export BROWSER="open-silently"
 
 export LS_COLORS='di=1;35:ex=01;33'
-export SYSTEM_COLOR_THEME="light"
+export SYSTEM_COLOR_THEME="dark"
 export CLIPBOARD_COPY_COMMAND="xclip -selection c"
 [ "$(uname)" = "Darwin" ] && export CLIPBOARD_COPY_COMMAND="pbcopy"
 export OPENER=run-mailcap # open/preview with mailcap (used by lf)

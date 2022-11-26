@@ -6,7 +6,15 @@
 PATH="/opt/homebrew/bin:$PATH"
 
 pkgs=(
-    alacritty
+    neovim
+    iterm2
+    golang
+    nodejs
+    yarn
+    clang-format
+    stylua  # lua formatter
+    shellcheck
+    yamllint
     cmake
     fd
     ffmpeg
@@ -21,19 +29,19 @@ pkgs=(
     npm
     p7zip
     ripgrep
-    shellcheck
-    stylua  # lua formatter
     tmux
-    yamllint
-    yarn
     yt-dlp
-    clang-format
     newsboat
+    anki
 )
 
 brew install "${pkgs[@]}"
 
+brew tap homebrew/cask-fonts
+brew install --cask font-iosevka-nerd-font
+
 go install golang.org/x/tools/gopls@latest
-go install github.com/segmentio/golines@latest
 go install mvdan.cc/gofumpt@latest
-curl -L https://git.io/vp6lP | sh  # gometalinter
+go install github.com/segmentio/golines@latest
+go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+go install github.com/go-delve/delve/cmd/dlv@latest
