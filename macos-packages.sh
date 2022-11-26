@@ -35,6 +35,7 @@ pkgs=(
     yt-dlp
     newsboat
     anki
+    tree
 )
 
 brew install "${pkgs[@]}"
