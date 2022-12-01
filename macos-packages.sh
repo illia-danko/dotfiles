@@ -45,8 +45,7 @@ brew tap homebrew/cask-fonts
 brew install --cask font-iosevka-nerd-font
 
 go install golang.org/x/tools/gopls@latest
-go install mvdan.cc/gofumpt@latest
-go install github.com/segmentio/golines@latest
+go install golang.org/x/tools/cmd/goimports@latest
 go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
 
