@@ -37,6 +37,7 @@ pkgs=(
     anki
     tree
     typescript
+    wget
 )
 
 brew install "${pkgs[@]}"
