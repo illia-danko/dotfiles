@@ -38,6 +38,9 @@ pkgs=(
     tree
     typescript
     wget
+    # elixir itself is installed from source to enable lsp navigation, so
+    # `elixir` dependency should be removed manutally.
+    elixir-ls
 )
 
 brew install "${pkgs[@]}"
