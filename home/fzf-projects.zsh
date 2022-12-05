@@ -68,7 +68,7 @@ function fzf-projects {
         --preview="tree -C -L 1 $FZF_PROJECTS_ROOT_DIR/{}" \
         --preview-window=$(_fzf_projects_preview_window))
 
-    if [ -d "$FZF_PROJECTS_ROOT_DIR/$line" ]; then
+    if [ "$line" != "" ] && [ -d "$FZF_PROJECTS_ROOT_DIR/$line" ]; then
         if [ "$#" -gt 0 ]; then
             case $1 in
                 '--print') printf "%s\n" "$line";;
