@@ -38,6 +38,7 @@ pkgs=(
     tree
     typescript
     wget
+    eslint
 )
 
 brew install "${pkgs[@]}"
