@@ -134,7 +134,7 @@ config() {
     config_common
     editor
     [ "$(uname)" = "Darwin" ] || copy_root_files "$script_dir/root"
-    sh "$script_dir/postfix.sh"
+    sh -c "$script_dir/postfix.sh"
 }
 
 
