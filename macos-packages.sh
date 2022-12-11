@@ -39,6 +39,7 @@ pkgs=(
     typescript
     wget
     eslint
+    rust
 )
 
 brew install "${pkgs[@]}"
