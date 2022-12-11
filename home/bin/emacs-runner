@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+emacs-runner() {
+    # Start server if it's not already running.
+    if [ "$(uname)" == "Darwin" ]; then
+         brew services start d12frosted/emacs-plus/emacs-plus@28
+    else
+        [ -n "$(ls -A /run/user/1000/emacs/)" ] || emacs --daemon
+    fi
+
+    TERM="$TERM" # use alacritty-direct; see alacritty.yml
+    # Read arguments if interactive, otherwise read from stdin to tempfile and
+    # open it. Useful when read from pipe in shell.
+    if [ -t 0 ]; then
+        emacsclient -nw "$@"
+    else
+        tmpfile=$(mktemp /tmp/emacs-pipe.XXXXXX)
+        while read -r line ; do
+            printf "%s\n" "$line" >> "$tmpfile"
+        done
+        emacsclient -nw "$@" "$tmpfile"
+    fi
+}
+
+emacs-runner "$@"

@@ -15,8 +15,22 @@
 [ -x "$(command -v tmux)" ] && alias t="tmux new -d -s HACK; tmux new -d -s WORK; tmux new -d -s MEDIA; tmux attach -t HACK"
 
 # Override man command.
+# Use Emacs as a Man page viewer. Custom package modes are:
+# - olivetty-mode is used for centering buffer content;
+# - hide-mode-line-mode is used to hide modeline.
 man() {
     # Show appropriate an error on no manual.
     /usr/bin/man "$*" > /dev/null 2>&1 || /usr/bin/man "$*" || return
-    $EDITOR -c "Man $*" -c "only" -c "set laststatus=0" -c "nmap <buffer> q ZQ"
+
+    emacs-runner -e "(progn
+                      (man \"$1\")
+                      (delete-window)
+                      (olivetti-mode 1)
+                      (hide-mode-line-mode 1)
+                      (local-set-key
+                        \"q\"
+                        (lambda ()
+                          (interactive)
+                          (kill-this-buffer)
+                          (delete-frame))))"
 }
