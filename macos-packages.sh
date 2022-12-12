@@ -41,6 +41,8 @@ pkgs=(
     eslint
     rust
     emacs
+    google-cloud-sdk # work specific
+    sshuttle # work specific
 )
 
 brew install "${pkgs[@]}"
