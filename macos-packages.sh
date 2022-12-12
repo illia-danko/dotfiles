@@ -40,6 +40,7 @@ pkgs=(
     wget
     eslint
     rust
+    emacs
 )
 
 brew install "${pkgs[@]}"

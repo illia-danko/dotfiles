@@ -3,7 +3,7 @@
 emacs-runner() {
     # Start server if it's not already running.
     if [ "$(uname)" == "Darwin" ]; then
-         brew services start d12frosted/emacs-plus/emacs-plus@28
+        test "$(ps aux | grep emacs | grep daemon)" || emacs --daemon
     else
         [ -n "$(ls -A /run/user/1000/emacs/)" ] || emacs --daemon
     fi
