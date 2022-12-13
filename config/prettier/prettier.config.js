@@ -26,5 +26,11 @@ module.exports = {
                 tabWidth: 2,
             },
         },
+        {
+            files: "*.md",
+            options: {
+                tabWidth: 1,
+            },
+        },
     ],
 };
