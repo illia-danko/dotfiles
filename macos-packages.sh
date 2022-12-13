@@ -40,7 +40,6 @@ pkgs=(
     wget
     eslint
     rust
-    emacs
     google-cloud-sdk # work specific
     sshuttle # work specific
 )
