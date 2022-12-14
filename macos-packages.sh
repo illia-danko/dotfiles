@@ -42,6 +42,8 @@ pkgs=(
     rust
     google-cloud-sdk # work specific
     sshuttle # work specific
+    yapf
+    pyright
 )
 
 brew install "${pkgs[@]}"
