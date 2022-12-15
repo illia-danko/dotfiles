@@ -13,6 +13,7 @@
 [ -x "$(command -v fdfind)" ] && alias fd="fdfind"
 [ -x "$(command -v newsboat)" ] && alias nb="newsboat"
 [ -x "$(command -v tmux)" ] && alias t="tmux new -d -s HACK; tmux new -d -s WORK; tmux new -d -s MEDIA; tmux attach -t HACK"
+[ -x "$(command -v clj)" ] && alias clj-repl="clj -M:cider/nrepl"
 
 # Override man command.
 man() {
