@@ -44,6 +44,7 @@ pkgs=(
     sshuttle # work specific
     yapf
     pyright
+    lua-language-server
 )
 
 brew install "${pkgs[@]}"
