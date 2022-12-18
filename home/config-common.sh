@@ -58,5 +58,5 @@ if [ -x "$(command -v fzf)" ]; then
 "
 
     export FZF_PREVIEW_COMMAND="cat {}"
-    export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!{.git,.svn,.hg,CVS,.bzr,vendor,node_modules,dist,venv,elm-stuff,.clj-kondo,.lsp}'"
+    export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!{.git,.svn,.hg,CVS,.bzr,vendor,node_modules,dist,venv,elm-stuff,.clj-kondo,.lsp,.cpcache}'"
 fi
