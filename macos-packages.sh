@@ -48,6 +48,7 @@ pkgs=(
     zprint  # clojure formatter
     clojure-lsp/brew/clojure-lsp-native
     clojure/tools/clojure
+    dive
 )
 
 brew install "${pkgs[@]}"
