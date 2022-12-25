@@ -51,10 +51,10 @@ install_pkg() {
 editor() {
     echo "Configuring editor..."
 
-    path="$HOME/.config/nvim"
+    path="$HOME/.emacs.d"
     [ -d "$path" ] && return
     rm -rf "$path"
-    git clone "git@github.com:illia-danko/dot-nvim.git" "$HOME/.config/nvim"
+    git clone "git@github.com:illia-danko/dot-emacs.git" "$HOME/.emacs.d"
     echo "Done"
 }
 
