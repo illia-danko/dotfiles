@@ -16,6 +16,8 @@ setopt COMPLETE_ALIASES
 zstyle ':completion::complete:*' gain-privileges 1
 # Automatically find executables in $PATH.
 zstyle ':completion:*' rehash true
+# Autocomplete makefiles targets without expanding files.
+zstyle ':completion:*:*:make:*' tag-order 'targets'
 
 # Use tcsh style (default) bindings.
 bindkey -e
