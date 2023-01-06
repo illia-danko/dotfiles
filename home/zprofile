@@ -6,4 +6,4 @@
 # Better look and feel.
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
-[ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ] && exec startx
+[ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ] && exec sway

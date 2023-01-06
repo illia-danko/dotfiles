@@ -138,9 +138,11 @@ config() {
     config_common
     editor
     [ "$(uname)" = "Darwin" ] || config_root
-    sh -c "$script_dir/postfix.sh"
 }
 
+postfix() {
+    sh -c "$script_dir/postfix.sh"
+}
 
 case "$1" in
     github-repos) github_repos;;
@@ -152,5 +154,6 @@ case "$1" in
     config-common) config_common;;
     config-root) config_root;;
     config) config;;
+    postfix) postfix;;
     *) >&2 echo "'$1' target is not defined." && exit 1;;
 esac

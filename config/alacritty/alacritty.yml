@@ -17,15 +17,15 @@ env:
 # You can set shell.program to the path of your favorite shell, e.g. /bin/fish.
 # Entries in shell.args are passed unmodified as arguments to the shell.
 #
-shell:
-  program: /bin/zsh
-  args:
-    - --login
+# shell:
+#   program: /bin/zsh
+#   args:
+#     - --login
 
-window:
-  startup_mode: Maximized
-  dynamic_title: false
-  decorations: None
+# window:
+#   startup_mode: Maximized
+#   dynamic_title: false
+#   decorations: None
 
 # When true, bold text is drawn using the bright variant of colors.
 draw_bold_text_with_bright_colors: true
@@ -41,7 +41,7 @@ font:
     style: Medium
 
   # Point size of the font.
-  size: 16.5
+  size: 12.5
   # Offset is the extra space around each character. offset.y can be thought
   # of as modifying the linespacing, and offset.x as modifying the letter
   # spacing.

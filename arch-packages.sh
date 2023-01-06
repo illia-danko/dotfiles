@@ -1,100 +1,111 @@
 #!/usr/bin/env bash
+#
+
+pushd /tmp
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -is --noconfirm
+rm -rf yay
+popd
+
+yay -Syu --noconfirm
 
 pkgs=(
-    air
     alacritty
-    alsa-plugins
-    alsa-utils
-    amazon-workspaces-bin
     audacity
     bc
+    bemenu
     biber  # homepage
+    ccls  # C/C++ Language Server Protocol
     cmake
+    cronie  # crontab
+    dmidecode  # virt-manager
+    dnsmasq  # virt-manager
     docker
+    docker-compose
+    docker-scan # scan vulnerabilities
     fd
     ffmpeg
     fzf
-    gnome-extra
-    gnome-icon-theme-extras
-    gnome-shell-extension-dash-to-dock
-    gnome-shell-extension-unite
-    gnome-themes-extra
     gnupg
     graphviz
-    gtk-engines
     htop
     hugo  # homepage
     inetutils # hostname
+    inkscape
+    iptables-nft # libvirt
     jq
     kubectl
-    lazygit
     lf
-    libpcap
-    minio-client
-    mosquitto
+    libnotify
+    libreoffice-fresh
+    libreoffice-fresh-en-gb
+    libreoffice-fresh-uk
+    libvirt
+    lua-language-server
+    mako
     mpv
     neofetch
     neovim
     nmap
-    nodejs-lts-gallium
+    nodejs-lts-hydrogen
+    noto-color-emoji-fontconfig # fix alacritty emoji
+    noto-fonts
+    noto-fonts-cjk
+    noto-fonts-emoji  # fix alacritty emoji
     npm
     p7zip
     pandoc
     parcellite
-    pigz
+    pigz # docker
     postgresql
-    pulseaudio-alsa
-    pulseaudio-bluetooth
-    qemu
+    pulsemixer
+    python-pip
+    qbittorrent
+    qemu-emulators-full # libvirt
+    qemu # virt-manager
+    qt5-wayland
+    qt6-wayland
     ripgrep
     shellcheck
+    slurp
     stylua  # lua formatter
     texlive-bibtexextra
     texlive-fontsextra
     texlive-latexextra
-    tmux
     tree
     ttf-iosevka-nerd
-    ttf-ms-fonts
     ttf-ubuntu-font-family
     usbutils  # lsusb
-    dmidecode  # virt-manager
-    dnsmasq  # virt-manager
     virt-manager
+    wf-recorder
     wireguard-tools
     wireshark-qt
-    xclip
+    wl-clipboard
+    xdg-desktop-portal
+    xdg-desktop-portal-wlr
+    xfce4-settings # for xfce4-appearance-settings
     yamllint
     yarn
     yt-dlp
-    obsidian-icon-theme
-    libreoffice-fresh
-    libreoffice-fresh-en-gb
-    libreoffice-fresh-uk
-    tmux-plugin-manager-git
-    urlview
-    telegram-desktop
-    cronie  # crontab
-    networkmanager-openvpn
-    easy-rsa  # required by networkmanager-openvpn
-    ccls  # C/C++ Language Server Protocol.
+    zsh-autosuggestions
+    zsh-history-substring-search
+    zsh-syntax-highlighting
 )
 
 yay -S "${pkgs[@]}" --noconfirm
 
 # Ubuntu fonts.
-yay -Rnsdd bubblewrap --noconfirm || true
+# yay -Rnsdd bubblewrap --noconfirm || true
 yay -S fontconfig-ubuntu --noconfirm
-yay -S bubblewrap --noconfirm
+# yay -S bubblewrap --noconfirm
 
 sudo -H python3 -m pip install pyright virtualenv yapf flake8
 sudo -H npm install -g typescript typescript-language-server eslint prettier
 
-# Post install.
 sudo usermod -a -G docker "$USER"
 sudo usermod -a -G libvirt "$USER"
 sudo usermod -a -G wireshark "$USER"
 sudo systemctl enable libvirtd.service --now
 sudo systemctl enable docker.service --now
 sudo systemctl enable cronie.service --now
-sudo virsh net-autostart default  # libvirt connection

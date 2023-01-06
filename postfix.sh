@@ -27,4 +27,8 @@ update_alacritty_icon_mac() {
     killall Dock
 }
 
-[ "$(uname)" == "Darwin" ] && update_alacritty_icon_mac
+if [ "$(uname)" == "Darwin" ]; then
+    update_alacritty_icon_mac
+else
+    sudo virsh net-autostart default  # libvirt connection
+fi
