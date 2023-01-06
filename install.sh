@@ -117,6 +117,10 @@ config_home() {
     zsh_theme
 }
 
+config_root() {
+    copy_root_files "$script_dir/root"
+}
+
 config_common() {
     copy_content "$script_dir"/config "$HOME/.config"
 }
@@ -133,7 +137,7 @@ config() {
     config_home
     config_common
     editor
-    [ "$(uname)" = "Darwin" ] || copy_root_files "$script_dir/root"
+    [ "$(uname)" = "Darwin" ] || config_root
     sh -c "$script_dir/postfix.sh"
 }
 
@@ -146,6 +150,7 @@ case "$1" in
     editor) editor;;
     config-home) config_home;;
     config-common) config_common;;
+    config-root) config_root;;
     config) config;;
     *) >&2 echo "'$1' target is not defined." && exit 1;;
 esac
