@@ -89,7 +89,6 @@ pkgs=(
     yarn
     yt-dlp
     zsh-autosuggestions
-    zsh-history-substring-search
     zsh-syntax-highlighting
 )
 
