@@ -49,8 +49,13 @@ s="/usr/share/fzf/completion.zsh"; [ -f "$s" ] && . "$s"
 s="/usr/share/fzf/key-bindings.zsh"; [ -f "$s" ] && . "$s"
 s="/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"; [ -f "$s" ] && . "$s"
 s="/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"; [ -f "$s" ] && . "$s"
+
 s="/usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.plugin.zsh"; [ -f "$s" ] && . "$s"
 s="/opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"; [ -f "$s" ] && . "$s"
+(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[path]=none
+ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+
 s="/opt/homebrew/opt/fzf/shell/completion.zsh"; [ -f "$s" ] && . "$s"
 s="/opt/homebrew/opt/fzf/shell/key-bindings.zsh"; [ -f "$s" ] && . "$s"
 s="/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"; [ -f "$s" ] && . "$s"
