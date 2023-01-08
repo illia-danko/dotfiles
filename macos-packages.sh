@@ -46,6 +46,8 @@ pkgs=(
     pyright
     lua-language-server
     dive
+    zsh-autosuggestions
+    zsh-syntax-highlighting
 )
 
 brew install "${pkgs[@]}"
