@@ -7,7 +7,7 @@ PATH="/opt/homebrew/bin:$PATH"
 
 pkgs=(
     neovim
-    alacritty
+    # alacritty  # use custom build
     golang
     nodejs
     yarn
