@@ -50,12 +50,6 @@ font:
     y: 0
 
 key_bindings:
-  - { key: LBracket, mods: Command|Shift, chars: "\x1b\x7b" } # emacs
-  - { key: RBracket, mods: Command|Shift, chars: "\x1b\x7d" } # emacs
-  - { key: Comma, mods: Command|Shift, chars: "\x1b\x3c" } # emacs
-  - { key: Period, mods: Command|Shift, chars: "\x1b\x3e" } # emacs
-  - { key: Slash, mods: Control, chars: "\x1f" } # emacs
-  - { key: H, mods: Command, chars: "\x1b\x68" } # emacs
   - { key: Q, mods: Control, chars: "\x11" }
   - { key: A, mods: Alt, chars: "\x1ba" }
   - { key: B, mods: Alt, chars: "\x1bb" }
