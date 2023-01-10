@@ -6,6 +6,7 @@
 PATH="/opt/homebrew/bin:$PATH"
 
 pkgs=(
+    rust
     neovim
     # alacritty  # use custom build
     golang
@@ -39,7 +40,6 @@ pkgs=(
     typescript
     wget
     eslint
-    rust
     google-cloud-sdk # work specific
     sshuttle # work specific
     yapf
@@ -48,6 +48,7 @@ pkgs=(
     dive
     zsh-autosuggestions
     zsh-syntax-highlighting
+    redis@6.2
 )
 
 brew install "${pkgs[@]}"
