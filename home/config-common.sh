@@ -26,6 +26,7 @@ export OPENER=run-mailcap # open/preview with mailcap (used by lf)
 [ -d "$HOME/go/bin" ] && export PATH="$HOME/go/bin:$PATH"
 [ -d "/usr/local/opt/openjdk" ] && export PATH="/usr/local/opt/openjdk/bin:$PATH"
 [ -d "/usr/local/opt/llvm/bin" ] && export PATH="/usr/local/opt/llvm/bin:$PATH"
+[ -d "/opt/homebrew/opt/redis@6.2/bin" ] && export PATH="/opt/homebrew/opt/redis@6.2/bin:$PATH"
 [ -d "/opt/homebrew/bin" ] && export PATH="/opt/homebrew/bin:$PATH"
 [ -d "$HOME/.bin" ] && export PATH="$HOME/.bin:$PATH"
 [ -d "$HOME/.cargo/bin" ] && export PATH="$HOME/.cargo/bin:$PATH"
