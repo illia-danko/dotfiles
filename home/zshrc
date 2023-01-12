@@ -43,6 +43,7 @@ setopt interactivecomments    # enable hash comment command
 
 s="$HOME/.zsh-theme"; [ -f "$s" ] && . "$s"
 s="$HOME/.fzf-projects.zsh"; [ -f "$s" ] && . "$s"
+s="$HOME/.fzf-notes.zsh"; [ -f "$s" ] && . "$s"
 
 s="/usr/share/fzf/key-bindings.zsh"; [ -f "$s" ] && . "$s"
 s="/usr/share/fzf/completion.zsh"; [ -f "$s" ] && . "$s"
