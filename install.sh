@@ -28,6 +28,8 @@ set -euo pipefail
 
 script_name="$(readlink -f "${BASH_SOURCE[0]}")"
 script_dir="$(dirname "$script_name")"
+is_archlinux=""
+[ -f "/etc/arch-release" ] && is_archlinux="enabled"
 
 url2dir() {
     echo "$1" | perl -p -e 's/\.git$//;' -p -e 's/^(https?:\/\/|git@)//;' -p -e 's/:/\//g;'
@@ -74,6 +76,8 @@ packages() {
     local packages_script="$script_dir"/arch-packages.sh
     if [ "$(uname)" = "Darwin" ]; then
         packages_script="$script_dir"/macos-packages.sh
+    elif [ -z "$is_archlinux" ]; then
+        packages_script="$script_dir"/debian-packages.sh
     fi
     sh -c "$packages_script"
 
