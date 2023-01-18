@@ -51,6 +51,8 @@ s="$HOME/.fzf-notes.zsh"; [ -f "$s" ] && . "$s"
 s="/usr/share/fzf/key-bindings.zsh"; [ -f "$s" ] && . "$s"
 s="/usr/share/fzf/completion.zsh"; [ -f "$s" ] && . "$s"
 s="/usr/share/fzf/key-bindings.zsh"; [ -f "$s" ] && . "$s"
+s="/usr/share/doc/fzf/examples/completion.zsh"; [ -f "$s" ] && . "$s" # ubuntu
+s="/usr/share/doc/fzf/examples/key-bindings.zsh"; [ -f "$s" ] && . "$s" # ubuntu
 s="/usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh"; [ -f "$s" ] && . "$s"
 s="/opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh"; [ -f "$s" ] && . "$s"
 
