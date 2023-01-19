@@ -42,7 +42,9 @@ pkgs=(
     yamllint
     yt-dlp
     zsh
+    zsh-autosuggestions
     zsh-doc
+    zsh-syntax-highlighting
 )
 
 sudo apt install -f "${pkgs[@]}"
