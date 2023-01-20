@@ -9,6 +9,7 @@ pkgs=(
     dconf-editor
     fd-find
     ffmpeg
+    foot-terminfo # required for emacs to work proper on terminal
     fzf
     git
     git-doc
