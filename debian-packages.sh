@@ -61,7 +61,7 @@ sudo -H python3 -m pip install pyright virtualenv yapf flake8
 sudo -H npm install -g typescript typescript-language-server eslint prettier
 
 go install golang.org/x/tools/gopls@latest
-go install mvdan.cc/gofumpt@latest
+go install golang.org/x/tools/cmd/goimports@latest
 go install github.com/segmentio/golines@latest
 go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
