@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+command -v clj >/dev/null 2>&1 && return 0
+
+pushd /tmp || return 0
+
+sudo apt install openjdk-17-demo openjdk-17-doc openjdk-17-jdk openjdk-17-source -yy
+
+version=linux-install-1.11.1.1208.sh
+curl -O https://download.clojure.org/install/"$version"
+chmod +x "$version"
+sudo ./"$version"
+rm -rf "$version"
+unset verson
+
+popd || return 0
