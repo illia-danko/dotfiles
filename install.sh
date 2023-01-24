@@ -148,6 +148,21 @@ postfix() {
     sh -c "$script_dir/postfix.sh"
 }
 
+iterm2_action() {
+    name="com.googlecode.iterm2.plist"
+    path="$script_dir"/assets/iterm2/"$name"
+    defaults "$1" "$name" "$path"
+}
+
+dump_iterm2() {
+    iterm2_action export
+}
+
+
+config_iterm2() {
+    iterm2_action import
+}
+
 case "$1" in
     github-repos) github_repos;;
     sub-packages) sub_packages;;
@@ -159,5 +174,7 @@ case "$1" in
     config-root) config_root;;
     config) config;;
     postfix) postfix;;
+    dump-iterm2) dump_iterm2;;
+    config-iterm2) config_iterm2;;
     *) >&2 echo "'$1' target is not defined." && exit 1;;
 esac
