@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 #
 
-pushd /tmp
+pushd /tmp || return
 git clone https://aur.archlinux.org/yay.git
-cd yay
+cd yay || return
 makepkg -is --noconfirm
 rm -rf yay
-popd
+popd || return
 
 yay -Syu --noconfirm
 
