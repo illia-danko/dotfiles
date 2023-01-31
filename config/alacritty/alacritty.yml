@@ -37,11 +37,15 @@ mouse:
 font:
   # The normal (roman) font face to use.
   normal:
-    family: JetBrainsMonoNL Nerd Font
+    family: Iosevka Nerd Font Mono
     style: Semibold
 
+  italic:
+    family: Iosevka Nerd Font Mono
+    style: Semibold Italic
+
   # Point size of the font.
-  size: 12.0
+  size: 12.5
   # Offset is the extra space around each character. offset.y can be thought
   # of as modifying the linespacing, and offset.x as modifying the letter
   # spacing.
@@ -49,62 +53,59 @@ font:
     x: 0
     y: 0
 
-# Colors.
-# Palette is taken from spacemacs emacs themes.
 schemes:
   one_dark: &dark
     primary:
-      background: "#292B2E"
-      foreground: "#B2B2B2"
+      background: "#282c34"
+      foreground: "#abb2bf"
 
     # Normal colors
     normal:
-      black: "#0A0814"
-      red: "#F2241F"
-      green: "#67B11D"
-      yellow: "#B1951D"
-      blue: "#4F97D7"
-      magenta: "#A31DB1"
-      cyan: "#28DEF0"
-      white: "#B2B2B2"
+      black: "#181a1f"
+      red: "#e86671"
+      green: "#98c379"
+      yellow: "#e5c07b"
+      blue: "#61afef"
+      magenta: "#c678dd"
+      cyan: "#56b6c2"
+      white: "#abb2bf"
 
     # Bright colors
     bright:
-      black: "#676767"
-      red: "#F2241F"
-      green: "#67B11D"
-      yellow: "#B1951D"
-      blue: "#4F97D7"
-      magenta: "#A31DB1"
-      cyan: "#28DEF0"
-      white: "#B2B2B2"
+      black: "#5c6370"
+      red: "#e86671"
+      green: "#98c379"
+      yellow: "#e5c07b"
+      blue: "#61afef"
+      magenta: "#c678dd"
+      cyan: "#56b6c2"
+      white: "#abb2bf"
 
   one_light: &light
     primary:
-      background: "#FBF8EF"
-      foreground: "#655370"
+      background: "#fafafa"
+      foreground: "#383a42"
 
     # Normal colors
     normal:
-      black: "#D2CEDA"
-      red: "#F2241F"
-      green: "#67B11D"
-      yellow: "#B1951D"
-      blue: "#3A81C3"
-      magenta: "#A31DB1"
-      cyan: "#21B8C7"
-      white: "#655370"
+      black: "#101012"
+      red: "#e45649"
+      green: "#50a14f"
+      yellow: "#986801"
+      blue: "#4078f2"
+      magenta: "#a626a4"
+      cyan: "#0184bc"
+      white: "#383a42"
 
     # Bright colors
     bright:
-      black: "#D2CEDA"
-      red: "#F2241F"
-      green: "#67B11D"
-      yellow: "#B1951D"
-      blue: "#3A81C3"
-      magenta: "#A31DB1"
-      cyan: "#21B8C7"
-      white: "#655370"
+      black: "#a0a1a7"
+      red: "#e45649"
+      green: "#50a14f"
+      yellow: "#986801"
+      blue: "#4078f2"
+      magenta: "#a626a4"
+      cyan: "#0184bc"
+      white: "#383a42"
 
-# Colors
 colors: *light
