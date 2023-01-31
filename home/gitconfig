@@ -4,15 +4,15 @@
 [init]
     defaultBranch = master
 [core]
-    editor = emacs-runner
+    editor = nvim
 [diff]
-    tool = ediff
-[difftool "ediff"]
-    cmd = emacs-runner --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$REMOTE\\\")\"
+    tool = nvim
+[difftool "nvim"]
+    cmd = nvim -d $LOCAL $REMOTE
 [merge]
-    tool = ediff
-[mergetool "ediff"]
-    cmd = emacs-runner --eval \"(ediff-files \\\"$LOCAL\\\" \\\"$BASE\\\" \\\"$REMOTE\\\" \\\"$MERGED\\\")\"
+    tool = nvim
+[mergetool "nvim"]
+    cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
 [includeIf "gitdir:~/github.com/dbmedialab/"]
     path = ~/.gitconfig-github

@@ -13,6 +13,7 @@ yay -Syu --noconfirm
 pkgs=(
     audacity
     bc
+    betterbird-bin  # thunderbird but better
     biber  # homepage
     ccls  # C/C++ Language Server Protocol
     cmake
@@ -35,6 +36,7 @@ pkgs=(
     inkscape
     jq
     kubectl
+    lazygit
     libreoffice-fresh
     libreoffice-fresh-en-gb
     libreoffice-fresh-uk
@@ -50,7 +52,6 @@ pkgs=(
     noto-fonts-emoji  # fix alacritty emoji
     npm
     obsidian-icon-theme
-    betterbird-bin  # thunderbird but better
     p7zip
     pandoc
     pigz # docker
