@@ -14,6 +14,7 @@
 [ -x "$(command -v newsboat)" ] && alias nb="newsboat"
 [ -x "$(command -v tmux)" ] && alias t="tmux new -d -s HACK; tmux new -d -s WORK; tmux new -d -s MEDIA; tmux attach -t HACK"
 [ -x "$(command -v clj)" ] && alias clj-repl="clj -M:cider/nrepl"
+[ -x "$(command -v mpv)" ] && alias mpv="gnome-session-inhibit --inhibit idle mpv"  # https://github.com/mpv-player/mpv/issues/8097
 [ -x "$(command -v emacs)" ] && alias es="pkill -f emacs || true; emacs --daemon"
 
 # Use Emacs as a Man page viewer. Custom package modes are:
