@@ -3,8 +3,7 @@ gui:
   theme:
     lightTheme: false
     selectedLineBgColor:
-      - default
-      - reverse
+      - underline
     selectedRangeBgColor:
       - reverse
   showIcons: true
