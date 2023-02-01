@@ -4,6 +4,7 @@ gui:
     lightTheme: false
     selectedLineBgColor:
       - default
+      - reverse
     selectedRangeBgColor:
       - reverse
   showIcons: true
