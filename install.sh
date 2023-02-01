@@ -162,14 +162,14 @@ config_iterm2() {
     iterm2_action import
 }
 
-dump_gnome_terminal() {
-    path="$script_dir"/assets/gnome-terminal/dconf
-    dconf dump /org/gnome/terminal/ > "$path"
+dump_gnome_settings() {
+    path="$script_dir"/assets/gnome-settings/dconf
+    dconf dump / > "$path"
 }
 
-config_gnome_terminal() {
-    path="$script_dir"/assets/gnome-terminal/dconf
-    dconf load /org/gnome/terminal/ < "$path"
+config_gnome_settings() {
+    path="$script_dir"/assets/gnome-settings/dconf
+    dconf load / < "$path"
 }
 
 case "$1" in
@@ -185,7 +185,7 @@ case "$1" in
     postfix) postfix;;
     dump-iterm2) dump_iterm2;;
     config-iterm2) config_iterm2;;
-    dump-gnome-terminal) dump_gnome_terminal;;
-    config-gnome-terminal) config_gnome_terminal;;
+    dump-gnome-settings) dump_gnome_settings;;
+    config-gnome-terminal) config_gnome_settings;;
     *) >&2 echo "'$1' target is not defined." && exit 1;;
 esac

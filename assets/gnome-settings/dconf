@@ -1,0 +1,207 @@
+[ca/desrt/dconf-editor]
+saved-pathbar-path='/org/gnome/desktop/notifications/application-children'
+saved-view='/org/gnome/desktop/notifications/application-children'
+show-warning=false
+window-height=500
+window-is-maximized=false
+window-width=584
+
+[org/gnome/GPaste]
+growing-lines=true
+primary-to-history=false
+synchronize-clipboards=false
+track-changes=true
+track-extension-state=true
+
+[org/gnome/cheese]
+burst-delay=1000
+camera='GENERAL WEBCAM: GENERAL WEBCAM'
+photo-x-resolution=1920
+photo-y-resolution=1080
+video-x-resolution=1920
+video-y-resolution=1080
+
+[org/gnome/control-center]
+last-panel='bluetooth'
+window-state=(980, 640, false)
+
+[org/gnome/desktop/app-folders]
+folder-children=['Utilities', 'YaST']
+
+[org/gnome/desktop/app-folders/folders/Utilities]
+apps=['gnome-abrt.desktop', 'gnome-system-log.desktop', 'nm-connection-editor.desktop', 'org.gnome.baobab.desktop', 'org.gnome.Connections.desktop', 'org.gnome.DejaDup.desktop', 'org.gnome.Dictionary.desktop', 'org.gnome.DiskUtility.desktop', 'org.gnome.eog.desktop', 'org.gnome.Evince.desktop', 'org.gnome.FileRoller.desktop', 'org.gnome.fonts.desktop', 'org.gnome.seahorse.Application.desktop', 'org.gnome.tweaks.desktop', 'org.gnome.Usage.desktop', 'vinagre.desktop']
+categories=['X-GNOME-Utilities']
+name='X-GNOME-Utilities.directory'
+translate=true
+
+[org/gnome/desktop/app-folders/folders/YaST]
+categories=['X-SuSE-YaST']
+name='suse-yast.directory'
+translate=true
+
+[org/gnome/desktop/input-sources]
+sources=[('xkb', 'us'), ('xkb', 'ua')]
+xkb-options=['ctrl:nocaps']
+
+[org/gnome/desktop/interface]
+color-scheme='default'
+document-font-name='Ubuntu Semi-Bold 11'
+font-antialiasing='rgba'
+font-hinting='slight'
+font-name='Ubuntu Semi-Bold 11'
+icon-theme='Obsidian'
+monospace-font-name='IosevkaTerm Nerd Font Semi-Bold 12.5'
+
+[org/gnome/desktop/notifications]
+application-children=['ca-desrt-dconf-editor', 'gnome-power-panel', 'firefox', 'betterbird', 'org-gnome-terminal-preferences', 'slack', 'org-gnome-pomodoro']
+
+[org/gnome/desktop/notifications/application/betterbird]
+application-id='betterbird.desktop'
+
+[org/gnome/desktop/notifications/application/ca-desrt-dconf-editor]
+application-id='ca.desrt.dconf-editor.desktop'
+
+[org/gnome/desktop/notifications/application/firefox]
+application-id='firefox.desktop'
+
+[org/gnome/desktop/notifications/application/gnome-power-panel]
+application-id='gnome-power-panel.desktop'
+
+[org/gnome/desktop/notifications/application/org-gnome-pomodoro]
+application-id='org.gnome.Pomodoro.desktop'
+
+[org/gnome/desktop/notifications/application/slack]
+application-id='slack.desktop'
+
+[org/gnome/desktop/peripherals/keyboard]
+numlock-state=true
+
+[org/gnome/desktop/session]
+idle-delay=uint32 300
+
+[org/gnome/desktop/wm/preferences]
+titlebar-font='Ubuntu Semi-Bold 11'
+
+[org/gnome/evince]
+document-directory=@ms 'file:///home/idanko/Documents/tech-books'
+
+[org/gnome/evince/default]
+window-ratio=(3.6706349206349205, 1.5690690690690692)
+
+[org/gnome/evolution-data-server]
+migrated=true
+
+[org/gnome/nautilus/preferences]
+default-folder-viewer='icon-view'
+migrated-gtk-settings=true
+search-filter-time-type='last_modified'
+
+[org/gnome/nautilus/window-state]
+initial-size=(890, 550)
+maximized=true
+
+[org/gnome/pomodoro/plugins/sounds]
+ticking-sound=''
+ticking-sound-volume=0.20000000000000001
+
+[org/gnome/pomodoro/preferences]
+long-break-duration=1800.0
+long-break-interval=3.0
+pomodoro-duration=3000.0
+short-break-duration=600.0
+
+[org/gnome/pomodoro/state]
+timer-date='2023-02-01T09:00:56+0000'
+timer-elapsed=0.0
+timer-paused=false
+timer-score=0.0
+timer-state='pomodoro'
+timer-state-date='2023-02-01T09:00:56+0000'
+timer-state-duration=3000.0
+
+[org/gnome/settings-daemon/plugins/color]
+night-light-enabled=false
+night-light-schedule-automatic=false
+night-light-schedule-from=0.0
+night-light-schedule-to=0.0
+night-light-temperature=uint32 3700
+
+[org/gnome/settings-daemon/plugins/power]
+sleep-inactive-ac-type='nothing'
+
+[org/gnome/shell]
+enabled-extensions=['dash-to-dock@micxgx.gmail.com', 'unite@hardpixel.eu', 'GPaste@gnome-shell-extensions.gnome.org', 'pomodoro@arun.codito.in']
+favorite-apps=['firefox.desktop', 'betterbird.desktop', 'slack.desktop', 'anki.desktop', 'org.gnome.Nautilus.desktop', 'Alacritty.desktop']
+welcome-dialog-last-shown-version='43.2'
+
+[org/gnome/shell/extensions/dash-to-dock]
+apply-custom-theme=false
+background-color='rgb(0,0,0)'
+background-opacity=1.0
+custom-background-color=true
+custom-theme-shrink=true
+dash-max-icon-size=48
+disable-overview-on-startup=true
+dock-fixed=true
+dock-position='LEFT'
+extend-height=true
+height-fraction=0.90000000000000002
+hot-keys=false
+icon-size-fixed=false
+preferred-monitor=-2
+preferred-monitor-by-connector='DP-1'
+transparency-mode='FIXED'
+
+[org/gnome/shell/extensions/unite]
+hide-activities-button='auto'
+hide-window-titlebars='maximized'
+notifications-position='center'
+show-window-buttons='always'
+show-window-title='never'
+
+[org/gnome/shell/world-clocks]
+locations=@av []
+
+[org/gnome/software]
+check-timestamp=int64 1675242004
+first-run=false
+
+[org/gnome/tweaks]
+show-extensions-notice=false
+
+[org/gtk/gtk4/settings/color-chooser]
+selected-color=(true, 0.0, 0.0, 0.0, 1.0)
+
+[org/gtk/gtk4/settings/file-chooser]
+show-hidden=false
+sort-directories-first=false
+
+[org/gtk/settings/color-chooser]
+custom-colors=[(0.69803921568627447, 0.69803921568627447, 0.69803921568627447, 1.0), (0.396078431372549, 0.32549019607843138, 0.4392156862745098, 1.0), (0.15686274509803919, 0.87058823529411777, 0.94117647058823528, 1.0), (0.12941176470588237, 0.72156862745098038, 0.7803921568627451, 1.0), (0.63921568627450964, 0.11372549019607846, 0.69411764705882351, 1.0), (0.63921568627450975, 0.11372549019607843, 0.69411764705882351, 1.0), (0.30980392156862746, 0.59215686274509804, 0.84313725490196079, 1.0), (0.22745098039215686, 0.50588235294117645, 0.76470588235294112, 1.0)]
+selected-color=(true, 0.69803921568627447, 0.69803921568627447, 0.69803921568627447, 1.0)
+
+[org/gtk/settings/file-chooser]
+date-format='regular'
+location-mode='path-bar'
+show-hidden=false
+show-size-column=true
+show-type-column=true
+sidebar-width=161
+sort-column='name'
+sort-directories-first=false
+sort-order='ascending'
+type-format='category'
+window-position=(26, 23)
+window-size=(1471, 924)
+
+[org/virt-manager/virt-manager]
+manager-window-height=550
+manager-window-width=550
+
+[org/virt-manager/virt-manager/connections]
+autoconnect=['qemu:///system']
+uris=['qemu:///system']
+
+[org/virt-manager/virt-manager/vmlist-fields]
+disk-usage=false
+network-traffic=false
