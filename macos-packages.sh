@@ -6,49 +6,49 @@
 PATH="/opt/homebrew/bin:$PATH"
 
 pkgs=(
-    rust
-    neovim
-    # alacritty  # use custom build
-    golang
-    nodejs
-    yarn
+    anki
     clang-format
-    stylua  # lua formatter
-    shellcheck
-    yamllint
-    gnupg
-    pinentry-mac
     cmake
+    dive
+    eslint
     fd
     ffmpeg
     fzf
+    gnupg
+    golang
+    google-cloud-sdk # work specific
     htop
+    iterm2
     jq
     kubectl
     lazygit
     lf
+    lua-language-server
     mpv
+    neovim
+    newsboat
     nmap
+    nodejs
     npm
     p7zip
+    pinentry-mac
+    pyright
+    redis@6.2
     ripgrep
+    rust
+    shellcheck
+    sshuttle # work specific
+    stylua  # lua formatter
     tmux
-    yt-dlp
-    newsboat
-    anki
     tree
     typescript
     wget
-    eslint
-    google-cloud-sdk # work specific
-    sshuttle # work specific
+    yamllint
     yapf
-    pyright
-    lua-language-server
-    dive
+    yarn
+    yt-dlp
     zsh-autosuggestions
     zsh-syntax-highlighting
-    redis@6.2
 )
 
 brew install "${pkgs[@]}"
