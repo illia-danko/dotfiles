@@ -59,6 +59,7 @@ if [ -x "$(command -v fzf)" ]; then
 "
 
     export FZF_PREVIEW_COMMAND="cat {}"
-    export FZF_DEFAULT_COMMAND="rg --files --hidden -g '!{.git,.svn,.hg,CVS,.bzr,vendor,node_modules,dist,venv,elm-stuff,.clj-kondo,.lsp,.cpcache}'"
+    export RG_OPTS_FILTER="--hidden -g '!{.git,.svn,.hg,CVS,.bzr,vendor,node_modules,dist,venv,elm-stuff,.clj-kondo,.lsp,.cpcache}'"
+    export FZF_DEFAULT_COMMAND="rg --files $RG_OPTS_FILTER"
     export FZF_NOTES_DIR="$HOME/github.com/illia-danko/docs"
 fi
