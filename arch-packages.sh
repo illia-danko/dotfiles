@@ -30,6 +30,7 @@ pkgs=(
     gnupg
     gpaste  # clipboard manager
     graphviz
+	hunspell-en_us
     htop
     hugo  # homepage
     inetutils # hostname
