@@ -27,8 +27,6 @@ man() {
     emacs-runner -e "(progn
                       (man \"$1\")
                       (delete-window)
-                      (olivetti-mode 1)
-                      (hide-mode-line-mode 1)
                       (local-set-key
                         \"q\"
                         (lambda ()
