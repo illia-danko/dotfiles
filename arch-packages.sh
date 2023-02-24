@@ -59,6 +59,7 @@ pkgs=(
     pomatez  # pomodoro app
     postgresql
     python-pip
+	xdg-desktop-portal-wlr  # (powered by wireplumber) required for screen sharing on Wayland
     qbittorrent
     qemu # virt-manager
     qemu-emulators-full # libvirt
@@ -110,3 +111,4 @@ sudo usermod -a -G wireshark "$USER"
 sudo systemctl enable libvirtd.service --now
 sudo systemctl enable docker.service --now
 sudo systemctl enable cronie.service --now
+systemctl --user enable wireplumber --now
