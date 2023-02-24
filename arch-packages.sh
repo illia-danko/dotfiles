@@ -11,6 +11,9 @@ popd || return
 yay -Syu --noconfirm
 
 pkgs=(
+	emacs
+	hunspell-en_us
+	neovim
     audacity
     bc
     betterbird-bin  # thunderbird but better
@@ -30,19 +33,16 @@ pkgs=(
     gnupg
     gpaste  # clipboard manager
     graphviz
-	hunspell-en_us
     htop
     hugo  # homepage
     inetutils # hostname
     inkscape
     jq
     kubectl
-    lazygit
     libreoffice-fresh
     libreoffice-fresh-en-gb
     libreoffice-fresh-uk
     libvirt
-    lua-language-server
     mpv
     neofetch
     nmap
