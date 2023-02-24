@@ -29,7 +29,7 @@ _gmessage_search () {
 # Usage: grevert 741083d
 # Usage: grevert 741083d file1 file2
 _grevert() {
-    [ $# -lt 2 ] && >&2 echo "Commit hash should should be specified" && return 1
+    [ $# -lt 2 ] && >&2 echo "Commit hash should be specified" && return 1
 
     method="$1"
     hash="$2"
