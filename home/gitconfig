@@ -3,6 +3,8 @@
     email = illia.a.danko@gmail.com
 [init]
     defaultBranch = master
+[pull]
+	rebase = false # always merge over rebase
 [core]
     editor = emacs-runner
 [diff]
