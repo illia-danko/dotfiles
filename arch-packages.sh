@@ -96,7 +96,8 @@ yay -Rnsdd bubblewrap --noconfirm || true
 yay -S fontconfig-ubuntu
 yay -S bubblewrap --noconfirm
 
-sudo -H python3 -m pip install pyright virtualenv yapf flake8
+# my-cookies required by Emacs leetcode.el.
+sudo -H python3 -m pip install pyright virtualenv yapf flake8 my_cookies
 sudo -H npm install -g typescript typescript-language-server eslint prettier
 
 go install golang.org/x/tools/gopls@latest
