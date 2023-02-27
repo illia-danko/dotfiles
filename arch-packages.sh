@@ -112,3 +112,6 @@ sudo systemctl enable libvirtd.service --now
 sudo systemctl enable docker.service --now
 sudo systemctl enable cronie.service --now
 systemctl --user enable wireplumber --now
+
+sudo rm -rf /usr/share/applications/emacsclient.desktop
+sudo rm -rf /usr/share/applications/emacsclient-mail.desktop
