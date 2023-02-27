@@ -14,6 +14,7 @@ pkgs=(
 	emacs
 	hunspell-en_us
 	neovim
+	xdg-desktop-portal-wlr  # (powered by wireplumber) required for screen sharing on Wayland
     audacity
     bc
     betterbird-bin  # thunderbird but better
@@ -59,7 +60,6 @@ pkgs=(
     pomatez  # pomodoro app
     postgresql
     python-pip
-	xdg-desktop-portal-wlr  # (powered by wireplumber) required for screen sharing on Wayland
     qbittorrent
     qemu # virt-manager
     qemu-emulators-full # libvirt
