@@ -11,11 +11,12 @@ popd || return
 yay -Syu --noconfirm
 
 pkgs=(
+    # gnome-terminal
+    # obsidian-icon-theme
     audacity
     bc
     betterbird-bin  # thunderbird but better
-    biber  # homepage
-    ccls  # C/C++ Language Server Protocol
+    biber  # required by homepage
     cmake
     cronie  # crontab
     dmidecode  # virt-manager
@@ -26,12 +27,12 @@ pkgs=(
     fd
     ffmpeg
     fzf
-    gnome-terminal
     gnupg
     gpaste  # clipboard manager
     graphviz
     htop
     hugo  # homepage
+    hunspell-en_us
     hunspell-en_us
     inetutils # hostname
     inkscape
@@ -54,7 +55,6 @@ pkgs=(
     noto-fonts-cjk
     noto-fonts-emoji  # fix alacritty emoji
     npm
-    obsidian-icon-theme
     p7zip
     pandoc
     pigz # docker
@@ -76,13 +76,14 @@ pkgs=(
     texlive-latexextra
     tmux
     tree
-    ttf-iosevka-nerd
+    ttf-jetbrains-mono-nerd
     usbutils  # lsusb
     virt-manager
     wireguard-tools
     wireshark-qt
     wl-clipboard
     xclip
+    xdg-desktop-portal
     xdg-desktop-portal-wlr  # (powered by wireplumber) required for screen sharing on Wayland
     yamllint
     yarn
@@ -91,12 +92,37 @@ pkgs=(
     zsh-syntax-highlighting
 )
 
-yay -S "${pkgs[@]}" --noconfirm
+sway_pkgs=(
+    bemenu
+    xdg-utils # xdg-open
+    pipewire-pulse
+    pulsemixer # sound cli interface
+    slurp  # select regeion on Wayland
+    wf-recorder  # audio and screen recording for Wayland
+    xfce4-settings  # for xfce4-appearance-settings
+    thunar  # gui file manager
+    brightnessctl
+    mako  # notification service
+    swaylock  # see sway/config
+    swayidle  # see sway/config
+    imv  # image viewer
+    waybar
+    otf-font-awesome  # required by waybar
+    ttf-roboto  # required by waybar
+    ttf-roboto-mono  # required by waybar
+    mtpfs  # android mtp
+    gvfs-mtp  # android mtp
+)
 
-# Ubuntu fonts.
-yay -Rnsdd bubblewrap --noconfirm || true
+
+## Ubuntu fonts.
+[ -x "$(command -v gnome-shell)" ] && yay -Rnsdd bubblewrap --noconfirm || true
 yay -S fontconfig-ubuntu
-yay -S bubblewrap --noconfirm
+[ -x "$(command -v gnome-shell)" ] && yay yay -S bubblewrap --noconfirm || true
+
+# Install packages.
+yay -S "${pkgs[@]}" --noconfirm
+[ -n "$SWAYSOCK" ] && yay -S "${sway_pkgs[@]}" --noconfirm
 
 sudo -H python3 -m pip install pyright virtualenv yapf flake8
 sudo -H npm install -g typescript typescript-language-server eslint prettier
@@ -114,6 +140,3 @@ sudo systemctl enable libvirtd.service --now
 sudo systemctl enable docker.service --now
 sudo systemctl enable cronie.service --now
 systemctl --user enable wireplumber --now
-
-sudo rm -rf /usr/share/applications/emacsclient.desktop
-sudo rm -rf /usr/share/applications/emacsclient-mail.desktop

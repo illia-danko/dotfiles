@@ -9,7 +9,6 @@ env:
   # specify all features alacritty supports. This does pose
   # a few issues with programs relying on terminfo and the
   # `tput` command.
-  TERM: xterm-256color
   COLORTERM: truecolor
 
 # Shell
@@ -37,11 +36,11 @@ mouse:
 font:
   # The normal (roman) font face to use.
   normal:
-    family: Iosevka Nerd Font Mono
+    family: JetBrainsMono Nerd Font Mono
     style: Semibold
 
   italic:
-    family: Iosevka Nerd Font Mono
+    family: JetBrainsMono Nerd Font Mono
     style: Semibold Italic
 
   # Point size of the font.

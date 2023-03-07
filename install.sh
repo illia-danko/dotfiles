@@ -80,8 +80,6 @@ packages() {
         packages_script="$script_dir"/debian-packages.sh
     fi
     sh -c "$packages_script"
-
-    github_repos
 }
 
 copy_content() {
@@ -140,7 +138,6 @@ copy_root_files() {
 config() {
     config_home
     config_common
-    editor
     [ "$(uname)" = "Darwin" ] || config_root
 }
 
