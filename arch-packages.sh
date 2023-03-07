@@ -11,10 +11,6 @@ popd || return
 yay -Syu --noconfirm
 
 pkgs=(
-	emacs
-	hunspell-en_us
-	neovim
-	xdg-desktop-portal-wlr  # (powered by wireplumber) required for screen sharing on Wayland
     audacity
     bc
     betterbird-bin  # thunderbird but better
@@ -36,16 +32,21 @@ pkgs=(
     graphviz
     htop
     hugo  # homepage
+    hunspell-en_us
     inetutils # hostname
     inkscape
     jq
     kubectl
+    lazygit
+    lf
     libreoffice-fresh
     libreoffice-fresh-en-gb
     libreoffice-fresh-uk
     libvirt
+    lua-language-server
     mpv
     neofetch
+    neovim
     nmap
     nodejs-lts-hydrogen
     noto-color-emoji-fontconfig # fix alacritty emoji
@@ -82,6 +83,7 @@ pkgs=(
     wireshark-qt
     wl-clipboard
     xclip
+    xdg-desktop-portal-wlr  # (powered by wireplumber) required for screen sharing on Wayland
     yamllint
     yarn
     yt-dlp
@@ -96,8 +98,7 @@ yay -Rnsdd bubblewrap --noconfirm || true
 yay -S fontconfig-ubuntu
 yay -S bubblewrap --noconfirm
 
-# my-cookies required by Emacs leetcode.el.
-sudo -H python3 -m pip install pyright virtualenv yapf flake8 my_cookies
+sudo -H python3 -m pip install pyright virtualenv yapf flake8
 sudo -H npm install -g typescript typescript-language-server eslint prettier
 
 go install golang.org/x/tools/gopls@latest
