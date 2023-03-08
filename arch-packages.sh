@@ -11,8 +11,6 @@ popd || return
 yay -Syu --noconfirm
 
 pkgs=(
-    # gnome-terminal
-    # obsidian-icon-theme
     audacity
     bc
     betterbird-bin  # thunderbird but better
@@ -77,6 +75,7 @@ pkgs=(
     tmux
     tree
     ttf-jetbrains-mono-nerd
+    unzip
     usbutils  # lsusb
     virt-manager
     wireguard-tools
@@ -88,30 +87,38 @@ pkgs=(
     yamllint
     yarn
     yt-dlp
+    zip
     zsh-autosuggestions
     zsh-syntax-highlighting
 )
 
+gnome_pkgs=(
+    gnome-terminal
+    obsidian-icon-theme
+)
+
 sway_pkgs=(
     bemenu
-    xdg-utils # xdg-open
+    brightnessctl
+    gvfs-mtp  # android mtp
+    imv  # image viewer
+    keychain # to restore ssh keys
+    mako  # notification service
+    mtpfs  # android mtp
+    otf-font-awesome  # required by waybar
     pipewire-pulse
     pulsemixer # sound cli interface
     slurp  # select regeion on Wayland
-    wf-recorder  # audio and screen recording for Wayland
-    xfce4-settings  # for xfce4-appearance-settings
-    thunar  # gui file manager
-    brightnessctl
-    mako  # notification service
-    swaylock  # see sway/config
     swayidle  # see sway/config
-    imv  # image viewer
-    waybar
-    otf-font-awesome  # required by waybar
+    swaylock  # see sway/config
+    systemd-ssh-agent
+    thunar  # gui file manager
     ttf-roboto  # required by waybar
     ttf-roboto-mono  # required by waybar
-    mtpfs  # android mtp
-    gvfs-mtp  # android mtp
+    waybar
+    wf-recorder  # audio and screen recording for Wayland
+    xdg-utils # xdg-open
+    xfce4-settings  # for xfce4-appearance-settings
 )
 
 
@@ -121,8 +128,9 @@ yay -S fontconfig-ubuntu
 [ -x "$(command -v gnome-shell)" ] && yay yay -S bubblewrap --noconfirm || true
 
 # Install packages.
-yay -S "${pkgs[@]}" --noconfirm
-[ -n "$SWAYSOCK" ] && yay -S "${sway_pkgs[@]}" --noconfirm
+yay -S "${pkgs[@]}"
+[ -x "$(command -v gnome-shell)" ] && yay -S "${gnome_pkgs[@]}"
+[ -n "$SWAYSOCK" ] && yay -S "${sway_pkgs[@]}"
 
 sudo -H python3 -m pip install pyright virtualenv yapf flake8
 sudo -H npm install -g typescript typescript-language-server eslint prettier
@@ -140,3 +148,7 @@ sudo systemctl enable libvirtd.service --now
 sudo systemctl enable docker.service --now
 sudo systemctl enable cronie.service --now
 systemctl --user enable wireplumber --now
+
+if [ -n "$SWAYSOCK" ]; then
+    systemctl --user enable ssh-agent.service --now
+fi
