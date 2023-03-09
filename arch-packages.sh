@@ -100,7 +100,6 @@ gnome_pkgs=(
 sway_pkgs=(
     arc-gtk-theme
     arc-icon-theme
-    bemenu # part of sway wm
     brightnessctl # part of sway wm
     gnome-keyring # required by auto unlock gpg, ssh keys
     gtk-engine-murrine # required for arc theme
@@ -121,6 +120,7 @@ sway_pkgs=(
     ttf-roboto-mono  # required by waybar
     waybar # part of sway wm
     wf-recorder  # audio and screen recording for Wayland
+    wofi # part of sway wm
     xdg-utils # xdg-open
     xfce4-settings  # for xfce4-appearance-settings
 )

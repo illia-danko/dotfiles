@@ -12,7 +12,7 @@ set $term alacritty
 set $term2 alacritty
 set $browser google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland
 
-set $menu bemenu-run -H 30 --fn "pango:JetBrainsMono Nerd Font Mono SemiBold 12"  --no-exec | xargs swaymsg exec --
+set $menu wofi --show run
 
 # Output.
 exec "$HOME/.config/sway/adjust-screen.sh" "2"
