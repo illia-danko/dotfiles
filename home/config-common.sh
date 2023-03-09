@@ -38,7 +38,7 @@ export OPENER=run-mailcap # open/preview with mailcap (used by lf)
 # Terminate TLS (Firefox/Chrome).
 export SSLKEYLOGFILE="$HOME/.sslkeylog"
 export NSS_ALLOW_SSLKEYLOGFILE=1
-[ -x "$(command -v keychain)" ] && . ~/.keychain/`uname -n`-sh
+[ -n "$SWAYSOCK" ] && export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 
 if [ -x "$(command -v fzf)" ]; then
     export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS"

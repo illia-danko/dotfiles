@@ -98,24 +98,25 @@ gnome_pkgs=(
 )
 
 sway_pkgs=(
-    bemenu
-    brightnessctl
+    bemenu # part of sway wm
+    brightnessctl # part of sway wm
+    gnome-keyring # required by auto unlock gpg, ssh keys
     gvfs-mtp  # android mtp
-    imv  # image viewer
-    keychain # to restore ssh keys
-    mako  # notification service
-    mtpfs  # android mtp
+    imv # image viewer
+    libsecret # required by auto unlock gpg, ssh keys
+    mako # notification service
+    mtpfs # android mtp
     otf-font-awesome  # required by waybar
     pipewire-pulse
     pulsemixer # sound cli interface
+    seahorse # required by auto unlock gpg, ssh keys
     slurp  # select regeion on Wayland
     swayidle  # see sway/config
     swaylock  # see sway/config
-    systemd-ssh-agent
     thunar  # gui file manager
     ttf-roboto  # required by waybar
     ttf-roboto-mono  # required by waybar
-    waybar
+    waybar # part of sway wm
     wf-recorder  # audio and screen recording for Wayland
     xdg-utils # xdg-open
     xfce4-settings  # for xfce4-appearance-settings
@@ -150,5 +151,14 @@ sudo systemctl enable cronie.service --now
 systemctl --user enable wireplumber --now
 
 if [ -n "$SWAYSOCK" ]; then
-    systemctl --user enable ssh-agent.service --now
+    # Auto open on login ssh and gpg keys.
+    sudo perl -i -p -e 's/components=".*"/components="pkcs11,secrets,ssh"/;' \
+        /usr/lib/systemd/user/gnome-keyring-daemon.service
+    systemctl --user enable gcr-ssh-agent.service
+    f="/etc/pam.d/login"
+    s="auth optional pam_gnome_keyring.so"
+    grep -q "$s" "$f" || sudo echo "$s" >> "$f"
+    s="session optional pam_gnome_keyring.so auto_start"
+    grep -q "$s" "$f" || sudo echo "$s" >> "$f"
+    unset f s
 fi
