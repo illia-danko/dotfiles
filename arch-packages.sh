@@ -98,9 +98,12 @@ gnome_pkgs=(
 )
 
 sway_pkgs=(
+    arc-gtk-theme
+    arc-icon-theme
     bemenu # part of sway wm
     brightnessctl # part of sway wm
     gnome-keyring # required by auto unlock gpg, ssh keys
+    gtk-engine-murrine # required for arc theme
     gvfs-mtp  # android mtp
     imv # image viewer
     libsecret # required by auto unlock gpg, ssh keys
