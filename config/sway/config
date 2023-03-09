@@ -15,7 +15,7 @@ set $browser google-chrome-stable --enable-features=UseOzonePlatform --ozone-pla
 set $menu wofi --show run
 
 # Output.
-exec "$HOME/.config/sway/adjust-screen.sh" "2"
+exec_always "$HOME/.config/sway/adjust-screen.sh" "2"
 output * bg "$HOME/github.com/illia-danko/wallpapers/0002.jpg" fill
 
 # Keyboard.
@@ -139,6 +139,8 @@ exec {
     gsettings set $gnome-schema cursor-theme 'Adwaita'
     gsettings set $gnome-schema font-name 'Noto Sans Medium 12'
 }
+
+exec_always wlsunset
 
 include /etc/sway/config.d/*
 
