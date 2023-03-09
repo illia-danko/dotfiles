@@ -1,5 +1,5 @@
 # Font.
-font pango:JetBrainsMono Nerd Font Mono SemiBold 13.5
+font pango:JetBrainsMono Nerd Font Mono SemiBold 12
 
 # Variables.
 set $mod Mod4
@@ -12,7 +12,7 @@ set $term alacritty
 set $term2 alacritty
 # set $browser google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland
 set $browser firefox
-set $menu bemenu-run -H 30 --fn "pango:JetBrainsMono Nerd Font Mono SemiBold 13.5"  --no-exec | xargs swaymsg exec --
+set $menu bemenu-run -H 30 --fn "pango:JetBrainsMono Nerd Font Mono SemiBold 12"  --no-exec | xargs swaymsg exec --
 
 # Output.
 exec "$HOME/.config/sway/adjust-screen.sh" "2"
@@ -133,7 +133,7 @@ set $gnome-schema org.gnome.desktop.interface
 exec {
     swayidle -w timeout 300 'swaylock'
     swayidle -w timeout 600 'swaymsg "output * dpms off"' \
-	         resume 'swaymsg "output * dpms on"'
+        resume 'swaymsg "output * dpms on"'
     gsettings set $gnome-schema gtk-theme 'Adwaita'
     gsettings set $gnome-schema icon-theme 'Adwaita'
     gsettings set $gnome-schema cursor-theme 'Adwaita'
