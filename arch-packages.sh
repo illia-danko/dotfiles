@@ -101,6 +101,7 @@ sway_pkgs=(
     arc-gtk-theme
     arc-icon-theme
     brightnessctl # part of sway wm
+    firefox-developer-edition # ordinary firefox has an issue with screensharing
     gnome-keyring # required by auto unlock gpg, ssh keys
     gtk-engine-murrine # required for arc theme
     gvfs-mtp  # android mtp
