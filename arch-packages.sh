@@ -26,7 +26,6 @@ pkgs=(
     ffmpeg
     fzf
     gnupg
-    gpaste  # clipboard manager
     graphviz
     htop
     hugo  # homepage
@@ -94,6 +93,7 @@ pkgs=(
 
 gnome_pkgs=(
     gnome-terminal
+    gpaste # clipboard manager
     obsidian-icon-theme
 )
 
@@ -124,7 +124,7 @@ sway_pkgs=(
     wlsunset # day/night gamma adjustments
     xdg-utils # xdg-open
     xfce4-settings  # for xfce4-appearance-settings
-    yofi # part of sway wm
+    yofi # wayland menu/selector. A part of sway wm
 )
 
 
@@ -167,3 +167,8 @@ if [ -n "$SWAYSOCK" ]; then
     grep -q "$s" "$f" || sudo echo "$s" >> "$f"
     unset f s
 fi
+
+# Install wl-clipboard-history.
+sudo curl --output /usr/local/bin/wl-clipboard-history \
+    "https://raw.githubusercontent.com/janza/wl-clipboard-history/master/wl-clipboard-history"
+chmod +x /usr/local/bin/wl-clipboard-history
