@@ -122,9 +122,9 @@ sway_pkgs=(
     waybar # part of sway wm
     wf-recorder  # audio and screen recording for Wayland
     wlsunset # day/night gamma adjustments
-    wofi # part of sway wm
     xdg-utils # xdg-open
     xfce4-settings  # for xfce4-appearance-settings
+    yofi # part of sway wm
 )
 
 

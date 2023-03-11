@@ -11,7 +11,7 @@ set $right l
 set $term alacritty
 set $browser firefox-developer-edition
 set $browser2 google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland
-set $menu wofi --show run
+set $menu yofi apps
 
 # Output.
 exec_always "$HOME/.config/sway/adjust-screen.sh" "2"
