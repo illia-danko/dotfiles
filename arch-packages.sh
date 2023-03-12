@@ -101,6 +101,7 @@ sway_pkgs=(
     arc-gtk-theme
     arc-icon-theme
     brightnessctl # part of sway wm
+    cliphist # persistent clipboard history
     firefox-developer-edition # ordinary firefox has an issue with screensharing
     gnome-keyring # required by auto unlock gpg, ssh keys
     gtk-engine-murrine # required for arc theme
@@ -122,9 +123,9 @@ sway_pkgs=(
     waybar # part of sway wm
     wf-recorder  # audio and screen recording for Wayland
     wlsunset # day/night gamma adjustments
+    wofi # wayland menu / runner
     xdg-utils # xdg-open
     xfce4-settings  # for xfce4-appearance-settings
-    yofi # wayland menu/selector. A part of sway wm
 )
 
 
@@ -167,8 +168,3 @@ if [ -n "$SWAYSOCK" ]; then
     grep -q "$s" "$f" || sudo echo "$s" >> "$f"
     unset f s
 fi
-
-# Install wl-clipboard-history.
-sudo curl --output /usr/local/bin/wl-clipboard-history \
-    "https://raw.githubusercontent.com/janza/wl-clipboard-history/master/wl-clipboard-history"
-chmod +x /usr/local/bin/wl-clipboard-history
