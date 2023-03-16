@@ -127,6 +127,7 @@ sway_pkgs=(
     wofi # wayland menu / runner
     xdg-utils # xdg-open
     xfce4-settings  # for xfce4-appearance-settings
+    ssdm # login manager
 )
 
 
@@ -168,6 +169,9 @@ if [ -n "$SWAYSOCK" ]; then
     s="session optional pam_gnome_keyring.so auto_start"
     grep -q "$s" "$f" || sudo echo "$s" >> "$f"
     unset f s
+
+    # Login manager.
+    sudo systemctl enable ssdm.service
 fi
 
 # Install yarr rss reader.
