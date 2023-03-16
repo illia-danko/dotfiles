@@ -169,3 +169,8 @@ if [ -n "$SWAYSOCK" ]; then
     grep -q "$s" "$f" || sudo echo "$s" >> "$f"
     unset f s
 fi
+
+# Install yarr rss reader.
+curl --output yarr.zip -L0 \
+    "https://github.com/nkanaev/yarr/releases/download/v2.3/yarr-v2.3-linux64.zip"
+unzip yarr.zip && sudo mv yarr /usr/local/bin && rm -rf yarr.zip

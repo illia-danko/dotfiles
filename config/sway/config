@@ -66,7 +66,7 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 # Make the current focus fullscreen.
-bindsym $mod+f fullscreen
+bindsym Ctrl+$mod+f fullscreen
 # Toggle the current focus between tiling and floating mode.
 bindsym $mod+Shift+space floating toggle
 # Swap focus between the tiling area and the floating area.
@@ -151,5 +151,7 @@ exec wl-paste --watch cliphist store
 exec blueman-applet
 # Network manager.
 exec nm-applet --indicator
+# RSS feeds -> localhost:7070.
+exec yarr
 
 include /etc/sway/config.d/*
