@@ -98,6 +98,7 @@ gnome_pkgs=(
 )
 
 sway_pkgs=(
+    ly # tty based login manager
     arc-gtk-theme
     arc-icon-theme
     blueman # bluetooth manager
@@ -127,7 +128,6 @@ sway_pkgs=(
     wofi # wayland menu / runner
     xdg-utils # xdg-open
     xfce4-settings  # for xfce4-appearance-settings
-    ssdm # login manager
 )
 
 
@@ -171,7 +171,7 @@ if [ -n "$SWAYSOCK" ]; then
     unset f s
 
     # Login manager.
-    sudo systemctl enable ssdm.service
+    sudo systemctl enable ly.service
 fi
 
 # Install yarr rss reader.
