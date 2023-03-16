@@ -149,5 +149,7 @@ exec autotiling-rs
 exec wl-paste --watch cliphist store
 # Bluetooth.
 exec blueman-applet
+# Network manager.
+exec nm-applet --indicator
 
 include /etc/sway/config.d/*
