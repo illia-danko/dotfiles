@@ -98,7 +98,6 @@ gnome_pkgs=(
 )
 
 sway_pkgs=(
-    ly # tty based login manager
     arc-gtk-theme
     arc-icon-theme
     blueman # bluetooth manager
@@ -110,11 +109,13 @@ sway_pkgs=(
     gvfs-mtp  # android mtp
     imv # image viewer
     libsecret # required by auto unlock gpg, ssh keys
+    ly # tty based login manager
     mako # notification service
     mtpfs # android mtp
     otf-font-awesome  # required by waybar
     pipewire-pulse
     pulsemixer # sound cli interface
+    python-i3ipc # sway rpc
     seahorse # required by auto unlock gpg, ssh keys
     slurp  # select regeion on Wayland
     swayidle  # see sway/config

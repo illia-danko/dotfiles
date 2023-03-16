@@ -118,7 +118,7 @@ for_window [title="Bluetooth Devices"] floating enable
 # assign [app_id="imv"] workspace 10
 
 # Disable title bar.
-for_window [tiling] border pixel 2
+for_window [tiling] border pixel 0
 
 # Appearance.
 client.focused #0184bc #0184bc #fafafa #0184bc
@@ -153,5 +153,9 @@ exec blueman-applet
 exec nm-applet --indicator
 # RSS feeds -> localhost:7070.
 exec yarr
+
+# Transparency of inactive windows.
+# https://github.com/swaywm/sway/blob/master/contrib/inactive-windows-transparency.py.
+exec "$HOME/.config/sway/inactive-windows-transparency.py"
 
 include /etc/sway/config.d/*
