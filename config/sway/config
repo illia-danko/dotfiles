@@ -111,6 +111,7 @@ gaps {
 # Window rules.
 for_window [title="Firefox — Sharing Indicator"] floating enable
 for_window [title="Firefox Developer Edition — Sharing Indicator"] floating enable
+for_window [title="Bluetooth Devices"] floating enable
 
 # assign [app_id="Alacritty"] workspace 1
 # assign [app_id="firefox"] workspace 2
@@ -146,5 +147,7 @@ exec wlsunset -L 52.2297 -l 21.0122
 exec autotiling-rs
 # Sqlite based clipboard history manager.
 exec wl-paste --watch cliphist store
+# Bluetooth.
+exec blueman-applet
 
 include /etc/sway/config.d/*

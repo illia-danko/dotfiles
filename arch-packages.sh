@@ -100,6 +100,7 @@ gnome_pkgs=(
 sway_pkgs=(
     arc-gtk-theme
     arc-icon-theme
+    blueman # bluetooth manager
     brightnessctl # part of sway wm
     cliphist # persistent clipboard history
     firefox-developer-edition # ordinary firefox has an issue with screensharing

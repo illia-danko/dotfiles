@@ -10,6 +10,7 @@ env:
   # a few issues with programs relying on terminfo and the
   # `tput` command.
   COLORTERM: truecolor
+  TERM: xterm-256color
 
 # Shell
 #
