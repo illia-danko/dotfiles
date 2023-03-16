@@ -120,6 +120,7 @@ sway_pkgs=(
     slurp  # select regeion on Wayland
     swayidle  # see sway/config
     swaylock  # see sway/config
+    swaybg  # set background from terminal
     thunar  # gui file manager
     ttf-roboto  # required by waybar
     ttf-roboto-mono  # required by waybar
