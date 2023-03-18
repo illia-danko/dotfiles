@@ -153,6 +153,7 @@ config() {
     [ "$(uname)" = "Darwin" ] || config_root
 
     sub_env_dir "$HOME/.config/alacritty"
+    sub_env_dir "$HOME/.config/waybar"
 }
 
 postfix() {

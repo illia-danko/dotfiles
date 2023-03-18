@@ -11,9 +11,9 @@ window#waybar {
 
 window > box {
     margin: 0px 4px;
-    background-color: #fafafa;
-    border: 2px solid #0184bc;
-    color: #383a42;
+    background-color: ${TTY_COLOR_BG1};
+    /* border: 2px solid ${TTY_COLOR_BG1}; */
+    color: ${TTY_COLOR_FG1};
     transition-property: background-color;
     transition-duration: 0.5s;
 }
@@ -23,18 +23,18 @@ window#waybar.hidden {
 }
 
 window#waybar.termite {
-    background-color: #0184bc;
+    background-color: ${TTY_COLOR_BG1};
 }
 
 window#waybar.chromium {
-    background-color: #0184bc;
+    background-color: ${TTY_COLOR_BG1};
     border: none;
 }
 
 #workspaces button {
     padding: 0 5px;
     background-color: transparent;
-    color: #383a42;
+    color: ${TTY_COLOR_FG1};
     /* Use box-shadow instead of border so the text isn't offset */
     box-shadow: inset 0 -3px transparent;
     /* Avoid rounded borders under each workspace name */
@@ -48,12 +48,12 @@ window#waybar.chromium {
 }
 
 #workspaces button.focused {
-    background-color: #0184bc;
-    color: #fafafa;
+    /* background-color: ${TTY_COLOR_CYAN}; */
+    color: ${TTY_COLOR_RED};
 }
 
 #workspaces button.urgent {
-    background-color: #a626a4;
+    background-color: ${TTY_COLOR_RED};
 }
 
 #clock,
@@ -63,20 +63,52 @@ window#waybar.chromium {
 #disk,
 #temperature,
 #network,
-#tray,
 #mode,
+#tray,
 #language {
     padding: 0 10px;
-    background-color: #0184bc;
-    color: #fafafa;
+    background-color: ${TTY_COLOR_BG1};
 }
+
+#language {
+    color: ${TTY_COLOR_GREEN};
+}
+
+#network {
+    color: ${TTY_COLOR_YELLOW};
+}
+
+#cpu {
+    color: ${TTY_COLOR_BLUE};
+}
+
+#memory {
+    color: ${TTY_COLOR_MAGENTA};
+}
+
+#temperature {
+    color: ${TTY_COLOR_CYAN};
+}
+
+#battery {
+    color: ${TTY_COLOR_GREEN};
+}
+
+#clock {
+    color: ${TTY_COLOR_YELLOW};
+}
+
+#tray {
+    color: ${TTY_COLOR_BLUE};
+}
+
 
 #battery.critical:not(.charging),
 #network.disconnected,
 #temperature.critical,
 #tray > .needs-attention,
 #mode {
-    background-color: #a626a4;
+    background-color: ${TTY_COLOR_RED};
 }
 
 #window,
@@ -96,8 +128,8 @@ window#waybar.chromium {
 
 @keyframes blink {
     to {
-        background-color: #0184bc;
-        color: #fafafa;
+        background-color: ${TTY_COLOR_BLACK};
+        color: ${TTY_COLOR_RED};
     }
 }
 
