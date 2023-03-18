@@ -155,8 +155,4 @@ exec nm-applet --indicator
 # RSS feeds -> localhost:7070.
 exec yarr
 
-# Transparency of inactive windows.
-# https://github.com/swaywm/sway/blob/master/contrib/inactive-windows-transparency.py.
-# exec "$HOME/.config/sway/inactive-windows-transparency.py"
-
 include /etc/sway/config.d/*
