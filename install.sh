@@ -116,6 +116,7 @@ zsh_theme() {
 
 config_home() {
     copy_content "$script_dir"/home "$HOME" "."
+    . "$HOME"/.config-common.sh # hack to make `envsusbs` work in a single pass
     zsh_theme
 }
 
@@ -135,10 +136,23 @@ copy_root_files() {
     done
 }
 
+# sub_env substitutes environment variables with values.
+sub_env() {
+    (rm -rf "$1" && envsubst > "$1" ) < "$1"
+}
+
+sub_env_dir() {
+    for file in $(find $1 -type f); do
+        sub_env "$file"
+    done
+}
+
 config() {
     config_home
     config_common
     [ "$(uname)" = "Darwin" ] || config_root
+
+    sub_env_dir "$HOME/.config/alacritty"
 }
 
 postfix() {

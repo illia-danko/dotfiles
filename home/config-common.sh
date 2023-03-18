@@ -40,6 +40,27 @@ export SSLKEYLOGFILE="$HOME/.sslkeylog"
 export NSS_ALLOW_SSLKEYLOGFILE=1
 [ -n "$SWAYSOCK" ] && export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
 
+# One Dark Theme.
+export TTY_COLOR_DARK_BG0="#282c34"
+export TTY_COLOR_DARK_BG1="#2b2b2b"
+export TTY_COLOR_DARK_FG0="#abb2bf"
+export TTY_COLOR_DARK_BLACK="#181a1f"
+export TTY_COLOR_DARK_RED="#e86671"
+export TTY_COLOR_DARK_GREEN="#98c379"
+export TTY_COLOR_DARK_YELLOW="#e5c07b"
+export TTY_COLOR_DARK_BLUE="#61afef"
+export TTY_COLOR_DARK_MAGENTA="#c678dd"
+export TTY_COLOR_DARK_CYAN="#56b6c2"
+export TTY_COLOR_DARK_WHITE="#abb2bf"
+export TTY_COLOR_DARK_BRIGHT_BLACK="#5c6370"
+export TTY_COLOR_DARK_BRIGHT_RED="#e86671"
+export TTY_COLOR_DARK_BRIGHT_GREEN="#98c379"
+export TTY_COLOR_DARK_BRIGHT_YELLOW="#e5c07b"
+export TTY_COLOR_DARK_BRIGHT_BLUE="#61afef"
+export TTY_COLOR_DARK_BRIGHT_MAGENTA="#c678dd"
+export TTY_COLOR_DARK_BRIGHT_CYAN="#56b6c2"
+export TTY_COLOR_DARK_BRIGHT_WHITE="#abb2bf"
+
 if [ -x "$(command -v fzf)" ]; then
     export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS"
     --no-mouse
