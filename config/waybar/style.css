@@ -1,6 +1,6 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: "JetBrainsMono Nerd Font Mono", FontAwesome, Roboto, Arial, sans-serif;
+    font-family: "Ubuntu", FontAwesome, Roboto, Arial, sans-serif;
     font-weight: bold;
     font-size: 15px;
 }
@@ -109,6 +109,7 @@ window#waybar.chromium {
 #tray > .needs-attention,
 #mode {
     background-color: ${TTY_COLOR_RED};
+    color: ${TTY_COLOR_FG1};
 }
 
 #window,

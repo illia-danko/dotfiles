@@ -98,20 +98,21 @@ gnome_pkgs=(
 )
 
 sway_pkgs=(
-    arc-gtk-theme
-    arc-icon-theme
     blueman # bluetooth manager
     brightnessctl # part of sway wm
     cliphist # persistent clipboard history
     firefox
+    fontconfig-ubuntu
     gnome-keyring # required by auto unlock gpg, ssh keys
     grim # for color-pick
     gtk-engine-murrine # required for arc theme
     gvfs-mtp  # android mtp
     imv # image viewer
+    imagemagick # required by grim
     libsecret # required by auto unlock gpg, ssh keys
     ly # tty based login manager
     mako # notification service
+    man-pages # posix pages
     mtpfs # android mtp
     otf-font-awesome  # required by waybar
     pipewire-pulse
@@ -125,6 +126,9 @@ sway_pkgs=(
     thunar  # gui file manager
     ttf-roboto  # required by waybar
     ttf-roboto-mono  # required by waybar
+    ttf-ubuntu-font-family
+    ttf-ubuntu-mono-nerd
+    ttf-ubuntu-nerd
     waybar # part of sway wm
     wf-recorder  # audio and screen recording for Wayland
     wlsunset # day/night gamma adjustments

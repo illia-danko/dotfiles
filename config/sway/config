@@ -1,5 +1,5 @@
 # Font.
-font pango:JetBrainsMono Nerd Font Mono SemiBold 12
+font pango:Ubuntu Medium 14
 
 # Variables.
 set $mod Mod1
