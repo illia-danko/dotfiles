@@ -103,8 +103,9 @@ sway_pkgs=(
     blueman # bluetooth manager
     brightnessctl # part of sway wm
     cliphist # persistent clipboard history
-    firefox-developer-edition # ordinary firefox has an issue with screensharing
+    firefox
     gnome-keyring # required by auto unlock gpg, ssh keys
+    grim # for color-pick
     gtk-engine-murrine # required for arc theme
     gvfs-mtp  # android mtp
     imv # image viewer
@@ -118,9 +119,9 @@ sway_pkgs=(
     python-i3ipc # sway rpc
     seahorse # required by auto unlock gpg, ssh keys
     slurp  # select regeion on Wayland
+    swaybg  # set background from terminal
     swayidle  # see sway/config
     swaylock  # see sway/config
-    swaybg  # set background from terminal
     thunar  # gui file manager
     ttf-roboto  # required by waybar
     ttf-roboto-mono  # required by waybar
