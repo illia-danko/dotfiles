@@ -61,59 +61,29 @@ font:
     x: 0
     y: 0
 
-schemes:
-  one_dark: &dark
-    primary:
-      background: "${TTY_COLOR_DARK_BG0}"
-      foreground: "${TTY_COLOR_DARK_FG0}"
+colors:
+  primary:
+    background: "${TTY_COLOR_BG0}"
+    foreground: "${TTY_COLOR_FG0}"
 
-    # Normal colors
-    normal:
-      black: "${TTY_COLOR_DARK_BLACK}"
-      red: "${TTY_COLOR_DARK_RED}"
-      green: "${TTY_COLOR_DARK_GREEN}"
-      yellow: "${TTY_COLOR_DARK_YELLOW}"
-      blue: "${TTY_COLOR_DARK_BLUE}"
-      magenta: "${TTY_COLOR_DARK_MAGENTA}"
-      cyan: "${TTY_COLOR_DARK_CYAN}"
-      white: "${TTY_COLOR_DARK_WHITE}"
+  # Normal colors
+  normal:
+    black: "${TTY_COLOR_BLACK}"
+    red: "${TTY_COLOR_RED}"
+    green: "${TTY_COLOR_GREEN}"
+    yellow: "${TTY_COLOR_YELLOW}"
+    blue: "${TTY_COLOR_BLUE}"
+    magenta: "${TTY_COLOR_MAGENTA}"
+    cyan: "${TTY_COLOR_CYAN}"
+    white: "${TTY_COLOR_WHITE}"
 
-    # Bright colors
-    bright:
-      black: "${TTY_COLOR_DARK_BRIGHT_BLACK}"
-      red: "${TTY_COLOR_DARK_BRIGHT_RED}"
-      green: "${TTY_COLOR_DARK_BRIGHT_GREEN}"
-      yellow: "${TTY_COLOR_DARK_BRIGHT_YELLOW}"
-      blue: "${TTY_COLOR_DARK_BRIGHT_BLUE}"
-      magenta: "${TTY_COLOR_DARK_BRIGHT_MAGENTA}"
-      cyan: "${TTY_COLOR_DARK_BRIGHT_CYAN}"
-      white: "${TTY_COLOR_DARK_BRIGHT_WHITE}"
-
-  one_light: &light
-    primary:
-      background: "#fafafa"
-      foreground: "#383a42"
-
-    # Normal colors
-    normal:
-      black: "#101012"
-      red: "#e45649"
-      green: "#50a14f"
-      yellow: "#986801"
-      blue: "#4078f2"
-      magenta: "#a626a4"
-      cyan: "#0184bc"
-      white: "#383a42"
-
-    # Bright colors
-    bright:
-      black: "#a0a1a7"
-      red: "#e45649"
-      green: "#50a14f"
-      yellow: "#986801"
-      blue: "#4078f2"
-      magenta: "#a626a4"
-      cyan: "#0184bc"
-      white: "#383a42"
-
-colors: *dark
+  # Bright colors
+  bright:
+    black: "${TTY_COLOR_BRIGHT_BLACK}"
+    red: "${TTY_COLOR_BRIGHT_RED}"
+    green: "${TTY_COLOR_BRIGHT_GREEN}"
+    yellow: "${TTY_COLOR_BRIGHT_YELLOW}"
+    blue: "${TTY_COLOR_BRIGHT_BLUE}"
+    magenta: "${TTY_COLOR_BRIGHT_MAGENTA}"
+    cyan: "${TTY_COLOR_BRIGHT_CYAN}"
+    white: "${TTY_COLOR_BRIGHT_WHITE}"
