@@ -3,7 +3,7 @@
 # Turn off eDP-1 and eDP-2 if any.
 # Scale screen to $1.
 
-set -euxo pipefail
+set -euo pipefail
 
 builtin_screens=("eDP-1" "eDP-2")
 read -ra screens <<< "$(swaymsg -t get_outputs --raw | jq '.[].name' \

@@ -12,6 +12,8 @@ set $term alacritty
 set $browser firefox
 set $browser2 google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland
 set $menu "$HOME/.config/sway/bemenu-wrap.sh"
+set $colorpick "$HOME/.config/sway/color-pick.sh"
+set $screenshot "$HOME/.config/sway/screenshot.sh"
 
 # Output.
 exec_always "$HOME/.config/sway/adjust-screen.sh" "2"
@@ -22,12 +24,13 @@ bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $browser
 bindsym Ctrl+$mod+Shift+Return exec $browser2
 bindsym $mod+t exec $menu commands
-bindsym $mod+Shift+y exec $menu clipboard
+bindsym $mod+Shift+h exec $menu clipboard
+bindsym Print exec $screenshot select
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
-bindsym Ctrl+$mod+l exec swaylock
-bindsym $mod+Shift+equal exec "$HOME/.config/sway/color-pick.sh"
-bindsym $mod+Shift+t exec makoctl dismiss
+bindsym $mod+Shift+l exec swaylock
+bindsym $mod+Shift+equal exec $colorpick
+bindsym $mod+Shift+u exec makoctl dismiss
 
 bindsym $mod+Shift+q kill
 floating_modifier $mod normal
@@ -38,16 +41,6 @@ bindsym $mod+$left focus left
 bindsym $mod+$down focus down
 bindsym $mod+$up focus up
 bindsym $mod+$right focus right
-# Move the focused window with the same, but add Shift.
-bindsym $mod+Shift+$left move left
-bindsym $mod+Shift+$down move down
-bindsym $mod+Shift+$up move up
-bindsym $mod+Shift+$right move right
-# Ditto, with arrow keys.
-bindsym $mod+Shift+Left move left
-bindsym $mod+Shift+Down move down
-bindsym $mod+Shift+Up move up
-bindsym $mod+Shift+Right move right
 # Switch to workspace.
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2

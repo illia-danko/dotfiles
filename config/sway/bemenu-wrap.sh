@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -euo pipefail
+
 read -a bemenu_color_opts <<< "--tb=${TTY_COLOR_BLACK} \
     --fb=${TTY_COLOR_BLACK} --cb=${TTY_COLOR_BLACK} \
     --nb=${TTY_COLOR_BLACK} --hb=${TTY_COLOR_BLACK} \
