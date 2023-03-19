@@ -95,9 +95,11 @@ gnome_pkgs=(
     gnome-terminal
     gpaste # clipboard manager
     obsidian-icon-theme
+    xclip
 )
 
 sway_pkgs=(
+    bemenu # wayland menu / runner
     blueman # bluetooth manager
     brightnessctl # part of sway wm
     cliphist # persistent clipboard history
@@ -107,8 +109,8 @@ sway_pkgs=(
     grim # for color-pick
     gtk-engine-murrine # required for arc theme
     gvfs-mtp  # android mtp
-    imv # image viewer
     imagemagick # required by grim
+    imv # image viewer
     libsecret # required by auto unlock gpg, ssh keys
     ly # tty based login manager
     mako # notification service
@@ -132,7 +134,6 @@ sway_pkgs=(
     waybar # part of sway wm
     wf-recorder  # audio and screen recording for Wayland
     wlsunset # day/night gamma adjustments
-    wofi # wayland menu / runner
     xdg-utils # xdg-open
     xfce4-settings  # for xfce4-appearance-settings
 )

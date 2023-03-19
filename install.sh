@@ -138,7 +138,9 @@ copy_root_files() {
 
 # sub_env substitutes environment variables with values.
 sub_env() {
+    local perms="$(getfacl "$1" 2>/dev/null)" # save acl
     (rm -rf "$1" && envsubst > "$1" ) < "$1"
+    setfacl --set-file=- <<< "$perms" "$1" # restore acl
 }
 
 sub_env_dir() {
