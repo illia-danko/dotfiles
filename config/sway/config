@@ -115,9 +115,9 @@ for_window [title="Bluetooth Devices"] floating enable
 for_window [tiling] border pixel 0
 
 # Appearance.
-client.focused #0184bc #0184bc #fafafa #0184bc
-client.unfocused #fafafa #fafafa #383a42 #fafafa
-client.focused_inactive #fafafa #fafafa #383a42 #fafafa
+client.focused ${TTY_COLOR_BG1} ${TTY_COLOR_BG1} ${TTY_COLOR_FG1} ${TTY_COLOR_BG1}
+client.unfocused ${TTY_COLOR_FG1} ${TTY_COLOR_FG1} ${TTY_COLOR_BG1} ${TTY_COLOR_FG1}
+client.focused_inactive ${TTY_COLOR_FG1} ${TTY_COLOR_FG1} ${TTY_COLOR_BG1} ${TTY_COLOR_FG1}
 
 # Status Bar.
 bar {

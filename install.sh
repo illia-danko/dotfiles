@@ -139,7 +139,28 @@ copy_root_files() {
 # sub_env substitutes environment variables with values.
 sub_env() {
     local perms="$(getfacl "$1" 2>/dev/null)" # save acl
-    (rm -rf "$1" && envsubst > "$1" ) < "$1"
+    # See config-common.sh.
+    (rm -rf "$1" && envsubst\
+        '${TTY_COLOR_BG0}\
+        ${TTY_COLOR_BG1}\
+        ${TTY_COLOR_FG0}\
+        ${TTY_COLOR_FG1}\
+        ${TTY_COLOR_BLACK}\
+        ${TTY_COLOR_RED}\
+        ${TTY_COLOR_GREEN}\
+        ${TTY_COLOR_YELLOW}\
+        ${TTY_COLOR_BLUE}\
+        ${TTY_COLOR_MAGENTA}\
+        ${TTY_COLOR_CYAN}\
+        ${TTY_COLOR_WHITE}\
+        ${TTY_COLOR_BRIGHT_BLACK}\
+        ${TTY_COLOR_BRIGHT_RED}\
+        ${TTY_COLOR_BRIGHT_GREEN}\
+        ${TTY_COLOR_BRIGHT_YELLOW}\
+        ${TTY_COLOR_BRIGHT_BLUE}\
+        ${TTY_COLOR_BRIGHT_MAGENTA}\
+        ${TTY_COLOR_BRIGHT_CYAN}\
+        ${TTY_COLOR_BRIGHT_WHITE}' > "$1" ) < "$1"
     setfacl --set-file=- <<< "$perms" "$1" # restore acl
 }
 
@@ -158,6 +179,7 @@ config() {
     sub_env_dir "$HOME/.config/waybar"
     sub_env_dir "$HOME/.config/mako"
     sub_env_dir "$HOME/.config/swaylock"
+    sub_env_dir "$HOME/.config/sway"
 }
 
 postfix() {
