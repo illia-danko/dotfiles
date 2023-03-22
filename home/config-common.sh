@@ -15,7 +15,7 @@ export EDITOR="$VISUAL"
 export BROWSER="open-silently"
 
 export LS_COLORS='di=1;35:ex=01;33'
-export SYSTEM_COLOR_THEME="dark"
+export SYSTEM_COLOR_THEME="light"
 export CLIPBOARD_COPY_COMMAND="wl-copy"
 [ "$(uname)" = "Darwin" ] && export CLIPBOARD_COPY_COMMAND="pbcopy"
 export OPENER=run-mailcap # open/preview with mailcap (used by lf)
@@ -40,7 +40,7 @@ export SSLKEYLOGFILE="$HOME/.sslkeylog"
 export NSS_ALLOW_SSLKEYLOGFILE=1
 [ ! -z "$SWAYSOCK" ] && export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh || true
 
-if [ "$SYSTEM_COLOR_THEME" == "dark" ]; then
+if [ "$SYSTEM_COLOR_THEME" = "dark" ]; then
     # One Dark Theme.
     export TTY_COLOR_BG0="#282c34"
     export TTY_COLOR_BG1="#2b2b2b"
@@ -62,6 +62,28 @@ if [ "$SYSTEM_COLOR_THEME" == "dark" ]; then
     export TTY_COLOR_BRIGHT_MAGENTA="#c678dd"
     export TTY_COLOR_BRIGHT_CYAN="#56b6c2"
     export TTY_COLOR_BRIGHT_WHITE="#abb2bf"
+else
+    # One Light Theme.
+    export TTY_COLOR_BG0="#fafafa"
+    export TTY_COLOR_BG1="#e0dcd9"
+    export TTY_COLOR_FG0="#383a42"
+    export TTY_COLOR_FG1="#2e3436"
+    export TTY_COLOR_BLACK="#101012"
+    export TTY_COLOR_RED="#e45649"
+    export TTY_COLOR_GREEN="#50a14f"
+    export TTY_COLOR_YELLOW="#986801"
+    export TTY_COLOR_BLUE="#4078f2"
+    export TTY_COLOR_MAGENTA="#a626a4"
+    export TTY_COLOR_CYAN="#0184bc"
+    export TTY_COLOR_WHITE="#383a42"
+    export TTY_COLOR_BRIGHT_BLACK="#a0a1a7"
+    export TTY_COLOR_BRIGHT_RED="#e45649"
+    export TTY_COLOR_BRIGHT_GREEN="#50a14f"
+    export TTY_COLOR_BRIGHT_YELLOW="#986801"
+    export TTY_COLOR_BRIGHT_BLUE="#4078f2"
+    export TTY_COLOR_BRIGHT_MAGENTA="#a626a4"
+    export TTY_COLOR_BRIGHT_CYAN="#0184bc"
+    export TTY_COLOR_BRIGHT_WHITE="#383a42"
 fi
 
 if [ -x "$(command -v fzf)" ]; then
