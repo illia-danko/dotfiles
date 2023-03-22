@@ -1,5 +1,5 @@
 # Font.
-font pango:Ubuntu Medium 14
+font pango:Ubuntu Medium 12
 
 # Variables.
 set $mod Mod1
@@ -23,14 +23,14 @@ output * bg "$HOME/github.com/illia-danko/wallpapers/0310.jpg" fill
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $browser
 bindsym Ctrl+$mod+Shift+Return exec $browser2
-bindsym $mod+t exec $menu commands
+bindsym $mod+r exec $menu commands
 bindsym $mod+Shift+h exec $menu clipboard
 bindsym Print exec $screenshot select
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 bindsym $mod+Shift+l exec swaylock
 bindsym $mod+Shift+equal exec $colorpick
-bindsym $mod+Shift+u exec makoctl dismiss
+bindsym $mod+Shift+minus exec makoctl dismiss
 
 bindsym $mod+Shift+q kill
 floating_modifier $mod normal
@@ -64,14 +64,14 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 # Make the current focus fullscreen.
-bindsym Ctrl+$mod+Space fullscreen
+bindsym $mod+Shift+Space fullscreen
 # Toggle the current focus between tiling and floating mode.
-bindsym $mod+Shift+Space floating toggle
+bindsym $mod+Shift+f floating toggle
 # Swap focus between the tiling area and the floating area.
 bindsym $mod+Space focus mode_toggle
 # Move focus to the parent container
-bindsym $mod+Shift+minus move scratchpad
-bindsym $mod+Minus scratchpad show
+bindsym $mod+braceleft move scratchpad
+bindsym $mod+braceright scratchpad show, floating disable
 
 # Layout.
 input "type:keyboard" {
@@ -94,7 +94,7 @@ mode "resize" {
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
-bindsym $mod+r mode "resize"
+bindsym $mod+Shift+r mode "resize"
 
 # Gaps.
 gaps {
