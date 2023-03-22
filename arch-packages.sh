@@ -132,6 +132,7 @@ sway_pkgs=(
     ttf-ubuntu-mono-nerd
     ttf-ubuntu-nerd
     waybar # part of sway wm
+    wev-git # transcribe keyboard and mouth events
     wf-recorder  # audio and screen recording for Wayland
     wlsunset # day/night gamma adjustments
     xdg-utils # xdg-open
