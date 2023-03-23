@@ -2,8 +2,3 @@
 # User configuration
 [ -f "$HOME/.config-work.sh" ] && . "$HOME/.config-work.sh"
 [ -f "$HOME/.config-common.sh" ] && . "$HOME/.config-common.sh"
-
-# Better look and feel.
-export QT_QPA_PLATFORMTHEME="qt5ct"
-
-[ -z $DISPLAY ] && [ "$(tty)" = "/dev/tty1" ] && exec sway

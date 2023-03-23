@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-set -eou pipefail
-
-pkg="go1.19.5.linux-amd64.tar.gz"
-
-pushd "/tmp"
-curl -L https://go.dev/dl/"$pkg" --output "$pkg"
-sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf "$pkg"

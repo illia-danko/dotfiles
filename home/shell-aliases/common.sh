@@ -11,10 +11,8 @@
 [ -x "$(command -v bc)" ] && alias bc="bc -l"
 [ -x "$(command -v dmesg)" ] && alias dmesg='dmesg --color=always | less'
 [ -x "$(command -v fdfind)" ] && alias fd="fdfind"
-[ -x "$(command -v newsboat)" ] && alias nb="newsboat"
 [ -x "$(command -v tmux)" ] && alias t="tmux new -d -s HACK; tmux new -d -s WORK; tmux new -d -s MEDIA; tmux attach -t HACK"
 [ -x "$(command -v clj)" ] && alias clj-repl="clj -M:cider/nrepl"
-[ -x "$(command -v mpv)" ] && [ -x "$(command -v gnome-session-inhibit)" ] && alias mpv="gnome-session-inhibit --inhibit idle mpv"  # https://github.com/mpv-player/mpv/issues/8097
 
 # Use Neovim as a Man page viewer.
 man() {
