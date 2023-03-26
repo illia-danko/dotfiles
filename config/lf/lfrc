@@ -47,8 +47,7 @@ set ratios 1
 cmd open &{{
     case $(file --mime-type -Lb $f) in
         text/*) lf -remote "send $id \$$EDITOR \$fx";;
-        image/*) imv $f > /dev/null 2> /dev/null &;;
-        *) for f in $fx; do xdg-open $f > /dev/null 2> /dev/null & done;;
+        *) for f in $fx; do open-silently $f > /dev/null 2> /dev/null & done;;
     esac
 }}
 
