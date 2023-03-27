@@ -116,18 +116,18 @@ config() {
     config_common
 }
 
-iterm2_action() {
+iterm2_apply() {
     name="com.googlecode.iterm2.plist"
     path="$script_dir"/assets/iterm2/"$name"
     defaults "$1" "$name" "$path"
 }
 
 dump_iterm2() {
-    iterm2_action export
+    iterm2_apply export
 }
 
 config_iterm2() {
-    iterm2_action import
+    iterm2_apply import
 }
 
 case "$1" in
