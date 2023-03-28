@@ -62,4 +62,4 @@ go install github.com/segmentio/golines@latest
 go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
 
-npm install -g typescript-language-server
+npm install -g vscode-css-languageserver-bin typescript-language-server typescript
