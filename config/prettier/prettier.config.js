@@ -1,6 +1,6 @@
 module.exports = {
     trailingComma: "es5",
-    tabWidth: 4,
+    tabWidth: 2,
     printWidth: 120,
     semi: true,
     singleQuote: false,
@@ -18,7 +18,7 @@ module.exports = {
             files: ["*.yml", "*.yaml"],
             options: {
                 tabWidth: 2,
-				bracketSpacing: false,
+                bracketSpacing: false,
             },
         },
         {
