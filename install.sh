@@ -48,6 +48,16 @@ install_pkg() {
      popd
 }
 
+editor() {
+    echo "Configuring editor..."
+
+    path="$HOME/.config/nvim"
+    [ -d "$path" ] && return
+    rm -rf "$path"
+    git clone "git@github.com:illia-danko/dot-nvim.git" "$HOME/.config/nvim"
+    echo "Done"
+}
+
 github_repos() {
     echo "Github packages..."
 
@@ -61,7 +71,10 @@ github_repos() {
 }
 
 packages() {
-    packages_script="$script_dir"/macos-packages.sh
+    local packages_script="$script_dir"/arch-packages.sh
+    if [ "$(uname)" = "Darwin" ]; then
+        packages_script="$script_dir"/macos-packages.sh
+	fi
     sh -c "$packages_script"
 }
 
@@ -111,33 +124,90 @@ config_common() {
     copy_content "$script_dir"/config "$HOME/.config"
 }
 
+copy_root_files() {
+    files="$(cd "$1" && find . -type f | perl -pe 's/^\.//;')"
+    for file in "${files[@]}"; do
+        echo "Coping $file..."
+        sudo cp -R "$1/$file" "$file"
+    done
+}
+
+# sub_env substitutes environment variables with values.
+sub_env() {
+    local perms="$(getfacl "$1" 2>/dev/null)" # save acl
+    # See config-common.sh.
+    (rm -rf "$1" && envsubst\
+        '${TTY_COLOR_BG0}\
+        ${TTY_COLOR_BG1}\
+        ${TTY_COLOR_FG0}\
+        ${TTY_COLOR_FG1}\
+        ${TTY_COLOR_BLACK}\
+        ${TTY_COLOR_RED}\
+        ${TTY_COLOR_GREEN}\
+        ${TTY_COLOR_YELLOW}\
+        ${TTY_COLOR_BLUE}\
+        ${TTY_COLOR_MAGENTA}\
+        ${TTY_COLOR_CYAN}\
+        ${TTY_COLOR_WHITE}\
+        ${TTY_COLOR_BRIGHT_BLACK}\
+        ${TTY_COLOR_BRIGHT_RED}\
+        ${TTY_COLOR_BRIGHT_GREEN}\
+        ${TTY_COLOR_BRIGHT_YELLOW}\
+        ${TTY_COLOR_BRIGHT_BLUE}\
+        ${TTY_COLOR_BRIGHT_MAGENTA}\
+        ${TTY_COLOR_BRIGHT_CYAN}\
+        ${TTY_COLOR_BRIGHT_WHITE}' > "$1" ) < "$1"
+    setfacl --set-file=- <<< "$perms" "$1" # restore acl
+}
+
+sub_env_dir() {
+    for file in $(find $1 -type f); do
+        sub_env "$file"
+    done
+}
+
 config() {
     config_home
     config_common
+    [ "$(uname)" = "Darwin" ] || config_root
+
+    sub_env_dir "$HOME/.config/alacritty"
+    sub_env_dir "$HOME/.config/waybar"
+    sub_env_dir "$HOME/.config/mako"
+    sub_env_dir "$HOME/.config/swaylock"
+    sub_env_dir "$HOME/.config/sway"
 }
 
-iterm2_apply() {
+postfix() {
+    sh -c "$script_dir/postfix.sh"
+}
+
+iterm2_action() {
     name="com.googlecode.iterm2.plist"
     path="$script_dir"/assets/iterm2/"$name"
     defaults "$1" "$name" "$path"
 }
 
 dump_iterm2() {
-    iterm2_apply export
+    iterm2_action export
 }
 
 config_iterm2() {
-    iterm2_apply import
+    iterm2_action import
 }
+
 
 case "$1" in
     github-repos) github_repos;;
     sub-packages) sub_packages;;
     packages) packages;;
     zsh-theme) zsh_theme;;
+    editor) editor;;
     config-home) config_home;;
     config-common) config_common;;
+    config-root) config_root;;
     config) config;;
+    postfix) postfix;;
     dump-iterm2) dump_iterm2;;
     config-iterm2) config_iterm2;;
     *) >&2 echo "'$1' target is not defined." && exit 1;;
