@@ -98,7 +98,6 @@ sway_pkgs=(
     brightnessctl # part of sway wm
     cliphist # persistent clipboard history
     firefox
-    fontconfig-ubuntu
     gnome-keyring # required by auto unlock gpg, ssh keys
     grim # for color-pick
     gtk-engine-murrine # required for arc theme
