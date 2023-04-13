@@ -22,7 +22,7 @@
 
 # This script prepare environment being ready for use.
 
-set -euo pipefail
+set -eo pipefail
 
 [ $# -lt 1 ] && >&2 echo "Target should be specified." && exit 1
 
