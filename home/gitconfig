@@ -15,6 +15,8 @@
     tool = nvim
 [mergetool "nvim"]
     cmd = nvim -d $LOCAL $BASE $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+[advice]
+	skippedCherryPicks = false
 
 [includeIf "gitdir:~/github.com/dbmedialab/"]
     path = ~/.gitconfig-github
