@@ -145,7 +145,5 @@ exec wl-paste --watch cliphist store
 exec blueman-applet
 # Network manager.
 exec nm-applet --indicator
-# RSS feeds -> localhost:7070.
-exec yarr
 
 include /etc/sway/config.d/*
