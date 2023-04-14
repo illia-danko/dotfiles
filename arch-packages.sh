@@ -11,6 +11,8 @@ popd || return
 yay -Syu --noconfirm
 
 pkgs=(
+	emacs-nativecomp
+	slack-desktop-wayland
     audacity
     bc
     betterbird-bin  # thunderbird but better
@@ -40,7 +42,6 @@ pkgs=(
     libvirt
     mpv
     neofetch
-	emacs
     nmap
     nodejs-lts-hydrogen
     noto-color-emoji-fontconfig # fix alacritty emoji
