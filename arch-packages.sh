@@ -130,13 +130,14 @@ sway_pkgs=(
     wlsunset # day/night gamma adjustments
     xdg-utils # xdg-open
     xfce4-settings  # for xfce4-appearance-settings
+	autotiling-rs  # spiral tiling sway/i3
 )
 
 
 ## Ubuntu fonts.
-[ -x "$(command -v gnome-shell)" ] && yay -Rnsdd bubblewrap --noconfirm || true
+[ -x "$(command -v gnome-shell)" ] && yay -Rnsdd bubblewrap --noconfirm
 yay -S fontconfig-ubuntu
-[ -x "$(command -v gnome-shell)" ] && yay yay -S bubblewrap --noconfirm || true
+[ -x "$(command -v gnome-shell)" ] && yay yay -S bubblewrap --noconfirm
 
 # Install packages.
 yay -S "${pkgs[@]}"
@@ -167,9 +168,9 @@ if [ -n "$SWAYSOCK" ]; then
     systemctl --user enable gcr-ssh-agent.service
     f="/etc/pam.d/login"
     s="auth optional pam_gnome_keyring.so"
-    grep -q "$s" "$f" || sudo echo "$s" >> "$f"
+    grep -q "$s" "$f" || echo "$s" | sudo tee -a "$f"
     s="session optional pam_gnome_keyring.so auto_start"
-    grep -q "$s" "$f" || sudo echo "$s" >> "$f"
+    grep -q "$s" "$f" || echo "$s" | sudo tea -a "$f"
     unset f s
 
     # Login manager.
