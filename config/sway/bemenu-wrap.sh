@@ -2,12 +2,12 @@
 
 set -euo pipefail
 
-read -a bemenu_color_opts <<< "--tb=${TTY_COLOR_BLACK} \
-    --fb=${TTY_COLOR_BLACK} --cb=${TTY_COLOR_BLACK} \
-    --nb=${TTY_COLOR_BLACK} --hb=${TTY_COLOR_BLACK} \
-    --fbb=${TTY_COLOR_BLACK} --sb=${TTY_COLOR_BLACK} \
-    --ab=${TTY_COLOR_BLACK} --scb=${TTY_COLOR_BLACK} \
-    --tf=${TTY_COLOR_RED} \
+read -r -a bemenu_color_opts <<< "--tb=${TTY_COLOR_BG1} \
+    --fb=${TTY_COLOR_BG1} --cb=${TTY_COLOR_BG1} \
+    --nb=${TTY_COLOR_BG1} --hb=${TTY_COLOR_BG1} \
+    --fbb=${TTY_COLOR_BG1} --sb=${TTY_COLOR_BG1} \
+    --ab=${TTY_COLOR_BG1} --scb=${TTY_COLOR_BG1} \
+    --tf=${TTY_COLOR_RED} --af=${TTY_COLOR_FG1} \
     --ff=${TTY_COLOR_FG1} \
     --nf=${TTY_COLOR_FG1} \
     --hf=${TTY_COLOR_GREEN}"
