@@ -29,8 +29,8 @@ bindsym Print exec $screenshot select
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 bindsym $mod+Shift+l exec swaylock
-bindsym $mod+Shift+equal exec $colorpick
-bindsym $mod+Shift+minus exec makoctl dismiss
+bindsym $mod+Shift+p exec $colorpick
+bindsym $mod+Shift+u exec makoctl dismiss
 
 bindsym $mod+Shift+q kill
 floating_modifier $mod normal
@@ -70,8 +70,8 @@ bindsym $mod+Shift+f floating toggle
 # Swap focus between the tiling area and the floating area.
 bindsym $mod+Space focus mode_toggle
 # Move focus to the parent container
-bindsym $mod+braceleft move scratchpad
-bindsym $mod+braceright scratchpad show, floating disable
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+equal scratchpad show, floating disable
 
 # Layout.
 input "type:keyboard" {
