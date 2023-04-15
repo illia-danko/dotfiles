@@ -8,8 +8,8 @@ setopt PROMPT_SUBST # use functions, subst, etc
 # %b - to reset bold (opposite to %B).
 # %F{default} - to use default (white) font.
 local reset_color="%b%F{default}"
-local sly_face="%(?.😃.😡)"
-
+local dot="$(echo -e "\u2024")"
+local sly_face="%(?.%F{green}(^$dot^.%F{red}(;_;))${reset_color}"
 
 if [[ $UID -eq 0 ]]; then
     local user_host="%B%F{red}%n@%m${reset_color}"
