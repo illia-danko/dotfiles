@@ -1,5 +1,5 @@
 # Font.
-font pango:Ubuntu Medium 12
+font pango:Ubuntu Regular 14
 
 # Variables.
 set $mod Mod1
@@ -16,7 +16,7 @@ set $colorpick "$HOME/.config/sway/color-pick.sh"
 set $screenshot "$HOME/.config/sway/screenshot.sh"
 
 # Output.
-exec_always "$HOME/.config/sway/adjust-screen.sh" "1.2"
+exec_always "$HOME/.config/sway/adjust-screen.sh" "1"
 output * bg "$HOME/github.com/illia-danko/wallpapers/0080.jpg" fill
 
 # Keyboard.
