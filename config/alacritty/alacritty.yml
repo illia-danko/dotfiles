@@ -33,6 +33,10 @@ draw_bold_text_with_bright_colors: true
 mouse:
   hide_when_typing: true
 
+key_bindings:
+  - {key: Period, mods: Control, chars: "\e[46;5u"} # Ctrl-. on Emacs
+  - {key: Comma, mods: Control, chars: "\e[44;5u"} # Ctrl-, on Emacs
+
 # Font configuration (changes require restart).
 font:
   # The normal (roman) font face to use.
