@@ -11,8 +11,7 @@ popd || return
 yay -Syu --noconfirm
 
 pkgs=(
-	emacs-nativecomp
-	slack-desktop-wayland
+    slack-desktop-wayland
     audacity
     bc
     betterbird-bin  # thunderbird but better
@@ -91,9 +90,12 @@ gnome_pkgs=(
     gpaste # clipboard manager
     obsidian-icon-theme
     xclip
+	emacs-nativecomp
 )
 
 sway_pkgs=(
+	autotiling-rs  # spiral tiling sway/i3
+	emacs-gcc-wayland-devel-bin
     bemenu # wayland menu / runner
     blueman # bluetooth manager
     brightnessctl # part of sway wm
@@ -131,7 +133,6 @@ sway_pkgs=(
     wlsunset # day/night gamma adjustments
     xdg-utils # xdg-open
     xfce4-settings  # for xfce4-appearance-settings
-	autotiling-rs  # spiral tiling sway/i3
 )
 
 
