@@ -20,5 +20,5 @@ case "$1" in
             -H 30 -n | xargs swaymsg exec --;;
     clipboard)
         cliphist list | cut -f 2- | bemenu "${bemenu_color_opts[@]}" \
-            --fn "${bemenu_font}" -H 30 -n -l 999 | wl-copy
+            --fn "${bemenu_font}" -H 30 -n -l 999 | cliphist decode | wl-copy
 esac
