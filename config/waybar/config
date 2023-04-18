@@ -14,9 +14,11 @@
         "all-outputs": true,
         "format": "{name}: {icon}",
         "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
+            "1": "",
+            "2": "",
+            "3": "",
+            "9": "",
+            "10": "",
             "urgent": "",
             "focused": "",
             "default": ""

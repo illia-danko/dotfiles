@@ -161,7 +161,8 @@ sudo usermod -a -G wireshark "$USER"
 sudo systemctl enable libvirtd.service --now
 sudo systemctl enable docker.service --now
 sudo systemctl enable cronie.service --now
-systemctl --user enable wireplumber --now
+systemctl --user enable wireplumber --now  # audio
+systemctl --user enable pipewire-pulse.service --now  # bluetooth
 
 if [ -n "$SWAYSOCK" ]; then
     # Auto open on login ssh and gpg keys.
