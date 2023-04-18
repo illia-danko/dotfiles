@@ -11,7 +11,6 @@ popd || return
 yay -Syu --noconfirm
 
 pkgs=(
-    slack-desktop-wayland
     audacity
     bc
     betterbird-bin  # thunderbird but better
@@ -27,6 +26,8 @@ pkgs=(
     ffmpeg
     fzf
     gnupg
+    google-cloud-cli # work related
+    google-cloud-cli-gke-gcloud-auth-plugin # work related
     graphviz
     htop
     hugo  # homepage
@@ -63,9 +64,10 @@ pkgs=(
     rust
     rust-analyzer
     shellcheck
-    texlive-bibtexextra
-    texlive-fontsextra
-    texlive-latexextra
+    slack-desktop-wayland
+    texlive-bibtexextra # homepage
+    texlive-fontsextra # homepage
+    texlive-latexextra # homepage
     tmux
     tree
     ttf-jetbrains-mono-nerd
