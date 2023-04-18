@@ -163,7 +163,7 @@ config() {
 
     sub_env_dir "$HOME/.config/alacritty"
     sub_env_dir "$HOME/.config/waybar"
-    sub_env_dir "$HOME/.config/mako"
+    sub_env_dir "$HOME/.config/mako" && pkill mako  # kill mako to apply theme
     sub_env_dir "$HOME/.config/swaylock"
     sub_env_dir "$HOME/.config/sway"
 }
