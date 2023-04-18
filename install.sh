@@ -48,16 +48,6 @@ install_pkg() {
      popd
 }
 
-editor() {
-    echo "Configuring editor..."
-
-    path="$HOME/.config/nvim"
-    [ -d "$path" ] && return
-    rm -rf "$path"
-    git clone "git@github.com:illia-danko/dot-nvim.git" "$HOME/.config/nvim"
-    echo "Done"
-}
-
 github_repos() {
     echo "Github packages..."
 
@@ -202,7 +192,6 @@ case "$1" in
     sub-packages) sub_packages;;
     packages) packages;;
     zsh-theme) zsh_theme;;
-    editor) editor;;
     config-home) config_home;;
     config-common) config_common;;
     config-root) config_root;;
