@@ -64,7 +64,6 @@ pkgs=(
     rust
     rust-analyzer
     shellcheck
-    slack-desktop-wayland
     texlive-bibtexextra # homepage
     texlive-fontsextra # homepage
     texlive-latexextra # homepage
