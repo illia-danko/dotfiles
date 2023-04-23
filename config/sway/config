@@ -17,7 +17,7 @@ set $screenshot "$HOME/.config/sway/screenshot.sh"
 
 # Output.
 exec_always "$HOME/.config/sway/adjust-screen.sh" "1"
-output * bg "$HOME/github.com/illia-danko/wallpapers/0080.jpg" fill
+exec_always "$HOME/.config/sway/set-appearance.sh"
 
 # Keyboard.
 bindsym $mod+Return exec $term
