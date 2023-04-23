@@ -147,7 +147,5 @@ exec wl-paste --watch cliphist store
 exec blueman-applet
 # Network manager.
 exec nm-applet --indicator
-# Reset mako appearance.
-exec pkill mako
 
 include /etc/sway/config.d/*
