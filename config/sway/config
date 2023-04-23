@@ -128,11 +128,12 @@ bar {
 # Start applications.
 set $gnome-schema org.gnome.desktop.interface
 
-exec {
-    swayidle -w timeout 300 'swaylock'
-    swayidle -w timeout 600 'swaymsg "output * dpms off"' \
-        resume 'swaymsg "output * dpms on"'
-}
+# Lock screen.
+exec swayidle -w \
+         timeout 300 'swaylock -f' \
+         timeout 600 'swaymsg "output * dpms off"' \
+         resume 'swaymsg "output * dpms on"' \
+         before-sleep 'swaylock -f'
 
 # Background services.
 #
