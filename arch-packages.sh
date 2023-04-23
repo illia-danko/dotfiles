@@ -51,6 +51,7 @@ pkgs=(
     npm
     p7zip
     pandoc
+    perl-file-mimeinfo # provides mimeopen and mimetype (see https://wiki.archlinux.org/title/default_applications#perl-file-mimeinfo)
     pigz # docker
     pomatez  # pomodoro app
     postgresql
