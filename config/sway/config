@@ -106,6 +106,7 @@ gaps {
 for_window [title="Firefox — Sharing Indicator"] floating enable
 for_window [title="Firefox Developer Edition — Sharing Indicator"] floating enable
 for_window [title="Bluetooth Devices"] floating enable
+for_window [title="1 Reminder"] floating enable # betterbird event notification
 
 # assign [app_id="Alacritty"] workspace 1
 # assign [app_id="firefox"] workspace 2
