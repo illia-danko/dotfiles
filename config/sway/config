@@ -9,8 +9,7 @@ set $up k
 set $right l
 
 set $term alacritty
-set $browser firefox
-set $browser2 google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland
+set $browser google-chrome-stable
 set $menu "$HOME/.config/sway/bemenu-wrap.sh"
 set $colorpick "$HOME/.config/sway/color-pick.sh"
 set $screenshot "$HOME/.config/sway/screenshot.sh"
@@ -22,7 +21,6 @@ exec_always "$HOME/.config/sway/set-appearance.sh"
 # Keyboard.
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $browser
-bindsym Ctrl+$mod+Shift+Return exec $browser2
 bindsym $mod+r exec $menu commands
 bindsym $mod+Shift+h exec $menu clipboard
 bindsym Print exec $screenshot select
