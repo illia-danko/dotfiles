@@ -24,11 +24,11 @@ bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $browser
 bindsym Ctrl+$mod+Shift+Return exec $browser2
 bindsym $mod+r exec $menu commands
-bindsym $mod+Shift+i exec $menu clipboard
+bindsym $mod+Shift+h exec $menu clipboard
 bindsym Print exec $screenshot select
 bindsym --locked XF86MonBrightnessDown exec brightnessctl set 5%-
 bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
-bindsym $mod+Shift+z exec swaylock
+bindsym $mod+Shift+l exec swaylock
 bindsym $mod+Shift+p exec $colorpick
 bindsym $mod+Shift+u exec makoctl dismiss
 
@@ -37,10 +37,10 @@ floating_modifier $mod normal
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 # Move your focus around.
-bindsym $mod+Shift+$left focus left
-bindsym $mod+Shift+$down focus down
-bindsym $mod+Shift+$up focus up
-bindsym $mod+Shift+$right focus right
+bindsym $mod+$left focus left
+bindsym $mod+$down focus down
+bindsym $mod+$up focus up
+bindsym $mod+$right focus right
 # Switch to workspace.
 bindsym $mod+1 workspace number 1
 bindsym $mod+2 workspace number 2
@@ -147,5 +147,7 @@ exec wl-paste --watch cliphist store
 exec blueman-applet
 # Network manager.
 exec nm-applet --indicator
+# RSS feeds -> localhost:7070.
+exec yarr
 
 include /etc/sway/config.d/*

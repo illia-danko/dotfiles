@@ -35,11 +35,15 @@ pkgs=(
     inetutils # hostname
     inkscape
     jq
+    k9s # cli k8s frontend
     kubectl
+    lazygit
+    lf # cli file navigator
     libreoffice-fresh
     libreoffice-fresh-en-gb
     libreoffice-fresh-uk
     libvirt
+    lua-language-server
     mpv
     neofetch
     nmap
@@ -49,6 +53,7 @@ pkgs=(
     noto-fonts-cjk
     noto-fonts-emoji  # fix alacritty emoji
     npm
+    nvim
     p7zip
     pandoc
     perl-file-mimeinfo # provides mimeopen and mimetype (see https://wiki.archlinux.org/title/default_applications#perl-file-mimeinfo)
@@ -66,6 +71,7 @@ pkgs=(
     rust-analyzer
     shellcheck
     slack-desktop
+    stylua
     texlive-bibtexextra # homepage
     texlive-fontsextra # homepage
     texlive-latexextra # homepage
@@ -82,6 +88,7 @@ pkgs=(
     xdg-desktop-portal-wlr  # (powered by wireplumber) required for screen sharing on Wayland
     yamllint
     yarn
+    yarr # rss browser reader
     yt-dlp
     zip
     zsh-autosuggestions
@@ -93,12 +100,10 @@ gnome_pkgs=(
     gpaste # clipboard manager
     obsidian-icon-theme
     xclip
-	emacs-nativecomp
 )
 
 sway_pkgs=(
 	autotiling-rs  # spiral tiling sway/i3
-	emacs-gcc-wayland-devel-bin
     bemenu # wayland menu / runner
     blueman # bluetooth manager
     brightnessctl # part of sway wm
