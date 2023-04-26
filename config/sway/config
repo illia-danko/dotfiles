@@ -9,7 +9,7 @@ set $up k
 set $right l
 
 set $term alacritty
-set $browser google-chrome-stable
+set $browser firefox
 set $menu "$HOME/.config/sway/bemenu-wrap.sh"
 set $colorpick "$HOME/.config/sway/color-pick.sh"
 set $screenshot "$HOME/.config/sway/screenshot.sh"

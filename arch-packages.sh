@@ -24,6 +24,7 @@ pkgs=(
     docker-scan # scan vulnerabilities
     fd
     ffmpeg
+    firefox
     fzf
     gnupg
     google-cloud-cli # work related
@@ -103,12 +104,11 @@ gnome_pkgs=(
 )
 
 sway_pkgs=(
-	autotiling-rs  # spiral tiling sway/i3
+    autotiling-rs  # spiral tiling sway/i3
     bemenu # wayland menu / runner
     blueman # bluetooth manager
     brightnessctl # part of sway wm
     cliphist # persistent clipboard history
-    firefox
     gnome-keyring # required by auto unlock gpg, ssh keys
     grim # for color-pick
     gtk-engine-murrine # required for arc theme
@@ -116,7 +116,6 @@ sway_pkgs=(
     imagemagick # required by grim
     imv # image viewer
     libsecret # required by auto unlock gpg, ssh keys
-    ly # tty based login manager
     mako # notification service
     man-pages # posix pages
     mtpfs # android mtp
@@ -183,7 +182,4 @@ if [ -n "$SWAYSOCK" ]; then
     s="session optional pam_gnome_keyring.so auto_start"
     grep -q "$s" "$f" || echo "$s" | sudo tea -a "$f"
     unset f s
-
-    # Login manager.
-    sudo systemctl enable ly.service
 fi
