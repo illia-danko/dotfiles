@@ -16,7 +16,7 @@ set $screenshot "$HOME/.config/sway/screenshot.sh"
 
 # Output.
 exec_always "$HOME/.config/sway/adjust-screen.sh" "1"
-exec_always "$HOME/.config/sway/set-appearance.sh"
+exec_always "$HOME/.config/sway/set-wallpaper.sh"
 
 # Keyboard.
 bindsym $mod+Return exec $term
@@ -29,6 +29,7 @@ bindsym --locked XF86MonBrightnessUp exec brightnessctl set 5%+
 bindsym $mod+Shift+l exec swaylock
 bindsym $mod+Shift+p exec $colorpick
 bindsym $mod+Shift+u exec makoctl dismiss
+bindsym $mod+Shift+backslash exec "$HOME/.config/sway/toggle-theme.sh"
 
 bindsym $mod+Shift+q kill
 floating_modifier $mod normal
