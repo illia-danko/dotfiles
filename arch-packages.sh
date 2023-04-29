@@ -82,6 +82,7 @@ pkgs=(
     unzip
     usbutils  # lsusb
     virt-manager
+    viu # preview images in the terminal
     wireguard-tools
     wireshark-qt
     wl-clipboard
