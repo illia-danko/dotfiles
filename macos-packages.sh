@@ -20,6 +20,7 @@ pkgs=(
     htop
     iterm2
     jq
+    k9s
     kubectl
     lazygit
     lf
@@ -28,7 +29,6 @@ pkgs=(
     neovim
     newsboat
     nmap
-    nodejs
     npm
     p7zip
     pinentry-mac
@@ -41,7 +41,6 @@ pkgs=(
     stylua  # lua formatter
     tmux
     tree
-    typescript
     wget
     yamllint
     yapf
@@ -54,7 +53,7 @@ pkgs=(
 brew install "${pkgs[@]}"
 
 brew tap homebrew/cask-fonts
-brew install --cask font-iosevka-nerd-font
+brew install --cask font-jetbrains-mono-nerd-font
 
 go install golang.org/x/tools/gopls@latest
 go install golang.org/x/tools/cmd/goimports@latest
