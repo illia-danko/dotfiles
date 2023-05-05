@@ -21,7 +21,7 @@
 
 command -v fzf >/dev/null 2>&1 || return
 [ -z "${FZF_NOTES_DIR-}" ] && >&2 echo "FZF_NOTES_DIR env is required." && return
-[ -z "${FZF_PREVIEW_LINES-}"] && FZF_PREVIEW_LINES="14"
+[ -z "${FZF_PREVIEW_LINES-}" ] && FZF_PREVIEW_LINES="14"
 [ -z "${FZF_PREVIEW_BIN-}" ] && FZF_PREVIEW_BIN="fzf-preview-bin"
 [ -z "${FZF_NOTES_PREVIEW_WINDOW-}" ] && FZF_NOTES_PREVIEW_WINDOW="nohidden|hidden,down"
 [ -z "${FZF_NOTES_PREVIEW_THRESHOLD-}" ] && FZF_NOTES_PREVIEW_THRESHOLD="160"
