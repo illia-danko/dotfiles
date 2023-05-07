@@ -40,15 +40,15 @@ map X !$f
 # Disable right parent dir panel.
 set ratios 1
 
+# Dedicated keys for file opener actions.
+map o &open-silently $f
+
 # Define a custom 'open' command.
 # This command is called when current file is not a directory. You may want to
 # use either file extensions and/or mime types here. Below uses an editor for
 # text files and a file opener for the rest.
 cmd open &{{
-    case $(file --mime-type -Lb $f) in
-        text/*) lf -remote "send $id \$$EDITOR \$fx";;
-        *) for f in $fx; do open-silently $f > /dev/null 2> /dev/null & done;;
-    esac
+    lf -remote "send $id \$$EDITOR \$fx"
 }}
 
 # Define a custom 'rename' command without prompt for overwrite
