@@ -29,10 +29,10 @@ pkgs=(
     neovim
     newsboat
     nmap
+    node@18
     npm
     p7zip
     pinentry-mac
-    pyright
     redis@6.2
     ripgrep
     rust
@@ -61,4 +61,6 @@ go install github.com/segmentio/golines@latest
 go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
 
-npm install -g vscode-css-languageserver-bin typescript-language-server typescript
+# NOTE: On `zsh: bad CPU type in executable: node` consider to install `softwareupdate --install-rosetta`.
+npm install -g n vscode-css-languageserver-bin typescript-language-server typescript pyright eslint prettier
+brew uinstall node@18  # use `sudo n 18` over brew node package

@@ -159,7 +159,11 @@ sub_env_dir() {
 config() {
     config_home
     config_common
-    [ "$(uname)" = "Darwin" ] || config_root
+    if [ "$(uname)" = "Darwin" ]; then
+        return
+    fi
+
+    config_root
 
     sub_env_dir "$HOME/.config/alacritty"
     sub_env_dir "$HOME/.config/waybar"
