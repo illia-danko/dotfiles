@@ -13,9 +13,15 @@
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export BROWSER="open-silently"
-
 export LS_COLORS='di=1;35:ex=01;33'
+
+s="$HOME"/.config/custom-appearance/background
+if [ ! -f "$s" ]; then
+    mkdir -p "$HOME"/.config/custom-appearance
+    echo light > "$s"
+fi
 export SYSTEM_COLOR_THEME="$(cat "$HOME"/.config/custom-appearance/background)"
+
 export CLIPBOARD_COPY_COMMAND="wl-copy"
 [ "$(uname)" = "Darwin" ] && export CLIPBOARD_COPY_COMMAND="pbcopy"
 export OPENER=run-mailcap # open/preview with mailcap (used by lf)
@@ -110,3 +116,6 @@ if [ -x "$(command -v fzf)" ]; then
     export FZF_DEFAULT_COMMAND="rg --files $RG_OPTS_FILTER"
     export FZF_NOTES_DIR="$HOME/github.com/illia-danko/docs"
 fi
+
+# Clean up.
+unset s
