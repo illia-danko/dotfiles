@@ -44,7 +44,7 @@ export OPENER=run-mailcap # open/preview with mailcap (used by lf)
 # Terminate TLS (Firefox/Chrome).
 export SSLKEYLOGFILE="$HOME/.sslkeylog"
 export NSS_ALLOW_SSLKEYLOGFILE=1
-[ -n "$SWAYSOCK" ] && export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh
+test "$(xprop -root 2>/dev/null | grep i3)" && export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh || true
 
 if [ "$SYSTEM_COLOR_THEME" = "dark" ]; then
     # One Dark Theme.
