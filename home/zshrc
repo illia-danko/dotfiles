@@ -41,9 +41,6 @@ setopt interactivecomments    # enable hash comment command
 
 ######################### User specific configuration ##########################
 
-s="$HOME/.config-common.sh"; [ -f "$s" ] && . "$s"
-s="$HOME/.shell-aliases"; [ -d "$s" ] && for f in "$s"/*.sh; do . $f; done
-
 s="$HOME/.zsh-theme"; [ -f "$s" ] && . "$s"
 s="$HOME/.fzf-projects.zsh"; [ -f "$s" ] && . "$s"
 s="$HOME/.fzf-notes.zsh"; [ -f "$s" ] && . "$s"
@@ -71,4 +68,7 @@ s="/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 [ -x "$(command -v kubectl)" ] && . <(kubectl completion zsh)
 
 # ------------------------------------------------------------------------------
+s="$HOME/.shell-aliases"; [ -d "$s" ] && for f in "$s"/*.sh; do . $f; done
+s="$HOME/.config-common.sh"; [ -f "$s" ] && . "$s"
+
 unset s
