@@ -42,8 +42,6 @@ setopt interactivecomments    # enable hash comment command
 ######################### User specific configuration ##########################
 
 s="$HOME/.zsh-theme"; [ -f "$s" ] && . "$s"
-s="$HOME/.fzf-projects.zsh"; [ -f "$s" ] && . "$s"
-s="$HOME/.fzf-notes.zsh"; [ -f "$s" ] && . "$s"
 
 s="/usr/share/fzf/key-bindings.zsh"; [ -f "$s" ] && . "$s"
 s="/usr/share/fzf/completion.zsh"; [ -f "$s" ] && . "$s"
@@ -70,5 +68,7 @@ s="/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc"
 # ------------------------------------------------------------------------------
 s="$HOME/.shell-aliases"; [ -d "$s" ] && for f in "$s"/*.sh; do . $f; done
 s="$HOME/.config-common.sh"; [ -f "$s" ] && . "$s"
+s="$HOME/.fzf-projects.zsh"; [ -f "$s" ] && . "$s"
+s="$HOME/.fzf-notes.zsh"; [ -f "$s" ] && . "$s"
 
 unset s
