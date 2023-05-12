@@ -164,7 +164,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 # ctrl:swap_rwin_rctl - swap RCtrl and RWin keys.
 exec_always "setxkbmap -model pc104 -layout us,ua -variant ,, \
     -option grp:win_space_toggle \
-    -option grp:ctrl:nocaps \
+    -option ctrl:nocaps \
     -option ctrl:swap_rwin_rctl"
 
 # resize window (you can also use the mouse for that)
