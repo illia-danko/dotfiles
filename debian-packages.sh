@@ -24,6 +24,7 @@ pkgs=(
     ripgrep
     shellcheck
     subversion
+    tmux-plugin-manager
     tree
     virt-manager
     wireguard-tools
