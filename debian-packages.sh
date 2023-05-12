@@ -6,6 +6,7 @@ pkgs=(
     fd-find  # fd
     ffmpeg
     firefox
+    fonts-noto-color-emoji
     git
     git-doc
     gridsite-clients # urlencode
