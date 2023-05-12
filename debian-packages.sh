@@ -6,7 +6,6 @@ pkgs=(
     fd-find  # fd
     ffmpeg
     firefox
-    fzf
     git
     git-doc
     gridsite-clients # urlencode
@@ -66,7 +65,6 @@ for receipt in "$script_dir/debian/packages/"*PKGCONFIG; do
     bash "$receipt"
 done
 
-
 # NOTE: On `zsh: bad CPU type in executable: node` consider to install `softwareupdate --install-rosetta`.
 sudo npm install -g n vscode-css-languageserver-bin typescript-language-server typescript pyright eslint prettier
 
@@ -77,3 +75,5 @@ go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 go install github.com/gokcehan/lf@latest
 go install github.com/jesseduffield/lazygit@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
+
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
