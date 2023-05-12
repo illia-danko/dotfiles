@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+set -eou pipefail
+
+pushd "/tmp"
+svn checkout https://github.com/ryanoasis/nerd-fonts/trunk/patched-fonts/JetBrainsMono/Ligatures JetBrainsMono
+sudo mkdir -p /usr/local/share/fonts
+sudo rm -rf /usr/local/share/fonts/JetBrainsMono
+sudo mv JetBrainsMono /usr/local/share/fonts/
+sudo fc-cache -fv

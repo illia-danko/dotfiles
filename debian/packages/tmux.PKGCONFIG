@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+set -eou pipefail
+
+pkg_uri="https://github.com/tmux/tmux.git"
+git_branch="3.3"
+
+url2dir() {
+    echo "$1" | perl -pe 's/\.git$//;' -pe 's/^(https?:\/\/|git@)//;' -pe 's/:/\//g;'
+}
+
+pkg_path="$(url2dir "$pkg_uri")"
+pkg_name="$(basename "$pkg_path")"
+root_dir="$HOME/$(dirname "$pkg_path")"
+
+mkdir -p "$root_dir"
+pushd "$root_dir"
+rm -rf "$pkg_name"
+git clone --depth=1 --branch="$git_branch" "$pkg_uri" "$pkg_name"
+pushd "$pkg_name"
+
+sudo apt install -yy libevent-dev libncurses5-dev bison byacc autotools-dev automake
+
+sh autogen.sh
+./configure && make
+sudo make install
