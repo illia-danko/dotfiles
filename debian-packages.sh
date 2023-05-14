@@ -70,10 +70,10 @@ done
 # NOTE: On `zsh: bad CPU type in executable: node` consider to install `softwareupdate --install-rosetta`.
 sudo npm install -g n vscode-css-languageserver-bin typescript-language-server typescript pyright eslint prettier
 
-go install golang.org/x/tools/gopls@latest
-go install mvdan.cc/gofumpt@latest
-go install github.com/segmentio/golines@latest
-go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
-go install github.com/gokcehan/lf@latest
-go install github.com/jesseduffield/lazygit@latest
-go install github.com/go-delve/delve/cmd/dlv@latest
+/usr/local/go/bin/go install golang.org/x/tools/gopls@latest
+/usr/local/go/bin/go install mvdan.cc/gofumpt@latest
+/usr/local/go/bin/go install github.com/segmentio/golines@latest
+/usr/local/go/bin/go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+/usr/local/go/bin/go install github.com/gokcehan/lf@latest
+/usr/local/go/bin/go install github.com/jesseduffield/lazygit@latest
+/usr/local/go/bin/go install github.com/go-delve/delve/cmd/dlv@latest
