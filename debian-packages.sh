@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 pkgs=(
+    build-essential
     clangd
     cmake
     fd-find  # fd
@@ -16,8 +17,6 @@ pkgs=(
     mpv
     net-tools
     nmap
-    p7zip
-    p7zip-rar
     pandoc
     postgresql-client
     python3-pip
@@ -35,12 +34,13 @@ pkgs=(
     yamllint
     yt-dlp
     zsh
+    zsh-autosuggestions
     zsh-doc
+    zsh-syntax-highlighting
 )
 
 pkgs_i3=(
     bash-completion
-    build-essential
     fonts-ubuntu
     i3
     lxappearance
@@ -77,5 +77,3 @@ go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 go install github.com/gokcehan/lf@latest
 go install github.com/jesseduffield/lazygit@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
-
-git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf && ~/.fzf/install
