@@ -34,8 +34,8 @@ mouse:
   hide_when_typing: true
 
 key_bindings:
-  - {key: Period, mods: Control, chars: "\e[46;5u"} # Ctrl-. on Emacs
-  - {key: Comma, mods: Control, chars: "\e[44;5u"} # Ctrl-, on Emacs
+  - { key: Period, mods: Control, chars: "\e[46;5u" } # Ctrl-. on Emacs
+  - { key: Comma, mods: Control, chars: "\e[44;5u" } # Ctrl-, on Emacs
 
 # Font configuration (changes require restart).
 font:
@@ -57,7 +57,7 @@ font:
     style: ExtraBold Italic
 
   # Point size of the font.
-  size: 13
+  size: 10.5
   # Offset is the extra space around each character. offset.y can be thought
   # of as modifying the linespacing, and offset.x as modifying the letter
   # spacing.
