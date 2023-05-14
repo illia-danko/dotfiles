@@ -26,6 +26,7 @@ set icons
 # No preview.
 set nopreview
 set info size:time
+set hidden
 
 # Toggle hidden files.
 map . set hidden!
