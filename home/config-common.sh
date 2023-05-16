@@ -15,16 +15,13 @@ export EDITOR="$VISUAL"
 export BROWSER="open-silently"
 export LS_COLORS='di=1;35:ex=01;33'
 
-s="$HOME"/.config/custom-appearance/background
+s="$HOME"/.config/appearance/background
 if [ ! -f "$s" ]; then
-    mkdir -p "$HOME"/.config/custom-appearance
+    mkdir -p "$HOME"/.config/appearance
     echo light > "$s"
 fi
-export SYSTEM_COLOR_THEME="$(cat "$HOME"/.config/custom-appearance/background)"
-
-export CLIPBOARD_COPY_COMMAND="wl-copy"
-[ "$(uname)" = "Darwin" ] && export CLIPBOARD_COPY_COMMAND="pbcopy"
-export OPENER=run-mailcap # open/preview with mailcap (used by lf)
+export SYSTEM_COLOR_THEME="$(cat "$s")"
+export CLIPBOARD_COPY_COMMAND="pbcopy"
 
 [ -d "/usr/local/sbin" ] && export PATH="$PATH:/usr/local/sbin"
 [ -d "/usr/local/mysql/bin" ] && export PATH="$PATH:/usr/local/mysql/bin"
