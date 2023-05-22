@@ -15,12 +15,11 @@ async def main(connection):
             # Themes have space-delimited attributes, one of which will be light or dark.
             parts = theme.split(" ")
             if "dark" in parts:
-                os.system("echo dark > ~/.config/custom-appearance/background")
+                os.system("echo dark > ~/.config/appearance/background")
                 preset = await iterm2.ColorPreset.async_get(
                     connection, "onedark")
             else:
-                os.system(
-                    "echo light > ~/.config/custom-appearance/background")
+                os.system("echo light > ~/.config/appearance/background")
                 preset = await iterm2.ColorPreset.async_get(
                     connection, "onelight")
 
