@@ -33,6 +33,7 @@ export CLIPBOARD_COPY_COMMAND="pbcopy"
 [ -d "/opt/homebrew/bin" ] && export PATH="/opt/homebrew/bin:$PATH"
 [ -d "$HOME/.bin" ] && export PATH="$HOME/.bin:$PATH"
 [ -d "$HOME/.cargo/bin" ] && export PATH="$HOME/.cargo/bin:$PATH"
+[ -d "$HOME/.mix/escripts" ] && export PATH="$HOME/.mix/escripts:$PATH"
 [ -x "$(command -v minikube)" ] && eval '$(minikube docker-env)'
 [ -x "$(command -v bat)" ] && export BAT_STYLE="plain"  # used by Bat previewer
 [ -x "$(command -v shellcheck)" ] && export SHELLCHECK_OPTS='--shell=bash --exclude=SC1090,SC2139,SC2155'
