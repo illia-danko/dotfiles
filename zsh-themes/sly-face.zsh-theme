@@ -8,7 +8,7 @@ setopt PROMPT_SUBST # use functions, subst, etc
 # %b - to reset bold (opposite to %B).
 # %F{default} - to use default (white) font.
 local reset_color="%b%F{default}"
-local sly_face="%(?.🙂.😡)"
+local sly_face="%(?.%F{green}.%F{red})●${reset_color}"
 
 if [[ $UID -eq 0 ]]; then
     local user_host="%B%F{red}%n@%m${reset_color}"
@@ -39,7 +39,7 @@ refresh_prompt() {
     [ ! -z $maybe_py_venv ] && \
         local maybe_py_venv="%B%F{yellow}${maybe_py_venv}${reset_color}"
 
-PROMPT="╭─${sly_face} ${user_host} ${current_dir} ${maybe_vc_info} ${maybe_py_venv}
+PROMPT="╭─ ${sly_face} ${user_host} ${current_dir} ${maybe_vc_info} ${maybe_py_venv}
 ╰─%B${user_symbol}%b "
 }
 
