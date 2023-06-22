@@ -62,5 +62,5 @@ go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 go install github.com/go-delve/delve/cmd/dlv@latest
 
 # NOTE: On `zsh: bad CPU type in executable: node` consider to install `softwareupdate --install-rosetta`.
-npm install -g n vscode-css-languageserver-bin typescript-language-server typescript pyright eslint prettier
+npm install -g n vscode-langservers-extracted typescript-language-server typescript pyright eslint prettier
 brew uinstall node@18  # use `sudo n 18` over brew node package
