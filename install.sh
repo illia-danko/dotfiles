@@ -61,7 +61,10 @@ github_repos() {
 }
 
 packages() {
-    packages_script="$script_dir"/macos-packages.sh
+    local packages_script="$script_dir"/arch-packages.sh
+    if [ "$(uname)" = "Darwin" ]; then
+        packages_script="$script_dir"/macos-packages.sh
+	fi
     sh -c "$packages_script"
 }
 
@@ -101,6 +104,10 @@ config_home() {
     copy_content "$script_dir"/home "$HOME" "."
     . "$HOME"/.config-common.sh # hack to make `envsusbs` work in a single pass
     zsh_theme
+}
+
+config_root() {
+    copy_root_files "$script_dir/root"
 }
 
 config_common() {
@@ -152,6 +159,17 @@ sub_env_dir() {
 config() {
     config_home
     config_common
+    if [ "$(uname)" = "Darwin" ]; then
+        return
+    fi
+
+    config_root
+
+    sub_env_dir "$HOME/.config/alacritty"
+    sub_env_dir "$HOME/.config/waybar"
+    sub_env_dir "$HOME/.config/mako" && (pkill mako || true)  # kill mako to apply theme
+    sub_env_dir "$HOME/.config/swaylock"
+    sub_env_dir "$HOME/.config/sway"
 }
 
 postfix() {
@@ -180,6 +198,7 @@ case "$1" in
     zsh-theme) zsh_theme;;
     config-home) config_home;;
     config-common) config_common;;
+    config-root) config_root;;
     config) config;;
     postfix) postfix;;
     dump-iterm2) dump_iterm2;;

@@ -1,0 +1,10 @@
+anchor=top-right
+background-color=${TTY_COLOR_BG1}
+text-color=${TTY_COLOR_FG1}
+font=Ubuntu Medium 11
+border-color=${TTY_COLOR_BLACK}
+border-size=1
+border-radius=1
+
+[urgency=high]
+default-timeout=0
