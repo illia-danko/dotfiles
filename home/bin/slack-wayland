@@ -1,3 +1,0 @@
-#!/usr/bin/env bash
-
-slack --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=WebRTCPipeWireCapturer $@
