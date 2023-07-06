@@ -61,7 +61,10 @@ github_repos() {
 }
 
 packages() {
-    packages_script="$script_dir"/macos-packages.sh
+    local packages_script="$script_dir"/debian-packages.sh
+    if [ "$(uname)" = "Darwin" ]; then
+        packages_script="$script_dir"/macos-packages.sh
+	fi
     sh -c "$packages_script"
 }
 
@@ -101,6 +104,10 @@ config_home() {
     copy_content "$script_dir"/home "$HOME" "."
     . "$HOME"/.config-common.sh # hack to make `envsusbs` work in a single pass
     zsh_theme
+}
+
+config_root() {
+    copy_root_files "$script_dir/root"
 }
 
 config_common() {
@@ -152,10 +159,12 @@ sub_env_dir() {
 config() {
     config_home
     config_common
-}
+    [ "$(uname)" = "Darwin" ] && return
 
-postfix() {
-    sh -c "$script_dir/postfix.sh"
+    config_root
+
+    # Rewrite env tokens using envsubst command.
+    ([ -x "$(command -v alacritty)" ] && sub_env_dir "$HOME/.config/alacritty") || true
 }
 
 iterm2_action() {
@@ -180,8 +189,8 @@ case "$1" in
     zsh-theme) zsh_theme;;
     config-home) config_home;;
     config-common) config_common;;
+    config-root) config_root;;
     config) config;;
-    postfix) postfix;;
     dump-iterm2) dump_iterm2;;
     config-iterm2) config_iterm2;;
     *) >&2 echo "'$1' target is not defined." && exit 1;;
