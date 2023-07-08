@@ -21,7 +21,8 @@ if [ ! -f "$s" ]; then
     echo light > "$s"
 fi
 export SYSTEM_COLOR_THEME="$(cat "$s")"
-export CLIPBOARD_COPY_COMMAND="pbcopy"
+export CLIPBOARD_COPY_COMMAND="xclip -selection c"
+[ "$(uname)" = "Darwin" ] && export CLIPBOARD_COPY_COMMAND="pbcopy"
 
 [ -d "/usr/local/sbin" ] && export PATH="$PATH:/usr/local/sbin"
 [ -d "/usr/local/mysql/bin" ] && export PATH="$PATH:/usr/local/mysql/bin"
