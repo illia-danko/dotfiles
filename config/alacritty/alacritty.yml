@@ -42,19 +42,19 @@ font:
   # The normal (roman) font face to use.
   normal:
     family: IosevkaTerm Nerd Font Mono
-    style: Semibold
+    style: Bold
 
   italic:
     family: IosevkaTerm Nerd Font Mono
-    style: Semibold Italic
+    style: Bold Italic
 
   bold:
     family: IosevkaTerm Nerd Font Mono
-    style: ExtraBold
+    style: Heavy
 
   bold-italic:
     family: IosevkaTerm Nerd Font Mono
-    style: ExtraBold Italic
+    style: Heavy Italic
 
   # Point size of the font.
   size: 11
