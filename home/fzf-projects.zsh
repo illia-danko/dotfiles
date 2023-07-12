@@ -57,9 +57,8 @@ function _fzf_projects_preview_window {
 
 function fzf-projects {
     local line=$(eval ${FZF_PROJECTS_CMD} | \
-        # cut -c 3- | \
         # Unique stream.
-        awk '!x[$0]++' | \
+        sort -u | \
         _fzf_projects_color | \
         fzf \
         --ansi \
