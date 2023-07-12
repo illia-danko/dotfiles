@@ -63,7 +63,7 @@ function fzf-projects {
         fzf \
         --ansi \
         --prompt "${FZF_PROJECTS_PROMPT}" \
-        --preview="tree -C -L 1 $FZF_PROJECTS_ROOT_DIRS/{}" \
+        --preview="tree -C -L 1 $HOME/{}" \
         --preview-window=$(_fzf_projects_preview_window))
 
     if [ "$line" != "" ] && [ -d "$HOME/$line" ]; then
