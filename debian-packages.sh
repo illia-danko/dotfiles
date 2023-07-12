@@ -69,7 +69,7 @@ custom_pkgs() {
 }
 
 node_pkgs() {
-    sudo npm install -g n yarn vscode-css-languageserver-bin typescript-language-server typescript pyright eslint prettier
+    sudo npm install -g n yarn vscode-css-languageserver-bin typescript-language-server typescript pyright eslint prettier emmet-ls
 }
 
 go_pkgs() {
