@@ -21,10 +21,10 @@
 
 # Search for local git projects using fd(find) and fzf commands.
 
-[ -x "$(command -v fd)" ] && cmd="fd" || cmd="fdfind"
-[ -z "${FZF_PROJECTS_ROOT_DIR-}" ] && FZF_PROJECTS_ROOT_DIR="$HOME"
-[ -z "${FZF_PROJECTS_FD_PATTERN-}" ] && FZF_PROJECTS_FD_PATTERN="'^\.git$|^\.hg$|^\.bzr$|^\.svn$'"
-[ -z "${FZF_PROJECTS_FD_CMD-}" ] && FZF_PROJECTS_FD_CMD="$cmd --hidden --case-sensitive --base-directory ${FZF_PROJECTS_ROOT_DIR} --relative-path --exec echo '{//}' ';' ${FZF_PROJECTS_FD_PATTERN}"
+[ -x "$(command -v fdir)" ] && cmd="fdir"
+[ -z "${FZF_PROJECTS_ROOT_DIRS-}" ] && FZF_PROJECTS_ROOT_DIRS="$HOME"
+[ -z "${FZF_PROJECTS_PATTERNS-}" ] && FZF_PROJECTS_PATTERNS=".git .hg .bzr .svn"
+[ -z "${FZF_PROJECTS_CMD-}" ] && FZF_PROJECTS_CMD="$cmd ${FZF_PROJECTS_ROOT_DIRS[@]} --patterns ${FZF_PROJECTS_PATTERNS[@]}"
 [ -z "${FZF_PROJECTS_COLORS-}" ] && FZF_PROJECTS_COLORS="0"
 [ -z "${FZF_PROJECTS_MATCH_COLOR_FG-}" ] && FZF_PROJECTS_MATCH_COLOR_FG="34"
 [ -z "${FZF_PROJECTS_PREVIEW_CONFIG-}" ] && FZF_PROJECTS_PREVIEW_CONFIG="nohidden|hidden,down"
@@ -56,24 +56,24 @@ function _fzf_projects_preview_window {
 }
 
 function fzf-projects {
-    local line=$(eval ${FZF_PROJECTS_FD_CMD} | \
-        cut -c 3- | \
+    local line=$(eval ${FZF_PROJECTS_CMD} | \
+        # cut -c 3- | \
         # Unique stream.
         awk '!x[$0]++' | \
         _fzf_projects_color | \
         fzf \
         --ansi \
         --prompt "${FZF_PROJECTS_PROMPT}" \
-        --preview="tree -C -L 1 $FZF_PROJECTS_ROOT_DIR/{}" \
+        --preview="tree -C -L 1 $FZF_PROJECTS_ROOT_DIRS/{}" \
         --preview-window=$(_fzf_projects_preview_window))
 
-    if [ "$line" != "" ] && [ -d "$FZF_PROJECTS_ROOT_DIR/$line" ]; then
+    if [ "$line" != "" ] && [ -d "$HOME/$line" ]; then
         if [ "$#" -gt 0 ]; then
             case $1 in
                 '--print') printf "%s\n" "$line";;
             esac
         else
-            cd "$FZF_PROJECTS_ROOT_DIR/$line"
+            cd "$HOME/$line"
         fi
     fi
 

@@ -114,6 +114,8 @@ if [ -x "$(command -v fzf)" ]; then
     export RG_OPTS_FILTER='--hidden --glob=!{.git,.svn,.hg,CVS,.bzr,vendor,node_modules,dist,venv,elm-stuff,.clj-kondo,.lsp,.cpcache}'
     export FZF_DEFAULT_COMMAND="rg --files $RG_OPTS_FILTER"
     export FZF_NOTES_DIR="$HOME/github.com/illia-danko/org"
+    export FZF_PROJECTS_ROOT_DIRS="$HOME/github.com $HOME/gitlab.com $HOME/codeburg.org $HOME/.config/nvim $HOME/.local/share/nvim"
+    export FZF_PROJECTS_PATTERNS=".git"
 fi
 
 # Clean up.

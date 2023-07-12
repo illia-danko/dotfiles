@@ -81,6 +81,7 @@ go_pkgs() {
     /usr/local/go/bin/go install golang.org/x/tools/cmd/goimports@latest
     /usr/local/go/bin/go install golang.org/x/tools/gopls@latest
     /usr/local/go/bin/go install mvdan.cc/gofumpt@latest
+    /usr/local/go/bin/go install github.com/illia-danko/fdir@latest
 }
 
 rust_pkgs() {
