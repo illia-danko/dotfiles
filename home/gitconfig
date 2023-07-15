@@ -2,7 +2,7 @@
     name = illiadanko
     email = illia.a.danko@gmail.com
 [init]
-    defaultBranch = master
+    defaultBranch = main
 [pull]
     rebase = false # always merge over rebase
 [core]
