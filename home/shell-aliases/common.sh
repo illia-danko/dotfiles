@@ -13,6 +13,7 @@
 [ -x "$(command -v fdfind)" ] && alias fd="fdfind"
 [ -x "$(command -v tmux)" ] && alias t="tmux new -d -s HACK; tmux new -d -s WORK; tmux new -d -s MEDIA; tmux attach -t HACK"
 [ -x "$(command -v clj)" ] && alias clj-repl="clj -M:cider/nrepl"
+[ -x "$(command -v wget)" ] && alias getpage="wget -qO-"
 
 # Use Neovim as a Man page viewer.
 man() {
