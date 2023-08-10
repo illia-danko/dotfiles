@@ -38,6 +38,7 @@ export CLIPBOARD_COPY_COMMAND="xclip -selection c"
 [ -x "$(command -v minikube)" ] && eval '$(minikube docker-env)'
 [ -x "$(command -v bat)" ] && export BAT_STYLE="plain"  # used by Bat previewer
 [ -x "$(command -v shellcheck)" ] && export SHELLCHECK_OPTS='--shell=bash --exclude=SC1090,SC2139,SC2155'
+[ -x "$(command -v iex)" ] && export ERL_AFLAGS="-kernel shell_history enabled"
 
 # SSL termination firefox.
 # Terminate TLS (Firefox/Chrome).
