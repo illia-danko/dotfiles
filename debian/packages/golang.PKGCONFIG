@@ -2,7 +2,7 @@
 
 set -eou pipefail
 
-pkg="go1.20.5.linux-amd64.tar.gz"
+pkg="go1.20.6.linux-amd64.tar.gz"
 
 pushd "/tmp"
 curl -L https://go.dev/dl/"$pkg" --output "$pkg"

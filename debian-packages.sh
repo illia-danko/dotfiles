@@ -3,13 +3,11 @@
 core_pkgs() {
     pkgs=(
         build-essential
-        cargo
         clangd
         cmake
         curl
         fd-find  # fd
         ffmpeg
-        firefox
         fonts-noto-color-emoji
         git
         git-doc
@@ -35,9 +33,9 @@ core_pkgs() {
         wireguard-tools
         wireshark-doc
         wireshark-qt
+        wl-clipboard
         xclip
         yamllint
-        yt-dlp
         zsh
         zsh-autosuggestions
         zsh-doc
@@ -88,14 +86,14 @@ rust_pkgs() {
    cargo install stylua
 }
 
-youtube_dl() {
-    sudo pip3 install --upgrade yt-dlp
+python_pkgs() {
+    sudo pip3 install yt-dlp --break-system-packages
 }
 
 core_pkgs
+# custom_pkgs
 qt_look_and_feel_pkgs # run qt5ct to configure gtk2 theme
-custom_pkgs
 node_pkgs
 go_pkgs
 rust_pkgs
-youtube_dl
+python_pkgs

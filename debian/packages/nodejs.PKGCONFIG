@@ -4,4 +4,4 @@ set -euo pipefail
 
 curl -fsSL https://deb.nodesource.com/setup_18.x | sudo bash -
 sudo apt update
-sudo apt install nodejs yarn -yy
+sudo apt install nodejs -yy
