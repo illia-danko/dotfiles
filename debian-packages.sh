@@ -16,6 +16,7 @@ core_pkgs() {
         jq
         libvterm-dev
         mpv
+        neofetch
         net-tools
         nmap
         pandoc
