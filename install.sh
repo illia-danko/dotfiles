@@ -28,6 +28,8 @@ set -eo pipefail
 
 script_name="$(readlink -f "${BASH_SOURCE[0]}")"
 script_dir="$(dirname "$script_name")"
+is_archlinux=""
+[ -f "/etc/arch-release" ] && is_archlinux="enabled"
 
 url2dir() {
     echo "$1" | perl -p -e 's/\.git$//;' -p -e 's/^(https?:\/\/|git@)//;' -p -e 's/:/\//g;'
@@ -61,9 +63,11 @@ github_repos() {
 }
 
 packages() {
-    local packages_script="$script_dir"/debian-packages.sh
+    local packages_script="$script_dir"/arch-packages.sh
     if [ "$(uname)" = "Darwin" ]; then
         packages_script="$script_dir"/macos-packages.sh
+    elif [ -z "$is_archlinux" ]; then
+        packages_script="$script_dir"/debian-packages.sh
 	fi
     sh -c "$packages_script"
 }
@@ -159,12 +163,16 @@ sub_env_dir() {
 config() {
     config_home
     config_common
+
     [ "$(uname)" = "Darwin" ] && return
 
     config_root
 
-    # Rewrite env tokens using envsubst command.
     ([ -x "$(command -v alacritty)" ] && sub_env_dir "$HOME/.config/alacritty") || true
+    ([ -x "$(command -v waybar)" ] && sub_env_dir "$HOME/.config/waybar") || true
+    ([ -x "$(command -v swaylock)" ] && sub_env_dir "$HOME/.config/swaylock") || true
+    ([ -x "$(command -v sway)" ] && sub_env_dir "$HOME/.config/sway") || true
+    ([ -x "$(command -v mako)" ] && sub_env_dir "$HOME/.config/mako" && pkill mako) || true
 }
 
 iterm2_action() {

@@ -21,7 +21,7 @@ if [ ! -f "$s" ]; then
     echo light > "$s"
 fi
 export SYSTEM_COLOR_THEME="$(cat "$s")"
-export CLIPBOARD_COPY_COMMAND="xclip -selection c"
+export CLIPBOARD_COPY_COMMAND="wl-copy"
 [ "$(uname)" = "Darwin" ] && export CLIPBOARD_COPY_COMMAND="pbcopy"
 
 [ -d "/usr/local/sbin" ] && export PATH="$PATH:/usr/local/sbin"
@@ -44,7 +44,7 @@ export CLIPBOARD_COPY_COMMAND="xclip -selection c"
 # Terminate TLS (Firefox/Chrome).
 export SSLKEYLOGFILE="$HOME/.sslkeylog"
 export NSS_ALLOW_SSLKEYLOGFILE=1
-test "$(xprop -root 2>/dev/null | grep i3)" && export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh || true
+(test "$(xprop -root 2>/dev/null | grep i3)" || [ -n $SWAYSOCK ]) && export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh || true
 
 if [ "$SYSTEM_COLOR_THEME" = "dark" ]; then
     # One Dark Theme.
