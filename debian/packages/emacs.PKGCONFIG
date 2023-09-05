@@ -3,7 +3,7 @@
 set -eou pipefail
 
 pkg_uri="https://github.com/emacs-mirror/emacs.git"
-git_branch="master"
+git_branch="emacs-29.1"
 
 url2dir() {
     echo "$1" | perl -pe 's/\.git$//;' -pe 's/^(https?:\/\/|git@)//;' -pe 's/:/\//g;'
