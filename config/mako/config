@@ -1,7 +1,7 @@
 anchor=top-right
 background-color=${TTY_COLOR_BG1}
 text-color=${TTY_COLOR_FG1}
-font=Ubuntu Medium 12
+font=Ubuntu Medium 14
 border-color=${TTY_COLOR_BLACK}
 border-size=1
 border-radius=1

@@ -1,5 +1,5 @@
 # Font.
-font pango:Ubuntu Regular 16
+font pango:Ubuntu Regular 18
 
 # Variables.
 set $mod Mod1
@@ -149,7 +149,7 @@ exec nm-applet --indicator
 exec yarr
 
 # Output.
-exec_always "$HOME/.config/sway/adjust-screen.sh" "2"
+exec_always "$HOME/.config/sway/adjust-screen.sh" "1"
 exec_always "$HOME/.config/sway/set-wallpaper.sh"
 
 include /etc/sway/config.d/*
