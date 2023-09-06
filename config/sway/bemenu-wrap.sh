@@ -17,8 +17,8 @@ bemenu_font="pango:UbuntuMono Nerd Bold 14"
 case "$1" in
     commands)
         bemenu-run "${bemenu_color_opts[@]}" --fn "${bemenu_font}" \
-            -H 30 -n | xargs swaymsg exec --;;
+            -H 30 -M 4 -n | xargs swaymsg exec --;;
     clipboard)
         cliphist list | bemenu "${bemenu_color_opts[@]}" \
-            --fn "${bemenu_font}" -H 30 -n -l 999 | cliphist decode | wl-copy
+            --fn "${bemenu_font}" -H 30 -M 4 -n -l 999 | cliphist decode | wl-copy
 esac
