@@ -72,14 +72,15 @@ pkgs=(
     rust-analyzer
     shellcheck
     slack-desktop
+    speech-dispatcher  # required by firefox
     stylua
-    tea
     texlive-bibtexextra # homepage
     texlive-fontsextra # homepage
     texlive-latexextra # homepage
     tmux
     tree
     ttf-jetbrains-mono-nerd
+    ttf-ms-win11-auto
     unzip
     usbutils  # lsusb
     virt-manager
@@ -96,7 +97,6 @@ pkgs=(
     zip
     zsh-autosuggestions
     zsh-syntax-highlighting
-    speech-dispatcher  # required by firefox
 )
 
 gnome_pkgs=(
