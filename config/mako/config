@@ -4,7 +4,8 @@ text-color=${TTY_COLOR_FG1}
 font=Ubuntu Medium 14
 border-color=${TTY_COLOR_BLACK}
 border-size=1
-border-radius=1
+border-radius=16
+width=564
 
 [urgency=high]
 default-timeout=0
