@@ -32,7 +32,7 @@ window#waybar.chromium {
 }
 
 #workspaces button {
-    padding: 0 5px;
+    padding: 0 10px 0 5px;
     background-color: transparent;
     color: ${TTY_COLOR_FG1};
     /* Use box-shadow instead of border so the text isn't offset */
@@ -54,6 +54,7 @@ window#waybar.chromium {
 
 #workspaces button.urgent {
     background-color: ${TTY_COLOR_RED};
+    color: ${TTY_COLOR_BG1};
 }
 
 #clock,
