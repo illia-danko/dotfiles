@@ -114,7 +114,7 @@ assign [app_id="Alacritty"] workspace 2
 for_window [tiling] border pixel 2
 
 # Appearance.
-client.focused ${TTY_COLOR_FG1} ${TTY_COLOR_FG1} ${TTY_COLOR_BG1} ${TTY_COLOR_FG1}
+client.focused ${TTY_COLOR_GREEN} ${TTY_COLOR_GREEN} ${TTY_COLOR_BG1} ${TTY_COLOR_GREEN}
 client.unfocused ${TTY_COLOR_BG1} ${TTY_COLOR_BG1} ${TTY_COLOR_FG1} ${TTY_COLOR_BG1}
 client.focused_inactive ${TTY_COLOR_BG1} ${TTY_COLOR_BG1} ${TTY_COLOR_FG1} ${TTY_COLOR_BG1}
 
