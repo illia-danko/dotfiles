@@ -8,7 +8,7 @@ set $down j
 set $up k
 set $right l
 
-set $term alacritty
+set $term "alacritty -t 'Terminal'"
 set $browser firefox
 set $browser2 google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=WebRTCPipeWireCapturer
 set $menu "$HOME/.config/sway/bemenu-wrap.sh"
@@ -114,7 +114,7 @@ for_window [title="Audio Pulse Mixer"] floating enable
 for_window [title="1 Reminder"] floating enable
 
 assign [app_id="firefox"] workspace 1
-assign [app_id="Alacritty"] workspace 2
+assign [title="Terminal"] workspace 2
 # assign [app_id="imv"] workspace 10
 
 # Disable title bar.
