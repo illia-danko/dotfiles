@@ -174,6 +174,8 @@ sway_pkgs() {
     ## Login Manager.
     sudo perl -i -p -e 's/command = ".*"/command = "tuigreet --cmd sway"/;' \
         /etc/greetd/config.toml || true
+    sudo chmod -R go+r /etc/greetd/
+    sudo usermod -a -G greetd "$USER"
     sudo systemctl enable greetd.service
 }
 
