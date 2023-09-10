@@ -118,6 +118,7 @@ sway_pkgs() {
         brightnessctl # part of sway wm
         cliphist # persistent clipboard history
         gnome-keyring # required by auto unlock gpg, ssh keys
+        greetd # greeter manager
         grim # for color-pick
         gtk-engine-murrine # required for arc theme
         gvfs-mtp  # android mtp
@@ -142,6 +143,7 @@ sway_pkgs() {
         ttf-ubuntu-font-family
         ttf-ubuntu-mono-nerd
         ttf-ubuntu-nerd
+        tuigreet # required by greetd
         waybar # part of sway wm
         wev-git # transcribe keyboard and mouth events
         wf-recorder  # audio and screen recording for Wayland
@@ -168,6 +170,11 @@ sway_pkgs() {
     s="session optional pam_gnome_keyring.so auto_start"
     grep -q "$s" "$f" || (echo "$s" | sudo tee -a "$f")
     unset f s
+
+    ## Login Manager.
+    sudo perl -i -p -e 's/command = ".*"/command = "tuigreet --cmd sway"/;' \
+        /etc/greetd/config.toml || true
+    sudo systemctl enable greetd.service
 }
 
 optional_pkgs() {
@@ -218,10 +225,10 @@ go_pkgs() {
 
 # Install packages.
 core_pkgs
-work_pkgs
 [ -x "$(command -v gnome-shell)" ] && gnome_pkgs
 [ -n "$SWAYSOCK" ] && sway_pkgs
 node_pkgs
 python_pkgs
 go_pkgs
+work_pkgs
 # optional_pkgs
