@@ -133,6 +133,7 @@ sub_env() {
     (rm -rf "$1" && envsubst\
         '${TTY_COLOR_BG0}\
         ${TTY_COLOR_BG1}\
+        ${TTY_COLOR_BG2}\
         ${TTY_COLOR_FG0}\
         ${TTY_COLOR_FG1}\
         ${TTY_COLOR_BLACK}\

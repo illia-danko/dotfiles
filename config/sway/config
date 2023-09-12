@@ -124,9 +124,9 @@ assign [title="Terminal"] workspace 2
 for_window [tiling] border pixel 2
 
 # Appearance.
-client.focused ${TTY_COLOR_GREEN} ${TTY_COLOR_GREEN} ${TTY_COLOR_BG1} ${TTY_COLOR_GREEN}
-client.unfocused ${TTY_COLOR_BG1} ${TTY_COLOR_BG1} ${TTY_COLOR_FG1} ${TTY_COLOR_BG1}
-client.focused_inactive ${TTY_COLOR_BG1} ${TTY_COLOR_BG1} ${TTY_COLOR_FG1} ${TTY_COLOR_BG1}
+client.focused ${TTY_COLOR_GREEN} ${TTY_COLOR_BG2} ${TTY_COLOR_FG1} ${TTY_COLOR_BG2}
+client.unfocused ${TTY_COLOR_GREEN} ${TTY_COLOR_BG0} ${TTY_COLOR_FG1} ${TTY_COLOR_BG0}
+client.focused_inactive ${TTY_COLOR_GREEN} ${TTY_COLOR_BG0} ${TTY_COLOR_FG1} ${TTY_COLOR_BG0}
 
 # Status Bar.
 bar {
