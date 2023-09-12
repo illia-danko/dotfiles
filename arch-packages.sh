@@ -52,6 +52,7 @@ core_pkgs() {
         qt5-wayland
         qt6-wayland
         ripgrep
+        rsync
         rust
         rust-analyzer
         shellcheck
@@ -199,6 +200,7 @@ optional_pkgs() {
         texlive-latexextra # homepage
         wireshark-qt
         gimp-devel
+        anki
     )
 
     yay -S "${pkgs[@]}"
