@@ -26,7 +26,7 @@ bindsym $mod+r exec $menu commands
 bindsym $mod+Shift+h exec $menu clipboard
 bindsym $mod+Shift+p exec $colorpick
 bindsym Print exec $screenshot select
-bindsym $mod+Shift+o exec $volume
+bindsym $mod+Shift+v exec $volume
 bindsym $mod+Shift+b exec $bluetooth
 bindsym $mod+question exec $rss
 
