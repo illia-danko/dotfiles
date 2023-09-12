@@ -154,6 +154,7 @@ sway_pkgs() {
         xdg-desktop-portal-wlr  # (powered by wireplumber) required for screen sharing on Wayland
         xdg-utils # xdg-open
         xfce4-settings  # for xfce4-appearance-settings
+        xorg-server-xvfb  # required by cypress javascript library to run a virtual desktop
     )
 
     yay -S "${pkgs[@]}"
