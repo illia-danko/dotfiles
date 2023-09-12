@@ -21,3 +21,8 @@ man() {
     /usr/bin/man "$*" > /dev/null 2>&1 || /usr/bin/man "$*" || return
     $EDITOR -c "Man $*" -c "only" -c "set laststatus=0" -c "nmap <buffer> q ZQ"
 }
+
+alias url_decode='perl -pe '\''s/\+/ /g;'\'' -e '\''s/%(..)/chr(hex($1))/eg;'\'' <<< '
+url_encode() {
+    printf %s "$1" | jq -sRr @uri
+}
