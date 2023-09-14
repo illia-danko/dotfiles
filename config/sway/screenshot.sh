@@ -3,7 +3,10 @@
 set -euo pipefail
 
 filename="screenshot-`date +%F-%T`"
-filepath="$HOME/Pictures/${filename}.png"
+destination_folder="$HOME/Pictures"
+filepath="$destination_folder/${filename}.png"
+
+mkdir -p "$destination_folder"
 
 case "$1" in
     select)
