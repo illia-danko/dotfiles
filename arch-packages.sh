@@ -18,6 +18,12 @@ core_pkgs() {
         cronie  # crontab
         dmidecode  # virt-manager
         dnsmasq  # virt-manager
+        docker
+        docker-compose
+        docker-scan # scan vulnerabilities
+        elixir
+        elixir-ls
+        erlang
         fd
         ffmpeg
         firefox
@@ -45,12 +51,11 @@ core_pkgs() {
         p7zip
         pandoc
         perl-file-mimeinfo # provides mimeopen and mimetype (see https://wiki.archlinux.org/title/default_applications#perl-file-mimeinfo)
+        pigz # docker
         postgresql
         python-pip
         qemu # virt-manager
         qemu-emulators-full # libvirt
-        qt5-wayland
-        qt6-wayland
         ripgrep
         rsync
         rust
@@ -61,7 +66,6 @@ core_pkgs() {
         tmux
         tree
         ttf-jetbrains-mono-nerd
-        ttf-ms-win11-auto
         unzip
         usbutils  # lsusb
         virt-manager
@@ -76,16 +80,13 @@ core_pkgs() {
         zsh-syntax-highlighting
     )
 
-    ## Ubuntu fonts.
-    [ -x "$(command -v gnome-shell)" ] && yay -Rnsdd bubblewrap --noconfirm
-    yay -S fontconfig-ubuntu
-    [ -x "$(command -v gnome-shell)" ] && yay yay -S bubblewrap --noconfirm
-
     yay -S "${pkgs[@]}"
 
     sudo usermod -a -G libvirt "$USER"
     sudo systemctl enable libvirtd.service --now
     sudo systemctl enable cronie.service --now
+    sudo usermod -a -G docker "$USER"
+    sudo systemctl enable docker.service --now
 }
 
 work_pkgs() {
@@ -120,6 +121,7 @@ sway_pkgs() {
         cliphist # persistent clipboard history
         gnome-keyring # required by auto unlock gpg, ssh keys
         greetd # greeter manager
+        greetd-tuigreet # required by greetd
         grim # for color-pick
         gtk-engine-murrine # required for arc theme
         gvfs-mtp  # android mtp
@@ -129,10 +131,13 @@ sway_pkgs() {
         mako # notification service
         man-pages # posix pages
         mtpfs # android mtp
+        nwg-look # change theme style for xwayland
         otf-font-awesome  # required by waybar
         pipewire-pulse
         pulsemixer # sound cli interface
         python-i3ipc # sway rpc
+        qt5-wayland
+        qt6-wayland
         seahorse # required by auto unlock gpg, ssh keys
         slurp  # select regeion on Wayland
         swaybg  # set background from terminal
@@ -144,7 +149,6 @@ sway_pkgs() {
         ttf-ubuntu-font-family
         ttf-ubuntu-mono-nerd
         ttf-ubuntu-nerd
-        tuigreet # required by greetd
         waybar # part of sway wm
         wev-git # transcribe keyboard and mouth events
         wf-recorder  # audio and screen recording for Wayland
@@ -155,6 +159,7 @@ sway_pkgs() {
         xdg-utils # xdg-open
         xfce4-settings  # for xfce4-appearance-settings
         xorg-server-xvfb  # required by cypress javascript library to run a virtual desktop
+        xorg-xwayland
     )
 
     yay -S "${pkgs[@]}"
@@ -179,35 +184,39 @@ sway_pkgs() {
     sudo chmod -R go+r /etc/greetd/
     sudo usermod -a -G greetd "$USER"
     sudo systemctl enable greetd.service
+
+    # Disable hibernation on lid closed when logout.
+    sudo echo "HandleLidSwitchExternalPower=ignore" >> /etc/systemd/logind.conf
 }
 
 optional_pkgs() {
     pkgs=(
+        anki
         audacity
         biber  # required by homepage
-        docker
-        docker-compose
-        docker-scan # scan vulnerabilities
+        gimp-devel
         hugo  # homepage
         inkscape
-        qbittorrent
         libreoffice-fresh
         libreoffice-fresh-en-gb
         libreoffice-fresh-uk
-        pigz # docker
         pomatez  # pomodoro app
+        qbittorrent
         texlive-bibtexextra # homepage
         texlive-fontsextra # homepage
         texlive-latexextra # homepage
+        ttf-ms-win11-auto # Microsoft fonts
         wireshark-qt
-        gimp-devel
-        anki
     )
+
+    # Ubuntu fonts.
+    [ -x "$(command -v gnome-shell)" ] && yay -Rnsdd bubblewrap --noconfirm
+    yay -S fontconfig-ubuntu
+    [ -x "$(command -v gnome-shell)" ] && yay yay -S bubblewrap --noconfirm
+
 
     yay -S "${pkgs[@]}"
 
-    sudo usermod -a -G docker "$USER"
-    sudo systemctl enable docker.service --now
     sudo usermod -a -G wireshark "$USER"
 }
 

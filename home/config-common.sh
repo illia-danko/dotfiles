@@ -44,7 +44,8 @@ export CLIPBOARD_COPY_COMMAND="wl-copy"
 # Terminate TLS (Firefox/Chrome).
 export SSLKEYLOGFILE="$HOME/.sslkeylog"
 export NSS_ALLOW_SSLKEYLOGFILE=1
-(test "$(xprop -root 2>/dev/null | grep i3)" || [ -n $SWAYSOCK ]) && export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh || true
+export MOZ_ENABLE_WAYLAND=1 # run firefox on wayland naively
+(test "$(xprop -root 2>/dev/null | grep i3)" || [ -n "$SWAYSOCK" ]) && export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh || true
 
 if [ "$SYSTEM_COLOR_THEME" = "dark" ]; then
     # One Dark Theme.
