@@ -1,14 +1,16 @@
 #!/usr/bin/env bash
 #
 
-pushd /tmp || return
-git clone https://aur.archlinux.org/yay.git
-cd yay || return
-makepkg -is --noconfirm
-rm -rf yay
-popd || return
+package_manager() {
+    pushd /tmp || return
+    git clone https://aur.archlinux.org/yay.git
+    cd yay || return
+    makepkg -is --noconfirm
+    rm -rf yay
+    popd || return
 
-yay -Syu --noconfirm
+    yay -Syu --noconfirm
+}
 
 core_pkgs() {
     pkgs=(
@@ -189,6 +191,11 @@ sway_pkgs() {
     sudo echo "HandleLidSwitchExternalPower=ignore" >> /etc/systemd/logind.conf
 }
 
+wm_pkgs() {
+    [ -x "$(command -v gnome-shell)" ] && gnome_pkgs
+    [ -n "$SWAYSOCK" ] && sway_pkgs
+}
+
 optional_pkgs() {
     pkgs=(
         anki
@@ -214,7 +221,6 @@ optional_pkgs() {
     yay -S fontconfig-ubuntu
     [ -x "$(command -v gnome-shell)" ] && yay yay -S bubblewrap --noconfirm
 
-
     yay -S "${pkgs[@]}"
 
     sudo usermod -a -G wireshark "$USER"
@@ -238,9 +244,9 @@ go_pkgs() {
 }
 
 # Install packages.
+package_manager
 core_pkgs
-[ -x "$(command -v gnome-shell)" ] && gnome_pkgs
-[ -n "$SWAYSOCK" ] && sway_pkgs
+wm_pkgs
 node_pkgs
 python_pkgs
 go_pkgs
