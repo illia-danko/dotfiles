@@ -131,7 +131,7 @@ sway_pkgs() {
         mako # notification service
         man-pages # posix pages
         mtpfs # android mtp
-        nwg-look # change theme style for xwayland
+        nwg-look # change theme style for gtk, kde and xwayland
         otf-font-awesome  # required by waybar
         pipewire-pulse
         pulsemixer # sound cli interface
@@ -157,7 +157,6 @@ sway_pkgs() {
         xdg-desktop-portal
         xdg-desktop-portal-wlr  # (powered by wireplumber) required for screen sharing on Wayland
         xdg-utils # xdg-open
-        xfce4-settings  # for xfce4-appearance-settings
         xorg-server-xvfb  # required by cypress javascript library to run a virtual desktop
         xorg-xwayland
     )
