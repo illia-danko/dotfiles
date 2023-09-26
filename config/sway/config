@@ -153,6 +153,10 @@ exec autotiling-rs
 exec wl-paste --watch cliphist store
 # RSS feeds -> localhost:7070.
 exec yarr
+# Bluetooth applet.
+exec blueman-applet
+# Network applet.
+exec nm-applet --indicator
 
 # Output.
 exec_always "$HOME/.config/sway/adjust-screen.sh" "1"
