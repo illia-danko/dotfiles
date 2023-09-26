@@ -157,6 +157,7 @@ sway_pkgs() {
         xdg-desktop-portal
         xdg-desktop-portal-wlr  # (powered by wireplumber) required for screen sharing on Wayland
         xdg-utils # xdg-open
+        xfce4-settings # as nwg-look is in use, we still need the package since it still has useful gnome dependencies.
         xorg-server-xvfb  # required by cypress javascript library to run a virtual desktop
         xorg-xwayland
     )
