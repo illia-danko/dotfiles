@@ -16,6 +16,11 @@
 [ -x "$(command -v wget)" ] && alias getpage="wget -qO-"
 [ -x "$(command -v iex)" ] && alias iex="GDK_BACKEND='x11' iex" # fix wx widgets on Wayland (use xwayland instead)
 
+# Print system memory stats in MB.
+ps_mb() {
+    ps afu | awk 'NR>1 {$5=int($5/1024)"M";}{ print;}'
+}
+
 # Use Neovim as a Man page viewer.
 man() {
     # Show appropriate an error on no manual.
