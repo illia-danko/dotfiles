@@ -35,6 +35,7 @@ core_pkgs() {
         htop
         hunspell-en_us
         inetutils # hostname
+        inotify-tools  # used by elixir
         jq
         lazygit
         lf # cli file navigator
@@ -212,7 +213,7 @@ optional_pkgs() {
         texlive-bibtexextra # homepage
         texlive-fontsextra # homepage
         texlive-latexextra # homepage
-        ttf-ms-win11-auto # Microsoft fonts
+        ttf-ms-fonts # Microsoft fonts
         wireshark-qt
     )
 
