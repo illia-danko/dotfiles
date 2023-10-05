@@ -13,6 +13,7 @@ core_pkgs() {
         git-doc
         gridsite-clients # urlencode
         htop
+        inotify-tools # required by elixir
         jq
         libvterm-dev
         mpv
@@ -21,7 +22,7 @@ core_pkgs() {
         nmap
         pandoc
         pkg-config
-        postgresql-client
+        postgresql
         python3
         python3-pip
         qbittorrent
@@ -88,12 +89,12 @@ rust_pkgs() {
 }
 
 python_pkgs() {
-    sudo pip3 install yt-dlp --break-system-packages
+    sudo pip3 install yt-dlp
 }
 
-core_pkgs
+# core_pkgs
 # custom_pkgs
-qt_look_and_feel_pkgs # run qt5ct to configure gtk2 theme
+# qt_look_and_feel_pkgs # run qt5ct to configure gtk2 theme
 node_pkgs
 go_pkgs
 rust_pkgs

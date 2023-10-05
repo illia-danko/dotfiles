@@ -19,11 +19,11 @@ rm -rf "$pkg_name"
 git clone --depth=1 --branch="$git_branch" "$pkg_uri" "$pkg_name"
 pushd "$pkg_name"
 
-sudo apt install libwebkit2gtk-4.0-dev libmagickwand-dev libm17n-dev libmagickcore-dev -yy
-# sudo apt build-dep emacs -yy
+sudo apt install libwebkit2gtk-4.0-dev libtree-sitter-dev libmagickwand-dev libm17n-dev libmagickcore-dev libgtk-3-dev libgnutls28-dev libtiff5-dev libgif-dev libjpeg-dev libpng-dev libxpm-dev libncurses-dev texinfo -yy
+sudo apt build-dep emacs -yy
 
 sh autogen.sh
-./configure --with-xwidgets --with-json --with-imagemagick --with-no-titlebar
+./configure -with-pgtk --with-json --with-x --with-imagemagick --with-no-titlebar --with-tree-sitter --with-native-compilation
 make -j$(nproc)
 
 sudo make install

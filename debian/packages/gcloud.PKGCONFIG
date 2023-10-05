@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -eou pipefail
+
+arc_version=google-cloud-cli-449.0.0-linux-x86.tar.gz
+
+pushd "/tmp"
+curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/"$arc_version"
+tar -xf "$arc_version"
+./google-cloud-sdk/install.sh
+mv google-cloud-sdk "$HOME"/.google-cloud-sdk
+"$HOME"/.google-cloud-sdk/bin/gcloud components install gke-gcloud-auth-plugin
+
