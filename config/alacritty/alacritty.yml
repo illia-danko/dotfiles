@@ -41,23 +41,23 @@ key_bindings:
 font:
   # The normal (roman) font face to use.
   normal:
-    family: JetBrainsMono Nerd Font Mono
+    family: IosevkaTerm Nerd Font Mono
     style: Bold
 
   italic:
-    family: JetBrainsMono Nerd Font Mono
+    family: IosevkaTerm Nerd Font Mono
     style: Bold Italic
 
   bold:
-    family: JetBrainsMono Nerd Font Mono
+    family: IosevkaTerm Nerd Font Mono
     style: ExtraBold
 
   bold-italic:
-    family: JetBrainsMono Nerd Font Mono
+    family: IosevkaTerm Nerd Font Mono
     style: ExtraBold Italic
 
   # Point size of the font.
-  size: 11.5
+  size: 12
 
   # Offset is the extra space around each character. offset.y can be thought
   # of as modifying the linespacing, and offset.x as modifying the letter
