@@ -115,7 +115,6 @@ for_window [title="Audio Pulse Mixer"] floating enable
 # Betterbird event notification.
 for_window [title="1 Reminder"] floating enable
 for_window [app_id="imv"] floating enable
-for_window [app_id="mpv"] floating enable
 
 assign [app_id="firefox"] workspace 1
 assign [title="Terminal"] workspace 2
