@@ -154,7 +154,7 @@ exec wl-paste --watch cliphist store
 # RSS feeds -> localhost:7070.
 exec yarr
 # Bluetooth applet.
-exec blueman-applet
+# exec blueman-applet
 # Network applet.
 exec nm-applet --indicator
 
