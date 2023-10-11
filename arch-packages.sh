@@ -29,6 +29,7 @@ core_pkgs() {
         fd
         ffmpeg
         firefox
+        flake8
         fzf
         gnupg
         graphviz
@@ -57,6 +58,7 @@ core_pkgs() {
         pigz # docker
         postgresql
         python-pip
+        python-virtualenv
         qemu # virt-manager
         qemu-emulators-full # libvirt
         ripgrep
@@ -75,6 +77,7 @@ core_pkgs() {
         viu # preview images in the terminal
         wireguard-tools
         yamllint
+        yapf
         yarn
         yarr # rss browser reader
         yt-dlp
@@ -202,7 +205,7 @@ optional_pkgs() {
         anki
         audacity
         biber  # required by homepage
-        gimp-devel
+        gimp # gimp-devel is a good alternative supported hidpi and requires compilation
         hugo  # homepage
         inkscape
         libreoffice-fresh
@@ -215,6 +218,8 @@ optional_pkgs() {
         texlive-latexextra # homepage
         ttf-ms-fonts # Microsoft fonts
         wireshark-qt
+        telegram-desktop
+        zapzap # whatsup clone
     )
 
     # Ubuntu fonts.
@@ -231,10 +236,6 @@ node_pkgs() {
     sudo -H npm install -g n vscode-css-languageserver-bin vscode-langservers-extracted typescript typescript-language-server eslint prettier emmet-ls pyright
 }
 
-python_pkgs() {
-    sudo -H python3 -m pip install pyright virtualenv yapf flake8
-}
-
 go_pkgs() {
     go install golang.org/x/tools/gopls@latest
     go install golang.org/x/tools/cmd/goimports@latest
@@ -249,7 +250,6 @@ package_manager
 core_pkgs
 wm_pkgs
 node_pkgs
-python_pkgs
 go_pkgs
 work_pkgs
 # optional_pkgs
