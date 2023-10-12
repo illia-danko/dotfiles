@@ -219,7 +219,7 @@ optional_pkgs() {
         ttf-ms-fonts # Microsoft fonts
         wireshark-qt
         telegram-desktop
-        zapzap # whatsup clone
+        zapzap # whatsapp clone
     )
 
     # Ubuntu fonts.
