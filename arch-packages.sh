@@ -37,6 +37,7 @@ core_pkgs() {
         hunspell-en_us
         inetutils # hostname
         inotify-tools  # used by elixir
+        intel-media-driver # required by Firefox
         jq
         lazygit
         lf # cli file navigator
