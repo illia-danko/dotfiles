@@ -12,8 +12,9 @@
 [ -x "$(command -v dmesg)" ] && alias dmesg='dmesg --color=always | less'
 [ -x "$(command -v fdfind)" ] && alias fd="fdfind"
 [ -x "$(command -v tmux)" ] && alias t="tmux new -d -s HACK; tmux new -d -s WORK; tmux new -d -s MEDIA; tmux attach -t HACK"
-[ -x "$(command -v clj)" ] && alias clj-repl="clj -M:cider/nrepl"
+[ -x "$(command -v clj)" ] && alias clj_repl="clj -M:cider/nrepl"
 [ -x "$(command -v wget)" ] && alias getpage="wget -qO-"
+[ -x "$(command -v lsof)" ] && alias listen_ports="lsof -i -P | grep LISTEN"
 
 # Print system memory stats in MB.
 ps_mb() {
