@@ -46,6 +46,7 @@ export CLIPBOARD_COPY_COMMAND="wl-copy"
 export SSLKEYLOGFILE="$HOME/.sslkeylog"
 export NSS_ALLOW_SSLKEYLOGFILE=1
 export MOZ_ENABLE_WAYLAND=1 # run firefox on wayland naively
+export CLOUDSDK_PYTHON=/usr/bin/python3
 (test "$(xprop -root 2>/dev/null | grep i3)" || [ -n "$SWAYSOCK" ]) && export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh || true
 
 if [ "$SYSTEM_COLOR_THEME" = "dark" ]; then
