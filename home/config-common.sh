@@ -21,8 +21,7 @@ if [ ! -f "$s" ]; then
     echo light > "$s"
 fi
 export SYSTEM_COLOR_THEME="$(cat "$s")"
-export CLIPBOARD_COPY_COMMAND="wl-copy"
-[ "$XDG_SESSION_TYPE" = "x11" ] && export CLIPBOARD_COPY_COMMAND="xclip -selection c"
+export CLIPBOARD_COPY_COMMAND="xclip -in -selection c"
 [ "$(uname)" = "Darwin" ] && export CLIPBOARD_COPY_COMMAND="pbcopy"
 
 [ -d "/usr/local/sbin" ] && export PATH="$PATH:/usr/local/sbin"
