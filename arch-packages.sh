@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
-#
-
 package_manager() {
     pushd /tmp || return
     git clone https://aur.archlinux.org/yay.git
@@ -15,7 +13,7 @@ package_manager() {
 core_pkgs() {
     pkgs=(
         bc
-        betterbird-bin  # thunderbird but better
+        thunderbird
         cmake
         cronie  # crontab
         dmidecode  # virt-manager
@@ -178,6 +176,7 @@ sway_pkgs() {
     sudo perl -i -p -e 's/components=".*"/components="pkcs11,secrets,ssh"/;' \
         /usr/lib/systemd/user/gnome-keyring-daemon.service
     systemctl --user enable gcr-ssh-agent.service
+    systemctl --user enable gnome-keyring-daemon.service --now
     f="/etc/pam.d/login"
     s="auth optional pam_gnome_keyring.so"
     grep -q "$s" "$f" || (echo "$s" | sudo tee -a "$f")
@@ -193,7 +192,7 @@ sway_pkgs() {
     sudo systemctl enable greetd.service
 
     # Disable hibernation on lid closed when logout.
-    sudo echo "HandleLidSwitchExternalPower=ignore" >> /etc/systemd/logind.conf
+    # sudo echo "HandleLidSwitchExternalPower=ignore" >> /etc/systemd/logind.conf
 }
 
 wm_pkgs() {
@@ -247,10 +246,10 @@ go_pkgs() {
 }
 
 # Install packages.
-package_manager
-core_pkgs
-wm_pkgs
+# package_manager
+# core_pkgs
+# wm_pkgs
 node_pkgs
 go_pkgs
 work_pkgs
-# optional_pkgs
+optional_pkgs

@@ -86,7 +86,8 @@ input "type:keyboard" {
     # grp:win_space_toggle - [Win-Space] -> toggle layout.
     # ctrl:nocaps - bind Ctrl to Capslock.
     # ctrl:swap_rwin_rctl - swap RCtrl and RWin keys.
-    xkb_options "grp:win_space_toggle,ctrl:nocaps,ctrl:swap_rwin_rctl"
+    # ctrl:menu_rctrl - swap RCtrl and Menu
+    xkb_options "grp:win_space_toggle,ctrl:nocaps,ctrl:menu_rctrl"
 }
 
 # Resizing containers.
