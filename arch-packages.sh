@@ -213,7 +213,6 @@ optional_pkgs() {
         libreoffice-fresh
         libreoffice-fresh-en-gb
         libreoffice-fresh-uk
-        pomatez  # pomodoro app
         qbittorrent
         texlive-bibtexextra # homepage
         texlive-fontsextra # homepage
