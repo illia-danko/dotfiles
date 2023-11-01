@@ -109,6 +109,7 @@ work_pkgs() {
 
 gnome_pkgs() {
     pkgs=(
+        gnome-shell-extension-dash-to-dock
         gpaste # clipboard manager, gnome shell extension
         obsidian-icon-theme
         xclip
