@@ -13,6 +13,7 @@ package_manager() {
 core_pkgs() {
     pkgs=(
         bc
+        ttf-ms-fonts # Microsoft fonts
         thunderbird
         cmake
         cronie  # crontab
@@ -108,8 +109,7 @@ work_pkgs() {
 
 gnome_pkgs() {
     pkgs=(
-        gnome-terminal
-        gpaste # clipboard manager
+        gpaste # clipboard manager, gnome shell extension
         obsidian-icon-theme
         xclip
     )
@@ -202,7 +202,7 @@ wm_pkgs() {
 
 optional_pkgs() {
     pkgs=(
-        anki
+        # anki
         audacity
         biber  # required by homepage
         gimp # gimp-devel is a good alternative supported hidpi and requires compilation
@@ -216,7 +216,6 @@ optional_pkgs() {
         texlive-bibtexextra # homepage
         texlive-fontsextra # homepage
         texlive-latexextra # homepage
-        ttf-ms-fonts # Microsoft fonts
         wireshark-qt
         telegram-desktop
         zapzap # whatsapp clone
@@ -233,7 +232,7 @@ optional_pkgs() {
 }
 
 node_pkgs() {
-    sudo -H npm install -g n vscode-css-languageserver-bin vscode-langservers-extracted typescript typescript-language-server eslint prettier emmet-ls pyright
+    sudo -H npm install -g n vscode-css-languageserver-bin vscode-langservers-extracted typescript typescript-language-server eslint prettier pyright
 }
 
 go_pkgs() {
@@ -246,10 +245,10 @@ go_pkgs() {
 }
 
 # Install packages.
-# package_manager
-# core_pkgs
+package_manager
+core_pkgs
 # wm_pkgs
 node_pkgs
 go_pkgs
-work_pkgs
-optional_pkgs
+# work_pkgs
+# optional_pkgs
