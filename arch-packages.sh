@@ -124,6 +124,7 @@ sway_pkgs() {
         blueman # bluetooth manager
         brightnessctl # part of sway wm
         cliphist # persistent clipboard history
+        fontconfig-ubuntu # alternative to fontconfig
         gnome-keyring # required by auto unlock gpg, ssh keys
         greetd # greeter manager
         greetd-tuigreet # required by greetd
@@ -220,13 +221,6 @@ optional_pkgs() {
         telegram-desktop
         zapzap # whatsapp clone
     )
-
-    # Ubuntu fonts.
-    [ -x "$(command -v gnome-shell)" ] && yay -Rnsdd bubblewrap --noconfirm
-    yay -S fontconfig-ubuntu
-    [ -x "$(command -v gnome-shell)" ] && yay yay -S bubblewrap --noconfirm
-
-    yay -S "${pkgs[@]}"
 
     sudo usermod -a -G wireshark "$USER"
 }
