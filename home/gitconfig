@@ -23,3 +23,6 @@
 
 [includeIf "gitdir:~/github.com/soldotno/"]
     path = ~/.gitconfig-github
+
+[includeIf "gitdir:~/bitbucket.dentsplysirona.com/"]
+    path = ~/.gitconfig-bitbucket
