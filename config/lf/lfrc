@@ -47,7 +47,7 @@ set ratios 1
 # text files and a file opener for the rest.
 cmd open ${{
     case $(file --mime-type -Lb $f) in
-        text/*) lf -remote "send $id \$vi \$fx";;
+        text/*) lf -remote "send $id \$$EDITOR \$fx";;
         image/*) imv $fx;;
         *) for f in $fx; do open-silently $f > /dev/null 2> /dev/null & done;;
     esac
