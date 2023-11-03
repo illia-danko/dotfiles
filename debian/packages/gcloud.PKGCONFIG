@@ -2,7 +2,7 @@
 
 set -eou pipefail
 
-arc_version=google-cloud-cli-449.0.0-linux-x86.tar.gz
+arc_version=google-cloud-cli-453.0.0-linux-x86.tar.gz
 
 pushd "/tmp"
 curl -O https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/"$arc_version"

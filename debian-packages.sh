@@ -2,6 +2,8 @@
 
 core_pkgs() {
     pkgs=(
+	    dconf-editor
+	    gnome-tweaks
         build-essential
         clangd
         cmake
@@ -9,12 +11,17 @@ core_pkgs() {
         fd-find  # fd
         ffmpeg
         fonts-noto-color-emoji
+        gimp
+        gimp-help-en
         git
         git-doc
+        gnome-shell-extension-gpaste
+        gnome-shell-extensions
         gridsite-clients # urlencode
         htop
         inotify-tools # required by elixir
         jq
+        kazam
         libvterm-dev
         mpv
         neofetch
@@ -45,6 +52,7 @@ core_pkgs() {
     )
 
     sudo apt install -f "${pkgs[@]}"
+    sudo apt purge yt-dlp
 }
 
 # Make qt application look the same as gtk apps.
@@ -69,7 +77,7 @@ custom_pkgs() {
 }
 
 node_pkgs() {
-    sudo npm install -g n yarn vscode-css-languageserver-bin typescript-language-server typescript pyright eslint prettier emmet-ls
+    sudo npm install -g n yarn vscode-css-languageserver-bin typescript-language-server typescript pyright eslint prettier
 }
 
 go_pkgs() {
@@ -92,10 +100,21 @@ python_pkgs() {
     sudo pip3 install yt-dlp
 }
 
-# core_pkgs
+fzf_pkgs() {
+    git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+    ~/.fzf/install
+}
+
+work_pkgs() {
+    sudo npm install -g @devcontainers/cli
+}
+
+core_pkgs
 # custom_pkgs
 # qt_look_and_feel_pkgs # run qt5ct to configure gtk2 theme
-node_pkgs
-go_pkgs
-rust_pkgs
-python_pkgs
+# node_pkgs
+# go_pkgs
+# rust_pkgs
+# python_pkgs
+# fzf_pkgs
+# work_pkgs

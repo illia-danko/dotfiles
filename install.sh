@@ -167,13 +167,13 @@ config() {
 
     [ "$(uname)" = "Darwin" ] && return
 
-    config_root
-
     ([ -x "$(command -v alacritty)" ] && sub_env_dir "$HOME/.config/alacritty") || true
     ([ -x "$(command -v waybar)" ] && sub_env_dir "$HOME/.config/waybar") || true
     ([ -x "$(command -v swaylock)" ] && sub_env_dir "$HOME/.config/swaylock") || true
     ([ -x "$(command -v sway)" ] && sub_env_dir "$HOME/.config/sway") || true
     ([ -x "$(command -v mako)" ] && sub_env_dir "$HOME/.config/mako" && pkill mako) || true
+
+    gnome-shell --version &> /dev/null && return || config_root
 }
 
 iterm2_action() {
