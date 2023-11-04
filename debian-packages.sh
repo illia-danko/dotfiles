@@ -100,7 +100,7 @@ python_pkgs() {
     sudo pip3 install yt-dlp
 }
 
-fzf_pkgs() {
+misc_pkgs() {
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
 }
@@ -116,5 +116,5 @@ core_pkgs
 # go_pkgs
 # rust_pkgs
 # python_pkgs
-# fzf_pkgs
+# misc_pkgs
 # work_pkgs
