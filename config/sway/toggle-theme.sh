@@ -24,7 +24,7 @@ fi
 # Apply changes.
 echo "$theme" > ~/.config/appearance/background
 gsettings set org.gnome.desktop.interface gtk-theme "$gtk_theme"
-make -C "$HOME/github.com/illia-danko/dotfiles" config
+make -C "$HOME/codeberg.org/eli87/dotfiles" config
 swaymsg reload
 # https://github.com/swaywm/sway/issues/3769
 # export SWAYSOCK="$(sway --get-socketpath)"
