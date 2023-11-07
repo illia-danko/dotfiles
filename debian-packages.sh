@@ -107,6 +107,7 @@ misc_pkgs() {
 
 work_pkgs() {
     sudo npm install -g @devcontainers/cli
+    /usr/local/go/bin/go install github.com/fullstorydev/grpcurl/cmd/grpcurl@latest # grpc cli client
 }
 
 core_pkgs
