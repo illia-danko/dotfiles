@@ -3,7 +3,7 @@
 set -eou pipefail
 
 pkg_uri="https://github.com/elixir-lsp/elixir-ls"
-git_branch="v0.16.0"
+git_branch="v0.17.7"
 
 url2dir() {
     echo "$1" | perl -pe 's/\.git$//;' -pe 's/^(https?:\/\/|git@)//;' -pe 's/:/\//g;'
