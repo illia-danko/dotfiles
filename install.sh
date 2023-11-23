@@ -172,6 +172,7 @@ config() {
     ([ -x "$(command -v swaylock)" ] && sub_env_dir "$HOME/.config/swaylock") || true
     ([ -x "$(command -v sway)" ] && sub_env_dir "$HOME/.config/sway") || true
     ([ -x "$(command -v mako)" ] && sub_env_dir "$HOME/.config/mako" && pkill mako) || true
+    ([ -x "$(command -v kitty)" ] && sub_env_dir "$HOME/.config/kitty") || true
     config_root
 }
 
