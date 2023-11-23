@@ -12,7 +12,6 @@
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
-export BROWSER="open-silently"
 export LS_COLORS='di=1;35:ex=01;33'
 
 s="$HOME"/.config/appearance/background
@@ -47,7 +46,6 @@ export SSLKEYLOGFILE="$HOME/.sslkeylog"
 export NSS_ALLOW_SSLKEYLOGFILE=1
 export MOZ_ENABLE_WAYLAND=1 # run firefox on wayland naively
 export CLOUDSDK_PYTHON=/usr/bin/python3
-(test "$(xprop -root 2>/dev/null | grep i3)" || [ -n "$SWAYSOCK" ]) && export SSH_AUTH_SOCK=/run/user/1000/keyring/ssh || true
 
 if [ "$SYSTEM_COLOR_THEME" = "dark" ]; then
     # One Dark Theme.
