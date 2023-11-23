@@ -8,13 +8,13 @@ set $down j
 set $up k
 set $right l
 
-set $term "alacritty -t 'Terminal'"
-set $browser firefox
-set $browser2 google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=WebRTCPipeWireCapturer
+set $term kitty
+set $browser google-chrome-stable
+set $browser2 firefox
 set $menu "$HOME/.config/sway/bemenu-wrap.sh"
 set $colorpick "$HOME/.config/sway/color-pick.sh"
 set $screenshot "$HOME/.config/sway/screenshot.sh"
-set $volume "alacritty -t 'Audio Pulse Mixer' -e 'pulsemixer'"
+set $volume "kitty -T 'Audio Pulse Mixer' 'pulsemixer'"
 set $bluetooth "bluetoothctl disconnect 0C:8D:CA:CF:09:F0; bluetoothctl connect 0C:8D:CA:CF:09:F0"
 set $rss "$HOME/.config/sway/rss.sh" # See `exec yarr`.
 
@@ -37,6 +37,11 @@ bindsym $mod+Shift+u exec makoctl dismiss
 bindsym $mod+Shift+Ctrl+u exec makoctl dismiss -a
 bindsym $mod+Shift+backslash exec "$HOME/.config/sway/toggle-theme.sh"
 
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+bindsym $mod+b splith
+bindsym $mod+v splitv
 bindsym $mod+Shift+q kill
 floating_modifier $mod normal
 bindsym $mod+Shift+c reload
@@ -135,9 +140,6 @@ bar {
     swaybar_command waybar
 }
 
-# Start applications.
-set $gnome-schema org.gnome.desktop.interface
-
 # Lock screen.
 exec swayidle -w \
          timeout 300 'swaylock -f' \
@@ -149,16 +151,10 @@ exec swayidle -w \
 #
 # Adjust screen gamma according to location and time rules.
 exec wlsunset -L 52.2297 -l 21.0122
-# Adjust windows layout dynamically.
-exec autotiling-rs
 # Sqlite based clipboard history manager.
 exec wl-paste --watch cliphist store
 # RSS feeds -> localhost:7070.
-exec yarr
-# Bluetooth applet.
-# exec blueman-applet
-# Network applet.
-exec nm-applet --indicator
+# exec yarr
 
 # Output.
 exec_always "$HOME/.config/sway/adjust-screen.sh" "1"
