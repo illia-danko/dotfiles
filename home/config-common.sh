@@ -35,6 +35,7 @@ export CLIPBOARD_COPY_COMMAND="xclip -in -selection c"
 [ -d "$HOME/.cargo/bin" ] && export PATH="$HOME/.cargo/bin:$PATH"
 [ -d "$HOME/.mix/escripts" ] && export PATH="$HOME/.mix/escripts:$PATH"
 s="$HOME/github.com/LuaLS/lua-language-server/bin" && [ -d "$s" ] && export PATH="$s:$PATH"
+s="/usr/local/bin" && [ -d "$s" ] && export PATH="$s:$PATH"
 [ -x "$(command -v minikube)" ] && eval '$(minikube docker-env)'
 [ -x "$(command -v bat)" ] && export BAT_STYLE="plain"  # used by Bat previewer
 [ -x "$(command -v shellcheck)" ] && export SHELLCHECK_OPTS='--shell=bash --exclude=SC1090,SC2139,SC2155'
