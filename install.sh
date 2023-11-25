@@ -98,16 +98,9 @@ copy_content() {
     echo "Done"
 }
 
-zsh_theme() {
-    echo "Configuring zsh theme..."
-    cp -R "$script_dir"/zsh-themes/sly-face.zsh-theme "$HOME/.zsh-theme"
-    echo "Configuring done..."
-}
-
 config_home() {
     copy_content "$script_dir"/home "$HOME" "."
     . "$HOME"/.config-common.sh # hack to make `envsusbs` work in a single pass
-    zsh_theme
 }
 
 config_common() {
@@ -182,7 +175,6 @@ case "$1" in
     github-repos) github_repos;;
     sub-packages) sub_packages;;
     packages) packages;;
-    zsh-theme) zsh_theme;;
     config-home) config_home;;
     config-common) config_common;;
     config-root) config_root;;
