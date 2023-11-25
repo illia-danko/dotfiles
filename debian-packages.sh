@@ -2,8 +2,7 @@
 
 core_pkgs() {
     pkgs=(
-	    dconf-editor
-	    gnome-tweaks
+        dconf-editor
         build-essential
         clangd
         cmake
@@ -15,8 +14,6 @@ core_pkgs() {
         gimp-help-en
         git
         git-doc
-        gnome-shell-extension-gpaste
-        gnome-shell-extensions
         gridsite-clients # urlencode
         htop
         inotify-tools # required by elixir
@@ -53,6 +50,24 @@ core_pkgs() {
 
     sudo apt install -f "${pkgs[@]}"
     sudo apt purge yt-dlp
+}
+
+gnome_pkgs() {
+    pkgs=(
+	    gnome-tweaks
+        gnome-shell-extension-gpaste
+        gnome-shell-extensions
+    )
+
+    sudo apt install -f "${pkgs[@]}"
+}
+
+mint_pkgs() {
+    pkgs=(
+        parcellite
+    )
+
+    sudo apt install -f "${pkgs[@]}"
 }
 
 # Make qt application look the same as gtk apps.
@@ -103,6 +118,10 @@ python_pkgs() {
 misc_pkgs() {
     git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
     ~/.fzf/install
+
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 }
 
 work_pkgs() {
@@ -112,10 +131,12 @@ work_pkgs() {
 
 core_pkgs
 # custom_pkgs
+# gnome_pkgs
+# mint_pkgs
 # qt_look_and_feel_pkgs # run qt5ct to configure gtk2 theme
-# node_pkgs
-# go_pkgs
-# rust_pkgs
-# python_pkgs
-# misc_pkgs
-# work_pkgs
+node_pkgs
+go_pkgs
+rust_pkgs
+python_pkgs
+misc_pkgs
+work_pkgs
