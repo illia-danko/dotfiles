@@ -5,9 +5,6 @@
 # this file and re-run i3-config-wizard(1).
 #
 
-# Turn of internal laptop screen as soon as possible.
-exec $HOME/.config/i3/wm-setup-screen.sh
-
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
