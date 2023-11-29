@@ -12,7 +12,7 @@ read -r -a bemenu_color_opts <<< "--tb=${TTY_COLOR_BG1} \
     --nf=${TTY_COLOR_FG1} \
     --hf=${TTY_COLOR_GREEN}"
 
-bemenu_font="pango:UbuntuMono Nerd Bold 14"
+bemenu_font="Ubuntu Mono Bold 14"
 
 case "$1" in
     commands)

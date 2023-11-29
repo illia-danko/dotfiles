@@ -11,7 +11,7 @@ set $right l
 set $term kitty
 set $browser google-chrome-stable
 set $browser2 firefox
-set $menu "$HOME/.config/sway/bemenu-wrap.sh"
+set $menu "$HOME/.config/shared/bemenu-wrap.sh"
 set $colorpick "$HOME/.config/sway/color-pick.sh"
 set $screenshot "$HOME/.config/sway/screenshot.sh"
 set $volume "kitty -T 'Audio Pulse Mixer' 'pulsemixer'"
@@ -138,6 +138,7 @@ client.focused_inactive ${TTY_COLOR_BG0} ${TTY_COLOR_BG0} ${TTY_COLOR_FG1} ${TTY
 # Status Bar.
 bar {
     swaybar_command waybar
+    position top
 }
 
 # Lock screen.
