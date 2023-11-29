@@ -5,6 +5,9 @@
 # this file and re-run i3-config-wizard(1).
 #
 
+# Turn of internal laptop screen as soon as possible.
+exec $HOME/.config/i3/wm-setup-screen.sh
+
 # i3 config file (v4)
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
@@ -24,17 +27,19 @@ set $term kitty
 set $browser google-chrome-stable
 set $browser2 firefox
 set $menu $HOME/.config/shared/bemenu-wrap.sh
+set $volume kitty -T Audio-Pulse-Mixer pulsemixer
+for_window [title="Audio-Pulse-Mixer"] fullscreen enable
 
 # Keyboard.
 bindsym $mod+Return exec $term
 bindsym $mod+Shift+Return exec $browser
 bindsym $mod+Shift+Ctrl+Return exec $browser2
 bindsym $mod+d exec $menu commands
+bindsym $mod+Shift+v exec $volume
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
-exec --no-startup-id feh --bg-fill --randomize $HOME/codeberg.org/eli87/wallpapers/*
 
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3blocks
@@ -185,8 +190,8 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    status_command i3blocks
     position top
+    status_command i3blocks
 }
 
 # Gaps.
@@ -205,3 +210,5 @@ gaps outer 2
 #     -option grp:win_space_toggle \
 #     -option ctrl:nocaps \
 #     -option ctrl:menu_rctrl"
+
+exec_always --no-startup-id $HOME/.config/i3/random-wallpaper.sh $HOME/codeberg.org/eli87/wallpapers
