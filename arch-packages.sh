@@ -12,9 +12,8 @@ package_manager() {
 
 core_pkgs() {
     pkgs=(
+	google-chrome
         bc
-        ttf-ms-fonts # Microsoft fonts
-        thunderbird
         cmake
         cronie  # crontab
         dmidecode  # virt-manager
@@ -68,9 +67,10 @@ core_pkgs() {
         shellcheck
         speech-dispatcher  # required by firefox
         stylua
+        thunderbird
         tmux
         tree
-        ttf-jetbrains-mono-nerd
+        ttf-ms-fonts # Microsoft fonts
         unzip
         usbutils  # lsusb
         virt-manager
@@ -102,6 +102,7 @@ work_pkgs() {
         k9s # cli k8s frontend
         kubectl
         slack-desktop
+        devcontainer-cli
     )
 
     yay -S "${pkgs[@]}"
@@ -222,6 +223,7 @@ optional_pkgs() {
         zapzap # whatsapp clone
     )
 
+    yay -S "${pkgs[@]}"
     sudo usermod -a -G wireshark "$USER"
 }
 
@@ -238,6 +240,12 @@ go_pkgs() {
     go install codeberg.org/eli87/fdir@latest
 }
 
+misc_pkgs() {
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+    git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+    git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+}
+
 # Install packages.
 package_manager
 core_pkgs
@@ -246,3 +254,4 @@ node_pkgs
 go_pkgs
 # work_pkgs
 # optional_pkgs
+misc_pkgs
