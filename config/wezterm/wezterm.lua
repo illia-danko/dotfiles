@@ -39,6 +39,8 @@ end)
 config.font = wezterm.font("JetBrainsMono NL", { weight = "Bold" })
 config.font_size = 11.5
 config.window_decorations = "NONE"
+config.initial_cols = 511
+config.initial_rows = 511
 
 config.colors = {
   foreground = "${TTY_COLOR_FG0}",
