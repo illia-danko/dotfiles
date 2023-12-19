@@ -1,11 +1,9 @@
 #!/usr/bin/env zsh
 
-if [ -x "$(command -v lsb_release)" ] || [ "$(uname)" = "Darwin" ]; then
-    export ZSH="$HOME/.oh-my-zsh"
-    ZSH_THEME="intheloop"
-    plugins=(git kubectl history gcloud mix npm yarn rust rsync postgres fzf docker-compose zsh-autosuggestions zsh-syntax-highlighting)
-    source $ZSH/oh-my-zsh.sh
-fi
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="intheloop"
+plugins=(git kubectl history gcloud mix npm yarn rust rsync postgres fzf docker-compose zsh-autosuggestions zsh-syntax-highlighting)
+source $ZSH/oh-my-zsh.sh
 
 # ------------------------------------------------------------------------------
 s="$HOME/.shell-aliases"; [ -d "$s" ] && for f in "$s"/*.sh; do . $f; done
