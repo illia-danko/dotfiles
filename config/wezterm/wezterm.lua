@@ -12,6 +12,30 @@ end
 
 -- This is where you actually apply your config choices.
 
+function get_last_path_component(path)
+  local separator = package.config:sub(1, 1) -- platform-specific path separator
+  local components = {}
+
+  for component in path:gmatch("[^" .. separator .. "]+") do
+    table.insert(components, component)
+  end
+
+  return components[#components]
+end
+
+wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
+  local pane = tab.active_pane
+  local title = get_last_path_component(pane.foreground_process_name)
+  local color = "${TTY_COLOR_FG0}"
+  if tab.is_active then
+    color = "${TTY_COLOR_RED}"
+  end
+  return {
+    { Foreground = { Color = color } },
+    { Text = string.format("%d: %s", tab.tab_index + 1, title) },
+  }
+end)
+
 config.font = wezterm.font("JetBrainsMono NL", { weight = "Bold" })
 config.font_size = 11.5
 config.window_decorations = "NONE"
