@@ -171,6 +171,11 @@ config_iterm2() {
     iterm2_action import
 }
 
+config_nixos() {
+    path="$script_dir"/nixos
+    sudo cp -R $path /etc
+    sudo nixos-rebuild switch --show-trace
+}
 
 case "$1" in
     github-repos) github_repos;;
@@ -182,5 +187,6 @@ case "$1" in
     config) config;;
     dump-iterm2) dump_iterm2;;
     config-iterm2) config_iterm2;;
+    nixos) config_nixos;;
     *) >&2 echo "'$1' target is not defined." && exit 1;;
 esac

@@ -9,6 +9,9 @@ packages:
 config:
 	@bash ${THIS_MAKEFILE_DIR}/install.sh $@
 
+nixos:
+	@bash ${THIS_MAKEFILE_DIR}/install.sh $@
+
 install: packages config
 
-.PHONY: packages config
+.PHONY: packages config nixos
