@@ -128,6 +128,7 @@
     elixir
     elixir-ls
     ethtool
+    fd
     file
     filezilla
     firefox
@@ -160,7 +161,6 @@
     lshw
     lsof
     lua-language-server
-    luna-icons # icon theme
     neofetch
     neovim
     netcat
@@ -173,6 +173,7 @@
     nodejs
     obs-studio
     openssl
+    parcellite
     pciutils
     pixz pigz pbzip2 # parallel (de-)compression
     pkg-config
@@ -196,6 +197,7 @@
     whois
     wireshark
     xclip
+    yarn
     yq  # same for yaml
     zip
   ];
