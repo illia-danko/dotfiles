@@ -23,24 +23,35 @@ function get_last_path_component(path)
   return components[#components]
 end
 
+function tab_title(tab_info)
+  local title = tab_info.active_pane.foreground_process_name
+  if title and #title > 0 then
+    return title
+  end
+
+  return tab_info.active_pane.title
+end
+
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
-  local pane = tab.active_pane
-  local title = get_last_path_component(pane.foreground_process_name)
-  local color = "${TTY_COLOR_FG0}"
+  local title = tab_title(tab)
+  local fg_color = "${TTY_COLOR_FG0}"
   if tab.is_active then
-    color = "${TTY_COLOR_RED}"
+    fg_color = "${TTY_COLOR_RED}"
   end
   return {
-    { Foreground = { Color = color } },
-    { Text = string.format("%d: %s", tab.tab_index + 1, title) },
+    { Foreground = { Color = fg_color } },
+    { Background = { Color = "${TTY_COLOR_BG2}" } },
+    { Text = string.format("%d: %s", tab.tab_index + 1, get_last_path_component(title)) },
   }
 end)
 
-config.font = wezterm.font("JetBrainsMono NL", { weight = "Bold" })
+config.font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Bold" })
 config.font_size = 11.5
 config.window_decorations = "NONE"
-config.initial_cols = 511
-config.initial_rows = 511
+config.initial_cols = 511 -- simulate maximized state
+config.initial_rows = 511 -- simulate maximized state
+config.warn_about_missing_glyphs = false
+-- config.use_fancy_tab_bar = false
 
 config.colors = {
   foreground = "${TTY_COLOR_FG0}",
@@ -70,6 +81,19 @@ config.colors = {
     "${TTY_COLOR_BRIGHT_CYAN}",
     "${TTY_COLOR_BRIGHT_WHITE}",
   },
+  tab_bar = {
+    -- The new tab button that let you create new tabs
+    inactive_tab_edge = "${TTY_COLOR_BG2}",
+    new_tab = {
+      fg_color = "${TTY_COLOR_BRIGHT_BLACK}",
+      bg_color = "${TTY_COLOR_BG2}",
+    },
+  },
+}
+
+config.window_frame = {
+  active_titlebar_bg = "${TTY_COLOR_BG2}",
+  inactive_titlebar_bg = "${TTY_COLOR_BG2}",
 }
 
 -- Tmux like Ctrl-{h,j,k,l} navigation.
