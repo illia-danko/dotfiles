@@ -76,8 +76,8 @@ if [ "$SYSTEM_COLOR_THEME" = "dark" ]; then
 else
     # One Light Theme.
     export TTY_COLOR_BG0="#fafafa"
-    export TTY_COLOR_BG1="#e0dcd9"
-    export TTY_COLOR_BG2="#e0dcd9"
+    export TTY_COLOR_BG1="#dfdedb"
+    export TTY_COLOR_BG2="#dfdedb"
     export TTY_COLOR_FG0="#383a42"
     export TTY_COLOR_FG1="#2e3436"
     export TTY_COLOR_BLACK="#101012"
