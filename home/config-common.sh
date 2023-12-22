@@ -53,8 +53,8 @@ export CLOUDSDK_PYTHON=/usr/bin/python3
 if [ "$SYSTEM_COLOR_THEME" = "dark" ]; then
     # One Dark Theme.
     export TTY_COLOR_BG0="#282c34"
-    export TTY_COLOR_BG1="#2b2b2b"
-    export TTY_COLOR_BG2="#181a1f"
+    export TTY_COLOR_BG1="#000000"
+    export TTY_COLOR_BG2="#000000"
     export TTY_COLOR_FG0="#abb2bf"
     export TTY_COLOR_FG1="#eeeeec"
     export TTY_COLOR_BLACK="#181a1f"
