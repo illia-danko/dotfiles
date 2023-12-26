@@ -53,6 +53,10 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  services.logind.extraConfig = ''
+    HandleLidSwitchExternalPower=ignore
+    '';
+
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
