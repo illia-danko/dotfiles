@@ -216,6 +216,7 @@
     graphviz
     hdparm
     htop
+    inotify-tools # required by elixir mix
     iperf
     jq  # json parser
     kubectl
@@ -264,7 +265,7 @@
     whois
     wireshark
     xclip
-    xorg.xhost
+    xorg.xhost # exec `xhost +` to share clipboard state between docker instance and the host
     yarn
     yq  # same for yaml
     zip
