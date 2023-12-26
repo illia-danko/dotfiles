@@ -162,7 +162,7 @@
     lsof
     lua-language-server
     neofetch
-    neovim
+    neovim # the text editor of my choice
     netcat
     nmap
     nodePackages.eslint # javascript linter
@@ -171,9 +171,10 @@
     nodePackages.typescript-language-server # typescript language server protocol
     nodePackages.vscode-css-languageserver-bin # css language server protocol
     nodejs
-    obs-studio
+    obs-studio # record camera and desktop
     openssl
-    parcellite
+    pandoc # convert/generate documents in different formats
+    parcellite # gtk clipboard manager
     pciutils
     pixz pigz pbzip2 # parallel (de-)compression
     pkg-config
