@@ -223,6 +223,11 @@
     };
   };
 
+  services.mullvad-vpn = {
+    enable = true;
+    package = pkgs.mullvad-vpn;
+  };
+
   documentation = {
     enable = true;
     man.enable = true;
