@@ -95,9 +95,13 @@
 # Postgresql.
   services.postgresql = {
     enable = true;
+    # Fix elixir language mix psql integration issue. We need set `trust` to avoid auth problem for
+    # local development.
     authentication = pkgs.lib.mkOverride 10 ''
-      #type database  DBuser  auth-method
-      local all       all     trust
+        # default value of services.postgresql.authentication
+        local all all              trust
+        host  all all 127.0.0.1/32 trust
+        host  all all ::1/128      trust
     '';
   };
 
@@ -107,7 +111,7 @@
     users.idanko = {
       isNormalUser = true;
       description = "Illia Danko";
-      extraGroups = [ "networkmanager" "wheel" "docker" "wireshark" "power" ];
+      extraGroups = [ "networkmanager" "wheel" "docker" "wireshark" "power" "postgres" ];
       packages = with pkgs; [ ];
     };
   };
