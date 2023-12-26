@@ -108,6 +108,63 @@
     };
   };
 
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  programs = {
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+    zsh = {
+      enable = true;
+      autosuggestions.enable = true;
+      syntaxHighlighting.enable = true;
+      ohMyZsh = {
+        enable = true;
+        plugins = [ "git" "kubectl" "history" "gcloud" "mix" "npm" "yarn" "rust" "rsync" "postgres" "fzf" "docker-compose" ];
+        theme = "intheloop";
+      };
+    };
+  };
+
+  services.mullvad-vpn = {
+    enable = true;
+    package = pkgs.mullvad-vpn;
+  };
+
+  documentation = {
+    enable = true;
+    man.enable = true;
+    dev.enable = true;
+  };
+
+  fonts = {
+    enableDefaultPackages  = true;
+    fontDir.enable = true;
+    enableGhostscriptFonts = true;
+    fontconfig = {
+        defaultFonts = {
+          serif = [ "Ubuntu" ];
+          sansSerif = [ "Ubuntu" ];
+          monospace = [ "Ubuntu" ];
+        };
+    };
+    packages = with pkgs; [
+      noto-fonts
+      noto-fonts-cjk # Chinese, Japanese, Korean
+      noto-fonts-emoji
+      noto-fonts-extra
+      fira-code # Monospace font with programming ligatures
+      fira-mono # Mozilla's typeface for Firefox OS
+      corefonts  # Microsoft free fonts
+      ubuntu_font_family
+      liberation_ttf
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      roboto # Android
+    ];
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   # Enable docker.
@@ -205,62 +262,6 @@
     zip
   ];
 
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  programs = {
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-    zsh = {
-      enable = true;
-      autosuggestions.enable = true;
-      syntaxHighlighting.enable = true;
-      ohMyZsh = {
-        enable = true;
-        plugins = [ "git" "kubectl" "history" "gcloud" "mix" "npm" "yarn" "rust" "rsync" "postgres" "fzf" "docker-compose" ];
-        theme = "intheloop";
-      };
-    };
-  };
-
-  services.mullvad-vpn = {
-    enable = true;
-    package = pkgs.mullvad-vpn;
-  };
-
-  documentation = {
-    enable = true;
-    man.enable = true;
-    dev.enable = true;
-  };
-
-  fonts = {
-    enableDefaultPackages  = true;
-    fontDir.enable = true;
-    enableGhostscriptFonts = true;
-    fontconfig = {
-        defaultFonts = {
-          serif = [ "Ubuntu" ];
-          sansSerif = [ "Ubuntu" ];
-          monospace = [ "Ubuntu" ];
-        };
-    };
-    packages = with pkgs; [
-      noto-fonts
-      noto-fonts-cjk # Chinese, Japanese, Korean
-      noto-fonts-emoji
-      noto-fonts-extra
-      fira-code # Monospace font with programming ligatures
-      fira-mono # Mozilla's typeface for Firefox OS
-      corefonts  # Microsoft free fonts
-      ubuntu_font_family
-      liberation_ttf
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-      roboto # Android
-    ];
-  };
 
   # List services that you want to enable:
 
