@@ -115,7 +115,6 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    xorg.xhost
     anki
     ansible
     automake
@@ -180,6 +179,7 @@
     pixz pigz pbzip2 # parallel (de-)compression
     pkg-config
     psmisc  # provides: fuser, killall, pstree, peekfd
+    python3
     ripgrep
     rsync
     shellcheck
@@ -199,6 +199,7 @@
     whois
     wireshark
     xclip
+    xorg.xhost
     yarn
     yq  # same for yaml
     zip
