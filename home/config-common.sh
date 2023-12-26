@@ -42,6 +42,7 @@ s="$HOME/.krew/bin" && [ -d "$s" ] && export PATH="$s:$PATH"
 [ -x "$(command -v bat)" ] && export BAT_STYLE="plain"  # used by Bat previewer
 [ -x "$(command -v shellcheck)" ] && export SHELLCHECK_OPTS='--shell=bash --exclude=SC1090,SC2139,SC2155'
 [ -x "$(command -v iex)" ] && export ERL_AFLAGS="-kernel shell_history enabled"
+[ -x "$(command -v xhost)" ] && xhost + &> /dev/null # share clipboard between docker and host machine using xclip (special case for nixos)
 
 # SSL termination firefox.
 # Terminate TLS (Firefox/Chrome).
