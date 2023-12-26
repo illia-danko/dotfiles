@@ -12,6 +12,8 @@ end
 
 -- This is where you actually apply your config choices.
 
+config.audible_bell = "Disabled" -- disable audio bell
+
 function get_last_path_component(path)
   local separator = package.config:sub(1, 1) -- platform-specific path separator
   local components = {}
