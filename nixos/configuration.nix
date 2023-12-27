@@ -181,6 +181,7 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
     anki
     ansible
     automake
@@ -250,6 +251,7 @@
     ripgrep
     rsync
     shellcheck
+    signal-desktop
     slack
     strace
     stylua
