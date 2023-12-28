@@ -4,7 +4,7 @@ set -euo pipefail
 
 theme="$(cat "$HOME"/.config/appearance/background)"
 
-wallpapers_dir="$HOME/codeberg.org/eli87/wallpapers"
+wallpapers_dir="$HOME/github.com/illia-danko/wallpapers"
 img_light=0080.jpg
 img_dark=0012.jpg
 current_img="$wallpapers_dir/$img_light"

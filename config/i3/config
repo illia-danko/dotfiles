@@ -208,4 +208,4 @@ gaps outer 2
 #     -option ctrl:nocaps \
 #     -option ctrl:menu_rctrl"
 
-exec_always --no-startup-id $HOME/.config/i3/random-wallpaper.sh $HOME/codeberg.org/eli87/wallpapers
+exec_always --no-startup-id $HOME/.config/i3/random-wallpaper.sh $HOME/github.com/illia-danko/wallpapers
