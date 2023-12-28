@@ -181,6 +181,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+	gnat # core development tools: compilers, linkers, etc.
+	gnomeExtensions.unite # merge title with gnome top dock
+	ispell # required by emacs
     (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
     anki
     ansible
@@ -226,6 +229,8 @@
     lazygit
     lf
     libreoffice
+    libtool # required by emacs vterm plugin
+    libvterm # required by emacs vterm plugin
     libxml2  # xmllint
     lshw
     lsof
