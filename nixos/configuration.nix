@@ -194,6 +194,7 @@
     dos2unix  # Convert between DOS and Unix line endings
     elixir
     elixir-ls
+    emacs29
     ethtool
     fd
     file
