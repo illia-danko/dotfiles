@@ -184,6 +184,7 @@
 	gnat # core development tools: compilers, linkers, etc.
 	gnomeExtensions.unite # merge title with gnome top dock
 	ispell # required by emacs
+	whatsapp-for-linux
     (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
     anki
     ansible
@@ -204,7 +205,7 @@
     filezilla
     firefox
     fzf
-    gcc gdb
+    gdb
     gettext
     gimp
     git
@@ -261,7 +262,6 @@
     slack
     strace
     stylua
-    tdesktop
     teams-for-linux
     thunderbird
     tree
@@ -276,7 +276,7 @@
     xclip
     xorg.xhost # exec `xhost +` to share clipboard state between docker instance and the host
     yarn
-    yq  # same for yaml
+    yq  # jq but for yaml
     zip
   ];
 
