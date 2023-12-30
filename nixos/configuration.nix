@@ -181,10 +181,13 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-	gnat # core development tools: compilers, linkers, etc.
-	gnomeExtensions.unite # merge title with gnome top dock
-	ispell # required by emacs
-	whatsapp-for-linux
+	  alacritty # terminal of choice
+	  gnat # core development tools: compilers, linkers, etc.
+	  gnomeExtensions.unite # merge title with gnome top dock
+	  ispell # required by emacs
+	  tmux
+	  typescript
+	  whatsapp-for-linux
     (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
     anki
     ansible
@@ -269,7 +272,6 @@
     unzip
     usbutils
     vagrant
-    wezterm
     wget
     whois
     wireshark
@@ -299,5 +301,4 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
-
 }
