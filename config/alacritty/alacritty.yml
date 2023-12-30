@@ -41,19 +41,19 @@ key_bindings:
 font:
   # The normal (roman) font face to use.
   normal:
-    family: JetBrainsMono NFM
+    family: JetBrainsMono Nerd Font Mono
     style: Bold
 
   italic:
-    family: JetBrainsMono NFM
+    family: JetBrainsMono Nerd Font Mono
     style: Bold Italic
 
   bold:
-    family: JetBrainsMono NFM
+    family: JetBrainsMono Nerd Font Mono
     style: ExtraBold
 
   bold-italic:
-    family: JetBrainsMono NFM
+    family: JetBrainsMono Nerd Font Mono
     style: ExtraBold Italic
 
   # Point size of the font.
