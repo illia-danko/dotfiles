@@ -39,7 +39,6 @@ core_pkgs() {
         wireguard-tools
         wireshark-doc
         wireshark-qt
-        wl-clipboard
         xclip
         yamllint
         zsh
