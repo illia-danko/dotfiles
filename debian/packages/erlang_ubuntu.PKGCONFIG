@@ -5,7 +5,7 @@
 ### See https://github.com/erlang/docker-erlang-otp/blob/bdc1fbcb4dc2636db8756af66d878a85e7afd0a7/26/Dockerfile
 ### NOTE: this script must be run under root user.
 #
-export OTP_VERSION="26.1.2" \
+export OTP_VERSION="26.2.1" \
     REBAR3_VERSION="3.20.0"
 
 # Precondition.
@@ -18,7 +18,7 @@ apt-get -y install build-essential autoconf m4 libncurses5-dev \
 # build process:
 set -xe \
 	&& OTP_DOWNLOAD_URL="https://github.com/erlang/otp/archive/OTP-${OTP_VERSION}.tar.gz" \
-	&& OTP_DOWNLOAD_SHA256="56042d53b30863d4e720ebf463d777f0502f8c986957fc3a9e63dae870bbafe0" \
+	&& OTP_DOWNLOAD_SHA256="d99eab3af908b41dd4d7df38f0b02a447579326dd6604f641bbe9f2789b5656b" \
 	&& curl -fSL -o otp-src.tar.gz "$OTP_DOWNLOAD_URL" \
 	&& echo "$OTP_DOWNLOAD_SHA256  otp-src.tar.gz" | sha256sum -c - \
 	&& export ERL_TOP="/usr/src/otp_src_${OTP_VERSION%%@*}" \
