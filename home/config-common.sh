@@ -10,7 +10,7 @@
 [ -z "${XDG_DATA_HOME}" ] && export XDG_DATA_HOME="$HOME/.local/share"
 [ -z "${XDG_STATE_HOME}" ] && export XDG_STATE_HOME="$HOME/.local/state"
 
-export VISUAL=emacs-runner
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 export LS_COLORS='di=1;35:ex=01;33'
 
@@ -49,6 +49,7 @@ s="$HOME/.krew/bin" && [ -d "$s" ] && export PATH="$s:$PATH"
 export SSLKEYLOGFILE="$HOME/.sslkeylog"
 export NSS_ALLOW_SSLKEYLOGFILE=1
 export MOZ_ENABLE_WAYLAND=1 # run firefox on wayland naively
+export CLOUDSDK_PYTHON=/usr/bin/python3
 
 if [ "$SYSTEM_COLOR_THEME" = "dark" ]; then
     # One Dark Theme.
@@ -122,7 +123,6 @@ if [ -x "$(command -v fzf)" ]; then
     export FZF_DEFAULT_COMMAND="rg --files $RG_OPTS_FILTER"
     export FZF_NOTES_DIR="$HOME/github.com/illia-danko/org"
     export FZF_PROJECTS_ROOT_DIRS=" \
-		$HOME/.emacs.d \
         $HOME/github.com \
         $HOME/gitlab.com \
         $HOME/codeberg.org \
@@ -132,33 +132,6 @@ if [ -x "$(command -v fzf)" ]; then
         $HOME/bitbucket.dentsplysirona.com"
     export FZF_PROJECTS_PATTERNS=".git"
 fi
-
-# Print system memory stats in MB.
-ps_mb() {
-    ps afu | awk 'NR>1 {$5=int($5/1024)"M";}{ print;}'
-}
-
-# Use Emacs as a Man page viewer. Custom package modes are:
-# - olivetti-mode for centering buffer content;
-# - hide-mode-line-mode for hiding modeline.
-man() {
-    # Show appropriate an error on no manual.
-	local man_bin="$(awk '{print $2}' <<< $(whereis man))"
-    "$man_bin" "$*" > /dev/null 2>&1 || "$man_bin" "$*" || return
-
-    emacs-runner -e "(progn
-                      (man \"$1\")
-                      (delete-window)
-					  (olivetti-mode)
-					  (hide-mode-line-mode)
-                      (local-set-key
-                        \"q\"
-                        (lambda ()
-                          (interactive)
-                          (kill-this-buffer)
-                          (delete-frame))))"
-}
-
 
 # Clean up.
 unset s

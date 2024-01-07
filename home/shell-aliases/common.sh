@@ -16,7 +16,18 @@
 [ -x "$(command -v wget)" ] && alias getpage="wget -qO-"
 [ -x "$(command -v lsof)" ] && alias listen_ports="lsof -i -P | grep LISTEN"
 s="$HOME/github.com/LuaLS/lua-language-server/3rd/luamake/luamake" && [ -f "$s" ] && alias luamake="$s"
-[ -x "$(command -v emacs)" ] && alias es="pkill -f emacs || true; emacs --daemon"
+
+# Print system memory stats in MB.
+ps_mb() {
+    ps afu | awk 'NR>1 {$5=int($5/1024)"M";}{ print;}'
+}
+
+# Use Neovim as a Man page viewer.
+man() {
+    # Show appropriate an error on no manual.
+    /usr/bin/man "$*" > /dev/null 2>&1 || /usr/bin/man "$*" || return
+    $EDITOR -c "Man $*" -c "only" -c "set laststatus=0" -c "nmap <buffer> q ZQ"
+}
 
 alias url_decode='perl -pe '\''s/\+/ /g;'\'' -e '\''s/%(..)/chr(hex($1))/eg;'\'' <<< '
 url_encode() {
