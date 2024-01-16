@@ -103,8 +103,20 @@ config_home() {
     . "$HOME"/.config-common.sh # hack to make `envsusbs` work in a single pass
 }
 
+config_root() {
+    copy_root_files "$script_dir/root"
+}
+
 config_common() {
     copy_content "$script_dir"/config "$HOME/.config"
+}
+
+copy_root_files() {
+    files="$(cd "$1" && find . -type f | perl -pe 's/^\.//;')"
+    for file in "${files[@]}"; do
+        echo "Coping $file..."
+        sudo cp -R "$1/$file" "$file"
+    done
 }
 
 # sub_env substitutes environment variables with values.
@@ -155,6 +167,7 @@ config() {
     ([ -x "$(command -v mako)" ] && sub_env_dir "$HOME/.config/mako" && pkill mako) || true
     ([ -x "$(command -v kitty)" ] && sub_env_dir "$HOME/.config/kitty") || true
     ([ -x "$(command -v wezterm)" ] && sub_env_dir "$HOME/.config/wezterm") || true
+    config_root
 }
 
 iterm2_action() {
