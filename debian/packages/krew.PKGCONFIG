@@ -12,3 +12,6 @@ set -eou pipefail
   tar zxvf "${KREW}.tar.gz" &&
   ./"${KREW}" install krew
 )
+
+# Then you are able to install `oidc-login` for instance:
+# $ kubectl krew install oidc-login
