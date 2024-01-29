@@ -50,6 +50,7 @@ export SSLKEYLOGFILE="$HOME/.sslkeylog"
 export NSS_ALLOW_SSLKEYLOGFILE=1
 export MOZ_ENABLE_WAYLAND=1 # run firefox on wayland naively
 export CLOUDSDK_PYTHON=/usr/bin/python3
+export ZK_NOTEBOOK_DIR="$HOME/github.com/illia-danko/zettelkasten"
 
 if [ "$SYSTEM_COLOR_THEME" = "dark" ]; then
     # One Dark Theme.
