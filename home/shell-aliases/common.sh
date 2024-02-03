@@ -15,6 +15,7 @@
 [ -x "$(command -v clj)" ] && alias clj_repl="clj -M:cider/nrepl"
 [ -x "$(command -v wget)" ] && alias getpage="wget -qO-"
 [ -x "$(command -v lsof)" ] && alias listen_ports="lsof -i -P | grep LISTEN"
+[ -x "$(command -v luajit)" ] && [ -x "$(command -v rlwrap)" ] && alias luajit="rlwrap luajit"
 s="$HOME/github.com/LuaLS/lua-language-server/3rd/luamake/luamake" && [ -f "$s" ] && alias luamake="$s"
 
 # Print system memory stats in MB.

@@ -2,11 +2,11 @@
 
 core_pkgs() {
     pkgs=(
-        dconf-editor
         build-essential
         clangd
         cmake
         curl
+        dconf-editor
         fd-find  # fd
         ffmpeg
         fonts-noto-color-emoji
@@ -31,6 +31,7 @@ core_pkgs() {
         python3-pip
         qbittorrent
         ripgrep
+        rlwrap
         shellcheck
         subversion
         tmux-plugin-manager
