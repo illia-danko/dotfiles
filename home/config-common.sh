@@ -110,6 +110,7 @@ if [ -x "$(command -v fzf)" ]; then
     --exact
     --preview-window=hidden
     --bind='alt-w:execute-silent(echo -n {} | $CLIPBOARD_COPY_COMMAND)'
+    --bind='ctrl-e:print-query'
     --bind='ctrl-b:half-page-up'
     --bind='ctrl-f:half-page-down'
     --bind='ctrl-u:preview-half-page-up'
