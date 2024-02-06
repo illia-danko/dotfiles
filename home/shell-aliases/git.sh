@@ -51,6 +51,7 @@ _gl() {
 }
 
 alias gd="_gd"
+alias gdf="git diff --name-only"
 alias gclean="_gclean"
 alias ga="git add"
 alias gc="git commit"
