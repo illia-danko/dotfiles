@@ -71,6 +71,7 @@ core_pkgs() {
         tmux
         tree
         ttf-ms-fonts # Microsoft fonts
+        ttf-ubuntu-font-family
         unzip
         usbutils  # lsusb
         virt-manager
