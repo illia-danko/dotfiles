@@ -1,0 +1,81 @@
+[colors]
+draw_bold_text_with_bright_colors = true
+
+[colors.bright]
+black = "#a0a1a7"
+blue = "#4078f2"
+cyan = "#0184bc"
+green = "#50a14f"
+magenta = "#a626a4"
+red = "#e45649"
+white = "#383a42"
+yellow = "#986801"
+
+[colors.normal]
+black = "#101012"
+blue = "#4078f2"
+cyan = "#0184bc"
+green = "#50a14f"
+magenta = "#a626a4"
+red = "#e45649"
+white = "#383a42"
+yellow = "#986801"
+
+[colors.primary]
+background = "#fafafa"
+foreground = "#383a42"
+
+[env]
+COLORTERM = "truecolor"
+TERM = "xterm-256color"
+
+[font]
+size = 11.5
+
+[font.bold]
+family = "JetBrainsMono Nerd Font Mono"
+style = "ExtraBold"
+
+[font.bold_italic]
+family = "JetBrainsMono Nerd Font Mono"
+style = "ExtraBold Italic"
+
+[font.italic]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Bold Italic"
+
+[font.normal]
+family = "JetBrainsMono Nerd Font Mono"
+style = "Bold"
+
+[font.offset]
+x = 0
+y = 0
+
+[[keyboard.bindings]]
+chars = "\u001B[46;5u"
+key = "Period"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001B[44;5u"
+key = "Comma"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001B[27;5;9~"
+key = "Tab"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001B[27;6;9~"
+key = "Tab"
+mods = "Control|Shift"
+
+[mouse]
+hide_when_typing = true
+
+[window]
+decorations = "None"
+dynamic_title = false
+startup_mode = "Maximized"
