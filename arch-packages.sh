@@ -12,7 +12,6 @@ package_manager() {
 
 core_pkgs() {
     pkgs=(
-	google-chrome
         bc
         cmake
         cronie  # crontab
@@ -30,6 +29,7 @@ core_pkgs() {
         flake8
         fzf
         gnupg
+        google-chrome
         graphviz
         htop
         hunspell-en_us
