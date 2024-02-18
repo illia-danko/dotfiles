@@ -85,6 +85,7 @@ core_pkgs() {
         yq # jq but for yaml and toml
         yt-dlp
         zip
+        zk  # zettelkasten cli tool
         zsh-autosuggestions
         zsh-syntax-highlighting
     )
