@@ -70,6 +70,7 @@ core_pkgs() {
         thunderbird
         tmux
         tree
+        ttf-jetbrains-mono-nerd
         ttf-ms-fonts # Microsoft fonts
         ttf-ubuntu-font-family
         unzip
@@ -98,12 +99,13 @@ core_pkgs() {
 
 work_pkgs() {
     pkgs=(
+        devcontainer-cli
         google-cloud-cli # work related
         google-cloud-cli-gke-gcloud-auth-plugin # work related
         k9s # cli k8s frontend
         kubectl
         slack-desktop
-        devcontainer-cli
+        teams-for-linux-bin
     )
 
     yay -S "${pkgs[@]}"
@@ -118,6 +120,10 @@ gnome_pkgs() {
     )
 
     yay -S "${pkgs[@]}"
+
+    # Preferable way to enable ssh-agent (it depricates gnome-keyring-daemon).
+    # https://wiki.archlinux.org/title/GNOME/Keyring#SSH_keys
+    systemctl --user enable gcr-ssh-agent.service --now
 }
 
 sway_pkgs() {
@@ -209,6 +215,7 @@ optional_pkgs() {
         # anki
         audacity
         biber  # required by homepage
+        discord
         gimp # gimp-devel is a good alternative supported hidpi and requires compilation
         hugo  # homepage
         inkscape
@@ -216,11 +223,11 @@ optional_pkgs() {
         libreoffice-fresh-en-gb
         libreoffice-fresh-uk
         qbittorrent
+        telegram-desktop
         texlive-bibtexextra # homepage
         texlive-fontsextra # homepage
         texlive-latexextra # homepage
         wireshark-qt
-        telegram-desktop
         zapzap # whatsapp clone
     )
 
