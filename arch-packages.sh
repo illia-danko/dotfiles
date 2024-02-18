@@ -82,6 +82,7 @@ core_pkgs() {
         yapf
         yarn
         yarr # rss browser reader
+        yq # jq but for yaml and toml
         yt-dlp
         zip
         zsh-autosuggestions
