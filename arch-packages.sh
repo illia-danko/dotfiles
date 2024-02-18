@@ -217,6 +217,7 @@ optional_pkgs() {
         audacity
         biber  # required by homepage
         discord
+        drawio-desktop-bin
         gimp # gimp-devel is a good alternative supported hidpi and requires compilation
         hugo  # homepage
         inkscape
