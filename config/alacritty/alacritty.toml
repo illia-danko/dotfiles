@@ -2,28 +2,28 @@
 draw_bold_text_with_bright_colors = true
 
 [colors.bright]
-black = "#a0a1a7"
-blue = "#4078f2"
-cyan = "#0184bc"
-green = "#50a14f"
-magenta = "#a626a4"
-red = "#e45649"
-white = "#383a42"
-yellow = "#986801"
+black = "${TTY_COLOR_BRIGHT_BLACK}"
+blue = "${TTY_COLOR_BRIGHT_BLUE}"
+cyan = "${TTY_COLOR_BRIGHT_CYAN}"
+green = "${TTY_COLOR_BRIGHT_GREEN}"
+magenta = "${TTY_COLOR_BRIGHT_MAGENTA}"
+red = "${TTY_COLOR_BRIGHT_RED}"
+white = "${TTY_COLOR_BRIGHT_WHITE}"
+yellow = "${TTY_COLOR_BRIGHT_YELLOW}"
 
 [colors.normal]
-black = "#101012"
-blue = "#4078f2"
-cyan = "#0184bc"
-green = "#50a14f"
-magenta = "#a626a4"
-red = "#e45649"
-white = "#383a42"
-yellow = "#986801"
+black = "${TTY_COLOR_BLACK}"
+blue = "${TTY_COLOR_BLUE}"
+cyan = "${TTY_COLOR_CYAN}"
+green = "${TTY_COLOR_GREEN}"
+magenta = "${TTY_COLOR_MAGENTA}"
+red = "${TTY_COLOR_RED}"
+white = "${TTY_COLOR_WHITE}"
+yellow = "${TTY_COLOR_YELLOW}"
 
 [colors.primary]
-background = "#fafafa"
-foreground = "#383a42"
+background = "${TTY_COLOR_BG0}"
+foreground = "${TTY_COLOR_FG0}"
 
 [env]
 COLORTERM = "truecolor"
