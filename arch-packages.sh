@@ -51,6 +51,7 @@ core_pkgs() {
         noto-fonts-emoji  # fix alacritty emoji
         npm
         nvim
+        obs-studio # for video streaming and video recording
         p7zip
         pandoc
         perl-file-mimeinfo # provides mimeopen and mimetype (see https://wiki.archlinux.org/title/default_applications#perl-file-mimeinfo)
