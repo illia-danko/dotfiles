@@ -101,6 +101,7 @@ core_pkgs() {
 
 work_pkgs() {
     pkgs=(
+        bloomrpc-bin # graphical grpc client
         devcontainer-cli
         google-cloud-cli # work related
         google-cloud-cli-gke-gcloud-auth-plugin # work related
