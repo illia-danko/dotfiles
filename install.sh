@@ -50,18 +50,6 @@ install_pkg() {
      popd
 }
 
-github_repos() {
-    echo "Github packages..."
-
-    while IFS= read -r line; do
-        install_cmd="$(awk '{$1=""; print}' <<< "$line")"
-        [ -z "$install_cmd" ] && install_cmd="make install || true"
-        install_pkg "$(awk '{print $1}' <<< "$line")" "$install_cmd"
-    done < "$script_dir/github-repos"
-
-    echo "Done"
-}
-
 packages() {
     local packages_script="$script_dir"/arch-packages.sh
     if [ "$(uname)" = "Darwin" ]; then
@@ -191,7 +179,6 @@ config_nixos() {
 }
 
 case "$1" in
-    github-repos) github_repos;;
     sub-packages) sub_packages;;
     packages) packages;;
     config-home) config_home;;
