@@ -68,6 +68,7 @@ core_pkgs() {
         shellcheck
         speech-dispatcher  # required by firefox
         stylua
+        tailwindcss-language-server
         thunderbird
         tmux
         tree
