@@ -109,7 +109,6 @@ copy_root_files() {
 
 # sub_env substitutes environment variables with values.
 sub_env() {
-    local perms="$(getfacl "$1" 2>/dev/null)" # save acl
     # See config-common.sh.
     (rm -rf "$1" && envsubst\
         '${TTY_COLOR_BG0}\
@@ -132,8 +131,8 @@ sub_env() {
         ${TTY_COLOR_BRIGHT_BLUE}\
         ${TTY_COLOR_BRIGHT_MAGENTA}\
         ${TTY_COLOR_BRIGHT_CYAN}\
-        ${TTY_COLOR_BRIGHT_WHITE}' > "$1" ) < "$1"
-    setfacl --set-file=- <<< "$perms" "$1" # restore acl
+        ${TTY_COLOR_BRIGHT_WHITE}\
+        ${TERMINAL_FONT_SIZE}' > "$1" ) < "$1"
 }
 
 sub_env_dir() {
