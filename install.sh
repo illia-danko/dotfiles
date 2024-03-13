@@ -106,6 +106,9 @@ config_mac() {
     defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
     # Light font smoothing defaults command.
     defaults -currentHost write -globalDomain AppleFontSmoothing -int 1
+
+    # Fix gpg keychain.
+    echo "pinentry-program /opt/homebrew/bin/pinentry-mac" > "$HOME/.gnupg/gpg-agent.conf"
 }
 
 copy_root_files() {
