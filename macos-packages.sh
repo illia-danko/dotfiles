@@ -38,6 +38,7 @@ core_pkgs() {
         newsboat
         nmap
         npm
+        obs #obs studio
         p7zip
         pandoc
         pinentry-mac
