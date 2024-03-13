@@ -9,52 +9,56 @@ package_manager() {
 
 core_pkgs() {
     pkgs=(
+        alacritty
         anki
         clang-format
         cmake
         dive
+        dlv # golang debugger
         eslint
         fd
         ffmpeg
+        flake8
         fzf
         gnupg
         golang
+        golangci-lint
+        golines
         google-cloud-sdk # work specific
+        gopls
         htop
-        alacritty
         jq
         lazygit
         lf
         lua-language-server
         mpv
+        n
+        neofetch
         neovim
         newsboat
         nmap
         npm
         p7zip
+        pandoc
         pinentry-mac
+        prettier
+        pyright
         ripgrep
         rust
         shellcheck
         stylua  # lua formatter
+        tailwindcss-language-server
         tmux
         tree
+        typescript
+        typescript-language-server
         wget
         yamllint
         yapf
         yarn
+        yq # jq but for yaml and toml
         yt-dlp
-        gopls
-        golines
-        golangci-lint
-        dlv
-        prettier
-        eslint
-        pyright
-        typescript
-        typescript-language-server
         zk
-        n
     )
 
     brew install "${pkgs[@]}"
@@ -71,6 +75,9 @@ misc_pkgs() {
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+
+    # wireshark.
+    brew install --cask wireshark
 }
 
 optional_pkgs() {
