@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Convert NAME=VARIABLE ... file format to the system environment variables.
+export $(cat "$1" | xargs)
