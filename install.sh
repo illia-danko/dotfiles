@@ -99,6 +99,15 @@ config_common() {
     copy_content "$script_dir"/config "$HOME/.config"
 }
 
+config_mac() {
+    mv "$HOME/.profile" "$HOME/.zprofile"
+
+    # Fix font bluring issue.
+    defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO
+    # Light font smoothing defaults command.
+    defaults -currentHost write -globalDomain AppleFontSmoothing -int 1
+}
+
 copy_root_files() {
     files="$(cd "$1" && find . -type f | perl -pe 's/^\.//;')"
     for file in "${files[@]}"; do
@@ -145,8 +154,6 @@ config() {
     config_home
     config_common
 
-    [ "$(uname)" = "Darwin" ] && return
-
     ([ -x "$(command -v alacritty)" ] && sub_env_dir "$HOME/.config/alacritty") || true
     ([ -x "$(command -v waybar)" ] && sub_env_dir "$HOME/.config/waybar") || true
     ([ -x "$(command -v swaylock)" ] && sub_env_dir "$HOME/.config/swaylock") || true
@@ -154,21 +161,9 @@ config() {
     ([ -x "$(command -v mako)" ] && sub_env_dir "$HOME/.config/mako" && pkill mako) || true
     ([ -x "$(command -v kitty)" ] && sub_env_dir "$HOME/.config/kitty") || true
     ([ -x "$(command -v wezterm)" ] && sub_env_dir "$HOME/.config/wezterm") || true
+
+    [ "$(uname)" = "Darwin" ] && config_mac; return
     config_root
-}
-
-iterm2_action() {
-    name="com.googlecode.iterm2.plist"
-    path="$script_dir"/assets/iterm2/"$name"
-    defaults "$1" "$name" "$path"
-}
-
-dump_iterm2() {
-    iterm2_action export
-}
-
-config_iterm2() {
-    iterm2_action import
 }
 
 config_nixos() {
@@ -184,8 +179,6 @@ case "$1" in
     config-common) config_common;;
     config-root) config_root;;
     config) config;;
-    dump-iterm2) dump_iterm2;;
-    config-iterm2) config_iterm2;;
     nixos) config_nixos;;
     *) >&2 echo "'$1' target is not defined." && exit 1;;
 esac
