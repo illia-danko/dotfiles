@@ -15,7 +15,7 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  boot.initrd.luks.devices."luks-1ba08d9b-2686-4b6d-a887-627b15f69134".device = "/dev/disk/by-uuid/1ba08d9b-2686-4b6d-a887-627b15f69134";
+  boot.initrd.luks.devices."luks-ebace00d-e6ea-4760-b474-492cdd6d0226".device = "/dev/disk/by-uuid/ebace00d-e6ea-4760-b474-492cdd6d0226";
   # Setup keyfile
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;
@@ -23,9 +23,9 @@
 
   boot.loader.grub.enableCryptodisk=true;
 
-  boot.initrd.luks.devices."luks-d9cd1947-b35e-4a5a-a62b-d6f6c566c4a8".keyFile = "/crypto_keyfile.bin";
-  boot.initrd.luks.devices."luks-1ba08d9b-2686-4b6d-a887-627b15f69134".keyFile = "/crypto_keyfile.bin";
-  networking.hostName = "nixos"; # Define your hostname.
+  boot.initrd.luks.devices."luks-82952fc0-3def-479e-9475-56fc34ac0635".keyFile = "/crypto_keyfile.bin";
+  boot.initrd.luks.devices."luks-ebace00d-e6ea-4760-b474-492cdd6d0226".keyFile = "/crypto_keyfile.bin";
+  networking.hostName = "st321"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -36,10 +36,9 @@
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "Europe/Kyiv";
+  time.timeZone = "Europe/Warsaw";
 
   # Select internationalisation properties.
-  i18n.supportedLocales = [ "en_US.UTF-8/UTF-8" "uk_UA.UTF-8/UTF-8" ];
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
@@ -54,6 +53,7 @@
     LC_TIME = "en_US.UTF-8";
   };
 
+  # Do not turn on sleep mode when laptop is plugged in.
   services.logind.extraConfig = ''
     HandleLidSwitchExternalPower=ignore
     '';
@@ -65,6 +65,7 @@
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  # Configure keymap in X11.
   services.xserver = {
     layout = "us,ua";
     xkbVariant = "";
@@ -90,10 +91,7 @@
     #media-session.enable = true;
   };
 
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.xserver.libinput.enable = true;
-
-# Postgresql.
+  # Postgresql.
   services.postgresql = {
     enable = true;
     # Fix elixir language mix psql integration issue. We need set `trust` to avoid auth problem for
@@ -106,6 +104,9 @@
     '';
   };
 
+  # Enable touchpad support (enabled default in most desktopManager).
+  # services.xserver.libinput.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
     defaultUserShell = pkgs.zsh;
@@ -114,26 +115,6 @@
       description = "Illia Danko";
       extraGroups = [ "networkmanager" "wheel" "docker" "wireshark" "power" "postgres" ];
       packages = with pkgs; [ ];
-    };
-  };
-
-  # Some programs need SUID wrappers, can be configured further or are
-  # started in user sessions.
-  # programs.mtr.enable = true;
-  programs = {
-    gnupg.agent = {
-      enable = true;
-      enableSSHSupport = true;
-    };
-    zsh = {
-      enable = true;
-      autosuggestions.enable = true;
-      syntaxHighlighting.enable = true;
-      ohMyZsh = {
-        enable = true;
-        plugins = [ "git" "kubectl" "history" "gcloud" "mix" "npm" "yarn" "rust" "rsync" "postgres" "fzf" "docker-compose" ];
-        theme = "intheloop";
-      };
     };
   };
 
@@ -178,17 +159,11 @@
   nixpkgs.config.allowUnfree = true;
   # Enable docker.
   virtualisation.docker.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-	  alacritty # terminal of choice
-	  gnat # core development tools: compilers, linkers, etc.
-	  gnomeExtensions.unite # merge title with gnome top dock
-	  ispell # required by emacs
-	  tmux
-	  typescript
-	  whatsapp-for-linux
-    (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
+    alacritty # terminal of choice
     anki
     ansible
     automake
@@ -201,7 +176,6 @@
     dos2unix  # Convert between DOS and Unix line endings
     elixir
     elixir-ls
-    emacs29
     ethtool
     fd
     file
@@ -212,22 +186,26 @@
     gettext
     gimp
     git
+    gnat # core development tools: compilers, linkers, etc.
     gnome.dconf-editor
-    gnome.gnome-tweaks
     gnomeExtensions.dash-to-dock
+	  gnomeExtensions.unite # merge title with gnome top dock
+    gnome.gnome-tweaks
     gnumake
     go
     golangci-lint # golang linter package
     golines # split long code lines in golang
     google-chrome
-    google-cloud-sdk
+    (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
     gopls # golang language server protocol
     gotools # set of go language code tools
     graphviz
     hdparm
     htop
+    iconpack-obsidian # icon theme
     inotify-tools # required by elixir mix
     iperf
+    ispell
     jq  # json parser
     kubectl
     lazygit
@@ -243,19 +221,19 @@
     neovim # the text editor of my choice
     netcat
     nmap
+    nodejs
     nodePackages.eslint # javascript linter
     nodePackages.prettier # javascript formatter
     nodePackages.pyright # python code formatter
     nodePackages.typescript-language-server # typescript language server protocol
     nodePackages.vscode-css-languageserver-bin # css language server protocol
-    nodejs
     obs-studio # record camera and desktop
     openssl
     pandoc # convert/generate documents in different formats
-    parcellite # gtk clipboard manager
     pciutils
     pixz pigz pbzip2 # parallel (de-)compression
     pkg-config
+    (pkgs.callPackage ./devcontainers-cli.nix {})
     psmisc  # provides: fuser, killall, pstree, peekfd
     python3
     ripgrep
@@ -267,12 +245,14 @@
     stylua
     teams-for-linux
     thunderbird
+    tmux
     tree
     typescript
     unzip
     usbutils
     vagrant
     wget
+    whatsapp-for-linux
     whois
     wireshark
     xclip
@@ -282,6 +262,30 @@
     zip
   ];
 
+  # Some programs need SUID wrappers, can be configured further or are
+  # started in user sessions.
+  # programs.mtr.enable = true;
+  # programs.gnupg.agent = {
+  #   enable = true;
+  #   enableSSHSupport = true;
+  # };
+
+  programs = {
+    gnupg.agent = {
+      enable = true;
+      enableSSHSupport = true;
+    };
+    zsh = {
+      enable = true;
+      autosuggestions.enable = true;
+      syntaxHighlighting.enable = true;
+      ohMyZsh = {
+        enable = true;
+        plugins = [ "git" "kubectl" "history" "gcloud" "mix" "npm" "yarn" "rust" "rsync" "postgres" "fzf" "docker-compose" ];
+        theme = "intheloop";
+      };
+    };
+  };
 
   # List services that you want to enable:
 
@@ -301,4 +305,5 @@
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "23.11"; # Did you read the comment?
+
 }
