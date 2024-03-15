@@ -265,6 +265,7 @@
     gnome.dconf-editor
     gnome.gnome-tweaks
     gnomeExtensions.dash-to-dock
+    gnomeExtensions.pano # clipboard gnome3 history manager
     gnumake
     go
     golangci-lint # golang linter package
@@ -332,6 +333,7 @@
     xclip
     xorg.xhost # exec `xhost +` to share clipboard state between docker instance and the host
     yarn
+    yarr # rss browser reader
     yq  # jq but for yaml
     zip
     zk
