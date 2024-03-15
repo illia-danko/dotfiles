@@ -165,14 +165,19 @@ config() {
     ([ -x "$(command -v kitty)" ] && sub_env_dir "$HOME/.config/kitty") || true
     ([ -x "$(command -v wezterm)" ] && sub_env_dir "$HOME/.config/wezterm") || true
 
-    [ "$(uname)" = "Darwin" ] && config_mac; return
+    if [ "$(uname)" = "Darwin" ]; then
+        config_mac
+    elif grep -q 'NAME=NixOS' /etc/os-release; then
+        return
+    fi
+
     config_root
 }
 
 config_nixos() {
     path="$script_dir"/nixos
     sudo cp -R $path /etc
-    sudo nixos-rebuild switch --show-trace
+    sudo nixos-rebuild switch --show-trace --upgrade
 }
 
 case "$1" in
