@@ -163,6 +163,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+	  gnomeExtensions.unite # merge title with gnome top dock
+    (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
+    (pkgs.callPackage ./devcontainers-cli.nix {})
     alacritty # terminal of choice
     anki
     ansible
@@ -188,15 +191,13 @@
     git
     gnat # core development tools: compilers, linkers, etc.
     gnome.dconf-editor
-    gnomeExtensions.dash-to-dock
-	  gnomeExtensions.unite # merge title with gnome top dock
     gnome.gnome-tweaks
+    gnomeExtensions.dash-to-dock
     gnumake
     go
     golangci-lint # golang linter package
     golines # split long code lines in golang
     google-chrome
-    (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
     gopls # golang language server protocol
     gotools # set of go language code tools
     graphviz
@@ -221,19 +222,18 @@
     neovim # the text editor of my choice
     netcat
     nmap
-    nodejs
     nodePackages.eslint # javascript linter
     nodePackages.prettier # javascript formatter
     nodePackages.pyright # python code formatter
     nodePackages.typescript-language-server # typescript language server protocol
     nodePackages.vscode-css-languageserver-bin # css language server protocol
+    nodejs
     obs-studio # record camera and desktop
     openssl
     pandoc # convert/generate documents in different formats
     pciutils
     pixz pigz pbzip2 # parallel (de-)compression
     pkg-config
-    (pkgs.callPackage ./devcontainers-cli.nix {})
     psmisc  # provides: fuser, killall, pstree, peekfd
     python3
     ripgrep
@@ -260,6 +260,7 @@
     yarn
     yq  # jq but for yaml
     zip
+    zk
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
