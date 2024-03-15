@@ -204,6 +204,7 @@
     hdparm
     htop
     iconpack-obsidian # icon theme
+    inkscape
     inotify-tools # required by elixir mix
     iperf
     ispell
@@ -243,6 +244,7 @@
     slack
     strace
     stylua
+    tailwindcss-language-server
     teams-for-linux
     thunderbird
     tmux
