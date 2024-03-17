@@ -300,7 +300,6 @@
     nodePackages.prettier # javascript formatter
     nodePackages.pyright # python code formatter
     nodePackages.typescript-language-server # typescript language server protocol
-    nodePackages.vscode-css-languageserver-bin # css language server protocol
     nodejs
     obs-studio # record camera and desktop
     openssl
@@ -326,6 +325,7 @@
     unzip
     usbutils
     vagrant
+    vscode-langservers-extracted # cssls
     wget
     whatsapp-for-linux
     whois
