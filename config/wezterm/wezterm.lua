@@ -64,7 +64,8 @@ config.colors = {
   cursor_bg = "${TTY_COLOR_FG0}",
   cursor_fg = "${TTY_COLOR_BG0}",
   split = "${TTY_COLOR_BG2}",
-  selection_bg = "${TTY_COLOR_BRIGHT_BLACK}",
+  selection_bg = "${TTY_COLOR_WHITE}",
+  selection_fg = "${TTY_COLOR_BG0}",
 
   ansi = {
     "${TTY_COLOR_BLACK}",
