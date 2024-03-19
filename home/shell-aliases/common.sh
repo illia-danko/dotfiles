@@ -26,7 +26,8 @@ ps_mb() {
 # Use Neovim as a Man page viewer.
 man() {
     # Show appropriate an error on no manual.
-    /usr/bin/man "$*" > /dev/null 2>&1 || /usr/bin/man "$*" || return
+    local man_cmd="$(whereis man | awk '{print $2}')"
+    "$man_cmd" "$*" > /dev/null 2>&1 || "$man_cmd" "$*" || return
     $EDITOR -c "Man $*" -c "only" -c "set laststatus=0" -c "nmap <buffer> q ZQ"
 }
 
