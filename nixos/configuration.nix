@@ -242,6 +242,8 @@
     anki
     ansible
     automake
+    bc
+    bloomrpc
     clang-tools
     cmake
     delve # golang debugger
