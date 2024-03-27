@@ -247,6 +247,7 @@
     clang-tools
     cmake
     delve # golang debugger
+    discord
     dmidecode
     dnsutils
     docker-compose
