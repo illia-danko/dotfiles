@@ -123,7 +123,8 @@ alacritty_finder_icon() {
 }
 
 
-core_pkgs
-misc_pkgs
-work_pkgs
-# alacritty_finder_icon
+# package_manager
+# core_pkgs
+# misc_pkgs
+# work_pkgs
+alacritty_finder_icon

@@ -99,7 +99,7 @@ config_common() {
     copy_content "$script_dir"/config "$HOME/.config"
 }
 
-config_mac() {
+config_macos() {
     mv "$HOME/.profile" "$HOME/.zprofile"
 
     # Fix font bluring issue.
@@ -166,7 +166,7 @@ config() {
     ([ -x "$(command -v wezterm)" ] && sub_env_dir "$HOME/.config/wezterm") || true
 
     if [ "$(uname)" = "Darwin" ]; then
-        config_mac
+        config_macos
     elif grep -q 'NAME=NixOS' /etc/os-release; then
         return
     else
