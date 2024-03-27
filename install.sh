@@ -169,9 +169,9 @@ config() {
         config_mac
     elif grep -q 'NAME=NixOS' /etc/os-release; then
         return
+    else
+        config_root
     fi
-
-    config_root
 }
 
 config_nixos() {
