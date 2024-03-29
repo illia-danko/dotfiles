@@ -63,6 +63,7 @@ config.freetype_load_target = "Normal"
 config.front_end = "WebGpu"
 config.freetype_render_target = "HorizontalLcd"
 config.freetype_load_flags = "NO_HINTING"
+config.window_decorations = "RESIZE"
 
 config.colors = {
   foreground = "${TTY_COLOR_FG0}",
