@@ -19,19 +19,6 @@ end
 
 -- This is where you actually apply your config choices.
 
-config.audible_bell = "Disabled" -- disable audio bell
-
-function get_last_path_component(path)
-  local separator = package.config:sub(1, 1) -- platform-specific path separator
-  local components = {}
-
-  for component in path:gmatch("[^" .. separator .. "]+") do
-    table.insert(components, component)
-  end
-
-  return components[#components]
-end
-
 function tab_title(tab_info)
   local title = tab_info.active_pane.foreground_process_name
   if title and #title > 0 then
@@ -43,22 +30,23 @@ end
 
 wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
   local title = tab_title(tab)
-  local fg_color = "${TTY_COLOR_FG0}"
+  local text = "  "
   if tab.is_active then
-    fg_color = "${TTY_COLOR_RED}"
+    text = "  "
   end
   return {
-    { Foreground = { Color = fg_color } },
-    { Background = { Color = "${TTY_COLOR_BG2}" } },
-    { Text = string.format("%d: %s", tab.tab_index + 1, get_last_path_component(title)) },
+    { Foreground = { Color = "${TTY_COLOR_RED}" } },
+    { Background = { Color = "${TTY_COLOR_BG0}" } },
+    { Text = text },
   }
 end)
 
+config.audible_bell = "Disabled" -- disable audio bell
 config.cell_width = 0.9
 config.font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Bold" })
 config.font_size = 13
 config.warn_about_missing_glyphs = false
-config.use_fancy_tab_bar = true
+config.use_fancy_tab_bar = false
 config.freetype_load_target = "Normal"
 config.front_end = "WebGpu"
 config.freetype_render_target = "HorizontalLcd"
@@ -95,11 +83,14 @@ config.colors = {
     "${TTY_COLOR_BRIGHT_WHITE}",
   },
   tab_bar = {
-    -- The new tab button that let you create new tabs
-    inactive_tab_edge = "${TTY_COLOR_BG2}",
+    background = "${TTY_COLOR_BG0}",
     new_tab = {
       fg_color = "${TTY_COLOR_BRIGHT_BLACK}",
-      bg_color = "${TTY_COLOR_BG2}",
+      bg_color = "${TTY_COLOR_BG0}",
+    },
+    new_tab_hover = {
+      fg_color = "${TTY_COLOR_FG0}",
+      bg_color = "${TTY_COLOR_BG0}",
     },
   },
 }
