@@ -84,12 +84,13 @@ config.colors = {
   },
   tab_bar = {
     background = "${TTY_COLOR_BG0}",
+    -- Disable new tab by hiding under bg color.
     new_tab = {
-      fg_color = "${TTY_COLOR_BRIGHT_BLACK}",
+      fg_color = "${TTY_COLOR_BG0}",
       bg_color = "${TTY_COLOR_BG0}",
     },
     new_tab_hover = {
-      fg_color = "${TTY_COLOR_FG0}",
+      fg_color = "${TTY_COLOR_BG0}",
       bg_color = "${TTY_COLOR_BG0}",
     },
   },
