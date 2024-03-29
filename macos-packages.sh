@@ -79,6 +79,7 @@ cask_pkgs() {
 
     pkgs=(
         adobe-acrobat-reader
+        discord
         font-jetbrains-mono-nerd-font
         wireshark
     )
