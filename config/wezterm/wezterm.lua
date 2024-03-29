@@ -56,10 +56,13 @@ end)
 
 config.cell_width = 0.9
 config.font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Bold" })
-config.font_size = 13.5
+config.font_size = 13
 config.warn_about_missing_glyphs = false
 config.use_fancy_tab_bar = true
 config.freetype_load_target = "Normal"
+config.front_end = "WebGpu"
+config.freetype_render_target = "HorizontalLcd"
+config.freetype_load_flags = "NO_HINTING"
 
 config.colors = {
   foreground = "${TTY_COLOR_FG0}",
