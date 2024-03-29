@@ -68,17 +68,22 @@ core_pkgs() {
 }
 
 misc_pkgs() {
-    # fonts.
-    brew tap homebrew/cask-fonts
-    brew install --cask font-jetbrains-mono-nerd-font
-
     # zsh.
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
     git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
     git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+}
 
-    # wireshark.
-    brew install --cask wireshark
+cask_pkgs() {
+    brew tap homebrew/cask-fonts
+
+    pkgs=(
+        adobe-acrobat-reader
+        font-jetbrains-mono-nerd-font
+        wireshark
+    )
+
+    brew install --cask "${pkgs[@]}"
 }
 
 optional_pkgs() {
@@ -126,5 +131,6 @@ alacritty_finder_icon() {
 # package_manager
 # core_pkgs
 # misc_pkgs
+# cask_pkgs
 # work_pkgs
 alacritty_finder_icon
