@@ -1,6 +1,13 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 
+local mux = wezterm.mux
+
+wezterm.on("gui-startup", function()
+  local tab, pane, window = mux.spawn_window({})
+  window:gui_window():maximize()
+end)
+
 -- This table will hold the configuration.
 local config = {}
 
@@ -47,16 +54,12 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
   }
 end)
 
+config.cell_width = 0.9
 config.font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Bold" })
-config.font_size = 11.5
-config.freetype_load_target = "HorizontalLcd"
-config.freetype_load_flags = "MONOCHROME"
-config.freetype_render_target = "HorizontalLcd"
-config.window_decorations = "NONE"
-config.initial_cols = 511 -- simulate maximized state
-config.initial_rows = 511 -- simulate maximized state
+config.font_size = 13.5
 config.warn_about_missing_glyphs = false
--- config.use_fancy_tab_bar = false
+config.use_fancy_tab_bar = true
+config.freetype_load_target = "Normal"
 
 config.colors = {
   foreground = "${TTY_COLOR_FG0}",
