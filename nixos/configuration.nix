@@ -113,7 +113,7 @@
     users.idanko = {
       isNormalUser = true;
       description = "Illia Danko";
-      extraGroups = [ "networkmanager" "wheel" "docker" "wireshark" "power" "postgres" ];
+      extraGroups = [ "networkmanager" "wheel" "docker" "wireshark" "power" "postgres" "audio" ];
       packages = with pkgs; [ ];
     };
   };
