@@ -182,6 +182,11 @@ config.keys = {
     action = wezterm.action({ CloseCurrentPane = { confirm = false } }),
   },
   { key = "[", mods = "LEADER", action = "ActivateCopyMode" },
+  {
+    key = "UpArrow",
+    mods = "SHIFT|CMD",
+    action = wezterm.action.ToggleFullScreen,
+  },
 }
 
 return config
