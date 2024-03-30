@@ -49,6 +49,10 @@ config.use_fancy_tab_bar = false
 config.freetype_load_target = "HorizontalLcd"
 config.freetype_render_target = "HorizontalLcd"
 config.window_decorations = "NONE"
+config.inactive_pane_hsb = {
+  saturation = 0.9,
+  brightness = ${TTY_INACTIVE_PANE_BRIGHTNESS},
+}
 
 config.colors = {
   foreground = "${TTY_COLOR_FG0}",

@@ -144,7 +144,8 @@ sub_env() {
         ${TTY_COLOR_BRIGHT_MAGENTA}\
         ${TTY_COLOR_BRIGHT_CYAN}\
         ${TTY_COLOR_BRIGHT_WHITE}\
-        ${TTY_FONT_SIZE}' > "$1" ) < "$1"
+        ${TTY_FONT_SIZE}\
+        ${TTY_INACTIVE_PANE_BRIGHTNESS}' > "$1" ) < "$1"
 }
 
 sub_env_dir() {
