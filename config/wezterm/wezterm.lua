@@ -42,16 +42,13 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 end)
 
 config.audible_bell = "Disabled" -- disable audio bell
-config.cell_width = 0.9
 config.font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Bold" })
-config.font_size = 13
+config.font_size = 11.5
 config.warn_about_missing_glyphs = false
 config.use_fancy_tab_bar = false
-config.freetype_load_target = "Normal"
-config.front_end = "WebGpu"
+config.freetype_load_target = "HorizontalLcd"
 config.freetype_render_target = "HorizontalLcd"
-config.freetype_load_flags = "NO_HINTING"
-config.window_decorations = "RESIZE"
+config.window_decorations = "NONE"
 
 config.colors = {
   foreground = "${TTY_COLOR_FG0}",
