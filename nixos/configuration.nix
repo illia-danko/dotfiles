@@ -285,6 +285,7 @@
     iperf
     ispell
     jq  # json parser
+    krita
     kubectl
     lazygit
     lf
@@ -295,6 +296,7 @@
     lshw
     lsof
     lua-language-server
+    mpv
     neofetch
     neovim # the text editor of my choice
     netcat
