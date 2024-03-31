@@ -3,11 +3,6 @@ local wezterm = require("wezterm")
 
 local mux = wezterm.mux
 
-wezterm.on("gui-startup", function(cmd)
-  local tab, pane, window = mux.spawn_window(cmd or {})
-  window:gui_window():maximize()
-end)
-
 -- This table will hold the configuration.
 local config = {}
 
@@ -41,6 +36,8 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
   }
 end)
 
+config.initial_cols = 511
+config.initial_rows = 511
 config.audible_bell = "Disabled" -- disable audio bell
 config.font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Bold" })
 config.font_size = 11.5
