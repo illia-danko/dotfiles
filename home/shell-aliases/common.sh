@@ -36,4 +36,11 @@ url_encode() {
     printf %s "$1" | jq -sRr @uri
 }
 
+# Nixos.
+if [ -x "$(command -v nix-env)" ]; then
+    alias nix-ls="sudo nix-env --list-generations --profile /nix/var/nix/profiles/system"
+    alias nix-rm="sudo nix-env --profile /nix/var/nix/profiles/system --delete-generations"
+    alias nix-del="sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot"
+fi
+
 unset s
