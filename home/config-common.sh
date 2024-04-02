@@ -78,7 +78,7 @@ if [ "$SYSTEM_COLOR_THEME" = "dark" ]; then
     export TTY_COLOR_BRIGHT_MAGENTA="#c678dd"
     export TTY_COLOR_BRIGHT_CYAN="#56b6c2"
     export TTY_COLOR_BRIGHT_WHITE="#abb2bf"
-    export TTY_INACTIVE_PANE_BRIGHTNESS="0.7"
+    export TTY_INACTIVE_PANE_BRIGHTNESS="0.8"
 else
     # One Light Theme.
     export TTY_COLOR_BG0="#fafafa"
@@ -102,7 +102,7 @@ else
     export TTY_COLOR_BRIGHT_MAGENTA="#a626a4"
     export TTY_COLOR_BRIGHT_CYAN="#0184bc"
     export TTY_COLOR_BRIGHT_WHITE="#383a42"
-    export TTY_INACTIVE_PANE_BRIGHTNESS="0.9"
+    export TTY_INACTIVE_PANE_BRIGHTNESS="0.93"
 fi
 
 if [ -x "$(command -v fzf)" ]; then
