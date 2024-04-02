@@ -290,8 +290,6 @@
     lazygit
     lf
     libreoffice
-    libtool # required by emacs vterm plugin
-    libvterm # required by emacs vterm plugin
     libxml2  # xmllint
     lshw
     lsof
