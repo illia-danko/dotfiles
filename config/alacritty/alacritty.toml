@@ -343,6 +343,16 @@ chars = "\u001Bz"
 key = "Z"
 mods = "Command"
 
+[[keyboard.bindings]]
+action = "None"
+key = "Left"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+action = "None"
+key = "Right"
+mods = "Command|Shift"
+
 [mouse]
 hide_when_typing = true
 
