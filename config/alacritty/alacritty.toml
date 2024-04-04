@@ -217,10 +217,10 @@ chars = "\u001Bb"
 key = "B"
 mods = "Command"
 
-[[keyboard.bindings]]
-chars = "\u001Bc"
-key = "C"
-mods = "Command"
+# [[keyboard.bindings]]
+# chars = "\u001Bc"
+# key = "C"
+# mods = "Command"
 
 [[keyboard.bindings]]
 chars = "\u001Bd"
