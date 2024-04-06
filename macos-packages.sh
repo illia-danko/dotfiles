@@ -18,6 +18,7 @@ core_pkgs() {
         eslint
         fd
         ffmpeg
+        firefox
         flake8
         fzf
         gnupg
@@ -53,6 +54,7 @@ core_pkgs() {
         tree
         typescript
         typescript-language-server
+        vscode-langservers-extracted # cssls
         wget
         yamllint
         yapf
