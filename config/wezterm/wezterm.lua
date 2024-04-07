@@ -40,7 +40,7 @@ config.initial_cols = 511
 config.initial_rows = 511
 config.audible_bell = "Disabled" -- disable audio bell
 config.font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Bold" })
-config.font_size = 11.5
+config.font_size = 10
 config.warn_about_missing_glyphs = false
 config.use_fancy_tab_bar = false
 config.freetype_load_target = "HorizontalLcd"

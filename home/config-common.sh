@@ -52,7 +52,7 @@ export NSS_ALLOW_SSLKEYLOGFILE=1
 export MOZ_ENABLE_WAYLAND=1 # run firefox on wayland naively
 export CLOUDSDK_PYTHON=/usr/bin/python3
 export ZK_NOTEBOOK_DIR="$HOME/github.com/illia-danko/zettelkasten"
-export TTY_FONT_SIZE="11.5"
+export TTY_FONT_SIZE="10"
 [ "$(uname)" = "Darwin" ] && export TTY_FONT_SIZE="13"
 
 if [ "$SYSTEM_COLOR_THEME" = "dark" ]; then
