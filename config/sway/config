@@ -164,4 +164,8 @@ exec wl-paste --watch cliphist store
 exec_always "$HOME/.config/sway/adjust-screen.sh" "2"
 exec_always "$HOME/.config/sway/set-wallpaper.sh"
 
+# Adjustments.
+# Fix cursor size and theme.
+seat seat0 xcursor_theme Adwaita 24
+
 include /etc/sway/config.d/*

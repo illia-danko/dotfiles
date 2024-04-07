@@ -275,6 +275,7 @@
     gimp
     git
     gnat # core development tools: compilers, linkers, etc.
+    gnome.adwaita-icon-theme # sway. Default theme with cursor
     gnome.dconf-editor
     gnome.gnome-keyring # sway
     gnome.seahorse # sway
