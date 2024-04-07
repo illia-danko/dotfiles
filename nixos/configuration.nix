@@ -61,10 +61,6 @@
   # Enable the X11 windowing system.
   services.xserver.enable = true;
 
-  # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
-
   # Configure keymap in X11.
   services.xserver = {
     layout = "us,ua";
@@ -113,7 +109,7 @@
     users.idanko = {
       isNormalUser = true;
       description = "Illia Danko";
-      extraGroups = [ "networkmanager" "wheel" "docker" "wireshark" "power" "postgres" "audio" ];
+      extraGroups = [ "networkmanager" "wheel" "docker" "wireshark" "power" "postgres" "audio" "video" "input" ];
       packages = with pkgs; [ ];
     };
   };
@@ -134,17 +130,20 @@
     fontDir.enable = true;
     enableGhostscriptFonts = true;
     packages = with pkgs; [
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      corefonts  # Microsoft free fonts
+      fira-code # Monospace font with programming ligatures
+      fira-mono # Mozilla's typeface for Firefox OS
+      font-awesome
+      liberation_ttf
       noto-fonts
+      noto-fonts-cjk
       noto-fonts-cjk # Chinese, Japanese, Korean
       noto-fonts-emoji
       noto-fonts-extra
-      fira-code # Monospace font with programming ligatures
-      fira-mono # Mozilla's typeface for Firefox OS
-      corefonts  # Microsoft free fonts
-      ubuntu_font_family
-      liberation_ttf
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
       roboto # Android
+      source-han-sans
+      ubuntu_font_family
     ];
     fontconfig = {
       localConf = ''
@@ -231,11 +230,21 @@
   nixpkgs.config.allowUnfree = true;
   # Enable docker.
   virtualisation.docker.enable = true;
+  # Enable gnome keyring for sway.
+  services.gnome.gnome-keyring.enable = true;
+  # enable sway window manager
+  programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
+  # Brightness settings for sway.
+  programs.light.enable = true;
+
+  security.polkit.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-	  gnomeExtensions.unite # merge title with gnome top dock
     (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
     (pkgs.callPackage ./devcontainers-cli.nix {})
     alacritty # terminal of choice
@@ -243,8 +252,12 @@
     ansible
     automake
     bc
+    bemenu # sway. Menu / runner
     bloomrpc
+    blueman # sway. Bluetooth manager
+    brightnessctl # sway. Part of sway wm
     clang-tools
+    cliphist # sway. Persistent clipboard history
     cmake
     delve # golang debugger
     discord
@@ -266,9 +279,8 @@
     git
     gnat # core development tools: compilers, linkers, etc.
     gnome.dconf-editor
-    gnome.gnome-tweaks
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.pano # clipboard gnome3 history manager
+    gnome.gnome-keyring # sway
+    gnome.seahorse # sway
     gnumake
     go
     golangci-lint # golang linter package
@@ -277,9 +289,12 @@
     gopls # golang language server protocol
     gotools # set of go language code tools
     graphviz
+    grim # sway. Screenshot functionality
+    gtk-engine-murrine # sway. Required for arc theme
     hdparm
     htop
     iconpack-obsidian # icon theme
+    imagemagick # sway. `convert` tool.
     inkscape
     inotify-tools # required by elixir mix
     iperf
@@ -289,11 +304,15 @@
     kubectl
     lazygit
     lf
+    libnotify # sway. `notify-send`
     libreoffice
+    libsForQt5.qt5.qtwayland # sway.
+    libsecret # sway. Required by auto unlock gpg, ssh keys
     libxml2  # xmllint
     lshw
     lsof
     lua-language-server
+    mako # sway. Notification system developed by swaywm maintainer
     mpv
     neofetch
     neovim # the text editor of my choice
@@ -304,6 +323,7 @@
     nodePackages.pyright # python code formatter
     nodePackages.typescript-language-server # typescript language server protocol
     nodejs
+    nwg-look # sway. Change theme style for gtk, kde and xwayland
     obs-studio # record camera and desktop
     openssl
     pandoc # convert/generate documents in different formats
@@ -311,14 +331,18 @@
     pixz pigz pbzip2 # parallel (de-)compression
     pkg-config
     psmisc  # provides: fuser, killall, pstree, peekfd
+    pulsemixer # sway
     python3
+    qt6.qtwayland # sway
     ripgrep
     rsync
     shellcheck
     signal-desktop
     slack
+    slurp # sway. Screenshot functionality
     strace
     stylua
+    swaybg # sway
     tailwindcss-language-server
     teams-for-linux
     thunderbird
@@ -329,13 +353,24 @@
     usbutils
     vagrant
     vscode-langservers-extracted # cssls
+    waybar # sway. Part of sway wm
+    wev # sway. Transcribe keyboard and mouth events
     wezterm
+    wf-recorder  # sway. Audio and screen recording for Wayland
     wget
     whatsapp-for-linux
     whois
     wireshark
+    wl-clipboard # sway. wl-copy and wl-paste for copy/paste from stdin / stdout
+    wlsunset # sway. Day/night gamma adjustments
     xclip
+    xdg-desktop-portal # sway.
+    xdg-desktop-portal-wlr # sway. (powered by wireplumber) required for screen sharing on Wayland
+    xdg-utils # sway.
+    xfce.thunar # sway
+    xfce.xfce4-settings # sway
     xorg.xhost # exec `xhost +` to share clipboard state between docker instance and the host
+    xwayland # sway
     yarn
     yarr # rss browser reader
     yq  # jq but for yaml

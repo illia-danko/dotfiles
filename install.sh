@@ -146,6 +146,12 @@ sub_env() {
         ${TTY_COLOR_BRIGHT_WHITE}\
         ${TTY_FONT_SIZE}\
         ${TTY_INACTIVE_PANE_BRIGHTNESS}' > "$1" ) < "$1"
+
+    # Hack to preserve exectuable flag. Another option is to use `setfacl` but it is not cross
+    # platform.
+    case "$1" in
+        *.sh) chmod +x "$1"
+    esac
 }
 
 sub_env_dir() {
