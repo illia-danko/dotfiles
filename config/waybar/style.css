@@ -2,7 +2,7 @@
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: "Ubuntu", FontAwesome, Roboto, Arial, sans-serif;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 14px;
 }
 
 window#waybar {
@@ -72,7 +72,7 @@ window#waybar.chromium {
 }
 
 #keyboard-state {
-    padding: 0 3px;
+    padding: 0 4px;
     background-color: ${TTY_COLOR_BG1};
 }
 
