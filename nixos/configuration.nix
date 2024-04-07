@@ -274,6 +274,7 @@
     gettext
     gimp
     git
+    glib # sway. `gsettings`
     gnat # core development tools: compilers, linkers, etc.
     gnome.adwaita-icon-theme # sway. Default theme with cursor
     gnome.dconf-editor
