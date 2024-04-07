@@ -71,6 +71,15 @@ window#waybar.chromium {
     background-color: ${TTY_COLOR_BG1};
 }
 
+#keyboard-state {
+    padding: 0 3px;
+    background-color: ${TTY_COLOR_BG1};
+}
+
+#keyboard-state * {
+    padding: 0 5px;
+}
+
 #language {
     color: ${TTY_COLOR_GREEN};
 }
@@ -91,18 +100,21 @@ window#waybar.chromium {
     color: ${TTY_COLOR_CYAN};
 }
 
-#battery {
+#keyboard-state {
     color: ${TTY_COLOR_GREEN};
 }
 
-#clock {
+#battery {
     color: ${TTY_COLOR_YELLOW};
 }
 
-#tray {
+#clock {
     color: ${TTY_COLOR_BLUE};
 }
 
+#tray {
+    color: ${TTY_COLOR_MAGENTA};
+}
 
 #battery.critical:not(.charging),
 #network.disconnected,
