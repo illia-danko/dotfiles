@@ -357,6 +357,6 @@ mods = "Command|Shift"
 hide_when_typing = true
 
 [window]
-decorations = "None"
+decorations = "${ALACRITTY_WINDOW_DECORATION}"
 dynamic_title = false
 startup_mode = "Maximized"

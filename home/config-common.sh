@@ -53,7 +53,11 @@ export MOZ_ENABLE_WAYLAND=1 # run firefox on wayland naively
 export CLOUDSDK_PYTHON=/usr/bin/python3
 export ZK_NOTEBOOK_DIR="$HOME/github.com/illia-danko/zettelkasten"
 export TTY_FONT_SIZE="9.5"
-[ "$(uname)" = "Darwin" ] && export TTY_FONT_SIZE="13"
+export ALACRITTY_WINDOW_DECORATION="None"
+if [ "$(uname)" = "Darwin" ]; then
+    export TTY_FONT_SIZE="13"
+    export ALACRITTY_WINDOW_DECORATION="Buttonless"
+fi
 
 if [ "$SYSTEM_COLOR_THEME" = "dark" ]; then
     # One Dark Theme.
