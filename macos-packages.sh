@@ -110,6 +110,14 @@ work_pkgs() {
     brew uninstall --ignore-dependencies node
 }
 
+npm_pkgs() {
+    pkgs=(
+        emmet-ls
+    )
+
+    sudo npm -g install "${pkgs[@]}"
+}
+
 alacritty_finder_icon() {
     icon_path=/Applications/Alacritty.app/Contents/Resources/alacritty.icns
     if [ ! -f "$icon_path" ]; then
@@ -136,4 +144,5 @@ alacritty_finder_icon() {
 # misc_pkgs
 # cask_pkgs
 # work_pkgs
+# npm_pkgs
 alacritty_finder_icon
