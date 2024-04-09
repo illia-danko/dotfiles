@@ -42,7 +42,7 @@ s="$HOME/.krew/bin" && [ -d "$s" ] && export PATH="$s:$PATH"
 [ -x "$(command -v bat)" ] && export BAT_STYLE="plain"  # used by Bat previewer
 [ -x "$(command -v shellcheck)" ] && export SHELLCHECK_OPTS='--shell=bash --exclude=SC1090,SC2139,SC2155'
 [ -x "$(command -v iex)" ] && export ERL_AFLAGS="-kernel shell_history enabled"
-[ -x "$(command -v xhost)" ] && xhost + &> /dev/null # share clipboard between docker and host machine using xclip (special case for nixos)
+# [ -x "$(command -v xhost)" ] && xhost + &> /dev/null # share clipboard between docker and host machine using xclip (special case for nixos)
 [ -x "$(command -v gnome-shell)" ] && [ -f "/etc/arch-release" ] && export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 
 # SSL termination firefox.
@@ -52,7 +52,7 @@ export NSS_ALLOW_SSLKEYLOGFILE=1
 export MOZ_ENABLE_WAYLAND=1 # run firefox on wayland naively
 export CLOUDSDK_PYTHON=/usr/bin/python3
 export ZK_NOTEBOOK_DIR="$HOME/github.com/illia-danko/zettelkasten"
-export TTY_FONT_SIZE="11.5"
+export TTY_FONT_SIZE="9.5"
 [ "$(uname)" = "Darwin" ] && export TTY_FONT_SIZE="13"
 
 if [ "$SYSTEM_COLOR_THEME" = "dark" ]; then

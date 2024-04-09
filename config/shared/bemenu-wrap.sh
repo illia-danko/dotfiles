@@ -12,13 +12,13 @@ read -r -a bemenu_color_opts <<< "--tb=${TTY_COLOR_BG1} \
     --nf=${TTY_COLOR_FG1} \
     --hf=${TTY_COLOR_GREEN}"
 
-bemenu_font="Ubuntu Mono Bold 14"
+bemenu_font="Ubuntu Mono Bold 11"
 
 case "$1" in
     commands)
         bemenu-run "${bemenu_color_opts[@]}" --fn "${bemenu_font}" \
-            -H 30 -M 4 -n | xargs swaymsg exec --;;
+            -H 22 -M 4 -n | xargs swaymsg exec --;;
     clipboard)
         cliphist list | bemenu "${bemenu_color_opts[@]}" \
-            --fn "${bemenu_font}" -H 30 -M 4 -n -l 999 | cliphist decode | wl-copy
+            --fn "${bemenu_font}" -H 22 -M 4 -n -l 999 | cliphist decode | wl-copy
 esac

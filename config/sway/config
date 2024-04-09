@@ -3,23 +3,26 @@ font pango:Ubuntu Medium 13
 
 # Variables.
 set $mod Mod1
+set $mod_secondary Mod4
 set $left h
 set $down j
 set $up k
 set $right l
 
-set $term kitty
-set $browser google-chrome-stable
+set $term alacritty
+set $browser google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=WebRTCPipeWireCapturer
+set $teams teams-for-linux --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=WebRTCPipeWireCapturer
 set $browser2 firefox
 set $menu "$HOME/.config/shared/bemenu-wrap.sh"
 set $colorpick "$HOME/.config/sway/color-pick.sh"
 set $screenshot "$HOME/.config/sway/screenshot.sh"
-set $volume "kitty -T 'Audio Pulse Mixer' 'pulsemixer'"
+set $volume "alacritty -t 'Audio Pulse Mixer' -e 'pulsemixer'"
 set $bluetooth "bluetoothctl disconnect 0C:8D:CA:CF:09:F0; bluetoothctl connect 0C:8D:CA:CF:09:F0"
 set $rss "$HOME/.config/sway/rss.sh" # See `exec yarr`.
 
 # Keyboard.
 bindsym $mod+Return exec $term
+bindsym $mod_secondary+t exec $teams
 bindsym $mod+Shift+Return exec $browser
 bindsym $mod+Shift+Ctrl+Return exec $browser2
 bindsym $mod+r exec $menu commands
@@ -40,7 +43,7 @@ bindsym $mod+Shift+backslash exec "$HOME/.config/sway/toggle-theme.sh"
 bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
-bindsym $mod+b splith
+bindsym $mod+z splith
 bindsym $mod+v splitv
 bindsym $mod+Shift+q kill
 floating_modifier $mod normal
@@ -158,7 +161,11 @@ exec wl-paste --watch cliphist store
 # exec yarr
 
 # Output.
-exec_always "$HOME/.config/sway/adjust-screen.sh" "1"
+exec_always "$HOME/.config/sway/adjust-screen.sh" "2"
 exec_always "$HOME/.config/sway/set-wallpaper.sh"
+
+# Adjustments.
+# Fix cursor size and theme.
+seat seat0 xcursor_theme Adwaita 24
 
 include /etc/sway/config.d/*
