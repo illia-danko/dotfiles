@@ -11,6 +11,7 @@ core_pkgs() {
     pkgs=(
         alacritty
         anki
+        biber # cv textlive
         clang-format
         cmake
         dive
@@ -50,6 +51,7 @@ core_pkgs() {
         shellcheck
         stylua  # lua formatter
         tailwindcss-language-server
+        texlive # cv textlive
         tmux
         tree
         typescript
