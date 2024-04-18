@@ -20,7 +20,7 @@ set $down j
 set $up k
 set $right l
 
-set $term alacritty
+set $term wezterm
 set $browser google-chrome-stable
 set $browser2 firefox
 set $menu $HOME/.config/shared/bemenu-wrap.sh
