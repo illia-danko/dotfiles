@@ -32,8 +32,20 @@
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
+  # Enable networking.
   networking.networkmanager.enable = true;
+
+  # Bluetooth.
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  services.blueman.enable = true;
+  # Using Bluetooth headset buttons to control media player.
+  systemd.user.services.mpris-proxy = {
+    description = "Mpris proxy";
+    after = [ "network.target" "sound.target" ];
+    wantedBy = [ "default.target" ];
+    serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
+  };
 
   # Set your time zone.
   time.timeZone = "Europe/Kyiv";
@@ -270,7 +282,6 @@
     automake
     bc
     bloomrpc
-    blueman # sway. Bluetooth manager
     brightnessctl # sway. Part of sway wm
     clang-tools
     cmake
