@@ -337,7 +337,6 @@
     lshw
     lsof
     lua-language-server
-    lxappearance
     mpv
     neofetch
     neovim # the text editor of my choice
