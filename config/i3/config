@@ -20,7 +20,7 @@ set $down j
 set $up k
 set $right l
 
-set $term kitty
+set $term alacritty
 set $browser google-chrome-stable
 set $browser2 firefox
 set $menu $HOME/.config/shared/bemenu-wrap.sh
@@ -195,17 +195,18 @@ bar {
 # required (see https://github.com/Airblader/i3).
 default_border pixel 0
 gaps inner 2
-gaps outer 2
+gaps outer 1
 
 # See https://gist.github.com/jatcwang/ae3b7019f219b8cdc6798329108c9aee
 #
 # grp:win_space_toggle - [Win-Space] -> toggle layout.
 # ctrl:nocaps - bind Ctrl to Capslock.
 # ctrl:swap_rwin_rctl - swap RCtrl and RWin keys.
+# ctrl:menu_rctrl - swap Menu and RCtrl
 
-# exec "setxkbmap -model pc104 -layout us,ua -variant ,, \
-#     -option grp:win_space_toggle \
-#     -option ctrl:nocaps \
-#     -option ctrl:menu_rctrl"
+exec "setxkbmap -model pc104 -layout us,ua -variant ,, \
+    -option grp:win_space_toggle \
+    -option ctrl:nocaps \
+    -option ctrl:swap_rwin_rctl"
 
 exec_always --no-startup-id $HOME/.config/i3/random-wallpaper.sh $HOME/github.com/illia-danko/wallpapers
