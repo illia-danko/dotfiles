@@ -50,6 +50,7 @@ config.inactive_pane_hsb = {
   saturation = 0.9,
   brightness = ${TTY_INACTIVE_PANE_BRIGHTNESS},
 }
+config.hide_tab_bar_if_only_one_tab = true
 
 config.colors = {
   foreground = "${TTY_COLOR_FG0}",
