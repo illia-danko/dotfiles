@@ -8,14 +8,14 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-    ];
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  boot.initrd.luks.devices."luks-ebace00d-e6ea-4760-b474-492cdd6d0226".device = "/dev/disk/by-uuid/ebace00d-e6ea-4760-b474-492cdd6d0226";
+  boot.initrd.luks.devices."luks-377cf39f-282f-4cf1-8020-e45fe3cb2bbf".device = "/dev/disk/by-uuid/377cf39f-282f-4cf1-8020-e45fe3cb2bbf";
   # Setup keyfile
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;
@@ -23,8 +23,8 @@
 
   boot.loader.grub.enableCryptodisk=true;
 
-  boot.initrd.luks.devices."luks-82952fc0-3def-479e-9475-56fc34ac0635".keyFile = "/crypto_keyfile.bin";
-  boot.initrd.luks.devices."luks-ebace00d-e6ea-4760-b474-492cdd6d0226".keyFile = "/crypto_keyfile.bin";
+  boot.initrd.luks.devices."luks-b9da799d-5772-49b0-98f2-07ffa0ff2c3f".keyFile = "/crypto_keyfile.bin";
+  boot.initrd.luks.devices."luks-377cf39f-282f-4cf1-8020-e45fe3cb2bbf".keyFile = "/crypto_keyfile.bin";
   networking.hostName = "st321"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -36,12 +36,14 @@
   networking.networkmanager.enable = true;
 
   # Set your time zone.
-  time.timeZone = "Europe/Warsaw";
+  time.timeZone = "Europe/Kyiv";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
+    LANGUAGE = "en_US.UTF-8";
+    LC_ALL = "en_US.UTF-8";
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
     LC_MEASUREMENT = "en_US.UTF-8";
@@ -53,12 +55,34 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Do not turn on sleep mode when laptop is plugged in.
   services.logind.extraConfig = ''
     HandleLidSwitchExternalPower=ignore
     '';
 
-  # Configure keymap in X11.
+  services.xserver = {
+    enable = true;
+    desktopManager = {
+      xterm.enable = false;
+      xfce = {
+        enable = true;
+        noDesktop = true;
+        enableXfwm = false;
+      };
+    };
+    displayManager.defaultSession = "xfce";
+    windowManager.i3 = {
+    	enable = true;
+        extraPackages = with pkgs; [
+          dmenu
+          i3status
+          i3lock
+          i3blocks
+	        bemenu # alternative to dmenu
+       ];
+    };
+  };
+
+  # Configure keymap in X11
   services.xserver = {
     layout = "us,ua";
     xkbVariant = "";
@@ -132,6 +156,7 @@
       fira-code # Monospace font with programming ligatures
       fira-mono # Mozilla's typeface for Firefox OS
       font-awesome
+      google-fonts
       liberation_ttf
       noto-fonts
       noto-fonts-cjk
@@ -227,16 +252,11 @@
   nixpkgs.config.allowUnfree = true;
   # Enable docker.
   virtualisation.docker.enable = true;
-  # Enable gnome keyring for sway.
+  # Enable gnome keyring.
   services.gnome.gnome-keyring.enable = true;
-  # enable sway window manager
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
-  # Brightness settings for sway.
+  # Brightness settings.
   programs.light.enable = true;
-
+  # Enable polkit.
   security.polkit.enable = true;
 
   # List packages installed in system profile. To search, run:
@@ -249,12 +269,10 @@
     ansible
     automake
     bc
-    bemenu # sway. Menu / runner
     bloomrpc
     blueman # sway. Bluetooth manager
     brightnessctl # sway. Part of sway wm
     clang-tools
-    cliphist # sway. Persistent clipboard history
     cmake
     delve # golang debugger
     discord
@@ -274,7 +292,6 @@
     gettext
     gimp
     git
-    glib # sway. `gsettings`
     gnat # core development tools: compilers, linkers, etc.
     gnome.adwaita-icon-theme # sway. Default theme with cursor
     gnome.dconf-editor
@@ -288,7 +305,6 @@
     gopls # golang language server protocol
     gotools # set of go language code tools
     graphviz
-    grim # sway. Screenshot functionality
     gtk-engine-murrine # sway. Required for arc theme
     hdparm
     htop
@@ -305,24 +321,23 @@
     lf
     libnotify # sway. `notify-send`
     libreoffice
-    libsForQt5.qt5.qtwayland # sway.
     libsecret # sway. Required by auto unlock gpg, ssh keys
     libxml2  # xmllint
     lshw
     lsof
     lua-language-server
-    mako # sway. Notification system developed by swaywm maintainer
+    lxappearance
     mpv
     neofetch
     neovim # the text editor of my choice
     netcat
+    nitrogen
     nmap
     nodePackages.eslint # javascript linter
     nodePackages.prettier # javascript formatter
     nodePackages.pyright # python code formatter
     nodePackages.typescript-language-server # typescript language server protocol
     nodejs
-    nwg-look # sway. Change theme style for gtk, kde and xwayland
     obs-studio # record camera and desktop
     openssl
     pandoc # convert/generate documents in different formats
@@ -332,16 +347,13 @@
     psmisc  # provides: fuser, killall, pstree, peekfd
     pulsemixer # sway
     python3
-    qt6.qtwayland # sway
     ripgrep
     rsync
     shellcheck
     signal-desktop
     slack
-    slurp # sway. Screenshot functionality
     strace
     stylua
-    swaybg # sway
     tailwindcss-language-server
     teams-for-linux
     thunderbird
@@ -352,24 +364,15 @@
     usbutils
     vagrant
     vscode-langservers-extracted # cssls
-    waybar # sway. Part of sway wm
-    wev # sway. Transcribe keyboard and mouth events
     wezterm
-    wf-recorder  # sway. Audio and screen recording for Wayland
     wget
     whatsapp-for-linux
     whois
     wireshark
-    wl-clipboard # sway. wl-copy and wl-paste for copy/paste from stdin / stdout
-    wlsunset # sway. Day/night gamma adjustments
     xclip
     xdg-desktop-portal # sway.
-    xdg-desktop-portal-wlr # sway. (powered by wireplumber) required for screen sharing on Wayland
     xdg-utils # sway.
-    xfce.thunar # sway
-    xfce.xfce4-settings # sway
     xorg.xhost # exec `xhost +` to share clipboard state between docker instance and the host
-    xwayland # sway
     yarn
     yarr # rss browser reader
     yq  # jq but for yaml
