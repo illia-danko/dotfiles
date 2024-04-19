@@ -23,7 +23,7 @@ set $right l
 set $term wezterm
 set $browser google-chrome-stable
 set $browser2 firefox
-set $menu $HOME/.config/shared/bemenu-wrap.sh
+set $menu $HOME/.config/i3/bemenu-wrap.sh
 set $volume kitty -T Audio-Pulse-Mixer pulsemixer
 for_window [title="Audio-Pulse-Mixer"] fullscreen enable
 
