@@ -38,6 +38,10 @@ bindsym $mod+Shift+v exec $volume
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
+# X11 compositor.
+exec --no-startup-id picom --config "$HOME/.config/picom/picom.conf"
+
+# Use Xresources conig. Mostly for font tweaking.
 exec xrdb -merge ~/.Xresources
 
 # Use pactl to adjust volume in PulseAudio.

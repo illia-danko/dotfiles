@@ -352,6 +352,7 @@
     openssl
     pandoc # convert/generate documents in different formats
     pciutils
+    picom
     pixz pigz pbzip2 # parallel (de-)compression
     pkg-config
     psmisc  # provides: fuser, killall, pstree, peekfd
