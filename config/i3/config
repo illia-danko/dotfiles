@@ -41,6 +41,9 @@ exec --no-startup-id nm-applet
 # X11 compositor.
 exec --no-startup-id picom --config "$HOME/.config/picom/picom.conf"
 
+# Notification engine.
+exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
+
 # Use Xresources conig. Mostly for font tweaking.
 exec xrdb -merge ~/.Xresources
 

@@ -291,6 +291,7 @@
     dnsutils
     docker-compose
     dos2unix  # Convert between DOS and Unix line endings
+    dunst
     elixir
     elixir-ls
     ethtool
