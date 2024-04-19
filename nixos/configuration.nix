@@ -281,6 +281,7 @@
     ansible
     automake
     bc
+    bibata-cursors
     bloomrpc
     brightnessctl # sway. Part of sway wm
     clang-tools
@@ -338,6 +339,7 @@
     lshw
     lsof
     lua-language-server
+    lxappearance
     mpv
     neofetch
     neovim # the text editor of my choice

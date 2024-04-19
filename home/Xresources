@@ -1,6 +1,8 @@
-Xft.dpi: 115
+Xft.dpi       : 115
 Xft.lcdfilter : lcddefault
 Xft.hintstyle : hintslight
 Xft.hinting   : true
 Xft.antialias : true
 Xft.rgba      : rgb
+Xcursor.theme : Bibata-Original-Ice
+Xcursor.size  : 24
