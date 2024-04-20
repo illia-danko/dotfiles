@@ -8,6 +8,7 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./main-user.nix
       inputs.home-manager.nixosModules.default
   ];
 
@@ -143,12 +144,12 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
     defaultUserShell = pkgs.zsh;
-    users.idanko = {
-      isNormalUser = true;
-      description = "Illia Danko";
-      extraGroups = [ "networkmanager" "wheel" "docker" "wireshark" "power" "postgres" "audio" "video" "input" ];
-      packages = with pkgs; [ ];
-    };
+  };
+
+  main-user = {
+    enable = true;
+    userName = "idanko";
+    userFullName = "Illia Danko";
   };
 
   services.mullvad-vpn = {
