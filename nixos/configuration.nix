@@ -424,6 +424,14 @@
     };
   };
 
+  home-manager = {
+    # also pass inputs to home-manager modules.
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "idanko" = import ./home.nix;
+    };
+  };
+
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
