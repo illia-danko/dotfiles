@@ -36,6 +36,22 @@
     # '')
   ];
 
+  home.pointerCursor = {
+    gtk.enable = true;
+    package = pkgs.bibata-cursors;
+    name = "Bibata-Original-Classic";
+    size = 24;
+  };
+
+  xresources.properties = {
+    "Xft.dpi"       = 115;
+    "Xft.lcdfilter" = "lcddefault";
+    "Xft.hintstyle" = "hintslight";
+    "Xft.hinting"   = true;
+    "Xft.antialias" = true;
+    "Xft.rgba"      = "rgb";
+  };
+
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
