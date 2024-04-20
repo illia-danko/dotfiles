@@ -15,7 +15,7 @@
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  boot.initrd.luks.devices."luks-377cf39f-282f-4cf1-8020-e45fe3cb2bbf".device = "/dev/disk/by-uuid/377cf39f-282f-4cf1-8020-e45fe3cb2bbf";
+  boot.initrd.luks.devices."luks-0c51aa8b-638c-48b9-96bf-5a32bdf10809".device = "/dev/disk/by-uuid/0c51aa8b-638c-48b9-96bf-5a32bdf10809";
   # Setup keyfile
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;
@@ -23,9 +23,10 @@
 
   boot.loader.grub.enableCryptodisk=true;
 
-  boot.initrd.luks.devices."luks-b9da799d-5772-49b0-98f2-07ffa0ff2c3f".keyFile = "/crypto_keyfile.bin";
-  boot.initrd.luks.devices."luks-377cf39f-282f-4cf1-8020-e45fe3cb2bbf".keyFile = "/crypto_keyfile.bin";
+  boot.initrd.luks.devices."luks-33baee29-9e84-4b56-ae5e-b9a6a7ee74f4".keyFile = "/crypto_keyfile.bin";
+  boot.initrd.luks.devices."luks-0c51aa8b-638c-48b9-96bf-5a32bdf10809".keyFile = "/crypto_keyfile.bin";
   networking.hostName = "st321"; # Define your hostname.
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary

@@ -8,20 +8,20 @@
     [ (modulesPath + "/installer/scan/not-detected.nix")
     ];
 
-  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "sd_mod" "rtsx_pci_sdmmc" ];
+  boot.initrd.availableKernelModules = [ "xhci_pci" "ahci" "usbhid" "usb_storage" "sd_mod" "rtsx_pci_sdmmc" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/c5bc34e1-33ba-4253-8a6d-67143452e57e";
+    { device = "/dev/disk/by-uuid/654a7f05-eab1-4535-bbf9-2c5203c8bdd4";
       fsType = "ext4";
     };
 
-  boot.initrd.luks.devices."luks-b9da799d-5772-49b0-98f2-07ffa0ff2c3f".device = "/dev/disk/by-uuid/b9da799d-5772-49b0-98f2-07ffa0ff2c3f";
+  boot.initrd.luks.devices."luks-33baee29-9e84-4b56-ae5e-b9a6a7ee74f4".device = "/dev/disk/by-uuid/33baee29-9e84-4b56-ae5e-b9a6a7ee74f4";
 
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/3f3a68aa-21d8-4cc0-ae64-0807558064a0"; }
+    [ { device = "/dev/disk/by-uuid/ea2e261d-f28c-4863-8ba1-1a728eabcd76"; }
     ];
 
   # Enables DHCP on each ethernet and wireless interface. In case of scripted networking
