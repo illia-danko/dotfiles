@@ -26,6 +26,7 @@ set $browser2 firefox
 set $menu $HOME/.config/i3/bemenu-wrap.sh
 set $volume kitty -T Audio-Pulse-Mixer pulsemixer
 for_window [title="Audio-Pulse-Mixer"] fullscreen enable
+for_window [class=".blueman-manager-wrapped"] floating enable
 
 # Keyboard.
 bindsym $mod+Return exec $term
