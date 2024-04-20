@@ -13,7 +13,7 @@ set $term alacritty
 set $browser google-chrome-stable --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=WebRTCPipeWireCapturer
 set $teams teams-for-linux --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-features=WebRTCPipeWireCapturer
 set $browser2 firefox
-set $menu "$HOME/.config/sway/bemenu-wrap.sh"
+set $menu "$HOME/.config/shared/bemenu-commander.sh"
 set $colorpick "$HOME/.config/sway/color-pick.sh"
 set $screenshot "$HOME/.config/sway/screenshot.sh"
 set $volume "alacritty -t 'Audio Pulse Mixer' -e 'pulsemixer'"
