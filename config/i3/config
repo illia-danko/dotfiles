@@ -45,9 +45,6 @@ exec --no-startup-id picom --config "$HOME/.config/picom/picom.conf"
 # Notification engine.
 exec_always --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
-# Use Xresources conig. Mostly for font tweaking.
-exec xrdb -merge ~/.Xresources
-
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3blocks
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
