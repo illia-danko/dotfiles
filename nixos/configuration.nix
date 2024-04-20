@@ -27,6 +27,8 @@
   boot.initrd.luks.devices."luks-0c51aa8b-638c-48b9-96bf-5a32bdf10809".keyFile = "/crypto_keyfile.bin";
   networking.hostName = "st321"; # Define your hostname.
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
