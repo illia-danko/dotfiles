@@ -168,7 +168,7 @@
     fontDir.enable = true;
     enableGhostscriptFonts = true;
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      (nerdfonts.override { fonts = [ "JetBrainsMono" "Ubuntu" ]; })
       corefonts  # Microsoft free fonts
       fira-code # Monospace font with programming ligatures
       fira-mono # Mozilla's typeface for Firefox OS

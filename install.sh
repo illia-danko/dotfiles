@@ -172,6 +172,7 @@ config() {
     ([ -x "$(command -v mako)" ] && sub_env_dir "$HOME/.config/mako" && pkill mako) || true
     ([ -x "$(command -v kitty)" ] && sub_env_dir "$HOME/.config/kitty") || true
     ([ -x "$(command -v wezterm)" ] && sub_env_dir "$HOME/.config/wezterm") || true
+    ([ -x "$(command -v i3)" ] && sub_env_dir "$HOME/.config/i3") || true
 
     if [ "$(uname)" = "Darwin" ]; then
         config_macos
