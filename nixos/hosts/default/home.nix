@@ -20,6 +20,7 @@
   home.packages = [
     pkgs.cliphist
     pkgs.clipnotify
+    pkgs.xkb-switch-i3 # for i3blocks
   ];
 
   gtk = {

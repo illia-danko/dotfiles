@@ -202,15 +202,15 @@ bar {
     status_command i3blocks
 
     colors {
-        background #151515
-        statusline #151515
+        background ${TTY_COLOR_BG1}
+        statusline ${TTY_COLOR_BG1}
         separator  ${TTY_COLOR_BRIGHT_BLACK}
         #  class            | border  |  background  |   text  |
         #-------------------|---------|--------------|---------|
-        focused_workspace  #000000 #000000 ${TTY_COLOR_BLUE}
-        active_workspace   #000000 #000000 ${TTY_COLOR_BLUE}
-        inactive_workspace #151515 #151515 ${TTY_COLOR_FG0}
-        urgent_workspace   ${TTY_COLOR_RED} #151515 ${TTY_COLOR_FG0}
+        focused_workspace  ${TTY_COLOR_BG0} ${TTY_COLOR_BG0} ${TTY_COLOR_FG0}
+        active_workspace   ${TTY_COLOR_BG0} ${TTY_COLOR_BG0} ${TTY_COLOR_FG0}
+        inactive_workspace ${TTY_COLOR_BG1} ${TTY_COLOR_BG1} ${TTY_COLOR_FG0}
+        urgent_workspace   ${TTY_COLOR_RED} ${TTY_COLOR_BG1} ${TTY_COLOR_FG0}
     }
 }
 
