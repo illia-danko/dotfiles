@@ -22,6 +22,14 @@
     pkgs.clipnotify
   ];
 
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Tela";
+      package = pkgs.tela-icon-theme;
+    };
+  };
+
   home.pointerCursor = {
     gtk.enable = true;
     package = pkgs.bibata-cursors;
