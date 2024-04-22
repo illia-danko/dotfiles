@@ -89,7 +89,7 @@ else
     export TTY_COLOR_BG1="#dfdedb"
     export TTY_COLOR_BG2="#dfdedb"
     export TTY_COLOR_FG0="#383a42"
-    export TTY_COLOR_FG1="#2e3436"
+    export TTY_COLOR_FG1="#000000"
     export TTY_COLOR_BLACK="#101012"
     export TTY_COLOR_RED="#e45649"
     export TTY_COLOR_GREEN="#50a14f"
