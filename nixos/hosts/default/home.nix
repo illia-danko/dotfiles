@@ -18,6 +18,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    (pkgs.callPackage ./devcontainer.nix {})
     pkgs.cliphist
     pkgs.clipnotify
     pkgs.xkb-switch-i3 # for i3blocks
