@@ -8,7 +8,7 @@ color=${TTY_COLOR_BLACK}
 label=  
 command=bash -c 'xkb-switch;xkb-switch -W'
 interval=persist
-color=${TTY_COLOR_GREEN}
+color=${TTY_COLOR_YELLOW}
 
 [separator]
 
@@ -16,7 +16,7 @@ color=${TTY_COLOR_GREEN}
 label= 
 command=awk '/MemTotal/{total=$2/1024/1024} /MemFree/{free=$2/1024/1024} END{printf "%.1fG  %.1fG  %.f%%\n", free, total, (free/total)*100}' /proc/meminfo
 interval=30
-color=${TTY_COLOR_YELLOW}
+color=${TTY_COLOR_GREEN}
 
 [separator]
 
