@@ -2,13 +2,13 @@ full_text=〉
 align=center
 separator=false
 separator_block_width=7
-color=${TTY_COLOR_BLACK}
+color=${TTY_COLOR_BRIGHT_BLACK}
 
 [keymap]
 label=  
 command=bash -c 'xkb-switch;xkb-switch -W'
 interval=persist
-color=${TTY_COLOR_YELLOW}
+color=${TTY_COLOR_FG0}
 
 [separator]
 
@@ -16,7 +16,7 @@ color=${TTY_COLOR_YELLOW}
 label= 
 command=awk '/MemTotal/{total=$2/1024/1024} /MemFree/{free=$2/1024/1024} END{printf "%.1fG  %.1fG  %.f%%\n", free, total, (free/total)*100}' /proc/meminfo
 interval=30
-color=${TTY_COLOR_GREEN}
+color=${TTY_COLOR_FG1}
 
 [separator]
 
@@ -24,7 +24,7 @@ color=${TTY_COLOR_GREEN}
 label=󰍛 
 command=echo "$(echo "100 - $(mpstat 1 1 | awk 'NR==4 {print $NF}')" | bc | perl -lne 'printf("%05.2f\n", $_)')%"
 interval=10
-color=${TTY_COLOR_BLUE}
+color=${TTY_COLOR_FG0}
 
 [separator]
 
@@ -32,7 +32,7 @@ color=${TTY_COLOR_BLUE}
 label= 
 command=date +%H:%M
 interval=60
-color=${TTY_COLOR_MAGENTA}
+color=${TTY_COLOR_FG1}
 
 [separator]
 
@@ -40,4 +40,6 @@ color=${TTY_COLOR_MAGENTA}
 label= 
 command=lslogins | grep $USER | awk '{print $5,$NF}'
 interval=once
-color=${TTY_COLOR_CYAN}
+color=${TTY_COLOR_FG0}
+
+[separator]
