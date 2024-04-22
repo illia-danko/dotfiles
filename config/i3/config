@@ -210,15 +210,24 @@ bar {
         focused_workspace  ${TTY_COLOR_BG0} ${TTY_COLOR_BG0} ${TTY_COLOR_FG0}
         active_workspace   ${TTY_COLOR_BG0} ${TTY_COLOR_BG0} ${TTY_COLOR_FG0}
         inactive_workspace ${TTY_COLOR_BG1} ${TTY_COLOR_BG1} ${TTY_COLOR_FG0}
-        urgent_workspace   ${TTY_COLOR_RED} ${TTY_COLOR_BG1} ${TTY_COLOR_FG0}
+        urgent_workspace   ${TTY_COLOR_RED} ${TTY_COLOR_RED} ${TTY_COLOR_BG1}
     }
 }
+
+    #  class            | border  |  background  |   text  | indicator | child bolder |
+    #-------------------|---------|--------------|---------|-----------|------------- |
+client.focused          ${TTY_COLOR_BG1} ${TTY_COLOR_BG1} ${TTY_COLOR_FG0} #2e9ef4   #285577
+client.focused_inactive ${TTY_COLOR_BG1} ${TTY_COLOR_BG1} ${TTY_COLOR_FG0} #484e50   #5f676a
+client.unfocused        ${TTY_COLOR_BG1} ${TTY_COLOR_BG1} #888888 #292d2e   #222222
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+client.background       ${TTY_COLOR_BG1}
 
 # Gaps.
 # required (see https://github.com/Airblader/i3).
 default_border pixel 0
-gaps inner 2
-gaps outer 1
+gaps inner 0
+gaps outer 0
 
 # See https://gist.github.com/jatcwang/ae3b7019f219b8cdc6798329108c9aee
 #
