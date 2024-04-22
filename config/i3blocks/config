@@ -2,13 +2,13 @@ full_text=〉
 align=center
 separator=false
 separator_block_width=7
-color=${TTY_COLOR_BRIGHT_BLACK}
+color=${TTY_COLOR_BLACK}
 
 [keymap]
 label=  
 command=bash -c 'xkb-switch;xkb-switch -W'
 interval=persist
-color=${TTY_COLOR_BRIGHT_YELLOW}
+color=${TTY_COLOR_GREEN}
 
 [separator]
 
@@ -24,7 +24,7 @@ color=${TTY_COLOR_YELLOW}
 label=󰍛 
 command=echo "$(echo "100 - $(mpstat 1 1 | awk 'NR==4 {print $NF}')" | bc | perl -lne 'printf("%05.2f\n", $_)')%"
 interval=10
-color=${TTY_COLOR_BRIGHT_YELLOW}
+color=${TTY_COLOR_BLUE}
 
 [separator]
 
@@ -32,7 +32,7 @@ color=${TTY_COLOR_BRIGHT_YELLOW}
 label= 
 command=date +%H:%M
 interval=60
-color=${TTY_COLOR_YELLOW}
+color=${TTY_COLOR_MAGENTA}
 
 [separator]
 
@@ -40,4 +40,4 @@ color=${TTY_COLOR_YELLOW}
 label= 
 command=lslogins | grep $USER | awk '{print $5,$NF}'
 interval=once
-color=${TTY_COLOR_BRIGHT_YELLOW}
+color=${TTY_COLOR_CYAN}
