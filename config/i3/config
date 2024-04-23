@@ -24,9 +24,9 @@ set $term alacritty
 set $browser google-chrome-stable
 set $browser2 firefox
 set $menu $HOME/.config/shared/bemenu-commander.sh
-set $volume kitty -T Audio-Pulse-Mixer pulsemixer
-for_window [title="Audio-Pulse-Mixer"] fullscreen enable
-for_window [class=".blueman-manager-wrapped"] floating enable
+set $volume alacritty -T AudioPulseMixer -e pulsemixer
+for_window [title="AudioPulseMixer"] floating enable border pixel 2
+for_window [class=".blueman-manager-wrapped"] floating enable border pixel 2
 
 # Keyboard.
 bindsym $mod+Return exec $term
@@ -217,7 +217,7 @@ bar {
 
     #  class            | border  |  background  |   text  | indicator | child bolder |
     #-------------------|---------|--------------|---------|-----------|------------- |
-client.focused          ${TTY_COLOR_BG1} ${TTY_COLOR_BG1} ${TTY_COLOR_FG1} #2e9ef4   #285577
+client.focused          ${TTY_COLOR_BG1} ${TTY_COLOR_BG1} ${TTY_COLOR_FG1} #2e9ef4   ${TTY_COLOR_FG0}
 client.focused_inactive ${TTY_COLOR_BG1} ${TTY_COLOR_BG1} ${TTY_COLOR_FG1} #484e50   #5f676a
 client.unfocused        ${TTY_COLOR_BG1} ${TTY_COLOR_BG1} ${TTY_COLOR_BRIGHT_BLACK} #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
