@@ -12,14 +12,6 @@
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
-export LS_COLORS='di=1;35:ex=01;33'
-
-s="$HOME"/.config/appearance/background
-if [ ! -f "$s" ]; then
-    mkdir -p "$HOME"/.config/appearance
-    echo light > "$s"
-fi
-export SYSTEM_COLOR_THEME="$(cat "$s")"
 export CLIPBOARD_COPY_COMMAND="xclip -in -selection c"
 [ "$(uname)" = "Darwin" ] && export CLIPBOARD_COPY_COMMAND="pbcopy"
 
@@ -56,63 +48,6 @@ export NSS_ALLOW_SSLKEYLOGFILE=1
 export MOZ_ENABLE_WAYLAND=1 # run firefox on wayland naively
 export CLOUDSDK_PYTHON=/usr/bin/python3
 export ZK_NOTEBOOK_DIR="$HOME/github.com/illia-danko/zettelkasten"
-export TTY_FONT_SIZE="9.5"
-export ALACRITTY_WINDOW_DECORATION="None"
-if [ "$(uname)" = "Darwin" ]; then
-    export TTY_FONT_SIZE="13"
-    export ALACRITTY_WINDOW_DECORATION="Buttonless"
-fi
-
-if [ "$SYSTEM_COLOR_THEME" = "dark" ]; then
-    # One Dark Theme.
-    export TTY_COLOR_BG0="#282c34"
-    export TTY_COLOR_BG1="#000000"
-    export TTY_COLOR_BG2="#000000"
-    export TTY_COLOR_FG0="#abb2bf"
-    export TTY_COLOR_FG1="#eeeeec"
-    export TTY_COLOR_BLACK="#181a1f"
-    export TTY_COLOR_RED="#e86671"
-    export TTY_COLOR_GREEN="#98c379"
-    export TTY_COLOR_YELLOW="#e5c07b"
-    export TTY_COLOR_BLUE="#61afef"
-    export TTY_COLOR_MAGENTA="#c678dd"
-    export TTY_COLOR_CYAN="#56b6c2"
-    export TTY_COLOR_WHITE="#abb2bf"
-    export TTY_COLOR_BRIGHT_BLACK="#5c6370"
-    export TTY_COLOR_BRIGHT_RED="#e86671"
-    export TTY_COLOR_BRIGHT_GREEN="#b3d39c"
-    export TTY_COLOR_BRIGHT_YELLOW="#efd4a4"
-    export TTY_COLOR_BRIGHT_BLUE="#91c7f3"
-    export TTY_COLOR_BRIGHT_MAGENTA="#c678dd"
-    export TTY_COLOR_BRIGHT_CYAN="#56b6c2"
-    export TTY_COLOR_BRIGHT_WHITE="#abb2bf"
-    export TTY_INACTIVE_PANE_BRIGHTNESS="0.8"
-else
-    # One Light Theme.
-    export TTY_COLOR_BG0="#fafafa"
-    export TTY_COLOR_BG1="#dfdedb"
-    export TTY_COLOR_BG2="#dfdedb"
-    export TTY_COLOR_FG0="#383a42"
-    export TTY_COLOR_FG1="#000000"
-    export TTY_COLOR_BLACK="#101012"
-    export TTY_COLOR_RED="#e45649"
-    export TTY_COLOR_GREEN="#50a14f"
-    export TTY_COLOR_YELLOW="#986801"
-    export TTY_COLOR_BLUE="#4078f2"
-    export TTY_COLOR_MAGENTA="#a626a4"
-    export TTY_COLOR_CYAN="#0184bc"
-    export TTY_COLOR_WHITE="#383a42"
-    export TTY_COLOR_BRIGHT_BLACK="#a0a1a7"
-    export TTY_COLOR_BRIGHT_RED="#e45649"
-    export TTY_COLOR_BRIGHT_GREEN="#3e803d"
-    export TTY_COLOR_BRIGHT_YELLOW="#cb8b01"
-    export TTY_COLOR_BRIGHT_BLUE="#0d54f2"
-    export TTY_COLOR_BRIGHT_MAGENTA="#a626a4"
-    export TTY_COLOR_BRIGHT_CYAN="#0184bc"
-    export TTY_COLOR_BRIGHT_WHITE="#383a42"
-    export TTY_INACTIVE_PANE_BRIGHTNESS="0.93"
-fi
-
 if [ -x "$(command -v fzf)" ]; then
     export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS"
     --no-mouse

@@ -88,6 +88,7 @@ copy_content() {
 
 config_home() {
     copy_content "$script_dir"/home "$HOME" "."
+    . "$HOME"/.appearance.sh # hack to make `envsusbs` work in a single pass
     . "$HOME"/.config-common.sh # hack to make `envsusbs` work in a single pass
 }
 
