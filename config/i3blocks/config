@@ -41,5 +41,5 @@ label=
 command=lslogins | grep $USER | awk '{print $5,$NF}'
 interval=once
 color=${TTY_COLOR_FG0}
-
-[separator]
+min_width=108
+align=center
