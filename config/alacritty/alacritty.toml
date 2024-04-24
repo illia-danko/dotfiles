@@ -339,8 +339,13 @@ key = "Z"
 mods = "Command"
 
 [[keyboard.bindings]]
-chars = "\u001Bz"
-key = "Z"
+chars = "\u001B,"
+key = ","
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001B."
+key = "."
 mods = "Command"
 
 [[keyboard.bindings]]
@@ -371,6 +376,26 @@ mods = "Command|Shift"
 [[keyboard.bindings]]
 chars = "\u001B>"
 key = ">"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001B?"
+key = "?"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001B'"
+key = "'"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001B\u0022"
+key = "\""
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001B|"
+key = "|"
 mods = "Command|Shift"
 
 [mouse]
