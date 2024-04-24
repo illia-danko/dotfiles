@@ -82,10 +82,13 @@ cask_pkgs() {
     brew tap homebrew/cask-fonts
 
     pkgs=(
-        adobe-acrobat-reader
-        discord
-        font-jetbrains-mono-nerd-font
-        wireshark
+		adobe-acrobat-reader
+		discord
+		firefox
+		font-jetbrains-mono-nerd-font
+		google-chrome
+		microsoft-teams
+		wireshark
     )
 
     brew install --cask "${pkgs[@]}"

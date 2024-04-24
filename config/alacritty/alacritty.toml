@@ -363,6 +363,16 @@ chars = "\u001B}"
 key = "}"
 mods = "Command|Shift"
 
+[[keyboard.bindings]]
+chars = "\u001B<"
+key = "<"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001B>"
+key = ">"
+mods = "Command|Shift"
+
 [mouse]
 hide_when_typing = true
 
