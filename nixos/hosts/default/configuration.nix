@@ -2,20 +2,22 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, inputs, ... }:
 
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-    ];
+      ./main-user.nix
+      inputs.home-manager.nixosModules.default
+  ];
 
   # Bootloader.
   boot.loader.grub.enable = true;
   boot.loader.grub.device = "/dev/sda";
   boot.loader.grub.useOSProber = true;
 
-  boot.initrd.luks.devices."luks-ebace00d-e6ea-4760-b474-492cdd6d0226".device = "/dev/disk/by-uuid/ebace00d-e6ea-4760-b474-492cdd6d0226";
+  boot.initrd.luks.devices."luks-0c51aa8b-638c-48b9-96bf-5a32bdf10809".device = "/dev/disk/by-uuid/0c51aa8b-638c-48b9-96bf-5a32bdf10809";
   # Setup keyfile
   boot.initrd.secrets = {
     "/crypto_keyfile.bin" = null;
@@ -23,25 +25,42 @@
 
   boot.loader.grub.enableCryptodisk=true;
 
-  boot.initrd.luks.devices."luks-82952fc0-3def-479e-9475-56fc34ac0635".keyFile = "/crypto_keyfile.bin";
-  boot.initrd.luks.devices."luks-ebace00d-e6ea-4760-b474-492cdd6d0226".keyFile = "/crypto_keyfile.bin";
+  boot.initrd.luks.devices."luks-33baee29-9e84-4b56-ae5e-b9a6a7ee74f4".keyFile = "/crypto_keyfile.bin";
+  boot.initrd.luks.devices."luks-0c51aa8b-638c-48b9-96bf-5a32bdf10809".keyFile = "/crypto_keyfile.bin";
   networking.hostName = "st321"; # Define your hostname.
+
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
   # networking.proxy.default = "http://user:password@proxy:port/";
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
-  # Enable networking
+  # Enable networking.
   networking.networkmanager.enable = true;
 
+  # Bluetooth.
+  hardware.bluetooth.enable = true; # enables support for Bluetooth
+  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  services.blueman.enable = true;
+  # Using Bluetooth headset buttons to control media player.
+  systemd.user.services.mpris-proxy = {
+    description = "Mpris proxy";
+    after = [ "network.target" "sound.target" ];
+    wantedBy = [ "default.target" ];
+    serviceConfig.ExecStart = "${pkgs.bluez}/bin/mpris-proxy";
+  };
+
   # Set your time zone.
-  time.timeZone = "Europe/Warsaw";
+  time.timeZone = "Europe/Kyiv";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
 
   i18n.extraLocaleSettings = {
+    LANGUAGE = "en_US.UTF-8";
+    LC_ALL = "en_US.UTF-8";
     LC_ADDRESS = "en_US.UTF-8";
     LC_IDENTIFICATION = "en_US.UTF-8";
     LC_MEASUREMENT = "en_US.UTF-8";
@@ -53,12 +72,34 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Do not turn on sleep mode when laptop is plugged in.
   services.logind.extraConfig = ''
     HandleLidSwitchExternalPower=ignore
     '';
 
-  # Configure keymap in X11.
+  services.xserver = {
+    enable = true;
+    desktopManager = {
+      xterm.enable = false;
+      xfce = {
+        enable = true;
+        noDesktop = true;
+        enableXfwm = false;
+      };
+    };
+    displayManager.defaultSession = "xfce";
+    windowManager.i3 = {
+    	enable = true;
+        extraPackages = with pkgs; [
+          dmenu
+          i3status
+          i3lock
+          i3blocks
+	        bemenu # alternative to dmenu
+       ];
+    };
+  };
+
+  # Configure keymap in X11
   services.xserver = {
     layout = "us,ua";
     xkbVariant = "";
@@ -103,12 +144,12 @@
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
     defaultUserShell = pkgs.zsh;
-    users.idanko = {
-      isNormalUser = true;
-      description = "Illia Danko";
-      extraGroups = [ "networkmanager" "wheel" "docker" "wireshark" "power" "postgres" "audio" "video" "input" ];
-      packages = with pkgs; [ ];
-    };
+  };
+
+  main-user = {
+    enable = true;
+    userName = "idanko";
+    userFullName = "Illia Danko";
   };
 
   services.mullvad-vpn = {
@@ -127,11 +168,12 @@
     fontDir.enable = true;
     enableGhostscriptFonts = true;
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      (nerdfonts.override { fonts = [ "JetBrainsMono" "Ubuntu" ]; })
       corefonts  # Microsoft free fonts
       fira-code # Monospace font with programming ligatures
       fira-mono # Mozilla's typeface for Firefox OS
       font-awesome
+      google-fonts
       liberation_ttf
       noto-fonts
       noto-fonts-cjk
@@ -227,34 +269,26 @@
   nixpkgs.config.allowUnfree = true;
   # Enable docker.
   virtualisation.docker.enable = true;
-  # Enable gnome keyring for sway.
+  # Enable gnome keyring.
   services.gnome.gnome-keyring.enable = true;
-  # enable sway window manager
-  programs.sway = {
-    enable = true;
-    wrapperFeatures.gtk = true;
-  };
-  # Brightness settings for sway.
+  # Brightness settings.
   programs.light.enable = true;
-
+  # Enable polkit.
   security.polkit.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
-    (pkgs.callPackage ./devcontainers-cli.nix {})
     alacritty # terminal of choice
     anki
     ansible
     automake
     bc
-    bemenu # sway. Menu / runner
+    bibata-cursors
     bloomrpc
-    blueman # sway. Bluetooth manager
     brightnessctl # sway. Part of sway wm
     clang-tools
-    cliphist # sway. Persistent clipboard history
     cmake
     delve # golang debugger
     discord
@@ -262,6 +296,7 @@
     dnsutils
     docker-compose
     dos2unix  # Convert between DOS and Unix line endings
+    dunst
     elixir
     elixir-ls
     ethtool
@@ -274,7 +309,6 @@
     gettext
     gimp
     git
-    glib # sway. `gsettings`
     gnat # core development tools: compilers, linkers, etc.
     gnome.adwaita-icon-theme # sway. Default theme with cursor
     gnome.dconf-editor
@@ -288,7 +322,6 @@
     gopls # golang language server protocol
     gotools # set of go language code tools
     graphviz
-    grim # sway. Screenshot functionality
     gtk-engine-murrine # sway. Required for arc theme
     hdparm
     htop
@@ -305,43 +338,40 @@
     lf
     libnotify # sway. `notify-send`
     libreoffice
-    libsForQt5.qt5.qtwayland # sway.
     libsecret # sway. Required by auto unlock gpg, ssh keys
     libxml2  # xmllint
     lshw
     lsof
     lua-language-server
-    mako # sway. Notification system developed by swaywm maintainer
+    lxappearance
     mpv
     neofetch
     neovim # the text editor of my choice
     netcat
+    nitrogen
     nmap
     nodePackages.eslint # javascript linter
     nodePackages.prettier # javascript formatter
     nodePackages.pyright # python code formatter
     nodePackages.typescript-language-server # typescript language server protocol
     nodejs
-    nwg-look # sway. Change theme style for gtk, kde and xwayland
     obs-studio # record camera and desktop
     openssl
     pandoc # convert/generate documents in different formats
     pciutils
+    picom
     pixz pigz pbzip2 # parallel (de-)compression
     pkg-config
     psmisc  # provides: fuser, killall, pstree, peekfd
     pulsemixer # sway
     python3
-    qt6.qtwayland # sway
     ripgrep
     rsync
     shellcheck
     signal-desktop
     slack
-    slurp # sway. Screenshot functionality
     strace
     stylua
-    swaybg # sway
     tailwindcss-language-server
     teams-for-linux
     thunderbird
@@ -352,24 +382,15 @@
     usbutils
     vagrant
     vscode-langservers-extracted # cssls
-    waybar # sway. Part of sway wm
-    wev # sway. Transcribe keyboard and mouth events
     wezterm
-    wf-recorder  # sway. Audio and screen recording for Wayland
     wget
     whatsapp-for-linux
     whois
     wireshark
-    wl-clipboard # sway. wl-copy and wl-paste for copy/paste from stdin / stdout
-    wlsunset # sway. Day/night gamma adjustments
     xclip
     xdg-desktop-portal # sway.
-    xdg-desktop-portal-wlr # sway. (powered by wireplumber) required for screen sharing on Wayland
     xdg-utils # sway.
-    xfce.thunar # sway
-    xfce.xfce4-settings # sway
     xorg.xhost # exec `xhost +` to share clipboard state between docker instance and the host
-    xwayland # sway
     yarn
     yarr # rss browser reader
     yq  # jq but for yaml
@@ -399,6 +420,14 @@
         plugins = [ "git" "kubectl" "history" "gcloud" "mix" "npm" "yarn" "rust" "rsync" "postgres" "fzf" "docker-compose" ];
         theme = "intheloop";
       };
+    };
+  };
+
+  home-manager = {
+    # also pass inputs to home-manager modules.
+    extraSpecialArgs = { inherit inputs; };
+    users = {
+      "idanko" = import ./home.nix;
     };
   };
 

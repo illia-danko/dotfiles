@@ -88,6 +88,7 @@ copy_content() {
 
 config_home() {
     copy_content "$script_dir"/home "$HOME" "."
+    . "$HOME"/.appearance.sh # hack to make `envsusbs` work in a single pass
     . "$HOME"/.config-common.sh # hack to make `envsusbs` work in a single pass
 }
 
@@ -172,6 +173,8 @@ config() {
     ([ -x "$(command -v mako)" ] && sub_env_dir "$HOME/.config/mako" && pkill mako) || true
     ([ -x "$(command -v kitty)" ] && sub_env_dir "$HOME/.config/kitty") || true
     ([ -x "$(command -v wezterm)" ] && sub_env_dir "$HOME/.config/wezterm") || true
+    ([ -x "$(command -v i3)" ] && sub_env_dir "$HOME/.config/i3") || true
+    ([ -x "$(command -v i3blocks)" ] && sub_env_dir "$HOME/.config/i3blocks") || true
 
     if [ "$(uname)" = "Darwin" ]; then
         config_macos
@@ -185,7 +188,7 @@ config() {
 config_nixos() {
     path="$script_dir"/nixos
     sudo cp -R $path /etc
-    sudo nixos-rebuild switch --show-trace --upgrade
+    sudo nixos-rebuild switch --show-trace --upgrade-all --flake /etc/nixos#default
 }
 
 case "$1" in
