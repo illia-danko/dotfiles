@@ -178,7 +178,7 @@ config() {
 
     if [ "$(uname)" = "Darwin" ]; then
         config_macos
-    elif grep -q 'NAME=NixOS' /etc/os-release; then
+    elif grep -q 'NAME=NixOS' /etc/os-release &> /dev/null; then
         return
     else
         config_root

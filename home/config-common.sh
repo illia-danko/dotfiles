@@ -37,7 +37,7 @@ s="$HOME/.krew/bin" && [ -d "$s" ] && export PATH="$s:$PATH"
 [ -x "$(command -v gnome-shell)" ] && [ -f "/etc/arch-release" ] && export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/gcr/ssh"
 
 # NixOS.
-if grep -q 'NAME=NixOS' /etc/os-release; then
+if grep -q 'NAME=NixOS' /etc/os-release &> /dev/null; then
     [ -x "$(command -v xhost)" ] && xhost + &> /dev/null # share clipboard between docker and host machine using xclip
 fi
 
