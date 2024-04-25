@@ -37,12 +37,8 @@ man() {
                       (delete-window)
 					  (olivetti-mode)
 					  (hide-mode-line-mode)
-                      (local-set-key
-                        \"q\"
-                        (lambda ()
-                          (interactive)
-                          (kill-this-buffer)
-                          (delete-frame))))"
+                      (display-line-numbers-mode -1)
+					  (define-key Man-mode-map \"q\" #'delete-frame))"
 }
 
 alias url_decode='perl -pe '\''s/\+/ /g;'\'' -e '\''s/%(..)/chr(hex($1))/eg;'\'' <<< '

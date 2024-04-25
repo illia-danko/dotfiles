@@ -49,9 +49,11 @@ _g_inside_work_tree_p() {
 _gl() {
     _g_inside_work_tree_p || (>&2 echo "Not in git repo."; return 1)
     cmd="(progn
+		   (define-key magit-log-mode-map \"q\" #'delete-frame)
            (magit-log-all)
            (delete-other-windows))"
     [ "$#" -eq 1 ] && cmd="(progn
+                             (define-key magit-log-mode-map \"q\" #'delete-frame)
                              (find-file \"$1\")
                              (magit-log-buffer-file)
                              (delete-other-windows))"
@@ -61,13 +63,8 @@ _gl() {
 _mg() {
     _g_inside_work_tree_p || (>&2 echo "Not in git repo."; return 1)
     cmd="(progn
-           (magit-status)
-           (local-set-key
-            \"q\"
-            (lambda ()
-              (interactive)
-              (kill-this-buffer)
-              (delete-frame))))"
+		   (define-key magit-status-mode-map \"q\" #'delete-frame)
+           (magit-status))"
     emacs-runner -e "$cmd"
 }
 
