@@ -58,6 +58,19 @@ _gl() {
     emacs-runner -e "$cmd"
 }
 
+_mg() {
+    _g_inside_work_tree_p || (>&2 echo "Not in git repo."; return 1)
+    cmd="(progn
+           (magit-status)
+           (local-set-key
+            \"q\"
+            (lambda ()
+              (interactive)
+              (kill-this-buffer)
+              (delete-frame))))"
+    emacs-runner -e "$cmd"
+}
+
 alias gd="_gd"
 alias gclean="_gclean"
 alias ga="git add"
@@ -72,3 +85,4 @@ alias gm="_gmessage_search"
 alias gl="_gl"
 alias glp="git log --pretty=format:'%h%x09%an%x09%ad%x09%s'"
 alias glP="git log --pretty=format:'%H%x09%an%x09%ad%x09%s'"
+alias mg="_mg"
