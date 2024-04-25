@@ -408,6 +408,14 @@ chars = "\u001B|"
 key = "|"
 mods = "Command|Shift"
 
+# Trying to follow standard with respect of limitations
+# See https://github.com/tmux/tmux/wiki/Modifier-Keys.
+# Same as Ctrl-\
+[[keyboard.bindings]]
+chars = "\u001c"
+key = "4"
+mods = "Control"
+
 [mouse]
 hide_when_typing = true
 
