@@ -14,7 +14,7 @@
 [ -x "$(command -v tmux)" ] && alias t="tmux new -d -s HACK; tmux new -d -s WORK; tmux new -d -s MEDIA; tmux attach -t HACK"
 [ -x "$(command -v clj)" ] && alias clj_repl="clj -M:cider/nrepl"
 [ -x "$(command -v wget)" ] && alias getpage="wget -qO-"
-[ -x "$(command -v lsof)" ] && alias listen_ports="lsof -i -P | grep LISTEN"
+[ -x "$(command -v lsof)" ] && alias listen_ports="lsof -nP -iTCP -sTCP:LISTEN"
 [ -x "$(command -v luajit)" ] && [ -x "$(command -v rlwrap)" ] && alias luajit="rlwrap luajit"
 [ -x "$(command -v emacs)" ] && alias es="pkill -f emacs || true; emacs --daemon"
 s="$HOME/github.com/LuaLS/lua-language-server/3rd/luamake/luamake" && [ -f "$s" ] && alias luamake="$s"
