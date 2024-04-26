@@ -404,6 +404,11 @@ key = "j"
 mods = "Command"
 
 [[keyboard.bindings]]
+chars = "\u001Bg"
+key = "g"
+mods = "Command"
+
+[[keyboard.bindings]]
 chars = "\u001B;"
 key = ";"
 mods = "Command"
