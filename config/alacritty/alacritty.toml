@@ -394,6 +394,16 @@ key = "\""
 mods = "Command|Shift"
 
 [[keyboard.bindings]]
+chars = "\u001BJ"
+key = "J"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u001Bj"
+key = "j"
+mods = "Command"
+
+[[keyboard.bindings]]
 chars = "\u001B;"
 key = ";"
 mods = "Command"
