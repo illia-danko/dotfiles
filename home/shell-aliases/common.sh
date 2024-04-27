@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
 # Source https://wiki.archlinux.org/title/Color_output_in_console.
 
@@ -16,7 +16,6 @@
 [ -x "$(command -v wget)" ] && alias getpage="wget -qO-"
 [ -x "$(command -v lsof)" ] && alias listen_ports="lsof -nP -iTCP -sTCP:LISTEN"
 [ -x "$(command -v luajit)" ] && [ -x "$(command -v rlwrap)" ] && alias luajit="rlwrap luajit"
-[ -x "$(command -v emacs)" ] && alias es="pkill -f emacs || true; emacs --daemon"
 s="$HOME/github.com/LuaLS/lua-language-server/3rd/luamake/luamake" && [ -f "$s" ] && alias luamake="$s"
 
 # Print system memory stats in MB.
@@ -24,21 +23,11 @@ ps_mb() {
     ps afu | awk 'NR>1 {$5=int($5/1024)"M";}{ print;}'
 }
 
-# Use Emacs as a Man page viewer. Custom package modes are:
-# - olivetti-mode for centering buffer content;
-# - hide-mode-line-mode for hiding modeline.
+# Use Neovim as a Man page viewer.
 man() {
     # Show appropriate an error on no manual.
     local man_cmd="$(whereis man | awk '{print $2}')"
     "$man_cmd" "$*" > /dev/null 2>&1 || "$man_cmd" "$*" || return
-
-    emacs-runner -e "(progn
-                      (man \"$1\")
-                      (delete-window)
-					  (olivetti-mode)
-					  (hide-mode-line-mode)
-                      (display-line-numbers-mode -1)
-					  (define-key Man-mode-map \"q\" #'delete-frame))"
 }
 
 alias url_decode='perl -pe '\''s/\+/ /g;'\'' -e '\''s/%(..)/chr(hex($1))/eg;'\'' <<< '

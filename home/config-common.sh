@@ -10,7 +10,7 @@
 [ -z "${XDG_DATA_HOME}" ] && export XDG_DATA_HOME="$HOME/.local/share"
 [ -z "${XDG_STATE_HOME}" ] && export XDG_STATE_HOME="$HOME/.local/state"
 
-export VISUAL=emacs-runner
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 export CLIPBOARD_COPY_COMMAND="xclip -in -selection c"
 [ "$(uname)" = "Darwin" ] && export CLIPBOARD_COPY_COMMAND="pbcopy"
@@ -71,12 +71,13 @@ if [ -x "$(command -v fzf)" ]; then
     export FZF_PREVIEW_COMMAND="cat {}"
     export RG_OPTS_FILTER='--hidden --glob=!{.git,.svn,.hg,CVS,.bzr,vendor,node_modules,dist,venv,elm-stuff,.clj-kondo,.lsp,.cpcache}'
     export FZF_DEFAULT_COMMAND="rg --files $RG_OPTS_FILTER"
-    export FZF_NOTES_DIR="$HOME/github.com/illia-danko/org-roam"
+    export FZF_NOTES_DIR="$HOME/github.com/illia-danko/zettelkasten"
     export FZF_PROJECTS_ROOT_DIRS=" \
         $HOME/github.com \
         $HOME/gitlab.com \
         $HOME/codeberg.org \
-        $HOME/.emacs.d \
+        $HOME/.config/nvim \
+        $HOME/.local/share/nvim \
         $HOME/bitbucket.org \
         $HOME/bitbucket.dentsplysirona.com"
     export FZF_PROJECTS_PATTERNS=".git"

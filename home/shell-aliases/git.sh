@@ -42,33 +42,16 @@ _grevert() {
     bash -c "git apply <(git $method $hash -R $files)"
 }
 
-_g_inside_work_tree_p() {
-    git rev-parse --is-inside-work-tree > /dev/null 2>&1
+_lg() {
+    lazygit "$@"
 }
 
 _gl() {
-    _g_inside_work_tree_p || (>&2 echo "Not in git repo."; return 1)
-    cmd="(progn
-		   (define-key magit-log-mode-map \"q\" #'delete-frame)
-           (magit-log-all)
-           (delete-other-windows))"
-    [ "$#" -eq 1 ] && cmd="(progn
-                             (define-key magit-log-mode-map \"q\" #'delete-frame)
-                             (find-file \"$1\")
-                             (magit-log-buffer-file)
-                             (delete-other-windows))"
-    emacs-runner -e "$cmd"
-}
-
-_mg() {
-    _g_inside_work_tree_p || (>&2 echo "Not in git repo."; return 1)
-    cmd="(progn
-		   (define-key magit-status-mode-map \"q\" #'delete-frame)
-           (magit-status))"
-    emacs-runner -e "$cmd"
+    _lg log
 }
 
 alias gd="_gd"
+alias gdf="git diff --name-only"
 alias gclean="_gclean"
 alias ga="git add"
 alias gc="git commit"
@@ -79,7 +62,7 @@ alias gf="git log -p --all -S"
 alias gu="_grevert show"  # undo a commit
 alias gr="_grevert diff"  # remove up to a hash
 alias gm="_gmessage_search"
+alias lg="_lg"
 alias gl="_gl"
 alias glp="git log --pretty=format:'%h%x09%an%x09%ad%x09%s'"
 alias glP="git log --pretty=format:'%H%x09%an%x09%ad%x09%s'"
-alias mg="_mg"
