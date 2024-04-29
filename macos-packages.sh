@@ -89,6 +89,7 @@ cask_pkgs() {
 		google-chrome
 		microsoft-teams
 		wireshark
+        inkscape
     )
 
     brew install --cask "${pkgs[@]}"
