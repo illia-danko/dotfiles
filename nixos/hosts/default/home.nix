@@ -19,35 +19,15 @@
   # environment.
   home.packages = [
     (pkgs.callPackage ./devcontainer.nix {})
-    pkgs.cliphist
-    pkgs.clipnotify
-    pkgs.xkb-switch-i3 # for i3blocks
-    pkgs.sysstat # mpstat: for i3blocks
     pkgs.emmet-ls
   ];
 
   gtk = {
     enable = true;
     iconTheme = {
-      name = "Tela";
-      package = pkgs.tela-icon-theme;
+      name = "Obsidian";
+      package = pkgs.iconpack-obsidian;
     };
-  };
-
-  home.pointerCursor = {
-    gtk.enable = true;
-    package = pkgs.bibata-cursors;
-    name = "Bibata-Modern-Classic";
-    size = 18;
-  };
-
-  xresources.properties = {
-    "Xft.dpi"       = 115;
-    "Xft.lcdfilter" = "lcddefault";
-    "Xft.hintstyle" = "hintslight";
-    "Xft.hinting"   = true;
-    "Xft.antialias" = true;
-    "Xft.rgba"      = "rgb";
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

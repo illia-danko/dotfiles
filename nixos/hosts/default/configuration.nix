@@ -76,28 +76,10 @@
     HandleLidSwitchExternalPower=ignore
     '';
 
-  services.xserver = {
-    enable = true;
-    desktopManager = {
-      xterm.enable = false;
-      xfce = {
-        enable = true;
-        noDesktop = true;
-        enableXfwm = false;
-      };
-    };
-    displayManager.defaultSession = "xfce";
-    windowManager.i3 = {
-    	enable = true;
-        extraPackages = with pkgs; [
-          dmenu
-          i3status
-          i3lock
-          i3blocks
-	        bemenu # alternative to dmenu
-       ];
-    };
-  };
+  # Enable the GNOME Desktop Environment.
+  services.xserver.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver = {
@@ -168,7 +150,8 @@
     fontDir.enable = true;
     enableGhostscriptFonts = true;
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "JetBrainsMono" "Ubuntu" ]; })
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      ubuntu_font_family
       corefonts  # Microsoft free fonts
       fira-code # Monospace font with programming ligatures
       fira-mono # Mozilla's typeface for Firefox OS
@@ -182,7 +165,6 @@
       noto-fonts-extra
       roboto # Android
       source-han-sans
-      ubuntu_font_family
     ];
     fontconfig = {
       localConf = ''
@@ -269,12 +251,6 @@
   nixpkgs.config.allowUnfree = true;
   # Enable docker.
   virtualisation.docker.enable = true;
-  # Enable gnome keyring.
-  services.gnome.gnome-keyring.enable = true;
-  # Brightness settings.
-  programs.light.enable = true;
-  # Enable polkit.
-  security.polkit.enable = true;
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -287,16 +263,19 @@
     bc
     bibata-cursors
     bloomrpc
-    brightnessctl # sway. Part of sway wm
     clang-tools
     cmake
+    gnomeExtensions.unite # merge title with gnome top dock
+    gnome.gnome-tweaks
+    gnomeExtensions.dash-to-dock
+    gnomeExtensions.pano # clipboard gnome3 history manager
+    wl-clipboard
     delve # golang debugger
     discord
     dmidecode
     dnsutils
     docker-compose
     dos2unix  # Convert between DOS and Unix line endings
-    dunst
     elixir
     elixir-ls
     ethtool
@@ -310,10 +289,7 @@
     gimp
     git
     gnat # core development tools: compilers, linkers, etc.
-    gnome.adwaita-icon-theme # sway. Default theme with cursor
     gnome.dconf-editor
-    gnome.gnome-keyring # sway
-    gnome.seahorse # sway
     gnumake
     go
     golangci-lint # golang linter package
@@ -322,11 +298,8 @@
     gopls # golang language server protocol
     gotools # set of go language code tools
     graphviz
-    gtk-engine-murrine # sway. Required for arc theme
     hdparm
     htop
-    iconpack-obsidian # icon theme
-    imagemagick # sway. `convert` tool.
     inkscape
     inotify-tools # required by elixir mix
     iperf
@@ -336,19 +309,15 @@
     kubectl
     lazygit
     lf
-    libnotify # sway. `notify-send`
     libreoffice
-    libsecret # sway. Required by auto unlock gpg, ssh keys
     libxml2  # xmllint
     lshw
     lsof
     lua-language-server
-    lxappearance
     mpv
     neofetch
     neovim # the text editor of my choice
     netcat
-    nitrogen
     nmap
     nodePackages.eslint # javascript linter
     nodePackages.prettier # javascript formatter
@@ -359,11 +328,9 @@
     openssl
     pandoc # convert/generate documents in different formats
     pciutils
-    picom
     pixz pigz pbzip2 # parallel (de-)compression
     pkg-config
     psmisc  # provides: fuser, killall, pstree, peekfd
-    pulsemixer # sway
     python3
     ripgrep
     rsync
@@ -388,8 +355,6 @@
     whois
     wireshark
     xclip
-    xdg-desktop-portal # sway.
-    xdg-utils # sway.
     xorg.xhost # exec `xhost +` to share clipboard state between docker instance and the host
     yarn
     yarr # rss browser reader
