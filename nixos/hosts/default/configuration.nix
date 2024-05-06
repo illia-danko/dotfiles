@@ -150,7 +150,7 @@
     fontDir.enable = true;
     enableGhostscriptFonts = true;
     packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+      (nerdfonts.override { fonts = [ "JetBrainsMono" "IosevkaTerm" ]; })
       ubuntu_font_family
       corefonts  # Microsoft free fonts
       fira-code # Monospace font with programming ligatures
