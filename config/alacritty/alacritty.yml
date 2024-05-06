@@ -24,7 +24,7 @@ env:
 
 window:
   startup_mode: Maximized
-  decorations: full
+  decorations: "None"
 
 # When true, bold text is drawn using the bright variant of colors.
 draw_bold_text_with_bright_colors: true
