@@ -42,19 +42,20 @@ key_bindings:
 font:
   # The normal (roman) font face to use.
   normal:
-    family: JetBrainsMono Nerd Font Mono
+    family: ${TTY_FONT_FAMILY}
+
     style: Bold
 
   italic:
-    family: JetBrainsMono Nerd Font Mono
+    family: ${TTY_FONT_FAMILY}
     style: Bold Italic
 
   bold:
-    family: JetBrainsMono Nerd Font Mono
+    family: ${TTY_FONT_FAMILY}
     style: ExtraBold
 
   bold-italic:
-    family: JetBrainsMono Nerd Font Mono
+    family: ${TTY_FONT_FAMILY}
     style: ExtraBold Italic
 
   # Point size of the font.

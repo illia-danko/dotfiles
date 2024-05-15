@@ -146,6 +146,7 @@ sub_env() {
         ${TTY_COLOR_BRIGHT_CYAN}\
         ${TTY_COLOR_BRIGHT_WHITE}\
         ${TTY_FONT_SIZE}\
+        ${TTY_FONT_FAMILY}\
         ${TTY_INACTIVE_PANE_BRIGHTNESS}\
         ${ALACRITTY_WINDOW_DECORATION} ' > "$1" ) < "$1"
 

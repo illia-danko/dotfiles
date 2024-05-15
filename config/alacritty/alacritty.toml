@@ -33,19 +33,19 @@ TERM = "xterm-256color"
 size = ${TTY_FONT_SIZE}
 
 [font.bold]
-family = "JetBrainsMono Nerd Font Mono"
+family = "${TTY_FONT_FAMILY}"
 style = "ExtraBold"
 
 [font.bold_italic]
-family = "JetBrainsMono Nerd Font Mono"
+family = "${TTY_FONT_FAMILY}"
 style = "ExtraBold Italic"
 
 [font.italic]
-family = "JetBrainsMono Nerd Font Mono"
+family = "${TTY_FONT_FAMILY}"
 style = "Bold Italic"
 
 [font.normal]
-family = "JetBrainsMono Nerd Font Mono"
+family = "${TTY_FONT_FAMILY}"
 style = "Bold"
 
 [font.offset]
