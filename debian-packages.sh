@@ -24,6 +24,7 @@ core_pkgs() {
         neofetch
         net-tools
         nmap
+        npm
         pandoc
         pkg-config
         postgresql
@@ -92,7 +93,12 @@ custom_pkgs() {
 }
 
 node_pkgs() {
-    sudo npm install -g n yarn vscode-css-languageserver-bin typescript-language-server typescript pyright eslint prettier
+    sudo npm install -g npm n yarn vscode-css-languageserver-bin typescript-language-server typescript pyright eslint prettier
+}
+
+node_pkgs_cleanup() {
+    sudo apt purge npm -yy
+    sudo apt autoremove -yy
 }
 
 go_pkgs() {
@@ -135,8 +141,9 @@ core_pkgs
 # mint_pkgs
 # qt_look_and_feel_pkgs # run qt5ct to configure gtk2 theme
 node_pkgs
+node_pkgs_cleanup
 go_pkgs
 rust_pkgs
 python_pkgs
-misc_pkgs
+# misc_pkgs
 work_pkgs
