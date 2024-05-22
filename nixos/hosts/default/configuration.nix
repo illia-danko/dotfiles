@@ -249,7 +249,6 @@
     ansible
     automake
     bc
-    bibata-cursors
     bloomrpc
     clang-tools
     cmake
