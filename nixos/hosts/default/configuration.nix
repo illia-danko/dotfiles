@@ -13,20 +13,8 @@
   ];
 
   # Bootloader.
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
-
-  boot.initrd.luks.devices."luks-0c51aa8b-638c-48b9-96bf-5a32bdf10809".device = "/dev/disk/by-uuid/0c51aa8b-638c-48b9-96bf-5a32bdf10809";
-  # Setup keyfile
-  boot.initrd.secrets = {
-    "/crypto_keyfile.bin" = null;
-  };
-
-  boot.loader.grub.enableCryptodisk=true;
-
-  boot.initrd.luks.devices."luks-33baee29-9e84-4b56-ae5e-b9a6a7ee74f4".keyFile = "/crypto_keyfile.bin";
-  boot.initrd.luks.devices."luks-0c51aa8b-638c-48b9-96bf-5a32bdf10809".keyFile = "/crypto_keyfile.bin";
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
   networking.hostName = "st321"; # Define your hostname.
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -53,7 +41,7 @@
   };
 
   # Set your time zone.
-  time.timeZone = "Europe/Kyiv";
+  time.timeZone = "Europe/Warsaw";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
