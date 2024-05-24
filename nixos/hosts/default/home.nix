@@ -20,9 +20,6 @@
   home.packages = [
     (pkgs.callPackage ./devcontainer.nix {})
     pkgs.emmet-ls
-    pkgs.emacs29-gtk3
-    pkgs.libtool # required by emacs
-    pkgs.libvterm # required by emacs
   ];
 
   gtk = {
