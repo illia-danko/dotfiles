@@ -252,11 +252,6 @@
     bloomrpc
     clang-tools
     cmake
-    gnomeExtensions.unite # merge title with gnome top dock
-    gnome.gnome-tweaks
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.pano # clipboard gnome3 history manager
-    wl-clipboard
     delve # golang debugger
     discord
     dmidecode
@@ -277,6 +272,10 @@
     git
     gnat # core development tools: compilers, linkers, etc.
     gnome.dconf-editor
+    gnome.gnome-tweaks
+    gnomeExtensions.dash-to-dock
+    gnomeExtensions.pano # clipboard gnome3 history manager
+    gnomeExtensions.unite # merge title with gnome top dock
     gnumake
     go
     golangci-lint # golang linter package
@@ -341,11 +340,13 @@
     whatsapp-for-linux
     whois
     wireshark
+    wl-clipboard
     xclip
     xorg.xhost # exec `xhost +` to share clipboard state between docker instance and the host
     yarn
     yarr # rss browser reader
     yq  # jq but for yaml
+    yt-dlp
     zip
     zk
   ];
