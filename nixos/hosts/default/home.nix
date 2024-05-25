@@ -32,8 +32,8 @@
   gtk = {
     enable = true;
     iconTheme = {
-      name = "Obsidian";
-      package = pkgs.iconpack-obsidian;
+      name = "Numix-Square";
+      package = pkgs.numix-icon-theme-square;
     };
   };
 
