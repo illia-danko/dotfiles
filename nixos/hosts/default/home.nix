@@ -32,8 +32,8 @@
   gtk = {
     enable = true;
     iconTheme = {
-      name = "Numix-Square";
-      package = pkgs.numix-icon-theme-square;
+      name = "Numix-Circle";
+      package = pkgs.numix-icon-theme-circle;
     };
   };
 
