@@ -187,12 +187,12 @@ config.keys = {
     action = wezterm.action.ToggleFullScreen,
   },
   {
-    key = "LeftArrow",
+    key = "h",
     mods = 'ALT',
     action = wezterm.action.MoveTabRelative(-1),
   },
   {
-    key = "RightArrow",
+    key = "l",
     mods = 'ALT',
     action = wezterm.action.MoveTabRelative(1),
   },
