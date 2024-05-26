@@ -186,6 +186,16 @@ config.keys = {
     mods = "SHIFT|CMD",
     action = wezterm.action.ToggleFullScreen,
   },
+  {
+    key = "LeftArrow",
+    mods = 'ALT',
+    action = wezterm.action.MoveTabRelative(-1),
+  },
+  {
+    key = "RightArrow",
+    mods = 'ALT',
+    action = wezterm.action.MoveTabRelative(1),
+  },
 }
 
 return config
