@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, pkgs-unstable, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -24,9 +24,9 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    (pkgs.callPackage ./devcontainer.nix {})
     pkgs.emmet-ls
-    pkgs.obsidian
+    pkgs-unstable.obsidian
+    pkgs-unstable.devcontainer
   ];
 
   gtk = {
