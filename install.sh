@@ -189,7 +189,7 @@ config() {
 config_nixos() {
     path="$script_dir"/nixos
     sudo cp -R $path /etc
-    sudo nixos-rebuild switch --show-trace --upgrade-all --flake /etc/nixos#default
+    sudo nixos-rebuild switch --show-trace --upgrade --flake /etc/nixos#default
 }
 
 case "$1" in
