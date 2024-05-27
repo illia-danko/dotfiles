@@ -21,6 +21,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
+    (pkgs.callPackage ./fdir.nix {})
     pkgs-unstable.devcontainer
     pkgs-unstable.obsidian
     pkgs-unstable.wezterm
