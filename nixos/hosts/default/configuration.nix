@@ -335,7 +335,6 @@
     usbutils
     vagrant
     vscode-langservers-extracted # cssls
-    wezterm
     wget
     whatsapp-for-linux
     whois
