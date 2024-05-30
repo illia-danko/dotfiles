@@ -26,6 +26,7 @@
     pkgs-unstable.obsidian
     pkgs-unstable.wezterm
     pkgs.emmet-ls
+    pkgs.texliveFull
   ];
 
   gtk = {
