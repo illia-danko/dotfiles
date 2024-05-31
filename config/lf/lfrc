@@ -163,6 +163,6 @@ cmd fzf-projects ${{
     set -f
     FZF_DEFAULT_OPTS="${FZF_DEFAULT_OPTS} --height 100% --reverse"
     res="$(zsh -c 'source $HOME/.fzf-projects.zsh && fzf-projects --print || echo -n')"
-    [ -n $res ] && lf -remote "send $id cd \"$res\""
+    [ -n $res ] && lf -remote "send $id cd \"$HOME/$res\""
 }}
 map <c-g> fzf-projects
