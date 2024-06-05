@@ -27,13 +27,14 @@
     pkgs-unstable.wezterm
     pkgs.emmet-ls
     pkgs.texliveFull
+    pkgs.papirus-icon-theme
   ];
 
   gtk = {
     enable = true;
     iconTheme = {
-      name = "Numix-Circle";
-      package = pkgs.numix-icon-theme-circle;
+      name = "Numix-Square";
+      package = pkgs.numix-icon-theme-square;
     };
   };
 
