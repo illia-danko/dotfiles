@@ -13,7 +13,7 @@
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
   # release notes.
-  home.stateVersion = "23.11"; # Please read the comment before changing.
+  home.stateVersion = "24.05"; # Please read the comment before changing.
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -22,8 +22,8 @@
   # environment.
   home.packages = [
     (pkgs.callPackage ./fdir.nix {})
-    pkgs-unstable.devcontainer
-    pkgs-unstable.obsidian
+    pkgs.devcontainer
+    pkgs.obsidian
     pkgs-unstable.wezterm
     pkgs.emmet-ls
     pkgs.texliveFull
