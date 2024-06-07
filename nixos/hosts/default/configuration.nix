@@ -270,11 +270,6 @@
     gimp
     git
     gnat # core development tools: compilers, linkers, etc.
-    gnome.dconf-editor
-    gnome.gnome-tweaks
-    gnomeExtensions.dash-to-dock
-    gnomeExtensions.pano # clipboard gnome3 history manager
-    gnomeExtensions.unite # merge title with gnome top dock
     gnumake
     go
     golangci-lint # golang linter package

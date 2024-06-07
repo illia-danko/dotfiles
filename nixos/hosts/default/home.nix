@@ -28,6 +28,10 @@
     pkgs.emmet-ls
     pkgs.texliveFull
     pkgs.papirus-icon-theme
+    pkgs.gnome.dconf-editor
+    pkgs.gnome.gnome-tweaks
+    pkgs.gnomeExtensions.dash-to-dock
+    pkgs.gnomeExtensions.unite # merge title with gnome top dock
   ];
 
   gtk = {
