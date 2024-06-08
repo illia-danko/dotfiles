@@ -192,6 +192,12 @@ config_nixos() {
     sudo nixos-rebuild switch --show-trace --upgrade --flake /etc/nixos#default
 }
 
+clean_nixos() {
+    sudo nix-collect-garbage -d
+    nix-collect-garbage -d
+    sudo /run/current-system/bin/switch-to-configuration boot
+}
+
 case "$1" in
     sub-packages) sub_packages;;
     packages) packages;;
@@ -200,5 +206,6 @@ case "$1" in
     config-root) config_root;;
     config) config;;
     nixos) config_nixos;;
+    nixos-clean) clean_nixos;;
     *) >&2 echo "'$1' target is not defined." && exit 1;;
 esac
