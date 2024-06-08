@@ -1,7 +1,0 @@
-#!/usr/bin/env bash
-
-# Dirty workaround for bemenu-x11
-# https://github.com/Cloudef/bemenu/issues/374
-# It seems alredy fixed, however not a part for Nixos 23.11.
-
-xclip -selection clipboard -o

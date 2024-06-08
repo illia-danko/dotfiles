@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+set -euo pipefail
+
+bemenu_font="JetBrainsMono Nerd Font Mono Bold 13"
+execute_command="exec"
+clipboard_paste_command="xclip -selection c"
+
+if [ -x "$(command -v i3-msg)" ]; then
+    execute_command="i3-msg -t run_command exec"
+fi
+
+if [ ! -n "$DISPLAY" ]; then
+    execute_command="swaymsg exec"
+    clipboard_paste_command="wl-copy"
+fi
+
+read -r -a bemenu_color_opts <<< "--tb=${TTY_COLOR_BG1_DARK} \
+    --fb=${TTY_COLOR_BG1_DARK} --cb=${TTY_COLOR_BG1_DARK} \
+    --nb=${TTY_COLOR_BG1_DARK} --hb=${TTY_COLOR_BG1_DARK} \
+    --fbb=${TTY_COLOR_BG1_DARK} --sb=${TTY_COLOR_BG1_DARK} \
+    --ab=${TTY_COLOR_BG1_DARK} --scb=${TTY_COLOR_BG1_DARK} \
+    --tf=${TTY_COLOR_RED_DARK} --af=${TTY_COLOR_FG1_DARK} \
+    --ff=${TTY_COLOR_FG1_DARK} \
+    --nf=${TTY_COLOR_FG1_DARK} \
+    --hf=${TTY_COLOR_GREEN_DARK}"
+
+case "$1" in
+    commands)
+        bemenu-run "${bemenu_color_opts[@]}" --fn "${bemenu_font}" \
+            -H 40 -n | \
+            "$execute_command" ;;
+    cliphist)
+        cliphist list | \
+            bemenu "${bemenu_color_opts[@]}" --fn "${bemenu_font}" -H 40 -n -l 999 | \
+            cliphist decode | \
+            # Remove 'return' character in the end of the output if any.
+            sed -e 's/\n$//' | \
+            eval "$clipboard_paste_command";;
+esac
