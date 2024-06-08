@@ -65,6 +65,9 @@
       ExecStart = ''
         ${pkgs.bash}/bin/bash -c 'while ${pkgs.clipnotify}/bin/clipnotify; do ${pkgs.xclip}/bin/xclip -o -selection c | ${pkgs.cliphist}/bin/cliphist store; done'
       '';
+      Restart = "always";
+      TimeoutSec = 3;
+      RestartSec = 3;
     };
     Install = { WantedBy = [ "default.target" ]; };
   };
