@@ -24,6 +24,8 @@
     (pkgs.callPackage ./fdir.nix { })
     pkgs-unstable.bemenu
     pkgs-unstable.wezterm
+    pkgs.cliphist
+    pkgs.clipnotify
     pkgs.devcontainer
     pkgs.emmet-ls
     pkgs.gnome.dconf-editor
