@@ -22,17 +22,18 @@
   # environment.
   home.packages = [
     (pkgs.callPackage ./fdir.nix {})
-    pkgs.devcontainer
-    pkgs.obsidian
+    pkgs-unstable.bemenu
     pkgs-unstable.wezterm
+    pkgs.devcontainer
     pkgs.emmet-ls
-    pkgs.texliveFull
-    pkgs.papirus-icon-theme
     pkgs.gnome.dconf-editor
     pkgs.gnome.gnome-tweaks
     pkgs.gnomeExtensions.dash-to-dock
     pkgs.gnomeExtensions.unite # merge title with gnome top dock
-    pkgs.clipnotify
+    pkgs.obsidian
+    pkgs.papirus-icon-theme
+    pkgs.texliveFull
+    pkgs.xclip
   ];
 
   gtk = {
@@ -49,6 +50,20 @@
     "Xft.hinting"   = true;
     "Xft.antialias" = true;
     "Xft.rgba"      = "rgb";
+  };
+
+  systemd.user.services.cliphist-store = {
+    Unit = {
+      Description = "X11 service. Listen to clipboard events and pipe them to cliphist.";
+    };
+    Service = {
+      ExecStart = ''
+      ${pkgs.bash}/bin/bash -c 'while ${pkgs.clipnotify}/bin/clipnotify; do ${pkgs.xclip}/bin/xclip -o -selection c | ${pkgs.cliphist}/bin/cliphist store; done'
+      '';
+    };
+    Install = {
+      WantedBy = ["default.target"];
+    };
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

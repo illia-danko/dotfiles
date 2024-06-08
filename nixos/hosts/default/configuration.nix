@@ -330,11 +330,9 @@
     vagrant
     vscode-langservers-extracted # cssls
     wget
-    whatsapp-for-linux
     whois
     wireshark
     wl-clipboard
-    xclip
     xorg.xhost # exec `xhost +` to share clipboard state between docker instance and the host
     yarn
     yarr # rss browser reader
