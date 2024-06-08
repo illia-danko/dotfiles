@@ -21,7 +21,7 @@
   # The home.packages option allows you to install Nix packages into your
   # environment.
   home.packages = [
-    (pkgs.callPackage ./fdir.nix {})
+    (pkgs.callPackage ./fdir.nix { })
     pkgs-unstable.bemenu
     pkgs-unstable.wezterm
     pkgs.devcontainer
@@ -49,23 +49,22 @@
   xresources.properties = {
     "Xft.lcdfilter" = "lcddefault";
     "Xft.hintstyle" = "hintslight";
-    "Xft.hinting"   = true;
+    "Xft.hinting" = true;
     "Xft.antialias" = true;
-    "Xft.rgba"      = "rgb";
+    "Xft.rgba" = "rgb";
   };
 
   systemd.user.services.cliphist-store = {
     Unit = {
-      Description = "X11 service. Listen to clipboard events and pipe them to cliphist.";
+      Description =
+        "X11 service. Listen to clipboard events and pipe them to cliphist.";
     };
     Service = {
       ExecStart = ''
-      ${pkgs.bash}/bin/bash -c 'while ${pkgs.clipnotify}/bin/clipnotify; do ${pkgs.xclip}/bin/xclip -o -selection c | ${pkgs.cliphist}/bin/cliphist store; done'
+        ${pkgs.bash}/bin/bash -c 'while ${pkgs.clipnotify}/bin/clipnotify; do ${pkgs.xclip}/bin/xclip -o -selection c | ${pkgs.cliphist}/bin/cliphist store; done'
       '';
     };
-    Install = {
-      WantedBy = ["default.target"];
-    };
+    Install = { WantedBy = [ "default.target" ]; };
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage

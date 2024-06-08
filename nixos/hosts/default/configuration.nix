@@ -5,11 +5,10 @@
 { config, pkgs, inputs, ... }:
 
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-      ./main-user.nix
-      inputs.home-manager.nixosModules.default
+  imports = [ # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+    ./main-user.nix
+    inputs.home-manager.nixosModules.default
   ];
 
   # Bootloader.
@@ -30,7 +29,8 @@
 
   # Bluetooth.
   hardware.bluetooth.enable = true; # enables support for Bluetooth
-  hardware.bluetooth.powerOnBoot = true; # powers up the default Bluetooth controller on boot
+  hardware.bluetooth.powerOnBoot =
+    true; # powers up the default Bluetooth controller on boot
   # Using Bluetooth headset buttons to control media player.
   systemd.user.services.mpris-proxy = {
     description = "Mpris proxy";
@@ -61,7 +61,7 @@
 
   services.logind.extraConfig = ''
     HandleLidSwitchExternalPower=ignore
-    '';
+  '';
 
   # Enable the GNOME Desktop Environment.
   services.xserver.enable = true;
@@ -100,10 +100,10 @@
     # Fix elixir language mix psql integration issue. We need set `trust` to avoid auth problem for
     # local development.
     authentication = pkgs.lib.mkOverride 10 ''
-        # default value of services.postgresql.authentication
-        local all all              trust
-        host  all all 127.0.0.1/32 trust
-        host  all all ::1/128      trust
+      # default value of services.postgresql.authentication
+      local all all              trust
+      host  all all 127.0.0.1/32 trust
+      host  all all ::1/128      trust
     '';
   };
 
@@ -111,9 +111,7 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users = {
-    defaultUserShell = pkgs.zsh;
-  };
+  users = { defaultUserShell = pkgs.zsh; };
 
   main-user = {
     enable = true;
@@ -133,13 +131,13 @@
   };
 
   fonts = {
-    enableDefaultPackages  = true;
+    enableDefaultPackages = true;
     fontDir.enable = true;
     enableGhostscriptFonts = true;
     packages = with pkgs; [
       (nerdfonts.override { fonts = [ "JetBrainsMono" "IosevkaTerm" ]; })
       ubuntu_font_family
-      corefonts  # Microsoft free fonts
+      corefonts # Microsoft free fonts
       fira-code # Monospace font with programming ligatures
       fira-mono # Mozilla's typeface for Firefox OS
       font-awesome
@@ -242,7 +240,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    (google-cloud-sdk.withExtraComponents [google-cloud-sdk.components.gke-gcloud-auth-plugin])
+    (google-cloud-sdk.withExtraComponents
+      [ google-cloud-sdk.components.gke-gcloud-auth-plugin ])
     alacritty # terminal of choice
     anki
     ansible
@@ -256,7 +255,7 @@
     dmidecode
     dnsutils
     docker-compose
-    dos2unix  # Convert between DOS and Unix line endings
+    dos2unix # Convert between DOS and Unix line endings
     elixir
     elixir-ls
     ethtool
@@ -284,13 +283,13 @@
     inotify-tools # required by elixir mix
     iperf
     ispell
-    jq  # json parser
+    jq # json parser
     krita
     kubectl
     lazygit
     lf
     libreoffice
-    libxml2  # xmllint
+    libxml2 # xmllint
     lshw
     lsof
     lua-language-server
@@ -308,9 +307,11 @@
     openssl
     pandoc # convert/generate documents in different formats
     pciutils
-    pixz pigz pbzip2 # parallel (de-)compression
+    pixz
+    pigz
+    pbzip2 # parallel (de-)compression
     pkg-config
-    psmisc  # provides: fuser, killall, pstree, peekfd
+    psmisc # provides: fuser, killall, pstree, peekfd
     python3
     ripgrep
     rsync
@@ -336,7 +337,7 @@
     xorg.xhost # exec `xhost +` to share clipboard state between docker instance and the host
     yarn
     yarr # rss browser reader
-    yq  # jq but for yaml
+    yq # jq but for yaml
     yt-dlp
     zip
     zk
@@ -361,7 +362,20 @@
       syntaxHighlighting.enable = true;
       ohMyZsh = {
         enable = true;
-        plugins = [ "git" "kubectl" "history" "gcloud" "mix" "npm" "yarn" "rust" "rsync" "postgres" "fzf" "docker-compose" ];
+        plugins = [
+          "git"
+          "kubectl"
+          "history"
+          "gcloud"
+          "mix"
+          "npm"
+          "yarn"
+          "rust"
+          "rsync"
+          "postgres"
+          "fzf"
+          "docker-compose"
+        ];
         theme = "intheloop";
       };
     };
@@ -370,9 +384,7 @@
   home-manager = {
     # also pass inputs to home-manager modules.
     extraSpecialArgs = { inherit inputs; };
-    users = {
-      "idanko" = import ./home.nix;
-    };
+    users = { "idanko" = import ./home.nix; };
   };
 
   # List services that you want to enable:

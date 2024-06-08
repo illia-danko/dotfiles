@@ -12,22 +12,22 @@
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable, ... }@inputs:
-  let
-    system = "x86_64-linux";
-    pkgs-unstable = import nixpkgs-unstable {
-      inherit system;
-      config.allowUnfree = true;
-    };
-  in
-  {
-    nixosConfigurations.default = nixpkgs.lib.nixosSystem {
-      specialArgs = { inherit inputs; };
-      modules = [
-        ./hosts/default/configuration.nix
-          inputs.home-manager.nixosModules.default {
+    let
+      system = "x86_64-linux";
+      pkgs-unstable = import nixpkgs-unstable {
+        inherit system;
+        config.allowUnfree = true;
+      };
+    in {
+      nixosConfigurations.default = nixpkgs.lib.nixosSystem {
+        specialArgs = { inherit inputs; };
+        modules = [
+          ./hosts/default/configuration.nix
+          inputs.home-manager.nixosModules.default
+          {
             home-manager.extraSpecialArgs = { pkgs-unstable = pkgs-unstable; };
           }
-      ];
+        ];
+      };
     };
-  };
 }

@@ -1,12 +1,9 @@
 { lib, config, pkgs, ... }:
 
-let
-  cfg = config.main-user;
-in
-{
+let cfg = config.main-user;
+in {
   options.main-user = {
-    enable
-      = lib.mkEnableOption "enable user module";
+    enable = lib.mkEnableOption "enable user module";
 
     userName = lib.mkOption {
       default = "MainUser";
@@ -27,7 +24,17 @@ in
     users.users.${cfg.userName} = {
       isNormalUser = true;
       description = "${cfg.userFullName}";
-      extraGroups = [ "networkmanager" "wheel" "docker" "wireshark" "power" "postgres" "audio" "video" "input" ];
+      extraGroups = [
+        "networkmanager"
+        "wheel"
+        "docker"
+        "wireshark"
+        "power"
+        "postgres"
+        "audio"
+        "video"
+        "input"
+      ];
     };
   };
 }
