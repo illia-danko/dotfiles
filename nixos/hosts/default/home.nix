@@ -30,6 +30,8 @@
     pkgs.gnome.gnome-tweaks
     pkgs.gnomeExtensions.dash-to-dock
     pkgs.gnomeExtensions.unite # merge title with gnome top dock
+    pkgs.nixd
+    pkgs.nixfmt-classic
     pkgs.obsidian
     pkgs.papirus-icon-theme
     pkgs.texliveFull
