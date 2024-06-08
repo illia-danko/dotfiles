@@ -32,6 +32,7 @@
     pkgs.gnome.gnome-tweaks
     pkgs.gnomeExtensions.dash-to-dock
     pkgs.gnomeExtensions.unite # merge title with gnome top dock
+    pkgs.clipnotify
   ];
 
   gtk = {
@@ -40,6 +41,14 @@
       name = "Numix-Square";
       package = pkgs.numix-icon-theme-square;
     };
+  };
+
+  xresources.properties = {
+    "Xft.lcdfilter" = "lcddefault";
+    "Xft.hintstyle" = "hintslight";
+    "Xft.hinting"   = true;
+    "Xft.antialias" = true;
+    "Xft.rgba"      = "rgb";
   };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
