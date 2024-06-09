@@ -295,7 +295,6 @@
     lua-language-server
     mpv
     neofetch
-    neovim # the text editor of my choice
     netcat
     nmap
     nodePackages.eslint # javascript linter

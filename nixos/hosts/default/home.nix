@@ -23,6 +23,7 @@
   home.packages = [
     (pkgs.callPackage ./fdir.nix { })
     pkgs-unstable.bemenu
+    pkgs-unstable.neovim
     pkgs-unstable.wezterm
     pkgs.cliphist
     pkgs.clipnotify
