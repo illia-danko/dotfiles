@@ -49,6 +49,11 @@
     };
   };
 
+  qt = {
+    enable = true;
+    platformTheme.name = "gtk3";
+  };
+
   xresources.properties = {
     "Xft.lcdfilter" = "lcddefault";
     "Xft.hintstyle" = "hintslight";
