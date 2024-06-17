@@ -15,15 +15,15 @@ if [ ! -n "$DISPLAY" ]; then
     clipboard_paste_command="wl-copy"
 fi
 
-read -r -a bemenu_color_opts <<< "--tb=${TTY_COLOR_BG1_DARK} \
-    --fb=${TTY_COLOR_BG1_DARK} --cb=${TTY_COLOR_BG1_DARK} \
-    --nb=${TTY_COLOR_BG1_DARK} --hb=${TTY_COLOR_BG1_DARK} \
-    --fbb=${TTY_COLOR_BG1_DARK} --sb=${TTY_COLOR_BG1_DARK} \
-    --ab=${TTY_COLOR_BG1_DARK} --scb=${TTY_COLOR_BG1_DARK} \
-    --tf=${TTY_COLOR_RED_DARK} --af=${TTY_COLOR_FG1_DARK} \
-    --ff=${TTY_COLOR_FG1_DARK} \
-    --nf=${TTY_COLOR_FG1_DARK} \
-    --hf=${TTY_COLOR_GREEN_DARK}"
+read -r -a bemenu_color_opts <<< "--tb=${TTY_COLOR_BG1} \
+    --fb=${TTY_COLOR_BG1} --cb=${TTY_COLOR_BG1} \
+    --nb=${TTY_COLOR_BG1} --hb=${TTY_COLOR_BG1} \
+    --fbb=${TTY_COLOR_BG1} --sb=${TTY_COLOR_BG1} \
+    --ab=${TTY_COLOR_BG1} --scb=${TTY_COLOR_BG1} \
+    --tf=${TTY_COLOR_RED} --af=${TTY_COLOR_FG1} \
+    --ff=${TTY_COLOR_FG1} \
+    --nf=${TTY_COLOR_FG1} \
+    --hf=${TTY_COLOR_GREEN}"
 
 ref() {
         local line=$(\
