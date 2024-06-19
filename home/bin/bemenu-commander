@@ -43,7 +43,7 @@ ref() {
 	awk '{print $2}' <<< "$data" > "$ref_config_file"
 
 	# Save last column to clipboard.
-	local line=$(awk '{print $2}' <<< "$data")
+	local line=$(awk '{print $1}' <<< "$data")
     gpg -d "$1" 2>/dev/null | \
         awk -v line="$line" 'NR==line {print $NF}' | \
         eval "$clipboard_paste_command"
