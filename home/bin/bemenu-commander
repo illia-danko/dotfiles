@@ -49,6 +49,12 @@ ref() {
         eval "$clipboard_paste_command"
 }
 
+ref_data() {
+	local data="$(cat "$ref_config_file")"
+	notify-send -a 'Ref Data: Clipboard' "$data"
+	eval "$clipboard_paste_command" <<< "$data"
+}
+
 case "$1" in
     commands)
         bemenu-run "${bemenu_color_opts[@]}" --fn "${bemenu_font}" \
@@ -62,5 +68,5 @@ case "$1" in
     ref)
         ref "$HOME/github.com/illia-danko/restricted/ref.gpg";;
 	ref-data)
-		eval "$clipboard_paste_command" < "$ref_config_file"
+		ref_data;;
 esac
