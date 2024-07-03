@@ -47,6 +47,7 @@ core_pkgs() {
         prettier
         pyright
         ripgrep
+        rlwrap
         rust
         shellcheck
         stylua  # lua formatter
