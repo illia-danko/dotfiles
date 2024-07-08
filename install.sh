@@ -173,7 +173,6 @@ config() {
     ([ -x "$(command -v sway)" ] && sub_env_dir "$HOME/.config/sway") || true
     ([ -x "$(command -v mako)" ] && sub_env_dir "$HOME/.config/mako" && pkill mako) || true
     ([ -x "$(command -v kitty)" ] && sub_env_dir "$HOME/.config/kitty") || true
-    ([ -x "$(command -v wezterm)" ] && sub_env_dir "$HOME/.config/wezterm") || true
     ([ -x "$(command -v i3)" ] && sub_env_dir "$HOME/.config/i3") || true
     ([ -x "$(command -v i3blocks)" ] && sub_env_dir "$HOME/.config/i3blocks") || true
 
