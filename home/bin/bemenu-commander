@@ -2,7 +2,7 @@
 
 set -euo pipefail
 
-bemenu_font="JetBrainsMono Nerd Font Mono Bold 13"
+bemenu_font="JetBrainsMono Nerd Font Mono Bold 14"
 execute_command="exec"
 clipboard_paste_command="xclip -r -selection c"
 
