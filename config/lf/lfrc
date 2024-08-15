@@ -24,7 +24,7 @@ set icons
 # Show box margin.
 # set drawbox
 # No preview.
-set nopreview
+set previewer pistol
 set info size:time
 set hidden
 
