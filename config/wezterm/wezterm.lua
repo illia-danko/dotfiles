@@ -100,38 +100,37 @@ config.window_frame = {
   inactive_titlebar_bg = "${TTY_COLOR_BG2}",
 }
 
--- Tmux like Ctrl-{h,j,k,l} navigation.
-
-local code_to_escape_sequence = {
-  ["h"] = "\x08",
-  ["j"] = "\x0a",
-  ["k"] = "\x0b",
-  ["l"] = "\x0c",
-}
-
-local editor_prefix_title = "emacs"
-
-local move_around = function(window, pane, direction_wez, direction_nvim)
-  if pane:get_title():sub(1, string.len(editor_prefix_title)) == editor_prefix_title then
-    sequence = code_to_escape_sequence[direction_nvim]
-    window:perform_action(wezterm.action({ SendString = sequence }), pane)
-  else
-    window:perform_action(wezterm.action({ ActivatePaneDirection = direction_wez }), pane)
-  end
+-- Neovim intergration.
+local function is_neovim(pane)
+  return pane:get_user_vars().IS_NVIM == 'true'
 end
 
-wezterm.on("move-left", function(window, pane)
-  move_around(window, pane, "Left", "h")
-end)
-wezterm.on("move-right", function(window, pane)
-  move_around(window, pane, "Right", "l")
-end)
-wezterm.on("move-up", function(window, pane)
-  move_around(window, pane, "Up", "k")
-end)
-wezterm.on("move-down", function(window, pane)
-  move_around(window, pane, "Down", "j")
-end)
+local direction_keys = {
+  h = 'Left',
+  j = 'Down',
+  k = 'Up',
+  l = 'Right',
+}
+
+local function neovim_nav_key(resize_or_move, key)
+  return {
+    key = key,
+    mods = resize_or_move == 'resize' and 'META' or 'CTRL',
+    action = wezterm.action_callback(function(win, pane)
+      if is_neovim(pane) then
+        win:perform_action({
+          SendKey = { key = key, mods = resize_or_move == 'resize' and 'META' or 'CTRL' },
+        }, pane)
+      else
+        if resize_or_move == 'resize' then
+          win:perform_action({ AdjustPaneSize = { direction_keys[key], 3 } }, pane)
+        else
+          win:perform_action({ ActivatePaneDirection = direction_keys[key] }, pane)
+        end
+      end
+    end),
+  }
+end
 
 -- config.disable_default_key_bindings = true
 config.leader = { key = "Space", mods = "CTRL" }
@@ -196,6 +195,15 @@ config.keys = {
     mods = 'ALT',
     action = wezterm.action.MoveTabRelative(1),
   },
+  neovim_nav_key('move', 'h'),
+  neovim_nav_key('move', 'j'),
+  neovim_nav_key('move', 'k'),
+  neovim_nav_key('move', 'l'),
+  -- resize panes
+  neovim_nav_key('resize', 'h'),
+  neovim_nav_key('resize', 'j'),
+  neovim_nav_key('resize', 'k'),
+  neovim_nav_key('resize', 'l'),
 }
 
 return config
