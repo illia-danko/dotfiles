@@ -39,7 +39,7 @@ map x $$f
 map X !$f
 
 # Disable right parent dir panel.
-set ratios 1
+set ratios 1:2
 
 # Define a custom 'open' command.
 # This command is called when current file is not a directory. You may want to
