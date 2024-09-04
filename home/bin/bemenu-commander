@@ -2,7 +2,9 @@
 
 set -euo pipefail
 
-bemenu_font="JetBrainsMono Nerd Font Mono Bold 14"
+bemenu_font_size="13"
+bemenu_line_height="32"
+bemenu_font="JetBrainsMono Nerd Font Mono Bold ${bemenu_font_size}"
 execute_command="exec"
 clipboard_paste_command="xclip -r -selection c"
 
@@ -36,7 +38,7 @@ ref() {
     local data=$(\
 				 gpg -d "$1" 2>/dev/null | \
 					 awk 'NF > 0 {$NF = gensub(/./, "*", "g", $NF); print NR, $0}' | \
-					 bemenu "${bemenu_color_opts[@]}" --fn "${bemenu_font}" -p "ref" -H 40 -n -l 999 | \
+					 bemenu "${bemenu_color_opts[@]}" --fn "${bemenu_font}" -p "ref" -H "${bemenu_line_height}" -n -l 999 | \
 					 awk '{print $1, $(NF-1)}')
 
 	# Save column before last to ref_config_file.
@@ -62,7 +64,7 @@ case "$1" in
             "$execute_command" ;;
     cliphist)
         cliphist list | \
-            bemenu "${bemenu_color_opts[@]}" --fn "${bemenu_font}" -p "cliphist" -H 40 -n -l 999 | \
+            bemenu "${bemenu_color_opts[@]}" --fn "${bemenu_font}" -p "cliphist" -H "${bemenu_line_height}" -n -l 999 | \
             cliphist decode | \
             eval "$clipboard_paste_command";;
     ref)
