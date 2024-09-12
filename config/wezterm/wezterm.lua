@@ -100,9 +100,9 @@ config.window_frame = {
   inactive_titlebar_bg = "${TTY_COLOR_BG2}",
 }
 
--- Neovim intergration.
-local function is_neovim(pane)
-  return pane:get_user_vars().IS_NVIM == 'true'
+local function is_editor(pane)
+  local process_name = string.gsub(pane:get_foreground_process_name(), '(.*[/\\])(.*)', '%2')
+  return process_name == 'nvim' or process_name == 'vim' or string.find(process_name, 'emacs')
 end
 
 local direction_keys = {
@@ -117,7 +117,7 @@ local function neovim_nav_key(resize_or_move, key)
     key = key,
     mods = resize_or_move == 'resize' and 'META' or 'CTRL',
     action = wezterm.action_callback(function(win, pane)
-      if is_neovim(pane) then
+      if is_editor(pane) then
         win:perform_action({
           SendKey = { key = key, mods = resize_or_move == 'resize' and 'META' or 'CTRL' },
         }, pane)
