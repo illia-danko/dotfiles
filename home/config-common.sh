@@ -70,7 +70,8 @@ if [ -x "$(command -v fzf)" ]; then
 "
 
     export FZF_PREVIEW_COMMAND="cat {}"
-    export RG_OPTS_FILTER='--hidden --glob=!{.git,.svn,.hg,CVS,.bzr,vendor,node_modules,dist,venv,elm-stuff,.clj-kondo,.lsp,.cpcache,.ccls-cache}'
+	export SEARCH_EXCLUDED_DIRS="SCCS,RCS,CVS,MCVS,.git,.svn,.hg,.bzr,vendor,deps,node_modules,dist,venv,elm-stuff,.clj-kondo,.lsp,.cpcache,.ccls-cache"
+    export RG_OPTS_FILTER="--hidden --glob=!{$SEARCH_EXCLUDED_DIRS}"
     export FZF_DEFAULT_COMMAND="rg --files $RG_OPTS_FILTER"
     export FZF_NOTES_DIR="$HOME/github.com/illia-danko/zettelkasten"
     export FZF_PROJECTS_ROOT_DIRS=" \
