@@ -1,8 +1,6 @@
 -- Pull in the wezterm API
 local wezterm = require("wezterm")
 
-local mux = wezterm.mux
-
 -- This table will hold the configuration.
 local config = {}
 
@@ -112,7 +110,7 @@ local direction_keys = {
   l = 'Right',
 }
 
-local function neovim_nav_key(resize_or_move, key)
+local function editor_nav_key(resize_or_move, key)
   return {
     key = key,
     mods = resize_or_move == 'resize' and 'META' or 'CTRL',
@@ -195,15 +193,15 @@ config.keys = {
     mods = 'ALT',
     action = wezterm.action.MoveTabRelative(1),
   },
-  neovim_nav_key('move', 'h'),
-  neovim_nav_key('move', 'j'),
-  neovim_nav_key('move', 'k'),
-  neovim_nav_key('move', 'l'),
+  editor_nav_key('move', 'h'),
+  editor_nav_key('move', 'j'),
+  editor_nav_key('move', 'k'),
+  editor_nav_key('move', 'l'),
   -- resize panes
-  neovim_nav_key('resize', 'h'),
-  neovim_nav_key('resize', 'j'),
-  neovim_nav_key('resize', 'k'),
-  neovim_nav_key('resize', 'l'),
+  editor_nav_key('resize', 'h'),
+  editor_nav_key('resize', 'j'),
+  editor_nav_key('resize', 'k'),
+  editor_nav_key('resize', 'l'),
 }
 
 return config
