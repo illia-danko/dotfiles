@@ -166,3 +166,8 @@ cmd fzf-projects ${{
     [ -n $res ] && lf -remote "send $id cd \"$HOME/$res\""
 }}
 map <c-g> fzf-projects
+
+cmd lg ${{
+    lazygit
+}}
+map ,gg lg
