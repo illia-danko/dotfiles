@@ -17,11 +17,11 @@ if [ ! -n "$DISPLAY" ]; then
     clipboard_paste_command="wl-copy"
 fi
 
-read -r -a bemenu_color_opts <<< "--tb=${TTY_COLOR_BG1} \
-    --fb=${TTY_COLOR_BG1} --cb=${TTY_COLOR_BG1} \
-    --nb=${TTY_COLOR_BG1} --hb=${TTY_COLOR_BG1} \
-    --fbb=${TTY_COLOR_BG1} --sb=${TTY_COLOR_BG1} \
-    --ab=${TTY_COLOR_BG1} --scb=${TTY_COLOR_BG1} \
+read -r -a bemenu_color_opts <<< "--tb=${TTY_COLOR_BG0} \
+    --fb=${TTY_COLOR_BG0} --cb=${TTY_COLOR_BG0} \
+    --nb=${TTY_COLOR_BG0} --hb=${TTY_COLOR_BG0} \
+    --fbb=${TTY_COLOR_BG0} --sb=${TTY_COLOR_BG0} \
+    --ab=${TTY_COLOR_BG0} --scb=${TTY_COLOR_BG0} \
     --tf=${TTY_COLOR_RED} --af=${TTY_COLOR_FG0} \
     --ff=${TTY_COLOR_FG0} \
     --nf=${TTY_COLOR_FG0} \
