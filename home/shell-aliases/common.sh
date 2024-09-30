@@ -11,7 +11,7 @@
 [ -x "$(command -v bc)" ] && alias bc="bc -l"
 [ -x "$(command -v dmesg)" ] && alias dmesg='dmesg --color=always | less'
 [ -x "$(command -v fdfind)" ] && alias fd="fdfind"
-[ -x "$(command -v tmux)" ] && alias t="tmux new -d -s CODE; tmux new -d -s WORK; tmux new -d -s MEDIA; tmux attach -t CODE"
+[ -x "$(command -v tmux)" ] && alias t="tmux new -d -s '󱃖 CODE'; tmux new -d -s '󱗀 WORK'; tmux new -d -s ' MEDIA'; tmux attach -t '󱃖 CODE'"
 [ -x "$(command -v clj)" ] && alias clj_repl="clj -M:cider/nrepl"
 [ -x "$(command -v wget)" ] && alias getpage="wget -qO-"
 [ -x "$(command -v lsof)" ] && alias listen_ports="lsof -nP -iTCP -sTCP:LISTEN"
