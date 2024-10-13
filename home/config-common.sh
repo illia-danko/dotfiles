@@ -83,6 +83,7 @@ if [ -x "$(command -v fzf)" ]; then
         $HOME/bitbucket.org \
         $HOME/bitbucket.dentsplysirona.com"
     export FZF_PROJECTS_PATTERNS=".git"
+    export FZF_PROJECTS_STATIC_DIRS="$HOME/Downloads $HOME/Documents $HOME/Videos $HOME/Music $HOME/Pictures $HOME/Desktop"
 fi
 
 # Clean up.
