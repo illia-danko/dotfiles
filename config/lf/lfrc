@@ -127,6 +127,7 @@ cmd copy-clipboard ${{
 
 # Create a directory.
 map + push %mkdir<space>-p<space>
+map = push %touch<space>
 
 # Delete m mapping.
 map m
