@@ -113,11 +113,11 @@ local direction_keys = {
 local function editor_nav_key(resize_or_move, key)
   return {
     key = key,
-    mods = resize_or_move == 'resize' and 'META' or 'CTRL',
+    mods = resize_or_move == 'resize' and 'ALT|SHIFT' or 'CTRL',
     action = wezterm.action_callback(function(win, pane)
       if is_editor(pane) then
         win:perform_action({
-          SendKey = { key = key, mods = resize_or_move == 'resize' and 'META' or 'CTRL' },
+          SendKey = { key = key, mods = resize_or_move == 'resize' and 'ALT|SHIFT' or 'CTRL' },
         }, pane)
       else
         if resize_or_move == 'resize' then
@@ -163,14 +163,8 @@ config.keys = {
     mods = "LEADER|SHIFT",
     action = wezterm.action({ AdjustPaneSize = { "Right", 5 } }),
   },
-  { key = "f", mods = "LEADER", action = wezterm.action({ ActivateTab = 0 }) },
-  { key = "j", mods = "LEADER", action = wezterm.action({ ActivateTab = 1 }) },
-  { key = "d", mods = "LEADER", action = wezterm.action({ ActivateTab = 2 }) },
-  { key = "k", mods = "LEADER", action = wezterm.action({ ActivateTab = 3 }) },
-  { key = "s", mods = "LEADER", action = wezterm.action({ ActivateTab = 4 }) },
-  { key = "l", mods = "LEADER", action = wezterm.action({ ActivateTab = 5 }) },
-  { key = "a", mods = "LEADER", action = wezterm.action({ ActivateTab = 6 }) },
-  { key = ";", mods = "LEADER", action = wezterm.action({ ActivateTab = 7 }) },
+  { key = "h", mods = "ALT", action = wezterm.action({ ActivateTabRelative = -1 }) },
+  { key = "l", mods = "ALT", action = wezterm.action({ ActivateTabRelative = 1 }) },
   {
     key = "x",
     mods = "LEADER",
@@ -182,25 +176,15 @@ config.keys = {
     mods = "SHIFT|CMD",
     action = wezterm.action.ToggleFullScreen,
   },
-  {
-    key = "h",
-    mods = 'ALT',
-    action = wezterm.action.MoveTabRelative(-1),
-  },
-  {
-    key = "l",
-    mods = 'ALT',
-    action = wezterm.action.MoveTabRelative(1),
-  },
-  editor_nav_key('move', 'h'),
-  editor_nav_key('move', 'j'),
-  editor_nav_key('move', 'k'),
-  editor_nav_key('move', 'l'),
+  editor_nav_key("move", "h"),
+  editor_nav_key("move", "j"),
+  editor_nav_key("move", "k"),
+  editor_nav_key("move", "l"),
   -- resize panes
-  editor_nav_key('resize', 'h'),
-  editor_nav_key('resize', 'j'),
-  editor_nav_key('resize', 'k'),
-  editor_nav_key('resize', 'l'),
+  editor_nav_key("resize", "h"),
+  editor_nav_key("resize", "j"),
+  editor_nav_key("resize", "k"),
+  editor_nav_key("resize", "l"),
 }
 
 return config
