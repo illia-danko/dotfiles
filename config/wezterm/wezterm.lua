@@ -38,7 +38,7 @@ config.initial_cols = 511
 config.initial_rows = 511
 config.audible_bell = "Disabled" -- disable audio bell
 config.font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Bold" })
-config.font_size = 11.5
+config.font_size = 10
 config.warn_about_missing_glyphs = false
 config.use_fancy_tab_bar = false
 config.freetype_load_target = "HorizontalLcd"
@@ -55,8 +55,8 @@ config.colors = {
   background = "${TTY_COLOR_BG0}",
   cursor_bg = "${TTY_COLOR_FG0}",
   cursor_fg = "${TTY_COLOR_BG0}",
-  split = "${TTY_COLOR_BG2}",
-  selection_bg = "${TTY_COLOR_WHITE}",
+  split = "${TTY_COLOR_WHITE}",
+  selection_bg = "${TTY_COLOR_FG0}",
   selection_fg = "${TTY_COLOR_BG0}",
 
   ansi = {
