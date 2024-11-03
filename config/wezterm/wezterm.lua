@@ -219,10 +219,7 @@ config.key_tables = {
     {
       key = 'Escape',
       mods = 'NONE',
-      action = wezterm.action_callback(function(win, pane)
-        win:perform_action(act.CopyMode 'ScrollToBottom', pane)
-        win:perform_action(act.CopyMode 'Close', pane)
-      end),
+      action = act.Multiple { { CopyMode =  'Close' } },
     },
     {
       key = 'Space',
@@ -334,10 +331,7 @@ config.key_tables = {
     {
       key = 'c',
       mods = 'CTRL',
-      action = wezterm.action_callback(function(win, pane)
-        win:perform_action(act.CopyMode 'ScrollToBottom', pane)
-        win:perform_action(act.CopyMode 'Close', pane)
-      end),
+      action = act.Multiple { { CopyMode =  'Close' } },
     },
     {
       key = 'd',
@@ -364,10 +358,7 @@ config.key_tables = {
     {
       key = 'g',
       mods = 'CTRL',
-      action = wezterm.action_callback(function(win, pane)
-        win:perform_action(act.CopyMode 'ScrollToBottom', pane)
-        win:perform_action(act.CopyMode 'Close', pane)
-      end),
+      action = act.Multiple { { CopyMode =  'Close' } },
     },
     { key = 'h', mods = 'NONE', action = act.CopyMode 'MoveLeft' },
     { key = 'j', mods = 'NONE', action = act.CopyMode 'MoveDown' },
@@ -386,10 +377,7 @@ config.key_tables = {
     {
       key = 'q',
       mods = 'NONE',
-      action = wezterm.action_callback(function(win, pane)
-        win:perform_action(act.CopyMode 'ScrollToBottom', pane)
-        win:perform_action(act.CopyMode 'Close', pane)
-      end),
+      action = act.Multiple { { CopyMode =  'Close' } },
     },
     {
       key = 't',
