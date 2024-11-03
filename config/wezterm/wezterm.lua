@@ -170,6 +170,21 @@ config.keys = {
     mods = "LEADER",
     action = wezterm.action({ CloseCurrentPane = { confirm = false } }),
   },
+  {
+    key = "o",
+    mods = "LEADER",
+    -- Close all panes but the current one.
+    action = wezterm.action_callback(function(window, pane)
+      local tab = pane:tab()
+      local panes = tab:panes()
+
+      for _, p in ipairs(panes) do
+        if p:pane_id() ~= pane:pane_id() then
+          wezterm.run_child_process({'wezterm', 'cli', 'kill-pane' , '--pane-id', p:pane_id()})
+        end
+      end
+    end)
+  },
   { key = "[", mods = "LEADER", action = "ActivateCopyMode" },
   {
     key = "UpArrow",
