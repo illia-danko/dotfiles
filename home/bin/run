@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# Take elixir script name and execute it. The script should be located in the same directory.
+
+set -euo pipefail
+
+SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
+COMMAND="$1"
+
+elixir "$SCRIPT_DIR"/"$COMMAND".exs "$@"
