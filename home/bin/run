@@ -7,4 +7,4 @@ set -euo pipefail
 SCRIPT_DIR=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd)
 COMMAND="$1"
 
-elixir "$SCRIPT_DIR"/"$COMMAND".exs "$@"
+elixir "$SCRIPT_DIR"/elixir/"$COMMAND".exs "$@"
