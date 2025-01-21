@@ -401,7 +401,7 @@ config.key_tables = {
       action = act.CopyMode { SetSelectionMode = 'Block' },
     },
     { key = 'w', mods = 'NONE', action = act.CopyMode 'MoveForwardWord' },
-    { key = 'y', mods = 'NONE', action = act.Multiple { { CopyTo =  'ClipboardAndPrimarySelection' }, { CopyMode =  'Close' }, act.ClearSelection } },
+    { key = 'y', mods = 'NONE', action = act.Multiple { { CopyTo =  'ClipboardAndPrimarySelection' }, act.CopyMode('ClearPattern'), { CopyMode =  'Close' }, act.ClearSelection } },
     { key = 'PageUp', mods = 'NONE', action = act.CopyMode 'PageUp' },
     { key = 'PageDown', mods = 'NONE', action = act.CopyMode 'PageDown' },
     {
@@ -432,6 +432,17 @@ config.key_tables = {
     },
     { key = 'UpArrow', mods = 'NONE', action = act.CopyMode 'MoveUp' },
     { key = 'DownArrow', mods = 'NONE', action = act.CopyMode 'MoveDown' },
+    { key="/", mods="NONE", action=wezterm.action{Search={CaseSensitiveString=""}} },
+    -- navigate any search mode results
+    { key="n", mods="NONE", action=wezterm.action{CopyMode="NextMatch" } },
+    { key="N", mods="SHIFT", action=wezterm.action{CopyMode="PriorMatch" } },
+    { key="Escape", mods="NONE", action= act.Multiple { act.CopyMode('ClearPattern'), { CopyMode =  'Close' }, act.ClearSelection } },
+    { key="c", mods="CTRL", action= act.Multiple { act.CopyMode('ClearPattern'), { CopyMode =  'Close' }, act.ClearSelection } }
+  },
+  search_mode = {
+    { key="Enter", mods="NONE", action="ActivateCopyMode" },
+    { key="Escape", mods="NONE", action = act.Multiple { act.CopyMode('ClearPattern'), act.ClearSelection, act.ActivateCopyMode } },
+    { key="c", mods="CTRL", action = act.Multiple { act.CopyMode('ClearPattern'), act.ClearSelection, act.ActivateCopyMode } }
   },
 }
 
