@@ -164,8 +164,8 @@ config.keys = {
     mods = "LEADER|SHIFT",
     action = wezterm.action({ AdjustPaneSize = { "Right", 5 } }),
   },
-  { key = "h", mods = "LEADER", action = wezterm.action({ ActivateTabRelative = -1 }) },
-  { key = "l", mods = "LEADER", action = wezterm.action({ ActivateTabRelative = 1 }) },
+  { key = "h", mods = "ALT", action = wezterm.action({ ActivateTabRelative = -1 }) },
+  { key = "l", mods = "ALT", action = wezterm.action({ ActivateTabRelative = 1 }) },
   {
     key = "x",
     mods = "LEADER",
