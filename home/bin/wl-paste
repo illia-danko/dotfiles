@@ -1,6 +1,0 @@
-#!/usr/bin/env bash
-
-case "$XDG_SESSION_TYPE" in
-  'x11') xclip -selection clipboard -o;;          # using xclip
-  *) err "Unknown display server";;
-esac

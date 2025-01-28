@@ -9,15 +9,17 @@ execute_command="exec"
 clipboard_paste_command="xclip -r -selection c"
 
 if [ -x "$(command -v i3-msg)" ]; then
-    execute_command="i3-msg -t run_command exec"
+	execute_command="i3-msg -t run_command exec"
 fi
 
 if [ ! -n "$DISPLAY" ]; then
-    execute_command="swaymsg exec"
-    clipboard_paste_command="wl-copy"
+	execute_command="swaymsg exec"
+	clipboard_paste_command="wl-copy"
 fi
 
-read -r -a bemenu_color_opts <<< "--tb=${TTY_COLOR_BG0} \
+[ "$XDG_SESSION_TYPE" = wayland ] && export BEMENU_BACKEND=curses || true
+
+read -r -a bemenu_color_opts <<<"--tb=${TTY_COLOR_BG0} \
     --fb=${TTY_COLOR_BG0} --cb=${TTY_COLOR_BG0} \
     --nb=${TTY_COLOR_BG0} --hb=${TTY_COLOR_BG0} \
     --fbb=${TTY_COLOR_BG0} --sb=${TTY_COLOR_BG0} \
@@ -35,40 +37,45 @@ ref() {
 	mkdir -p "$config_dir"
 
 	# Store line number and the column before last.
-    local data=$(\
-				 gpg -d "$1" 2>/dev/null | \
-					 awk 'NF > 0 {$NF = gensub(/./, "*", "g", $NF); print NR, $0}' | \
-					 bemenu "${bemenu_color_opts[@]}" --fn "${bemenu_font}" -p "ref" -H "${bemenu_line_height}" -n -l 999 | \
-					 awk '{print $1, $(NF-1)}')
+	local data=$(
+		gpg -d "$1" 2>/dev/null |
+			awk 'NF > 0 {$NF = gensub(/./, "*", "g", $NF); print NR, $0}' |
+			bemenu "${bemenu_color_opts[@]}" --fn "${bemenu_font}" -p "ref" -H "${bemenu_line_height}" -n -l 999 |
+			awk '{print $1, $(NF-1)}'
+	)
 
 	# Save column before last to ref_config_file.
-	awk '{print $2}' <<< "$data" > "$ref_config_file"
+	awk '{print $2}' <<<"$data" >"$ref_config_file"
 
 	# Save last column to clipboard.
-	local line=$(awk '{print $1}' <<< "$data")
-    gpg -d "$1" 2>/dev/null | \
-        awk -v line="$line" 'NR==line {print $NF}' | \
-        eval "$clipboard_paste_command"
+	local line=$(awk '{print $1}' <<<"$data")
+	gpg -d "$1" 2>/dev/null |
+		awk -v line="$line" 'NR==line {print $NF}' |
+		eval "$clipboard_paste_command"
 }
 
 ref_data() {
 	local data="$(cat "$ref_config_file")"
 	notify-send -a 'Ref Data: Clipboard' "$data"
-	eval "$clipboard_paste_command" <<< "$data"
+	eval "$clipboard_paste_command" <<<"$data"
 }
 
 case "$1" in
-    commands)
-        bemenu-run "${bemenu_color_opts[@]}" --fn "${bemenu_font}" \
-            -p "run" -H 40 -n | \
-            "$execute_command" ;;
-    cliphist)
-        cliphist list | \
-            bemenu "${bemenu_color_opts[@]}" --fn "${bemenu_font}" -p "cliphist" -H "${bemenu_line_height}" -n -l 999 | \
-            cliphist decode | \
-            eval "$clipboard_paste_command";;
-    ref)
-        ref "$HOME/github.com/illia-danko/restricted/ref.gpg";;
-	ref-data)
-		ref_data;;
+commands)
+	bemenu-run "${bemenu_color_opts[@]}" --fn "${bemenu_font}" \
+		-p "run" -H 40 -n >/dev/null 2>&1 |
+		eval "$execute_command"
+	;;
+cliphist)
+	cliphist list |
+		bemenu "${bemenu_color_opts[@]}" --fn "${bemenu_font}" -p "cliphist" -H "${bemenu_line_height}" -n -l 999 |
+		cliphist decode |
+		eval "$clipboard_paste_command"
+	;;
+ref)
+	ref "$HOME/github.com/illia-danko/restricted/ref.gpg"
+	;;
+ref-data)
+	ref_data
+	;;
 esac

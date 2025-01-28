@@ -43,4 +43,9 @@ if [ -x "$(command -v nix-env)" ]; then
     alias nix-del="sudo nix-collect-garbage -d && sudo /run/current-system/bin/switch-to-configuration boot"
 fi
 
+alias bh="bemenu-commander cliphist"
+alias br="bemenu-commander ref"
+alias bd="bemenu-commander ref-data"
+alias bx="bemenu-commander commands"
+
 unset s
