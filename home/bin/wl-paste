@@ -2,6 +2,5 @@
 
 case "$XDG_SESSION_TYPE" in
   'x11') xclip -selection clipboard -o;;          # using xclip
-  'wayland') wl-paste;;
   *) err "Unknown display server";;
 esac
