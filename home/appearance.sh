@@ -9,11 +9,10 @@ if [ ! -f "$s" ]; then
 fi
 
 export SYSTEM_COLOR_THEME="$(cat "$s")"
-export TTY_FONT_SIZE="10"
+export TTY_FONT_SIZE="13"
 export TTY_FONT_FAMILY="JetBrainsMono Nerd Font Mono"
 export ALACRITTY_WINDOW_DECORATION="None"
 if [ "$(uname)" = "Darwin" ]; then
-    export TTY_FONT_SIZE="13"
     export ALACRITTY_WINDOW_DECORATION="Buttonless"
 fi
 
