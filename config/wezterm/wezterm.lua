@@ -34,6 +34,25 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
   }
 end)
 
+config.line_height = 1.0
+wezterm.on("increase-line-height", function(window, pane)
+  local overrides = window:get_config_overrides() or {}
+  overrides.line_height = (overrides.line_height or config.line_height) + 0.1
+  window:set_config_overrides(overrides)
+end)
+
+wezterm.on("decrease-line-height", function(window, pane)
+  local overrides = window:get_config_overrides() or {}
+  overrides.line_height = math.max((overrides.line_height or config.line_height) - 0.1, 1.0) -- Keep it reasonable
+  window:set_config_overrides(overrides)
+end)
+
+wezterm.on("reset-line-height", function(window, pane)
+  local overrides = window:get_config_overrides() or {}
+  overrides.line_height = 1.0
+  window:set_config_overrides(overrides)
+end)
+
 config.initial_cols = 511
 config.initial_rows = 511
 config.audible_bell = "Disabled" -- disable audio bell
@@ -201,6 +220,21 @@ config.keys = {
   editor_nav_key("resize", "j"),
   editor_nav_key("resize", "k"),
   editor_nav_key("resize", "l"),
+  {
+    key = "+",
+    mods = "CTRL|SHIFT",
+    action = wezterm.action.EmitEvent("increase-line-height"),
+  },
+  {
+    key = "_",
+    mods = "CTRL|SHIFT",
+    action = wezterm.action.EmitEvent("decrease-line-height"),
+  },
+  {
+    key = ")",
+    mods = "CTRL|SHIFT",
+    action = wezterm.action.EmitEvent("reset-line-height"),
+  }
 }
 
 local act = wezterm.action
