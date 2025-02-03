@@ -12,6 +12,9 @@
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+# Use neovim as man pager.
+export MANPAGER='nvim +Man!'
+export MANWIDTH=80
 export CLIPBOARD_COPY_COMMAND="xclip -in -selection c"
 [ "$(uname)" = "Darwin" ] && export CLIPBOARD_COPY_COMMAND="pbcopy"
 

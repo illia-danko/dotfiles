@@ -23,14 +23,6 @@ ps_mb() {
     ps afu | awk 'NR>1 {$5=int($5/1024)"M";}{ print;}'
 }
 
-# Use Neovim as a Man page viewer.
-man() {
-    # Show appropriate an error on no manual.
-    local man_cmd="$(whereis man | awk '{print $2}')"
-    "$man_cmd" "$*" > /dev/null 2>&1 || "$man_cmd" "$*" || return
-    $EDITOR -c "Man $*" -c "only" -c "set laststatus=0" -c "nmap <buffer> q ZQ"
-}
-
 alias url_decode='perl -pe '\''s/\+/ /g;'\'' -e '\''s/%(..)/chr(hex($1))/eg;'\'' <<< '
 url_encode() {
     printf %s "$1" | jq -sRr @uri
