@@ -157,6 +157,7 @@ end
 -- config.disable_default_key_bindings = true
 config.leader = { key = "Space", mods = "CTRL" }
 config.keys = {
+  { key = ' ', mods = 'SHIFT', action = wezterm.action.SendKey { key = ' ' } },
   { key = "Space", mods = "LEADER|CTRL", action = wezterm.action({ SendString = "\x01" }) },
   {
     key = "\\",
