@@ -59,6 +59,7 @@ alias gg="git pull"
 alias gp="git push"
 alias gs="git status"
 alias gf="git log -p --all -S"
+alias gF="git log --diff-filter=D --summary --oneline" # show delete files history with commit hashes
 alias gu="_grevert show"  # undo a commit
 alias gr="_grevert diff"  # remove up to a hash
 alias gm="_gmessage_search"
