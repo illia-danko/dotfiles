@@ -35,20 +35,25 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
 end)
 
 config.line_height = 1.0
-wezterm.on("increase-line-height", function(window, pane)
+config.font_size = ${TTY_FONT_SIZE}
+
+wezterm.on("increase-font-size", function(window, pane)
   local overrides = window:get_config_overrides() or {}
-  overrides.line_height = (overrides.line_height or config.line_height) + 0.1
+  overrides.font_size = (overrides.font_size or config.font_size) + 1.0
+  overrides.line_height = (overrides.line_height or config.line_height) + 0.4
   window:set_config_overrides(overrides)
 end)
 
-wezterm.on("decrease-line-height", function(window, pane)
+wezterm.on("decrease-font-size", function(window, pane)
   local overrides = window:get_config_overrides() or {}
-  overrides.line_height = math.max((overrides.line_height or config.line_height) - 0.1, 1.0) -- Keep it reasonable
+  overrides.font_size = math.max((overrides.font_size or config.font_size) - 1.0, ${TTY_FONT_SIZE}) -- Keep it reasonable
+  overrides.line_height = math.max((overrides.line_height or config.line_height) - 0.4, 1.0) -- Keep it reasonable
   window:set_config_overrides(overrides)
 end)
 
-wezterm.on("reset-line-height", function(window, pane)
+wezterm.on("reset-font-size", function(window, pane)
   local overrides = window:get_config_overrides() or {}
+  overrides.font_size = ${TTY_FONT_SIZE}
   overrides.line_height = 1.0
   window:set_config_overrides(overrides)
 end)
@@ -58,7 +63,6 @@ config.initial_rows = 511
 config.audible_bell = "Disabled" -- disable audio bell
 config.font = wezterm.font("JetBrainsMono Nerd Font Mono", { weight = "Bold" })
 config.warn_about_missing_glyphs = false
-config.font_size = ${TTY_FONT_SIZE}
 config.use_fancy_tab_bar = false
 config.freetype_load_target = "HorizontalLcd"
 config.freetype_render_target = "HorizontalLcd"
@@ -221,20 +225,20 @@ config.keys = {
   editor_nav_key("resize", "k"),
   editor_nav_key("resize", "l"),
   {
-    key = "+",
-    mods = "CTRL|SHIFT",
-    action = wezterm.action.EmitEvent("increase-line-height"),
+    key = "=",
+    mods = "CTRL",
+    action = wezterm.action.EmitEvent("increase-font-size"),
   },
   {
-    key = "_",
-    mods = "CTRL|SHIFT",
-    action = wezterm.action.EmitEvent("decrease-line-height"),
+    key = "-",
+    mods = "CTRL",
+    action = wezterm.action.EmitEvent("decrease-font-size"),
   },
   {
-    key = ")",
-    mods = "CTRL|SHIFT",
-    action = wezterm.action.EmitEvent("reset-line-height"),
-  }
+    key = "0",
+    mods = "CTRL",
+    action = wezterm.action.EmitEvent("reset-font-size"),
+  },
 }
 
 local act = wezterm.action
