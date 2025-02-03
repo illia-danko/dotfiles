@@ -13,5 +13,6 @@ s="$HOME/.appearance.sh"; [ -f "$s" ] && . "$s"
 s="$HOME/.config-common.sh"; [ -f "$s" ] && . "$s"
 s="$HOME/.fzf-projects.zsh"; [ -f "$s" ] && . "$s"
 s="$HOME/.fzf-notes.zsh"; [ -f "$s" ] && . "$s"
+s="$HOME/.bemenu-commander.zsh"; [ -f "$s" ] && . "$s"
 
 unset s
